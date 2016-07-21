@@ -34,8 +34,7 @@ sub banner {
 }
 
 sub help {
-	print "
-	\rCore Commands
+	print "\nCore Commands
 	\r=============
 
 	 Command       Description
@@ -44,8 +43,8 @@ sub help {
 	 help          Help menu
 	 clear         Clean the console
 	 exit          Exit the console
-	 quit          Exit the console
-	";
+	 quit          Exit the console\n\n";
+
 	$func -> command();
 }
 
@@ -56,11 +55,6 @@ sub quit {
 
 sub clear {
 	system ("clear");
-	$func -> command();
-}
-
-sub set {
-	# under development
 	$func -> command();
 }
 
@@ -78,14 +72,9 @@ sub command {
 			case "set"   { $func -> set(); }
 			case ""      { $func -> command(); }
 			case "clear" { $func -> clear(); }
-			else { return command(); }
+			else { $func -> error(); }
 		}
 
-}
-
-sub error {
-	print "\n[!] WARNING: .\n";
-	$func -> command();
 }
 
 1;
