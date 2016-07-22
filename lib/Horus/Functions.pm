@@ -14,9 +14,6 @@
 
 package Horus::Functions;
 
-use Switch;
-
-my ($command, @commands);
 my $func = Horus::Functions;
 
 sub banner {
@@ -63,8 +60,30 @@ sub error {
 	$func -> command();
 }
 
+
+## UNDER DEVELOPMENT
 sub set {
-	# under development
+	switch ($command[1]) {
+		case "" {
+			$func -> error();
+		}
+
+		case "dork" {
+
+		}
+
+		case "exploit" {
+
+		} 
+
+		case "output" {
+
+		}
+
+		else {
+			$func -> error();
+		}
+	}
 	$func -> command();
 }
 
@@ -80,6 +99,7 @@ sub command {
 		case "exit"  { $func -> quit(); }
 		case "quit"  { $func -> quit(); }
 		case "set"   { $func -> set(); }
+		case "start" { $func -> start(); }
 		case ""      { $func -> command(); }
 		case "clear" { $func -> clear(); }
 		else { $func -> error(); }

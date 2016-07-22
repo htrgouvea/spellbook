@@ -14,14 +14,12 @@
 
 use 5.010;
 use lib "./lib/";
-use Horus::Crawler;
+use Horus::Console;
 use Horus::Functions;
 
 sub start {
-  my $func = Horus::Functions;
-
-  $func -> banner();
-  $func -> command();
+	Horus::Functions -> banner();
+ 	Horus::Console   -> new();
 }
 
 start();

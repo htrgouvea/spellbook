@@ -12,6 +12,9 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
+#
+# This feature is in development
+#
 
 package Horus::Search;
 
@@ -22,7 +25,7 @@ my $ua   = LWP::UserAgent -> new;
 my $func = Horus::Functions;
 
 sub new {
-	my $api = "http://heitorgouvea.me/horus/api";
+	my $api = "";
 
 	my $request = $ua -> get ($api);
 	my $httpCode = $request -> code;
