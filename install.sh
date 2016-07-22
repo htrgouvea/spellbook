@@ -12,6 +12,17 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
+export BLUE='\033[1;94m'
+export GREEN='\033[1;92m'
+export RED='\033[1;91m'
+export ENDC='\033[1;00m'
+
+
+if [ $(id -u) -ne 0 ]; then
+        echo -e "\n$RED[!] This script must be run as root$ENDC\n" >&2
+        exit 1
+fi
+
 if [ -e /etc/pacman.conf ]
 then
 	sudo pacman -S perl --needed
@@ -22,9 +33,9 @@ elif [ -e /etc/yum.conf ]
 then
 	sudo yum install perl perl-CPAN
 else
-	echo "Your system is unsupported by this script"
+	echo "$RED[!] Your system is unsupported by this script"
 	echo "Please install the dependencies manually"
-	echo "open the terminal and type: sudo cpan install Switch"
+	echo "open the terminal and type: sudo cpan install Switch$ENDC"
 fi
 sudo cpan install Switch
 

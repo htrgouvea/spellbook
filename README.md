@@ -16,6 +16,21 @@
     bash install.sh
 ```
 
+####Commands
+
+```
+    Core Commands
+    =============
+
+    Command       Description
+    -------       -----------
+    ?             Help menu
+    help          Help menu
+    clear         Clean the console
+    exit          Exit the console
+    quit          Exit the console
+ ```
+
 ##### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**
