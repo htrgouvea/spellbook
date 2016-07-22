@@ -37,13 +37,13 @@ sub help {
 	print "\nCore Commands
 	\r=============
 
-	 Command       Description
-	 -------       -----------
-	 ?             Help menu
-	 help          Help menu
-	 clear         Clean the console
-	 exit          Exit the console
-	 quit          Exit the console\n\n";
+	Command       Description
+	-------       -----------
+	?             Help menu
+	help          Help menu
+	clear         Clean the console
+	exit          Exit the console
+	quit          Exit the console\n\n";
 
 	$func -> command();
 }
@@ -58,23 +58,32 @@ sub clear {
 	$func -> command();
 }
 
+sub error {
+	print "\n[!] WARNING: an error occurred, check your command!\n";
+	$func -> command();
+}
+
+sub set {
+	# under development
+	$func -> command();
+}
+
 sub command {
-		print "\n\033[1;32m➜ \033[1;37m horus> ";
-	 	chomp ($command = <STDIN>);
+	print "\n\033[1;32m➜ \033[1;37m horus> ";
+	chomp ($command = <STDIN>);
 
-		@commands = split (/ /, $command);
+	@commands = split (/ /, $command);
 
-		switch ($commands[0]) {
-			case "?"     { $func -> help(); }
-			case "help"  { $func -> help(); }
-			case "exit"  { $func -> quit(); }
-			case "quit"  { $func -> quit(); }
-			case "set"   { $func -> set(); }
-			case ""      { $func -> command(); }
-			case "clear" { $func -> clear(); }
-			else { $func -> error(); }
-		}
-
+	switch ($commands[0]) {
+		case "?"     { $func -> help(); }
+		case "help"  { $func -> help(); }
+		case "exit"  { $func -> quit(); }
+		case "quit"  { $func -> quit(); }
+		case "set"   { $func -> set(); }
+		case ""      { $func -> command(); }
+		case "clear" { $func -> clear(); }
+		else { $func -> error(); }
+	}
 }
 
 1;
