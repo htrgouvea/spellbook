@@ -12,14 +12,12 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-use 5.010;
-use lib "./lib/";
-use Horus::Console;
-use Horus::Functions;
+package Horus::Framework::Crawler;
 
-sub start {
-	Horus::Functions -> banner();
- 	Horus::Console   -> new();
+use Horus::Console;
+
+sub new {
+
 }
 
-start();
+1;

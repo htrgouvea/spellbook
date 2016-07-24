@@ -12,7 +12,9 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Crawler;
+package Horus::Framework::Output;
+
+use Horus::Console;
 
 sub new {
 

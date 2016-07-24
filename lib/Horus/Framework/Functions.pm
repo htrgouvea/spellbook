@@ -12,9 +12,12 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Functions;
+package Horus::Framework::Functions;
 
-my $func = Horus::Functions;
+use Switch;
+use Horus::Console;
+
+my $func = Horus::Framework::Functions;
 
 sub banner {
 
@@ -36,13 +39,13 @@ sub help {
 
 	Command       Description
 	-------       -----------
-	?             Help menu
-	help          Help menu
+	?             Show help menu
+	help          Show help menu
 	clear         Clean the console
 	exit          Exit the console
 	quit          Exit the console\n\n";
 
-	$func -> command();
+	Horus::Console -> new();
 }
 
 sub quit {
@@ -51,13 +54,25 @@ sub quit {
 }
 
 sub clear {
-	system ("clear");
-	$func -> command();
+	my $sys = $^O;
+	my $clear;
+
+	if ($sys eq "MSWin32") {
+    	$clear = "cls";
+	}
+
+	else {
+    	$clear = "clear";
+	}
+
+	system ($clear);
+	
+	Horus::Console -> new();
 }
 
 sub error {
 	print "\n[!] WARNING: an error occurred, check your command!\n";
-	$func -> command();
+	Horus::Console -> new();
 }
 
 
@@ -66,6 +81,10 @@ sub set {
 	switch ($command[1]) {
 		case "" {
 			$func -> error();
+		}
+
+		case "help" {
+
 		}
 
 		case "dork" {
@@ -80,30 +99,19 @@ sub set {
 
 		}
 
+		case "offset" {
+
+		}
+
+		case "limit" {
+			
+		}
+
 		else {
 			$func -> error();
 		}
 	}
-	$func -> command();
-}
-
-sub command {
-	print "\n\033[1;32m➜ \033[1;37m horus> ";
-	chomp ($command = <STDIN>);
-
-	@commands = split (/ /, $command);
-
-	switch ($commands[0]) {
-		case "?"     { $func -> help(); }
-		case "help"  { $func -> help(); }
-		case "exit"  { $func -> quit(); }
-		case "quit"  { $func -> quit(); }
-		case "set"   { $func -> set(); }
-		case "start" { $func -> start(); }
-		case ""      { $func -> command(); }
-		case "clear" { $func -> clear(); }
-		else { $func -> error(); }
-	}
+	Horus::Console -> new();
 }
 
 1;

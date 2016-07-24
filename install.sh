@@ -53,7 +53,7 @@ cd .. && sudo mv horus /usr/share/
 
 sudo sh -c 'echo "#!/bin/bash" > /usr/bin/horus'
 sudo sh -c 'echo "cd /usr/share/horus" >> /usr/bin/horus'
-sudo sh -c 'echo "exec perl horus.pl $@" >> /usr/bin/horus'
+sudo sh -c 'echo "exec perl horus $@" >> /usr/bin/horus'
 sudo chmod +x /usr/bin/horus
 clear
 horus

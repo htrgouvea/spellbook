@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+ #!/usr/bin/perl
 
 #########################################################
 # Horus developed by Heitor Gouvea                      #
@@ -16,7 +16,7 @@
 # This feature is in development
 #
 
-package Horus::Search;
+package Horus::Framework::Search;
 
 use JSON;
 use LWP::UserAgent;
