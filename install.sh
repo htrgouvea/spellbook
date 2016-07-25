@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #########################################################
-# Horus developed by Heitor Gouvea                      #
+# Bunny developed by Heitor Gouvea                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -39,21 +39,21 @@ else
 fi
 sudo cpan install Switch
 
-if [ -e /usr/share/horus ]
+if [ -e /usr/share/bunny ]
 then
-	sudo rm -rf /usr/share/horus
+	sudo rm -rf /usr/share/bunny
 fi
 
-if [ -e /usr/bin/horus ]
+if [ -e /usr/bin/bunny ]
 then
-	sudo rm /usr/bin/horus
+	sudo rm /usr/bin/bunny
 fi
 
-cd .. && sudo mv horus /usr/share/
+cd .. && sudo mv bunny /usr/share/
 
-sudo sh -c 'echo "#!/bin/bash" > /usr/bin/horus'
-sudo sh -c 'echo "cd /usr/share/horus" >> /usr/bin/horus'
-sudo sh -c 'echo "exec perl horus $@" >> /usr/bin/horus'
-sudo chmod +x /usr/bin/horus
+sudo sh -c 'echo "#!/bin/bash" > /usr/bin/bunny'
+sudo sh -c 'echo "cd /usr/share/bunny" >> /usr/bin/bunny'
+sudo sh -c 'echo "exec perl bunny $@" >> /usr/bin/bunny'
+sudo chmod +x /usr/bin/bunny
 clear
-horus
+bunny

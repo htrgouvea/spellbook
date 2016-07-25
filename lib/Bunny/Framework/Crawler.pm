@@ -1,7 +1,7 @@
- #!/usr/bin/perl
+#!/usr/bin/perl
 
 #########################################################
-# Horus developed by Heitor Gouvea                      #
+# Bunny developed by Heitor Gouvea                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,37 +12,11 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-#
-# This feature is in development
-#
+package Bunny::Framework::Crawler;
 
-package Horus::Framework::Search;
-
-use JSON;
-use LWP::UserAgent;
-
-my $ua   = LWP::UserAgent -> new;
-my $func = Horus::Functions;
+use Bunny::Console;
 
 sub new {
-	my $api = "";
-
-	my $request = $ua -> get ($api);
-	my $httpCode = $request -> code;
-
-	if ($httpCode == "200") {
-
-		my $data = decode_json ($request -> content);
-
-		my $name = $data -> {'name'};
-		my $desc = $data -> {'desc'};
-
-		print "\n$name - $desc\n";
-	}
-
-	else {
-		$func -> error();
-	}
 
 }
 

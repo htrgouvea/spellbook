@@ -1,4 +1,5 @@
-# Horus
+# TOOL UNDER DEVELOPMENT!!!!
+# Bunny
 
 ```
     [+] AUTOR:        Heitor Gouvea
@@ -11,8 +12,8 @@
 ####Installing:
 
 ```bash
-    git clone http://github.com/GouveaHeitor/horus
-    cd horus
+    git clone http://github.com/GouveaHeitor/bunny
+    cd bunny
     bash install.sh
 ```
 
@@ -37,7 +38,7 @@
 
 ##### License
 
-- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/horus/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/bunny/blob/master/LICENSE.md)
 
 ##### Contribution
 

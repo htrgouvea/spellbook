@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Horus developed by Heitor Gouvea                      #
+# Bunny developed by Heitor Gouvea                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,17 +12,17 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Console;
+package Bunny::Console;
 
 use Switch;
-use Horus::Framework::Functions;
+use Bunny::Framework::Functions qw(set);
 
 my ($command, @commands);
 
 sub new {
-	my $func = Horus::Framework::Functions;
+	my $func = Bunny::Framework::Functions;
 
-	print "\n\033[1;32m➜ \033[1;37m horus> ";
+	print "\n\033[1;32m➜ \033[1;37m bunny> ";
 	chomp ($command = <STDIN>);
 
 	@commands = split (/ /, $command);
@@ -33,7 +33,7 @@ sub new {
 		case "help"   { $func -> help(); }
 		case "exit"   { $func -> quit(); }
 		case "quit"   { $func -> quit(); }
-		case "set"    { $func -> set(); }
+		case "set"    { $func -> set("help"); }
 		case "start"  { $func -> start(); }
 		case "search" { $func -> search(); }
 		case "clear"  { $func -> clear(); }

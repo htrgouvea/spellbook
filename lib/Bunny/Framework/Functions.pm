@@ -12,24 +12,30 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Framework::Functions;
+package Bunny::Framework::Functions;
 
 use Switch;
-use Horus::Console;
+use Bunny::Console;
+use Exporter qw(import);
 
-my $func = Horus::Framework::Functions;
+our @EXPORT_OK = qw(set);
+
+my $func = Bunny::Framework::Functions;
 
 sub banner {
 
 	print "\n\033[1;32m", '
-/ $$  / $$
-| $$  | $$
-| $$  | $$  /$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$$
-| $$$$$$$$ /$$__  $$ /$$__  $$| $$  | $$ /$$_____/
-| $$__  $$| $$  \ $$| $$  \__/| $$  | $$|  $$$$$$
-| $$  | $$| $$  | $$| $$      | $$  | $$ \____  $$
-| $$  | $$|  $$$$$$/| $$      |  $$$$$$/ /$$$$$$$/
-|__/  |__/ \______/ |__/       \______/ |_______/', "\033[1;37m\n\n\n";
+/$$$$$$$                                         
+| $$__  $$                                        
+| $$  \ $$ /$$   /$$ /$$$$$$$  /$$$$$$$  /$$   /$$
+| $$$$$$$ | $$  | $$| $$__  $$| $$__  $$| $$  | $$
+| $$__  $$| $$  | $$| $$  \ $$| $$  \ $$| $$  | $$
+| $$  \ $$| $$  | $$| $$  | $$| $$  | $$| $$  | $$
+| $$$$$$$/|  $$$$$$/| $$  | $$| $$  | $$|  $$$$$$$
+|_______/  \______/ |__/  |__/|__/  |__/ \____  $$
+                                         /$$  | $$
+      Developed by Heitor Gouvea        |  $$$$$$/
+                                         \______/', "\033[1;37m\n";
 
 }
 
@@ -45,7 +51,7 @@ sub help {
 	exit          Exit the console
 	quit          Exit the console\n\n";
 
-	Horus::Console -> new();
+	Bunny::Console -> new();
 }
 
 sub quit {
@@ -67,51 +73,53 @@ sub clear {
 
 	system ($clear);
 	
-	Horus::Console -> new();
+	Bunny::Console -> new();
 }
 
 sub error {
 	print "\n[!] WARNING: an error occurred, check your command!\n";
-	Horus::Console -> new();
+	Bunny::Console -> new();
 }
 
 
 ## UNDER DEVELOPMENT
 sub set {
-	switch ($command[1]) {
+	my $function = @_;
+
+	switch ($function) {
 		case "" {
 			$func -> error();
 		}
 
 		case "help" {
-
+			print "\nhelp\n";
 		}
 
 		case "dork" {
-
+			print "\ndork\n";
 		}
 
 		case "exploit" {
-
+			print "\nexploit\n";
 		} 
 
 		case "output" {
-
+			print "\noutput\n";
 		}
 
 		case "offset" {
-
+			print "\noffset\n";
 		}
 
 		case "limit" {
-			
+			print "\nlimit\n";
 		}
 
 		else {
 			$func -> error();
 		}
 	}
-	Horus::Console -> new();
+	Bunny::Console -> new();
 }
 
 1;
