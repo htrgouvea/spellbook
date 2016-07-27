@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #########################################################
-# Bunny developed by Heitor Gouvea                      #
+# Bunny developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #

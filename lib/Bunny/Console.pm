@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvea                      #
+# Bunny developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -33,9 +33,8 @@ sub new {
 		case "help"   { $func -> help(); }
 		case "exit"   { $func -> quit(); }
 		case "quit"   { $func -> quit(); }
-		case "set"    { $func -> set("help"); }
-		case "start"  { $func -> start(); }
-		case "search" { $func -> search(); }
+		case "start"  { $func -> start(@commands); }
+		case "search" { $func -> search($command[1]); }
 		case "clear"  { $func -> clear(); }
 		else { $func -> error(); }
 	}

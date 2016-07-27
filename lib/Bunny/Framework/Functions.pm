@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Horus developed by Heitor Gouvea                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -49,7 +49,9 @@ sub help {
 	help          Show help menu
 	clear         Clean the console
 	exit          Exit the console
-	quit          Exit the console\n\n";
+	quit          Exit the console
+	search        Search for a module by name
+	start         Start a module by name\n\n";
 
 	Bunny::Console -> new();
 }
@@ -82,43 +84,15 @@ sub error {
 }
 
 
-## UNDER DEVELOPMENT
-sub set {
-	my $function = @_;
+sub start {
+	## UNDER DEVELOPMENT
 
-	switch ($function) {
-		case "" {
-			$func -> error();
-		}
+	Bunny::Console -> new();
+}
 
-		case "help" {
-			print "\nhelp\n";
-		}
+sub search {
+	## UNDER DEVELOPMENT
 
-		case "dork" {
-			print "\ndork\n";
-		}
-
-		case "exploit" {
-			print "\nexploit\n";
-		} 
-
-		case "output" {
-			print "\noutput\n";
-		}
-
-		case "offset" {
-			print "\noffset\n";
-		}
-
-		case "limit" {
-			print "\nlimit\n";
-		}
-
-		else {
-			$func -> error();
-		}
-	}
 	Bunny::Console -> new();
 }
 

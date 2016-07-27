@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvea                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,12 +12,10 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Bunny::Framework::Crawler;
-
-use Bunny::Console;
+package Bunny::Framework::Start;
 
 sub new {
-
+	# Under development
 }
 
 1;

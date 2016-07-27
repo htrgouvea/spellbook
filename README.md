@@ -2,7 +2,7 @@
 # Bunny
 
 ```
-    [+] AUTOR:        Heitor Gouvea
+    [+] AUTOR:        Heitor Gouvêa
     [+] EMAIL:        hi@heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TWITTER:      https://twitter.com/GouveaHeitor
@@ -30,6 +30,8 @@
     clear         Clean the console
     exit          Exit the console
     quit          Exit the console
+    search        Search for a module by name
+    start         Start a module by name
  ```
 
 ##### Bugs
