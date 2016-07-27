@@ -16,9 +16,6 @@ package Bunny::Framework::Functions;
 
 use Switch;
 use Bunny::Console;
-use Exporter qw(import);
-
-our @EXPORT_OK = qw(set);
 
 my $func = Bunny::Framework::Functions;
 
@@ -80,19 +77,6 @@ sub clear {
 
 sub error {
 	print "\n[!] WARNING: an error occurred, check your command!\n";
-	Bunny::Console -> new();
-}
-
-
-sub start {
-	## UNDER DEVELOPMENT
-
-	Bunny::Console -> new();
-}
-
-sub search {
-	## UNDER DEVELOPMENT
-
 	Bunny::Console -> new();
 }
 

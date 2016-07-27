@@ -20,12 +20,14 @@ package Bunny::Framework::Search;
 
 use JSON;
 use LWP::UserAgent;
+use Bunny::Console;
+use Bunny::Framework::Functions;
 
 my $ua   = LWP::UserAgent -> new;
-my $func = Bunny::Functions;
+my $func = Bunny::Framework::Functions;
 
 sub new {
-	my $api = "";
+	my $api = "http://heitorgouvea.me/bunny/modules.json";
 
 	my $request = $ua -> get ($api);
 	my $httpCode = $request -> code;

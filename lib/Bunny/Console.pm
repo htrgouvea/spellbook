@@ -15,7 +15,9 @@
 package Bunny::Console;
 
 use Switch;
-use Bunny::Framework::Functions qw(set);
+use Bunny::Framework::Start;
+use Bunny::Framework::Search;
+use Bunny::Framework::Functions;
 
 my ($command, @commands);
 
@@ -33,9 +35,9 @@ sub new {
 		case "help"   { $func -> help(); }
 		case "exit"   { $func -> quit(); }
 		case "quit"   { $func -> quit(); }
-		case "start"  { $func -> start(@commands); }
-		case "search" { $func -> search($command[1]); }
 		case "clear"  { $func -> clear(); }
+		case "start"  { Bunny::Framework::Start -> new (@commands); }
+		case "search" { Bunny::Framework::Search -> new($command[1]); }
 		else { $func -> error(); }
 	}
 }

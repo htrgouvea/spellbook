@@ -14,8 +14,17 @@
 
 package Bunny::Framework::Start;
 
+use Bunny::Console;
+use Bunny::Framework::Functions;
+
+my $func = Bunny::Framework::Functions;
+
 sub new {
-	# Under development
+	#
+	# UNDER DEVELOPMENT
+	#
+
+	Bunny::Console -> new();
 }
 
 1;
