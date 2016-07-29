@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Horus developed by Heitor Gouvêa                      #
+# Bunny developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #

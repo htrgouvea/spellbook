@@ -12,8 +12,6 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-export BLUE='\033[1;94m'
-export GREEN='\033[1;92m'
 export RED='\033[1;91m'
 export ENDC='\033[1;00m'
 
