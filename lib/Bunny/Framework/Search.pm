@@ -5,7 +5,7 @@
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
-# [+] AUTOR:        Heitor Gouvea                       #
+# [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
@@ -24,14 +24,25 @@ my $func = Bunny::Framework::Functions;
 my $api  = "https://api.myjson.com/bins/4r2iv";
 
 sub new {
+	print "
+	\rName                   Description
+   	\r-----                  ------------\n";
+
 	my $request = $ua -> get ($api);
 	my $httpCode = $request -> code;
 
 	if ($httpCode == "200") {
-
 		my $data = decode_json ($request -> content);
 
-		print "$data";
+		foreach my $elements (@$data) {
+
+			my $name = $elements -> {'name'};
+			my $desc = $elements -> {'desc'};
+
+			if ($name =~ /$command[1]/ ) {
+				print "$name \t $desc\n";
+			}
+		}
 	}
 
 	else {
