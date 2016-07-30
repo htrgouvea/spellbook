@@ -12,10 +12,6 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-#
-# This feature is in development
-#
-
 package Bunny::Framework::Search;
 
 use JSON;
@@ -25,10 +21,9 @@ use Bunny::Framework::Functions;
 
 my $ua   = LWP::UserAgent -> new;
 my $func = Bunny::Framework::Functions;
+my $api  = "https://api.myjson.com/bins/4r2iv";
 
 sub new {
-	my $api = "http://heitorgouvea.me/bunny/modules.json";
-
 	my $request = $ua -> get ($api);
 	my $httpCode = $request -> code;
 
@@ -36,16 +31,14 @@ sub new {
 
 		my $data = decode_json ($request -> content);
 
-		my $name = $data -> {'name'};
-		my $desc = $data -> {'desc'};
-
-		print "\n$name - $desc\n";
+		print "$data";
 	}
 
 	else {
 		$func -> error();
 	}
 
+	Bunny::Console -> new();
 }
 
 1;

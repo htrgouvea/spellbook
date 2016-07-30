@@ -17,8 +17,6 @@ package Bunny::Framework::Functions;
 use Switch;
 use Bunny::Console;
 
-my $func = Bunny::Framework::Functions;
-
 sub banner {
 
 	print "\n\033[1;32m", '
