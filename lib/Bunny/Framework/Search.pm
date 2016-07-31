@@ -15,6 +15,7 @@
 package Bunny::Framework::Search;
 
 use JSON;
+use Exporter;
 use LWP::UserAgent;
 use Bunny::Console;
 use Bunny::Framework::Functions;
@@ -41,6 +42,10 @@ sub new {
 
 			if ($name =~ /$command[1]/ ) {
 				print "$name \t $desc\n";
+			}
+
+			else {
+				print "[!] WARNING: the module was not found!\n";
 			}
 		}
 	}
