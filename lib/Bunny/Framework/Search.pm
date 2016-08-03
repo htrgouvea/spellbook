@@ -15,8 +15,8 @@
 package Bunny::Framework::Search;
 
 use JSON;
-use Exporter;
 use LWP::UserAgent;
+use Exporter qw(import);
 use Bunny::Console;
 use Bunny::Framework::Functions;
 
@@ -24,10 +24,15 @@ my $ua   = LWP::UserAgent -> new;
 my $func = Bunny::Framework::Functions;
 my $api  = "https://api.myjson.com/bins/4r2iv";
 
-sub new {
+@ISA = qw(Exporter);
+@EXPORT = qw(search);
+
+sub search {
+	my ($keyword) = @_;
+
 	print "
-	\rName                   Description
-   	\r-----                  ------------\n";
+	\rName              Description
+   	\r-----             ------------\n";
 
 	my $request = $ua -> get ($api);
 	my $httpCode = $request -> code;
@@ -36,16 +41,11 @@ sub new {
 		my $data = decode_json ($request -> content);
 
 		foreach my $elements (@$data) {
-
 			my $name = $elements -> {'name'};
 			my $desc = $elements -> {'desc'};
 
-			if ($name =~ /$command[1]/ ) {
+			if ($name =~ /$keyword/ ) {
 				print "$name \t $desc\n";
-			}
-
-			else {
-				print "[!] WARNING: the module was not found!\n";
 			}
 		}
 	}

@@ -1,6 +1,10 @@
 # TOOL UNDER DEVELOPMENT!!!!
 # Bunny
 
+***A simple and awesome framework for use during the CTF competitions***
+
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/bunny/blob/master/LICENSE.md)
+
 ```
     [+] AUTOR:        Heitor Gouvêa
     [+] EMAIL:        hi@heitorgouvea.me

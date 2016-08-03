@@ -12,7 +12,6 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-use 5.010;
 use lib "./lib/";
 use Bunny::Console;
 use Bunny::Framework::Functions;
