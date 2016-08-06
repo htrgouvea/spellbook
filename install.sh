@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvea                      #
+# Copyright (c) 2016 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -33,25 +33,25 @@ then
 else
 	echo "$RED[!] Your system is unsupported by this script"
 	echo "Please install the dependencies manually"
-	echo "open the terminal and type: sudo cpan install Switch$ENDC"
+	echo "open the terminal and type: sudo cpan install Switch JSON LWP::UserAgent$ENDC"
 fi
-sudo cpan install Switch
+sudo cpan install Switch JSON LWP::UserAgent
 
-if [ -e /usr/share/bunny ]
+if [ -e /usr/share/horus ]
 then
-	sudo rm -rf /usr/share/bunny
+	sudo rm -rf /usr/share/horus
 fi
 
-if [ -e /usr/bin/bunny ]
+if [ -e /usr/bin/horus ]
 then
-	sudo rm /usr/bin/bunny
+	sudo rm /usr/bin/horus
 fi
 
-cd .. && sudo mv bunny /usr/share/
+cd .. && sudo mv horus /usr/share/
 
-sudo sh -c 'echo "#!/bin/bash" > /usr/bin/bunny'
-sudo sh -c 'echo "cd /usr/share/bunny" >> /usr/bin/bunny'
-sudo sh -c 'echo "exec perl bunny $@" >> /usr/bin/bunny'
-sudo chmod +x /usr/bin/bunny
+sudo sh -c 'echo "#!/bin/bash" > /usr/bin/horus'
+sudo sh -c 'echo "cd /usr/share/horus" >> /usr/bin/horus'
+sudo sh -c 'echo "exec perl horus $@" >> /usr/bin/horus'
+sudo chmod +x /usr/bin/horus
 clear
-bunny
+horus

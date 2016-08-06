@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -13,12 +13,12 @@
 #########################################################
 
 use lib "./lib/";
-use Bunny::Console;
-use Bunny::Framework::Functions;
+use Horus::Console;
+use Horus::Framework::Functions;
 
 sub start {
-	Bunny::Framework::Functions -> banner();
- 	Bunny::Console -> new();
+	Horus::Framework::Functions -> banner();
+ 	Horus::Console -> new();
 }
 
 start();

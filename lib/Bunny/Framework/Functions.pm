@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,10 +12,10 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Bunny::Framework::Functions;
+package Horus::Framework::Functions;
 
 use Switch;
-use Bunny::Console;
+use Horus::Console;
 
 sub banner {
 
@@ -45,10 +45,10 @@ sub help {
 	clear         Clean the console
 	exit          Exit the console
 	quit          Exit the console
-	search        Search for a module by name
+	find          Find for a module by name
 	start         Start a module by name\n\n";
 
-	Bunny::Console -> new();
+	Horus::Console -> new();
 }
 
 sub quit {
@@ -70,12 +70,12 @@ sub clear {
 
 	system ($clear);
 	
-	Bunny::Console -> new();
+	Horus::Console -> new();
 }
 
 sub error {
 	print "\n[!] WARNING: an error occurred, check your command!\n";
-	Bunny::Console -> new();
+	Horus::Console -> new();
 }
 
 1;

@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvea                      #
+# Copyright (c) 2016 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -12,35 +12,34 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Bunny::Console;
+package Horus::Console;
 
 use Switch;
-use Bunny::Framework::Start;
-use Bunny::Framework::Search qw(search);
-use Bunny::Framework::Functions;
+use Horus::Framework::Functions;
+use Horus::Framework::Find qw(find);
+use Horus::Framework::Start qw(start);
 
 my ($command, @commands);
 
 sub new {
-	my $func = Bunny::Framework::Functions;
+	my $func = Horus::Framework::Functions;
 
-	print "\n\033[1;32m➜ \033[1;37m bunny> ";
+	print "\n\033[1;32m➜ \033[1;37m horus> ";
 	chomp ($command = <STDIN>);
 
 	@commands = split (/ /, $command);
 
 	switch ($commands[0]) {
-		case ""       { new(); }
-		case "?"      { $func -> help(); }
-		case "help"   { $func -> help(); }
-		case "exit"   { $func -> quit(); }
-		case "quit"   { $func -> quit(); }
-		case "clear"  { $func -> clear(); }
-		case "start"  { Bunny::Framework::Start -> new (@commands); }
-		case "search" { search("$commands[1]"); }
+		case ""      { new(); }
+		case "?"     { $func -> help(); }
+		case "help"  { $func -> help(); }
+		case "exit"  { $func -> quit(); }
+		case "quit"  { $func -> quit(); }
+		case "clear" { $func -> clear(); }
+		case "start" { start(@commands); }
+		case "find"  { find("$commands[1]"); }
 		else { $func -> error(); }
 	}
-
 }
 
 1;

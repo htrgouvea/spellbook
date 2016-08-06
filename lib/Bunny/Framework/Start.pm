@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,19 +12,25 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Bunny::Framework::Start;
+#
+# UNDER DEVELOPMENT
+#
 
-use Bunny::Console;
-use Bunny::Framework::Functions;
+package Horus::Framework::Start;
 
-my $func = Bunny::Framework::Functions;
+use Exporter qw(import);
+use Horus::Console;
+use Horus::Framework::Functions;
 
-sub new {
-	#
-	# UNDER DEVELOPMENT
-	#
+my $func = Horus::Framework::Functions;
 
-	Bunny::Console -> new();
+@ISA    = qw(Exporter);
+@EXPORT = qw(start);
+
+sub start {
+	my ($parameters) = @_;
+
+	Horus::Console -> new();
 }
 
 1;

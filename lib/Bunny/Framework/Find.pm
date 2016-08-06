@@ -1,7 +1,7 @@
  #!/usr/bin/perl
 
 #########################################################
-# Bunny developed by Heitor Gouvêa                      #
+# Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
 # Copyright (c) 2016 Heitor Gouvea                      #
 #                                                       #
@@ -12,29 +12,29 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Bunny::Framework::Search;
+package Horus::Framework::Find;
 
 use JSON;
 use LWP::UserAgent;
 use Exporter qw(import);
-use Bunny::Console;
-use Bunny::Framework::Functions;
+use Horus::Console;
+use Horus::Framework::Functions;
 
 my $ua   = LWP::UserAgent -> new;
-my $func = Bunny::Framework::Functions;
+my $func = Horus::Framework::Functions;
 my $api  = "https://api.myjson.com/bins/4r2iv";
 
-@ISA = qw(Exporter);
-@EXPORT = qw(search);
+@ISA    = qw(Exporter);
+@EXPORT = qw(find);
 
-sub search {
+sub find {
 	my ($keyword) = @_;
 
 	print "
 	\rName              Description
    	\r-----             ------------\n";
 
-	my $request = $ua -> get ($api);
+	my $request  = $ua -> get ($api);
 	my $httpCode = $request -> code;
 
 	if ($httpCode == "200") {
@@ -51,10 +51,11 @@ sub search {
 	}
 
 	else {
-		$func -> error();
+		my $httpMessage = $request -> message;
+		print "\n[!] $httpCode -> $httpMessage\n";
 	}
 
-	Bunny::Console -> new();
+	Horus::Console -> new();
 }
 
 1;
