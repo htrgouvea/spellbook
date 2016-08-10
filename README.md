@@ -18,7 +18,7 @@
 ```bash
     git clone http://github.com/GouveaHeitor/horus
     cd horus
-    bash install.sh
+    perl install.sh
 ```
 
 ####Commands
