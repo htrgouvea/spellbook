@@ -58,11 +58,11 @@ sub clear {
 	my $clear;
 
 	if ($sys eq "MSWin32") {
-    	$clear = "cls";
+    		$clear = "cls";
 	}
 
 	else {
-    	$clear = "clear";
+    		$clear = "clear";
 	}
 
 	system ($clear);
