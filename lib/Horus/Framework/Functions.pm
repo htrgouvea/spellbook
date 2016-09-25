@@ -3,7 +3,7 @@
 #########################################################
 # Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvea                      #
+# Copyright (c) 2016 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
