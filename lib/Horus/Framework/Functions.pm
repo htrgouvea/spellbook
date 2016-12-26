@@ -43,7 +43,7 @@ sub help {
 	exit          Exit the console
 	quit          Exit the console
 	find          Find for a module by name
-	start         Start a module by name\n\n";
+	use           Use a module by name\n\n";
 
 	Horus::Console -> new();
 }

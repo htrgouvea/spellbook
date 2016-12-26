@@ -17,7 +17,7 @@ package Horus::Console;
 use Switch;
 use Horus::Framework::Functions;
 use Horus::Framework::Find qw(find);
-use Horus::Framework::Start qw(start);
+use Horus::Framework::UseModule qw(UseModule);
 
 my ($command, @commands);
 
@@ -36,7 +36,7 @@ sub new {
 		case "exit"  { $func -> quit(); }
 		case "quit"  { $func -> quit(); }
 		case "clear" { $func -> clear(); }
-		case "start" { start(@commands); }
+		case "use" { UseModule(@commands); }
 		case "find"  { find("$commands[1]"); }
 		else { $func -> error(); }
 	}

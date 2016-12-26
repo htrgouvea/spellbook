@@ -12,11 +12,8 @@
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-#
-# UNDER DEVELOPMENT
-#
 
-package Horus::Framework::Start;
+package Horus::Framework::UseModule;
 
 use Exporter qw(import);
 use Horus::Console;
@@ -25,9 +22,9 @@ use Horus::Framework::Functions;
 my $func = Horus::Framework::Functions;
 
 @ISA    = qw(Exporter);
-@EXPORT = qw(start);
+@EXPORT = qw(UseModule);
 
-sub start {
+sub UseModule {
 	my ($parameters) = @_;
 
 	Horus::Console -> new();
