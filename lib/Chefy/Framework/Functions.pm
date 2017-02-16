@@ -3,32 +3,22 @@
 #########################################################
 # Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvêa                      #
+# Copyright (c) 2017 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hi@heitorgouvea.me                  #
+# [+] EMAIL:        hgouvea@protonmail.com              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Framework::Functions;
+package Chefy::Framework::Functions;
 
 use Switch;
-use Horus::Console;
+use Chefy::Console;
 
 sub banner {
-
-	print "\n\033[1;32m", '
- /$$   /$$                                        
-| $$  | $$                                        
-| $$  | $$  /$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$$
-| $$$$$$$$ /$$__  $$ /$$__  $$| $$  | $$ /$$_____/
-| $$__  $$| $$  \ $$| $$  \__/| $$  | $$|  $$$$$$ 
-| $$  | $$| $$  | $$| $$      | $$  | $$ \____  $$
-| $$  | $$|  $$$$$$/| $$      |  $$$$$$/ /$$$$$$$/
-|__/  |__/ \______/ |__/       \______/ |_______/', "\033[1;37m\n";
-
+	# print "\n\033[1;32m", '', "\033[1;37m\n";
 }
 
 sub help {
@@ -66,13 +56,13 @@ sub clear {
 	}
 
 	system ($clear);
-	
+
 	Horus::Console -> new();
 }
 
 sub error {
 	print "\n[!] WARNING: an error occurred, check your command!\n";
-	Horus::Console -> new();
+	Chefy::Console -> new();
 }
 
 1;

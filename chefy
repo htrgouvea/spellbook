@@ -1,22 +1,24 @@
 #!/usr/bin/perl
 
 #########################################################
-# Horus developed by Heitor Gouvêa                      #
+# Chefy developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvêa                      #
+# Copyright (c) 2017 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hi@heitorgouvea.me                  #
+# [+] EMAIL:        hgouvea@protonmail.com              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
+use lib "./lib/";
+use Chefy::Console;
+use Chefy::Framework::Functions;
 
-package Horus::Framework::Modules::Query::Ip;
-
-sub new {
-
+sub start {
+	Chefy::Framework::Functions -> banner();
+ 	Chefy::Console -> new();
 }
 
-1;
+start();

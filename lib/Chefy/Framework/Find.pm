@@ -3,25 +3,25 @@
 #########################################################
 # Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvêa                      #
+# Copyright (c) 2017 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hi@heitorgouvea.me                  #
+# [+] EMAIL:        hgouvea@protonmail.com              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Framework::Find;
+package Chefy::Framework::Find;
 
 use JSON;
 use LWP::UserAgent;
 use Exporter qw(import);
-use Horus::Console;
-use Horus::Framework::Functions;
+use Chefy::Console;
+use Chefy::Framework::Functions;
 
 my $ua   = LWP::UserAgent -> new;
-my $func = Horus::Framework::Functions;
+my $func = Chefy::Framework::Functions;
 my $api  = "https://api.myjson.com/bins/4r2iv";
 
 @ISA    = qw(Exporter);
@@ -55,7 +55,7 @@ sub find {
 		print "\n[!] $httpCode -> $httpMessage\n";
 	}
 
-	Horus::Console -> new();
+	Chefy::Console -> new();
 }
 
 1;

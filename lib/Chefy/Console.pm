@@ -3,28 +3,28 @@
 #########################################################
 # Horus developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2016 Heitor Gouvêa                      #
+# Copyright (c) 2017 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hi@heitorgouvea.me                  #
+# [+] EMAIL:        hgouvea@protonmail.com              #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
 #########################################################
 
-package Horus::Console;
+package Chefy::Console;
 
 use Switch;
-use Horus::Framework::Functions;
-use Horus::Framework::Find qw(find);
-use Horus::Framework::UseModule qw(UseModule);
+use Chefy::Framework::Functions;
+use Chefy::Framework::Find qw(find);
+use Chefy::Framework::UseModule qw(UseModule);
 
 my ($command, @commands);
 
 sub new {
-	my $func = Horus::Framework::Functions;
+	my $func = Chefy::Framework::Functions;
 
-	print "\n\033[1;32m➜ \033[1;37m horus> ";
+	print "\n\033[1;32m➜ \033[1;37m chefy> ";
 	chomp ($command = <STDIN>);
 
 	@commands = split (/ /, $command);
