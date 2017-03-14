@@ -6,19 +6,21 @@
 # Copyright (c) 2017 Heitor Gouvêa                      #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
-# [+] EMAIL:        hgouvea@protonmail.com              #
+# [+] EMAIL:        hi@heitorgouvea.me                  #
 # [+] GITHUB:       https://github.com/GouveaHeitor     #
 # [+] TWITTER:      https://twitter.com/GouveaHeitor    #
 # [+] FACEBOOK:     https://fb.com/GouveaHeitor         #
+# [+] TELEGRAM:     @GouveaHeitor                       #
 #########################################################
 
 use lib "./lib/";
-use Chefy::Console;
-use Chefy::Framework::Functions;
 
-sub start {
-	Chefy::Framework::Functions -> banner();
- 	Chefy::Console -> new();
+sub main {
+	my @services = @ARGV;
+
+	if (@services) {
+	}
 }
 
-start();
+main();
+exit;

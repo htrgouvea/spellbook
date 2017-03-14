@@ -1,6 +1,6 @@
 # Chefy
 
-***A simple and awesome framework for security analysis automation***
+***A simple script for monitoring of process***
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/chefy/blob/master/LICENSE.md)
 
@@ -14,7 +14,7 @@
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
-####Installing:
+#### Installing:
 
 ```bash
     git clone http://github.com/GouveaHeitor/chefy
