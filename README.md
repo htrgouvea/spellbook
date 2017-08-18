@@ -1,16 +1,14 @@
 # Chefy
 
-***A simple script for monitoring of process***
+***Under development - Anonymous peer-to-peer instant messaging***
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/chefy/blob/master/LICENSE.md)
 
 ```
     [+] AUTOR:        Heitor Gouvêa
+    [+] EMAIL:        hi@heitorgouvea.me
     [+] SITE:         http://heitorgouvea.me
-    [+] EMAIL:        hgouvea@protonmail.com
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TWITTER:      https://twitter.com/GouveaHeitor
-    [+] FACEBOOK:     https://fb.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
@@ -24,7 +22,7 @@
 
 ##### Bugs
 
-- Report bugs in my email: **hgouvea@protonmail.com**
+- Report bugs in my email: **hi@heitorgouvea.me**
 
 ##### License
 
