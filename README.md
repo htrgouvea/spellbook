@@ -1,8 +1,8 @@
-# Chefy
+# Oniro
 
 ***Under development - Anonymous peer-to-peer instant messaging***
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/chefy/blob/master/LICENSE.md)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/oniro/blob/master/LICENSE.md)
 
 ```
     [+] AUTOR:        Heitor Gouvêa
@@ -15,9 +15,9 @@
 #### Installing:
 
 ```bash
-    git clone http://github.com/GouveaHeitor/chefy
-    cd chefy
-    perl install.pl
+    git clone http://github.com/GouveaHeitor/oniro
+    cd oniro
+    perl oniro.pl install
 ```
 
 ##### Bugs
@@ -26,7 +26,7 @@
 
 ##### License
 
-- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/chefy/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/oniro/blob/master/LICENSE.md)
 
 ##### Contribution
 

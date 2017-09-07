@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
 #########################################################
-# Chefy developed by Heitor Gouvêa                      #
+# Oniro developed by Heitor Gouvêa                      #
 # This work is licensed under MIT License               #
-# Copyright (c) 2017 Heitor Gouvêa                      #
+# Copyright (c) 2016 - 2017 Heitor Gouvêa               #
 #                                                       #
 # [+] AUTOR:        Heitor Gouvêa                       #
 # [+] EMAIL:        hi@heitorgouvea.me                  #
@@ -12,13 +12,12 @@
 # [+] TELEGRAM:     @GouveaHeitor                       #
 #########################################################
 
-use lib "./lib/";
+use 5.010;
+use strict;
+use warnings;
+use lib "./Libs/";
 
 sub main {
-	my @services = @ARGV;
-
-	if (@services) {
-	}
 }
 
 main();
