@@ -1,23 +1,13 @@
-# Oniro
+# Repository for my security tricks :alien:
 
-***Under development - Anonymous peer-to-peer instant messaging***
-
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/oniro/blob/master/LICENSE.md)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
 
 ```
     [+] AUTOR:        Heitor Gouvêa
     [+] EMAIL:        hi@heitorgouvea.me
-    [+] SITE:         https://heitorgouvea.me
+    [+] WEBSITE:      https://heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
-```
-
-#### Installing:
-
-```bash
-    git clone https://github.com/GouveaHeitor/oniro
-    cd oniro
-    perl oniro.pl install
 ```
 
 ##### Bugs
@@ -26,7 +16,7 @@
 
 ##### License
 
-- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/oniro/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
 
 ##### Contribution
 
