@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+# A script to make socket connection
+# Use: ./socket.pl target.com:80
+# Heitor Gouvêa
+# hi@heitorgouvea.me
+
 use 5.010;
 use strict;
 use warnings;

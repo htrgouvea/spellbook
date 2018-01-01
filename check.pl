@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 # Checkhosts by a domain list via ICMP connection
+# Use: ./check.pl targets.txt
+# Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;
 use strict;
@@ -8,14 +10,20 @@ use warnings;
 use Net::Ping;
 
 sub main {
-  my $domain = $ARGV[0];
+  if ($ARGV[0]) {
+    open (my $targets, "<", $ARGV[0]);
 
-  if ($domain) {
-    my $checkHost = Net::Ping -> new();
+    while (my $target = <$targets>) {
+      chomp($target);
 
-    if ($checkHost -> ping ($domain)) {
-      print "$domain\n";
-    }  
+      my $checkHost = Net::Ping -> new();
+
+      if ($checkHost -> ping ($target)) {
+        print "$target\n";
+      }
+    }
+
+    close ($targets);
   }
 }
 

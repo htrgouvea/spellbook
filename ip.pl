@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 # Get IP by domain
+# Use: ./ip.pl targets.txt
+# Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;
 use strict;
@@ -8,11 +10,17 @@ use warnings;
 use IO::Socket::INET;
 
 sub main {
-  my $domain = $ARGV[0];
+  if ($ARGV[0]) {
+    open (my $targets, "<", $ARGV[0]);
 
-  if ($domain) {
-    my $ipAddr = inet_ntoa (scalar gethostbyname($domain));
-    print "$ipAddr\n";
+    while (my $target = <$targets>) {
+      chomp ($target);
+
+      my $ipAddr = inet_ntoa (scalar gethostbyname($target));
+      print "$ipAddr\n";
+    }
+
+    close ($targets);
   }
 }
 

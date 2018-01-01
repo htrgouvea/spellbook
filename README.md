@@ -9,6 +9,9 @@
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
 ```
+##### Tricks
+
+
 
 ##### Bugs
 
