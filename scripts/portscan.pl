@@ -18,13 +18,12 @@ sub main {
 
     print "\nPORT \tSTATE \t SERVICE\n";
 
-    for ($ARGV[1] .. $ARGV[2]) {
+    for ($ARGV[1]..$ARGV[2]) {
       my $port = $_;
-
       my $connection = sockaddr_in ($port, $target);
 
-      if ( connect ($socket, $connection) ) {
-        my $service = getservbyport ($port, 'tcp');
+      if (connect ($socket, $connection) ) {
+        my $service = getservbyport ($port, 'tcp') || "unknown";
 
         print "$port \t open \t $service \n";
       }
