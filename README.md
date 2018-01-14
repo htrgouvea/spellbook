@@ -1,7 +1,6 @@
 # Repository for my security tricks :alien:
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
-
 ---
 
 ```
