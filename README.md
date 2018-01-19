@@ -11,20 +11,6 @@
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
-##### Tricks
-
-Name | Description | Language
----- | ---- | ----
-[base32]() | decode base32 string | Ruby
-[base64]() | decode base64 string| Ruby
-[check]() | check host up | Perl
-[hex]() | decode hex string| Ruby
-[ip]() | show ip by domain | Perl
-[morse]() | decode morse string| Ruby
-[portscan]() | make a port scanning | Perl
-[socket]() | create a socket | Perl
-
-
 ##### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**
