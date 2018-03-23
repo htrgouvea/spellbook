@@ -11,7 +11,22 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 function installDependencies() {
+    if [ -e /etc/pacman.conf ]
+    then
+        sudo pacman -S perl --needed
+    elif [ -e /etc/apt ]
+    then
+        sudo apt-get install perl
+    elif [ -e /etc/yum.conf ]
+    then
+        sudo yum install perl perl-CPAN
+    else
+        echo "Your system is unsupported by this script"
+        echo "Please install the dependencies manually"
+        echo "Install the [ MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET ] modules"
+    fi
 
+    cpan install MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET
 }
 
 installDependencies
