@@ -2,8 +2,7 @@
 
 # A script to make socket connection
 # Use: ./socket.pl target.com:80
-# Heitor Gouvêa
-# hi@heitorgouvea.me
+# Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;
 use strict;
@@ -15,7 +14,7 @@ sub main {
 
   if ($target) {
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
-    
+
     my @target = split(/:/, $target);
 
     my $socket = IO::Socket::INET -> new (

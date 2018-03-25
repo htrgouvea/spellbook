@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+# View dns of a target
+# Use: ./dns.pl target.com
+# Heitor Gouvêa - hi@heitorgouvea.me
+
 use 5.010;
 use strict;
 use warnings;

@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-#
+# Simple script to decode hex strings
 # Use: ./hex.rb
 # Heitor Gouvêa - hi@heitorgouvea.me
 
