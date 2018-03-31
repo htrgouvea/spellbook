@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # A simple portscan write in Perl
-# Use: ./portscan.pl target.com 20 30
+# Use: ./portscan.pl target.com 8080
 # Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;
@@ -10,29 +10,24 @@ use Socket;
 use warnings;
 
 sub main {
-  if (@ARGV >= 2) {
+  if (@ARGV >= 1) {
     my $protocol = getprotobyname ("tcp");
     my $target = inet_aton ($ARGV[0]);
 
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
-    
+
     socket (my $socket, AF_INET, SOCK_STREAM, $protocol);
 
-    print "\nPORT \tSTATE \t SERVICE\n";
+    my $port = $ARGV[1];
+    my $connection = sockaddr_in ($port, $target);
 
-    for ($ARGV[1]..$ARGV[2]) {
-      my $port = $_;
-      my $connection = sockaddr_in ($port, $target);
+    if (connect ($socket, $connection) ) {
+      my $service = getservbyport ($port, 'tcp') || "unknown";
 
-      if (connect ($socket, $connection) ) {
-        my $service = getservbyport ($port, 'tcp') || "unknown";
-
-        print "$port \t open \t $service \n";
-      }
+      print "$port \t open \t $service \n";
     }
 
-    print "\n[!] Scanning finished\n";
-    close ($socket)
+    close ($socket);
   }
 }
 
