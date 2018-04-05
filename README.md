@@ -1,4 +1,6 @@
-# Repository for my security tricks :alien:
+# Security spellbook
+
+My collection of information security tricks/scripts
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
 ---
@@ -9,6 +11,12 @@
     [+] WEBSITE:      https://heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
     [+] TELEGRAM:     @GouveaHeitor
+```
+
+##### Tricks
+
+```bash
+    $ ls
 ```
 
 ##### Bugs

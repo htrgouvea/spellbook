@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-#
+# Simple script to decode morse strings
 # Use: ./morse.pl "-- --- .-. ... ."
 # Heitor Gouvêa - hi@heitorgouvea.me
 

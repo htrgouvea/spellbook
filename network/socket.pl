@@ -21,7 +21,8 @@ sub main {
       PeerPort => $target[1],
       Proto    => "tcp",
       Reuse    => "1",
-      Timeout  => "3");
+      Timeout  => "3"
+    );
 
     if ($socket) {
       print "$target[0]:$target[1]\n";

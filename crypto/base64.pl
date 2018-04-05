@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
-#
-# Use: ./base64.pl
+# Simple script to decode base64 strings
+# Use: ./base64.pl "YmFzZTY0Cg=="
 # Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;

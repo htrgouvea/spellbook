@@ -10,20 +10,14 @@ use warnings;
 use Net::Ping;
 
 sub main {
-  if ($ARGV[0]) {
-    open (my $targets, "<", $ARGV[0]);
+  my $target = $ARGV[0];
 
-    while (my $target = <$targets>) {
-      chomp($target);
+  if ($target) {
+    my $checkHost = Net::Ping -> new();
 
-      my $checkHost = Net::Ping -> new();
-
-      if ($checkHost -> ping ($target)) {
-        print "$target\n";
-      }
+    if ($checkHost -> ping ($target)) {
+      print "$target\n";
     }
-
-    close ($targets);
   }
 }
 

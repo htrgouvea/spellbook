@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
-#
-# Use: ./base32.pl
+# Simple script to decode base32 strings
+# Use: ./base32.pl "MJQXGZJTGI======"
 # Heitor Gouvêa - hi@heitorgouvea.me
 
 use 5.010;
