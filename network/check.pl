@@ -13,6 +13,8 @@ sub main {
   my $target = $ARGV[0];
 
   if ($target) {
+    $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
+
     my $checkHost = Net::Ping -> new();
 
     if ($checkHost -> ping ($target)) {

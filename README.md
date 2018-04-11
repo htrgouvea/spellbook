@@ -2,7 +2,7 @@
 
 My collection of information security tricks/scripts
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
+[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
 ---
 
 ```
@@ -13,10 +13,18 @@ My collection of information security tricks/scripts
     [+] TELEGRAM:     @GouveaHeitor
 ```
 
+##### Install
+
+```bash
+    git clone https://github.com/GouveaHeitor/security-spellbook
+    cd security-spellbook
+    ./setup.sh
+```
+
 ##### Tricks
 
 ```bash
-    $ ls
+    $
 ```
 
 ##### Bugs
@@ -25,7 +33,7 @@ My collection of information security tricks/scripts
 
 ##### License
 
-- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/tricks/blob/master/LICENSE.md)
+- This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
 
 ##### Contribution
 

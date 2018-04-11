@@ -14,6 +14,8 @@ sub main {
     my $protocol = getprotobyname ("tcp");
     my $target = inet_aton ($ARGV[0]);
 
+    $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
+    
     socket (my $socket, AF_INET, SOCK_STREAM, $protocol);
 
     print "\nPORT \tSTATE \t SERVICE\n";

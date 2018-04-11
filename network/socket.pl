@@ -14,6 +14,8 @@ sub main {
   my $target = $ARGV[0];
 
   if ($target) {
+    $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
+    
     my @target = split(/:/, $target);
 
     my $socket = IO::Socket::INET -> new (
