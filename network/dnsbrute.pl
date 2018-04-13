@@ -25,7 +25,7 @@ sub main {
 
        my $target = $row . $target;
 
-       if ($p->ping($target)) {
+       if ($p -> ping($target)) {
         say 'alive';
       }
      }

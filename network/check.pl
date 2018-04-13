@@ -15,11 +15,13 @@ sub main {
   if ($target) {
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
 
-    my $checkHost = Net::Ping -> new();
+    my $checkHost = Net::Ping -> new( $> ? "tcp" : "icmp", 3);
 
     if ($checkHost -> ping ($target)) {
       print "$target\n";
     }
+
+    $checkHost -> close();
   }
 }
 
