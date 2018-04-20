@@ -24,7 +24,8 @@ My collection of information security tricks/scripts
 ##### Tricks
 
 ```bash
-    $
+    # enumare subdomains
+    $~ for subdomain in $(cat wordlists/subdomains.txt);do perl network/check.pl ${subdomain}target.com; done
 ```
 
 ##### Bugs
