@@ -10,22 +10,31 @@ use warnings;
 use Net::DNS;
 use IO::Select;
 
-my $timout = 5;
-my $res     = new Net::DNS::Resolver;
-my $bgsock  = $res -> bgsend ("heitorgouvea.me");
-my $sel     = IO::Select -> new ($bgsock);
-my @ready   = $sel -> can_read ();
+sub main {
+	my $target = $ARGV[0];
 
-if (@ready) {
-	foreach my $sock (@ready) {
-		if ($sock == $bgsock) {
-			my $packet = $res -> bgread ($bgsock);
+	if ($target) {
+		my $timout = 5;
+		my $res     = new Net::DNS::Resolver;
+		my $bgsock  = $res -> bgsend ($target);
+		my $sel     = IO::Select -> new ($bgsock);
+		my @ready   = $sel -> can_read ();
 
-			$packet -> print;
-	    $bgsock = undef;
+		if (@ready) {
+			foreach my $sock (@ready) {
+				if ($sock == $bgsock) {
+					my $packet = $res -> bgread ($bgsock);
+
+					$packet -> print;
+					$bgsock = undef;
+				}
+
+				$sel -> remove($sock);
+				$sock = undef;
+			}
 		}
-
-		$sel -> remove($sock);
-	  $sock = undef;
 	}
 }
+
+main();
+exit;
