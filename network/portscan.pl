@@ -12,6 +12,7 @@ use warnings;
 sub main {
   if (@ARGV >= 1) {
     my $protocol = getprotobyname ("tcp");
+
     my $target = inet_aton ($ARGV[0]);
 
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
@@ -24,7 +25,7 @@ sub main {
     if (connect ($socket, $connection) ) {
       my $service = getservbyport ($port, 'tcp') || "unknown";
 
-      print "$port \t open \t $service \n";
+      print "$ARGV[0] ~> $port open $service \n";
     }
 
     close ($socket);

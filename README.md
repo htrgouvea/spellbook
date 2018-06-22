@@ -28,7 +28,10 @@ My collection of information security tricks/scripts
     $~ for subdomain in $(cat wordlists/subdomains.txt);do perl network/check.pl ${subdomain}target.com; done
 
     # port scanning
-    $~ for ports in {1..65535}; do perl network/portscan.pl target.com $ports; done
+    $~ for port in {1..65535}; do perl network/portscan.pl target.com $port; done
+
+    # range scanning
+    for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
 ```
 
 ##### Bugs
