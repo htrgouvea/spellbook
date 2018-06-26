@@ -31,7 +31,11 @@ My collection of information security tricks/scripts
     $~ for port in {1..65535}; do perl network/portscan.pl target.com $port; done
 
     # range scanning
-    for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
+    $~ for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
+
+    # backdoor agent
+    $~ perl network/backdoor.pl
+    $~ nc 127.0.0.1 21666
 ```
 
 ##### Bugs
