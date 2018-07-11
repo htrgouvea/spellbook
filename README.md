@@ -42,3 +42,7 @@ My collection of information security tricks/scripts
 ##### Contribution
 
 - Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)
+
+##### Disclaimer
+
+I do private jobs, if you are interesting send me an e-mail at: hi@heitorgouvea.me
