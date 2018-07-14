@@ -1,9 +1,5 @@
 #!/usr/bin/perl
 
-# Simple script to find admin page of a target
-# Use: ./adminfinder.pl target.com
-# Heitor Gouvêa - hi@heitorgouvea.me
-
 use 5.010;
 use strict;
 use warnings;

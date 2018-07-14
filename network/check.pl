@@ -1,9 +1,5 @@
 #!/usr/bin/perl
 
-# Checkhosts by a domain list via ICMP connection
-# Use: ./check.pl targets.txt
-# Heitor Gouvêa - hi@heitorgouvea.me
-
 use 5.010;
 use strict;
 use warnings;
@@ -16,8 +12,9 @@ sub main {
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
 
     my $checkHost = Net::Ping -> new( $> ? "tcp" : "icmp", 3);
+    my $ping = $checkHost -> ping ($target);
 
-    if ($checkHost -> ping ($target)) {
+    if ($ping) {
       print "$target\n";
     }
 

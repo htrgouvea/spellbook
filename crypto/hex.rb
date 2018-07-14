@@ -1,9 +1,5 @@
 #!/usr/bin/ruby
 
-# Simple script to decode hex strings
-# Use: ./hex.rb
-# Heitor Gouvêa - hi@heitorgouvea.me
-
 require 'hex_string'
 
 def main

