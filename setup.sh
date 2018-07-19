@@ -11,20 +11,20 @@ fi
 function installDependencies() {
     if [ -e /etc/pacman.conf ]
     then
-        sudo pacman -S ruby --needed
+        sudo pacman -S perl --needed
     elif [ -e /etc/apt ]
     then
-        sudo apt-get install ruby
+        sudo apt-get install perl
     elif [ -e /etc/yum.conf ]
     then
-        sudo dnf install ruby
+        sudo dnf install perl
     else
         echo "Your system is unsupported by this script"
         echo "Please install the dependencies manually"
-        echo "Install the [net-ping base64] modules"
+        echo "Install the [] modules"
     fi
 
-    gem install net-ping base64
+    cpan install
 }
 
 installDependencies

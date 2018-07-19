@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 
+use URI;
 use 5.010;
 use strict;
 use warnings;
-use URI;
 use WWW::Mechanize;
 
 sub main {
