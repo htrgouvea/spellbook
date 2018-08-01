@@ -44,7 +44,7 @@ My collection of information security tricks/scripts
 
 ##### Contribution
 
-- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)
+- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)[**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
 
 ##### Disclaimer
 
