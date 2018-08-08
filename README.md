@@ -34,8 +34,8 @@ My collection of information security tricks/scripts
     $~ for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
 
     # backdoor agent
-    $~ perl network/backdoor.pl
-    $~ nc 127.0.0.1 21666
+    $~ perl network/backdoor.pl # open connection
+    $~ nc 127.0.0.1 21666       # connect
 ```
 
 ##### Bugs
