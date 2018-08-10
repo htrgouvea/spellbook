@@ -11,10 +11,10 @@ sub main {
 
 	if ($target) {
 		my $timout = 5;
-		my $res     = new Net::DNS::Resolver;
-		my $bgsock  = $res -> bgsend ($target);
-		my $sel     = IO::Select -> new ($bgsock);
-		my @ready   = $sel -> can_read ();
+		my $res    = new Net::DNS::Resolver;
+		my $bgsock = $res -> bgsend ($target);
+		my $sel    = IO::Select -> new ($bgsock);
+		my @ready  = $sel -> can_read ();
 
 		if (@ready) {
 			foreach my $sock (@ready) {

