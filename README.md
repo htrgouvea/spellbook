@@ -10,7 +10,7 @@ My collection of information security tricks/scripts
     [+] EMAIL:        hi@heitorgouvea.me
     [+] WEBSITE:      https://heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TELEGRAM:     @GouveaHeitor
+    [+] TWITTER:      @GouveaHeitor
 ```
 
 ##### Install
