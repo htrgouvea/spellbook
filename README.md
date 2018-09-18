@@ -34,10 +34,10 @@ My collection of information security tricks/scripts
     $~ for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
 
     # links extract
-    $~ perl web/links.pl target.com
+    $~ perl web/links.pl https://target.com
 
     # admin finder
-    $~ perl web/adminfinder.pl target.com
+    $~ perl web/adminfinder.pl https://target.com
 
     # backdoor access
     $~ perl network/backdoor.pl # agent
