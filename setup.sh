@@ -1,9 +1,5 @@
 #!/usr/bin/bash
 
-# net-ping base64
-
-export BLUE='\033[1;94m'
-export GREEN='\033[1;92m'
 export RED='\033[1;91m'
 export ENDC='\033[1;00m'
 
@@ -15,22 +11,20 @@ fi
 function installDependencies() {
     if [ -e /etc/pacman.conf ]
     then
-        sudo pacman -S perl --needed
+        sudo pacman -S ruby --needed
     elif [ -e /etc/apt ]
     then
-        sudo apt-get install perl
+        sudo apt-get install ruby
     elif [ -e /etc/yum.conf ]
     then
-        sudo yum install perl perl-CPAN
+        sudo dnf install ruby
     else
         echo "Your system is unsupported by this script"
         echo "Please install the dependencies manually"
-        echo "Install the [
-          MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET JSON LWP::UserAgent Net::Ping Net::DNS IO::Select IO::Socket::Timeout WWW::Mechanize
-        ] modules"
+        echo "Install the [net-ping base64] modules"
     fi
 
-    cpan install MIME::Base32 MIME::Base64 Text::Morse Net::Ping IO::Socket::INET JSON LWP::UserAgent Net::Ping Net::DNS IO::Select IO::Socket::Timeout  WWW::Mechanize
+    gem install net-ping base64
 }
 
 installDependencies

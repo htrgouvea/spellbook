@@ -25,7 +25,7 @@ My collection of information security tricks/scripts
 
 ```bash
     # enumarate subdomains
-    $~ for subdomain in $(cat wordlists/subdomains.txt);do perl network/check.pl ${subdomain}target.com; done
+    $~ for subdomain in $(cat wordlists/subdomains.txt);do ruby network/check.rb ${subdomain}target.com; done
 
     # port scanning
     $~ for port in {1..65535}; do perl network/portscan.pl target.com $port; done
