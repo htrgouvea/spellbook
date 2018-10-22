@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# net-ping base64
+
 export BLUE='\033[1;94m'
 export GREEN='\033[1;92m'
 export RED='\033[1;91m'
