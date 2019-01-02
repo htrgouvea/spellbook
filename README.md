@@ -21,6 +21,13 @@ My collection of information security tricks/scripts
     ./setup.sh
 ```
 
+##### Docker container
+
+```bash
+     # create alias command
+     $ alias kali='docker run -p 1337:1337 -ti kali /bin/bash'
+```
+
 ##### Tricks
 
 ```bash
