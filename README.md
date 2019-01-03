@@ -24,6 +24,9 @@ My collection of information security tricks/scripts
 ##### Docker container
 
 ```bash
+     # building image
+     $ docker build --rm --squash -t kali .
+     
      # create alias command
      $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/Workstation  -ti kali /bin/bash'
 ```
