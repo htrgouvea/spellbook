@@ -1,10 +1,12 @@
 FROM kalilinux/kali-linux-docker:latest
-MAINTAINER GouveaHeitor
+MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
 
-EXPOSE 1337 
-VOLUME /Users/$(whoami)/Documents/kali-linux-docker
+RUN apt -qy update
+RUN apt list --upgradable
+RUN apt -qy dist-upgrade
+RUN apt -qy install
 
-RUN apt update && apt list --upgradable && apt -y dist-upgrade && apt install -y \
+RUN apt install -qy \
   wget \
   curl \
   git \
@@ -33,7 +35,14 @@ RUN apt update && apt list --upgradable && apt -y dist-upgrade && apt install -y
   metasploit-framework \
   hashid \
   python-pip \
-  openvpn \
+  smali \
+  dex2jar \
+  sublist3r \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
+
+RUN gem install aquatone
+
+EXPOSE 1337 
+VOLUME /Users/$(whoami)/Documents/
