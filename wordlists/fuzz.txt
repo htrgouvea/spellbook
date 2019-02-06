@@ -19,6 +19,10 @@
 +CSCOU+/../+CSCOE+/files/file_list.json
 ------
 ..;/
+.001
+.002
+.1
+.2
 .7z
 .AppleDB
 .AppleDesktop
@@ -40,6 +44,7 @@
 .SyncIgnore
 .Trash
 .Trashes
+.Z
 .access
 .addressbook
 .adm
@@ -47,14 +52,21 @@
 .apdisk
 .apt_generated/
 .architect
+.asp
+.aspx
 .aws/credentials
 .axoCover/
 .babelrc
+.back
+.backup
 .bak
+.bakup
+.bas
 .bash_history
 .bash_logout
 .bash_profile
 .bashrc
+.bat
 .bower-cache
 .bower-registry
 .bower-tmp
@@ -70,6 +82,7 @@
 .bz2
 .bzr/
 .bzr/README
+.c
 .c9/
 .c9revisions/
 .cabal-sandbox/
@@ -84,6 +97,8 @@
 .cc-ban.txt.bak
 .cfg
 .cfignore
+.cfm
+.cgi
 .checkstyle
 .circleci/config.yml
 .classpath
@@ -93,6 +108,7 @@
 .codekit-cache
 .codio
 .coffee_history
+.com
 .compile
 .composer
 .concrete/DEV_MODE
@@ -105,12 +121,14 @@
 .configuration.php.swp
 .consulo/
 .contracts
+.copia
 .coq-native/
 .core
 .coverage
 .cpan
 .cpanel/
 .cpcache/
+.cpp
 .cproject
 .cr/
 .csdp.cache
@@ -120,9 +138,13 @@
 .cvsignore
 .dart_tool/
 .dat
+.db
+.default
 .deployignore
 .dev/
 .directory
+.dll
+.doc
 .dockerignore
 .drone.yml
 .dub
@@ -149,6 +171,7 @@
 .eslintrc
 .espressostorage
 .eunit
+.exe
 .external/
 .external/data
 .externalNativeBuild
@@ -244,6 +267,8 @@
 .htaccess_sc
 .htaccess~
 .htgroup
+.htm
+.html
 .htpasswd
 .htpasswd-old
 .htpasswd_test
@@ -287,6 +312,7 @@
 .ignore
 .ignored/
 .import/
+.inc
 .influx_history
 .ini
 .inst/
@@ -294,12 +320,17 @@
 .install/composer.phar
 .installed.cfg
 .ipynb_checkpoints
+.jar
+.java
 .jekyll-cache/
 .jekyll-metadata
+.jhtml
 .joe_state
+.jsa
 .jscsrc
 .jshintignore
 .jshintrc
+.jsp
 .keep
 .kitchen.local.yml
 .kitchen.yml
@@ -336,6 +367,7 @@
 .maintenance2
 .mc
 .mc/
+.mdb
 .memdump
 .mergesources.yml
 .merlin
@@ -372,6 +404,7 @@
 .nra.cache
 .nrepl-port
 .nsconfig
+.nsf
 .ntvs_analysis.dat
 .nuget/
 .nuget/packages.config
@@ -380,9 +413,11 @@
 .oldsnippets
 .oldstatic
 .org-id-locations
+.orig
 .ost
 .packages
 .paket/
+.pas
 .passwd
 .patches/
 .pdf
@@ -390,6 +425,7 @@
 .pgadmin3
 .pgpass
 .pgsql_history
+.php
 .php-ini
 .php-version
 .php_history
@@ -397,7 +433,9 @@
 .phpstorm.meta.php
 .phptidy-cache
 .phpversion
+.phtml
 .pki
+.pl
 .placeholder
 .powenv
 .procmailrc
@@ -428,6 +466,7 @@
 .rebar
 .rediscli_history
 .reek
+.reg
 .remote-sync.json
 .repl_history
 .revision
@@ -446,6 +485,8 @@
 .rvmrc
 .s3backupstatus
 .sass-cache/
+.sav
+.saved
 .scala_history
 .sconsign.dblite
 .scrapy
@@ -463,8 +504,10 @@
 .sh
 .sh_history
 .shrc
+.shtml
 .sln
 .smushit-status
+.source
 .spamassassin
 .spyderproject
 .spyproject
@@ -472,6 +515,7 @@
 .sql.bz2
 .sql.gz
 .sqlite_history
+.src
 .src/app.js
 .src/index.js
 .src/server.js
@@ -495,6 +539,7 @@
 .ssh/known_hosts
 .st_cache/
 .stack-work/
+.stackdump
 .stylelintrc
 .sublime-gulp.cache
 .sublime-project
@@ -523,9 +568,11 @@
 .tconn/tconn.conf
 .temp
 .temp/
+.test
 .texpadtmp
 .tfignore
 .tgitconfig
+.tgz
 .thumbs
 .tmp
 .tmp_versions/
@@ -535,6 +582,7 @@
 .transients_purge.log
 .travis.yml
 .tx/
+.txt
 .user.ini
 .vacation.cache
 .vagrant
@@ -544,6 +592,7 @@
 .viminfo
 .vimrc
 .vs/
+.war
 .web
 .web-server-pid
 .webassets-cache
@@ -551,6 +600,7 @@
 .wp-config.php.swp
 .www_acl
 .wwwacl
+.xml
 .yardoc/
 .yarn-integrity
 .yo-rc.json
@@ -558,6 +608,7 @@
 .zfs/
 .zip
 .zsh_history
+/
 /app/__pycache__/
 /apps/__pycache__/
 0
@@ -1549,6 +1600,16 @@
 999999
 9999999
 99999999
+?Publisher
+?wp-cs-dump
+?wp-html-rend
+?wp-start-ver
+?wp-stop-ver
+?wp-uncheckout
+?wp-usr-prop
+?wp-ver-diff
+?wp-ver-info
+?wp-verify-link
 @
 A
 ADM
@@ -2070,6 +2131,7 @@ Anwar
 Anya
 Aparna
 Api-Ecm
+Aplicaciones
 Apollo
 AppPackages/
 Appolonia
@@ -2342,6 +2404,7 @@ Baruk
 Base
 Basheer
 Basia
+BasicAuthServlet
 Basil
 Bassam
 Bathsheba
@@ -2735,8 +2798,10 @@ CMakeScripts
 CONTRIBUTING.md
 COPYING
 COPYRIGHT.txt
+COnlineBank
 CPAN
 CREDITS
+CSample
 CTestTestfile.cmake
 CVS
 CVS/
@@ -2980,6 +3045,7 @@ Celle
 Celyne
 Cen
 Ceriel
+CertAuthServlet
 Cesar
 Cesare
 Cesya
@@ -3949,6 +4015,7 @@ Dyna
 Dynah
 Dzung
 E
+EHS.Web
 ENV/
 Eachelle
 Eada
@@ -4322,6 +4389,8 @@ Evvie
 Evvy
 Evy
 Ewen
+ExceptionThrown.jsp
+Exchange
 ExportedObj/
 Ext
 Extranet
@@ -4525,6 +4594,7 @@ Focus
 Follick
 Fonnie
 Fons
+FormAuthServlet
 Forrest
 Foster
 Fotini
@@ -4597,6 +4667,15 @@ Fwpas
 Fwpreg
 G
 GEMINI/
+GXApp
+GXApp/COnlineBank
+GXApp/COnlineBank/COBLogin.html
+GXApp/CSample
+GXApp/CSample/index.html
+GXApp/OnlineBank
+GXApp/OnlineBank/OBLogin.html
+GXApp/images
+GXApp/index.html
 Gaal
 Gabbey
 Gabbi
@@ -5278,6 +5357,12 @@ Hynda
 Hynek
 Hyung
 I
+ICHAIN
+ICHAINErrors
+ICHAINLogout
+ICS
+ICSIBroker
+ICSLogin
 INSTALL
 INSTALL.HTML
 INSTALL.MD
@@ -5452,6 +5537,8 @@ J
 J-Francois
 JMXSoapAdapter
 JR
+JSPRunner
+JSPRunnerSticky
 Jaan
 Jabir
 Jacalyn
@@ -7489,6 +7576,7 @@ Mickie
 Micky
 Mico
 Micro
+Micros~1
 Mid
 Midge
 Miep
@@ -7700,6 +7788,20 @@ Myrtille
 Myrtle
 Mysore
 N
+NASApp
+NASApp/fortune/fortune
+NASApp/system
+NASApp/system/BasicAuthServlet
+NASApp/system/CertAuthServlet
+NASApp/system/ExceptionThrown.jsp
+NASApp/system/FormAuthServlet
+NASApp/system/JSPRunner
+NASApp/system/JSPRunnerSticky
+NASApp/system/SessionInvalidator
+NASApp/system/StaticServlet
+NASApp/system/ValidationError.jsp
+NASApp/system/WelcomeListServlet
+NSearch
 Nabil
 Nachum
 Nad
@@ -7843,6 +7945,7 @@ Nessie
 Nessy
 Nesta
 Neste
+NetStorage
 Netas
 Netta
 Netti
@@ -8054,6 +8157,7 @@ Oneida
 Onette
 Onge
 Onida
+OnlineBank
 Oona
 Oorschot
 Opal
@@ -8357,6 +8461,7 @@ Pollyanna
 Pooh
 Poppy
 Porfirio
+Portal
 Portia
 Poulos
 Powell
@@ -8415,6 +8520,7 @@ Pulak
 Puneet
 Puran
 Purnam
+QUERYHIT.HTM
 Qainfo
 Qainsp
 Quality
@@ -9068,6 +9174,7 @@ Seana
 Seang
 Seanna
 Search
+SearchServlet
 Sebastian
 Secret/
 Security
@@ -9119,6 +9226,7 @@ ServiceFabricBackup/
 Services
 Servlet
 Servlets
+SessionInvalidator
 Seth
 Setsuko
 Settings/ui.plist
@@ -9393,6 +9501,7 @@ Skipper
 Skippy
 Sky
 Sluis
+SmarTicketApp/index.html
 Smita
 Smith
 Snair
@@ -9469,6 +9578,7 @@ Starr
 Stars
 Starsdps
 Stateson
+StaticServlet
 Statistics
 Stats
 Steen
@@ -10072,6 +10182,7 @@ Valerie
 Valery
 Valerye
 Valida
+ValidationError.jsp
 Valina
 Valinda
 Valli
@@ -10255,6 +10366,7 @@ WEB-INF./web.xml
 WEB-INF/
 WEB-INF/config.xml
 WEB-INF/web.xml
+WEB-INF/webapp.properties
 WSO.php
 WS_FTP
 WS_FTP.LOG
@@ -10296,6 +10408,7 @@ Wassim
 Waverly
 Wayne
 WebAdmin
+WebSer~1
 Weber
 Wee-Lin
 Wee-Seng
@@ -10303,6 +10416,7 @@ Wee-Thong
 Weilin
 Weiping
 Weitzel
+WelcomeListServlet
 Weldon
 Wen
 Wen-Kai
@@ -11065,16 +11179,21 @@ _vti-log
 _vti-pvt
 _vti-txt
 _vti_
+_vti_adm
 _vti_admin
 _vti_aut
 _vti_bin
 _vti_bin/
 _vti_bin/_vti_adm/admin.dll
+_vti_bin/_vti_adm/fpadmdll.dll
 _vti_bin/_vti_aut/author.dll
+_vti_bin/owssvr.dll
 _vti_bin/shtml.dll
 _vti_cnf
 _vti_conf
 _vti_inf
+_vti_inf.html
+_vti_inf.html 
 _vti_log
 _vti_map
 _vti_private
@@ -11330,6 +11449,7 @@ actress
 actu
 actual
 actualidad
+actualitat
 actualite
 actualites
 actualiza
@@ -11463,6 +11583,7 @@ admin-login.html
 admin-login.php
 admin-old
 admin-panel
+admin-serv
 admin-serv/
 admin-serv/config/admpw
 admin.asp
@@ -11472,7 +11593,9 @@ admin.cgi
 admin.conf
 admin.conf.default
 admin.dat
+admin.dll
 admin.do
+admin.exe
 admin.htm
 admin.htm.php
 admin.html
@@ -11860,6 +11983,7 @@ admn
 admon
 admpar/
 admpar/.ftppass
+admpw
 admrev/
 admrev/.ftppass
 admrev/_files/
@@ -11894,6 +12018,7 @@ ads_images
 ads_new
 ads_old
 adsales
+adsamples
 adsbot-google
 adsense
 adserv
@@ -12087,6 +12212,7 @@ ajaxtabscontent
 ajb_mod
 ajout-au-panier
 ajuda
+ajudes
 ajx
 ak
 ak47.php
@@ -12601,6 +12727,7 @@ archivesearch
 archivio
 archivo
 archivos
+archiv~1
 archiwum
 are
 area
@@ -12898,6 +13025,8 @@ august
 august07
 aui
 auktion
+aule
+aules
 aup
 aupa
 aurelie
@@ -12930,6 +13059,9 @@ authentication
 authentication.php
 authfiles
 author
+author.dll
+author.exe
+author.log
 authordata
 authoring
 authority
@@ -12943,6 +13075,7 @@ authorizefailed
 authorizenet.log
 authorpic
 authors
+authors.pwd
 authuser
 authuser.php
 authusers
@@ -13007,6 +13140,7 @@ avactis-system
 avail
 availability
 avalon
+avaluacio
 avant
 avantgo
 avanzi
@@ -14677,6 +14811,9 @@ cgi-bin-debug
 cgi-bin-live
 cgi-bin/
 cgi-bin/awstats.pl
+cgi-bin/gx.cgi
+cgi-bin/gx.dll
+cgi-bin/gx.exe
 cgi-bin/logi.php
 cgi-bin/login
 cgi-bin/login.cgi
@@ -15185,6 +15322,7 @@ cmsadmin
 cmsadmin.php
 cmsadmin/
 cmsadmincontrols
+cmsample
 cmsblog
 cmsdemo
 cmsdesk
@@ -15318,6 +15456,7 @@ column
 columnists
 columns
 com
+com.netscape.server.servlet.jsp.JSPRunner
 com1
 com2
 com3
@@ -15430,6 +15569,7 @@ commonpages
 commonpgm
 commons
 commonspot
+common~1
 commrades
 comms
 commun
@@ -15461,6 +15601,7 @@ comparison_list
 comparisons
 compass
 compass.rb
+compass/logon.jsp
 compat
 compatible
 competition
@@ -15520,6 +15661,7 @@ comunicator
 comunidad
 comunidade
 comunidades
+comunitat
 con
 concept
 concepts
@@ -16392,6 +16534,7 @@ database_admin
 database_administration
 database_backup
 database_credentials.inc
+databasenotes.html
 databases
 databases.yml
 datacenter
@@ -16596,6 +16739,7 @@ deep
 def
 default
 default-images
+default.htm
 default_files
 default_icon
 default_image
@@ -16855,6 +16999,9 @@ dir.php
 dir1
 diradmin
 dirb
+dirb_random.cgi
+dirb_random.jsp
+dirb_random.shtml
 dirbmark
 direct
 direct1
@@ -17234,6 +17381,7 @@ ds
 dsa
 dsc
 dsefu
+dsgw
 dsl
 dsm
 dsn
@@ -17364,6 +17512,8 @@ e2fs
 e3
 e3lan
 e4
+eGuide
+eMFrame
 e_commerce
 e_files
 e_info
@@ -17461,11 +17611,13 @@ edc
 eddie
 eden
 edge
+edgecgi
 edges
 edgy
 edi
 edicion_virtual
 edinburgh
+edirectory
 edit
 edit-precios
 edit-profile
@@ -17551,6 +17703,7 @@ ego
 egov
 egress
 egroupware
+eguide
 egypt
 eh
 eh58
@@ -17570,6 +17723,7 @@ einstein
 einterface
 eipatron
 eircom
+eis
 ej
 ejb
 ejemplo
@@ -18052,6 +18206,7 @@ estimate
 estimates
 estore
 estrella
+estudiant
 esupport
 esw_config
 et
@@ -18236,6 +18391,7 @@ ext/modules/
 ext/run-tests.php
 ext2
 ext_link
+exteND
 extend
 extended
 extension
@@ -18657,6 +18813,7 @@ flash-download
 flash-intro
 flash/
 flash/ZeroClipboard.swf
+flash/java/javabean/FlashJavaBean.html
 flash2
 flashFXP.ini
 flash_banners
@@ -18886,8 +19043,10 @@ formulaire
 formulaires
 formular
 formulare
+formulari
 formulario
 formularios
+formularis
 formularz
 formularze
 formulieren
@@ -18975,6 +19134,7 @@ fozzie
 fp
 fp2k
 fpa
+fpadmdll.dll
 fpadmin
 fpadmin/
 fpbackup
@@ -18986,6 +19146,7 @@ fpdf153
 fpoll
 fpost
 fpp
+fpsample
 fpss
 fptest
 fr
@@ -19096,6 +19257,7 @@ front_page
 frontdoor
 frontend
 frontpage
+frontpg.ini
 froogle
 froogle_
 frs
@@ -19156,6 +19318,7 @@ fukuoka
 fulfillment
 full
 full_search
+fullpageservic
 fullscreen
 fullsizegame
 fulltext
@@ -19812,6 +19975,8 @@ gwstyles
 gwt
 gwt-unitCache/
 gx
+gx.cgi
+gx.exe
 gy
 gym_sitemaps
 gyrobase
@@ -20381,6 +20546,8 @@ i.php
 i18n
 i2
 i3
+iFolder
+iManager
 iOSInjectionProject/
 ia
 ia_archiver
@@ -20388,6 +20555,8 @@ iadmin
 iam
 ian
 ias
+ias-samples
+ias-samples/index.html
 ib
 ib6ub9
 ib_html
@@ -20469,6 +20638,7 @@ if
 if_images
 ifb
 iff
+ifolder
 iforum
 ifr
 iframe
@@ -20495,6 +20665,7 @@ iis_rewrite
 iisadmin
 iisadmin/
 iisadmpwd
+iishelp
 iissamples
 ik
 ikebanaa
@@ -20903,6 +21074,7 @@ inhalt
 inhalte
 inhouse
 ini
+inici
 inicio
 init
 init/
@@ -21025,6 +21197,7 @@ instance/
 instancefiles
 instant
 instantlistings
+institucio
 institucionais
 institucional
 institute
@@ -21117,6 +21290,7 @@ invoice
 invoice_media
 invoices
 invoker/
+invoker/EJBInvokerServlet
 invoker/JMXInvokerServlet
 invoker/readonly/JMXInvokerServlet
 invoker/restricted/JMXInvokerServlet
@@ -21149,6 +21323,7 @@ ipod
 ipos
 ipoteka
 ipp
+iprint
 ips
 ips_kernel
 ips_rich_content
@@ -21343,6 +21518,7 @@ jboss/server/default/deploy/project.ext
 jboss/server/default/log/
 jboss/server/minimal/deploy/project.ext
 jbossas
+jbossmq-httpil/
 jbossws
 jbossws/services
 jbs
@@ -21420,6 +21596,7 @@ jmenu
 jmp
 jmx-console
 jmx-console/
+jmx-console/HtmlAdaptor
 jmx-console/HtmlAdaptor?action=inspectMBean&name=jboss.system:type=ServerInfo
 jnj
 jnp
@@ -21513,6 +21690,7 @@ jquery-ui
 jr
 jre
 jrun
+jrunscripts
 js
 js-global
 js-lib
@@ -21580,6 +21758,7 @@ jsscript
 jsscripts
 jsso
 jssresource/
+jstl-war/index.html
 jstree
 jsx
 jt
@@ -22402,6 +22581,7 @@ llaves
 lletres
 lleure
 llibres
+llista
 lloyd
 lm
 lm_images
@@ -22587,6 +22767,7 @@ loginsuper/
 logis
 logistics
 logo
+logo.gif
 logo_images
 logo_sysadmin
 logo_sysadmin/
@@ -22662,6 +22843,7 @@ lostfound
 lostpass
 lostpassword
 lot
+lotery
 lottery
 lotto
 lotus
@@ -23133,6 +23315,7 @@ mbox
 mbr
 mbs
 mc
+mc-icons
 mcart
 mcc
 mcd
@@ -23382,6 +23565,7 @@ metrics/*.json
 metriweb
 metro
 mets
+meu
 mex
 mexico
 mezuak
@@ -24127,6 +24311,7 @@ navSiteAdmin/
 nav_images
 navbar
 navbars
+navegacio
 navegacion
 navi
 navi-img
@@ -24163,6 +24348,7 @@ ncc1701e
 ncs
 nd
 nda
+ndk
 ne
 ne1469
 near
@@ -24213,6 +24399,7 @@ netpbm
 netrics
 nets
 netscape
+netshare
 netspell
 netstat
 netstats
@@ -24605,11 +24792,14 @@ nr
 nra.cache
 nrc
 ns
+ns-icons
+nsadmin
 nsearch
 nsf
 nss
 nst.php
 nstview.php
+nsure
 nsw
 nsw/
 nsw/admin/login.php
@@ -24845,6 +25035,7 @@ oncology
 ondemand
 onderhoud
 one
+oneNet
 oneadmin
 onepage
 onestepcheckout
@@ -25139,6 +25330,7 @@ ownernet
 owners
 ows
 ows-bin
+owssvr.dll
 ox
 oxford
 oyun
@@ -25483,6 +25675,7 @@ pbo
 pbook
 pbp
 pbs
+pbserver
 pc
 pcadmin
 pcb
@@ -26419,6 +26612,7 @@ portale
 portalhelp
 portalhelp2
 portals
+portalservice
 portatil
 porter
 portfolio
@@ -26831,6 +27025,7 @@ programmes
 programming
 programs
 programsend
+progra~1
 progress
 progs
 proguard/
@@ -27167,6 +27362,7 @@ quellen
 queries
 query
 query.log
+queryhit.htm
 queryn
 ques
 quest
@@ -27183,6 +27379,7 @@ quick
 quickbooks
 quickbuy
 quickdoc
+quickfinder
 quicklinks
 quicklist
 quickmenu
@@ -27229,6 +27426,7 @@ r00t.php
 r1
 r2
 r24
+r3d
 r4
 r57
 r57.php
@@ -27470,6 +27668,7 @@ recover-password
 recover_password
 recoverpassword
 recovery
+recre
 recreation
 recruit
 recruiter
@@ -28443,12 +28642,15 @@ scriptlets
 scriptlibrary
 scriptresource
 scripts
+scripts 
 scripts-cart32
 scripts/
 scripts/ckeditor/ckfinder/core/connector/asp/connector.asp
 scripts/ckeditor/ckfinder/core/connector/aspx/connector.aspx
 scripts/ckeditor/ckfinder/core/connector/php/connector.php
+scripts/samples
 scripts/setup.php
+scripts/tools
 scripts2
 scriptservlet
 scripttags
@@ -28485,6 +28687,7 @@ search-our-site
 search-result
 search-results
 search-this-site
+search-ui
 search-users
 search1
 search123
@@ -28738,6 +28941,8 @@ service
 service-registry/instance-status
 service-registry/instance-status.json
 service.asmx
+service.grp
+service.pwd
 service_dateien
 servicecenter
 servicecenters
@@ -29042,6 +29247,8 @@ shp
 shrek
 shrek3
 shtml
+shtml.dll
+shtml.exe
 shutdown
 shuttle
 si
@@ -30480,6 +30687,7 @@ tasha
 task
 taskfreak
 tasks
+tasques
 taste
 tattoo
 taula
@@ -30536,6 +30744,7 @@ technico.txt
 techniek
 technik
 technique
+techniques/servlets/index.html
 techno
 technologies
 technology
@@ -31332,6 +31541,7 @@ travel_plans
 travelagents
 traveler
 travelers
+travelnet/home.jsp
 travelnow
 travels
 travis
@@ -31355,6 +31565,8 @@ treelineimages
 trees
 treinamento
 trek
+tren
+trenacc
 trend
 trendingreports
 trends
@@ -31921,6 +32133,7 @@ users.json
 users.log
 users.mdb
 users.php
+users.pwd
 users.sql
 users.sql.gz
 users.sqlite
@@ -32352,6 +32565,7 @@ voa
 vod
 vodafone
 voeux
+voffice
 voice
 voice-peers
 voicecards
@@ -32577,8 +32791,14 @@ web-app/plugins
 web-beans
 web-console
 web-console/
+web-console/AOPBinding.jsp
 web-console/Invoker
 web-console/ServerInfo.jsp
+web-console/SysProperties.jsp
+web-console/WebModule.jsp
+web-console/applet.jsp
+web-console/listMonitors.jsp
+web-console/status
 web-console/status?full=true
 web-content
 web-design
@@ -32639,6 +32859,7 @@ web_services
 web_store
 web_users
 weba
+webacc
 webaccess
 webad
 webadm
@@ -32730,6 +32951,7 @@ webframe
 webftp
 webgallery
 webgrind
+webgui
 webguide
 webhelp
 webhits
@@ -32785,6 +33007,7 @@ webplayer
 webplus
 webportal
 webposition
+webpub
 webreg
 webreport
 webreports
@@ -32901,6 +33124,7 @@ wetterimages
 wf
 wfs
 wg
+wgate
 wget
 wgl
 wh
@@ -33116,6 +33340,8 @@ world-uk-sport
 world2
 world_flags
 worldcup
+worldmusic/action/catalog
+worldmusic/action/cdlist
 worldpay
 worldpayreturn
 worldwide
@@ -33256,6 +33482,7 @@ writing
 writings
 ws
 ws-client
+ws-client/loanCalculation.jsp
 ws.php
 ws2
 ws_admin
@@ -33361,7 +33588,14 @@ wysiwygpro
 wyszukiwarka
 wz
 x
+x.cfm
+x.htx
+x.ida
+x.idc
+x.idq
 x.php
+x.pl
+x.shtml
 x2
 x7chat
 xadmin
@@ -33376,6 +33610,8 @@ xampp/phpmyadmin/scripts/setup.php
 xanadu
 xandra
 xaradodb
+xarxa
+xarxas
 xativa
 xavier
 xbcr
@@ -33769,6 +34005,7 @@ zz
 zzz
 zzzzz
 zzzzzz
+~
 ~/
 ~a
 ~adm
