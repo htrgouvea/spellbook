@@ -38,6 +38,8 @@ RUN apt install -qy \
   smali \
   dex2jar \
   sublist3r \
+  whois \
+  smtp-user-enum \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
