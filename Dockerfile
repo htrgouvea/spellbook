@@ -13,7 +13,6 @@ RUN apt install -qy \
   man \
   unzip \
   nmap \
-  dirb \
   wpscan \
   gobuster \
   nikto \
