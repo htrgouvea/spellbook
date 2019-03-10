@@ -5,7 +5,6 @@ RUN apt -qy update
 RUN apt list --upgradable
 RUN apt -qy dist-upgrade
 RUN apt -qy install
-RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 
 RUN apt install -qy \
   wget \
@@ -43,6 +42,7 @@ RUN apt install -qy \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
 
+RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN gem install aquatone
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
