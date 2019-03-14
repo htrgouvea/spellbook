@@ -48,7 +48,7 @@ RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
 RUN go get -u github.com/subfinder/subfinder
-
-RUN gem install aquatone
+RUN go get -u github.com/OWASP/Amass/...
+RUN go get -u github.com/haccer/subjack
 
 EXPOSE 1337

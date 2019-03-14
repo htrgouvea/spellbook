@@ -1,6 +1,6 @@
 # Security spellbook
 
-My collection of information security tricks/scripts
+My collection of pentesting/bug bounty tricks/scripts
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
 ---
@@ -18,16 +18,11 @@ My collection of information security tricks/scripts
 ```bash
     git clone https://github.com/GouveaHeitor/security-spellbook
     cd security-spellbook
-    ./setup.sh
-```
 
-##### Docker container
-
-```bash
-     # building image
+    # building image
      $ docker build --rm --squash -t kali .
-     
-     # create alias command
+
+    # create alias command
      $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/ -ti kali /bin/bash'
 ```
 
