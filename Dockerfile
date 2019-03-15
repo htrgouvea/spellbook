@@ -23,10 +23,6 @@ RUN apt install -qy \
   apktool \
   exploitdb \
   weevely \
-  fierce \
-  dnsenum \
-  dnsmap \
-  dnsrecon \
   theharvester \
   gdb \
   fcrackzip \
@@ -38,6 +34,8 @@ RUN apt install -qy \
   sublist3r \
   whois \
   smtp-user-enum \
+  zsh \
+  hydra \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
