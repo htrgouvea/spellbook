@@ -36,6 +36,7 @@ RUN apt install -qy \
   smtp-user-enum \
   zsh \
   hydra \
+  netcat \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
@@ -44,5 +45,4 @@ RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN gem install aquatone
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
-EXPOSE 1337 
-VOLUME /Users/$(whoami)/Documents/
+EXPOSE 1337
