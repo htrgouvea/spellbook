@@ -37,6 +37,7 @@ RUN apt install -qy \
   zsh \
   hydra \
   netcat \
+  fping \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
