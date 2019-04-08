@@ -46,4 +46,6 @@ RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN gem install aquatone
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
+RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
+
 EXPOSE 1337
