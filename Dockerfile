@@ -31,21 +31,24 @@ RUN apt install -qy \
   python-pip \
   smali \
   dex2jar \
-  sublist3r \
   whois \
   smtp-user-enum \
   zsh \
   hydra \
   netcat \
   fping \
+  golang \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
 
 RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-RUN gem install aquatone
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
+RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
+RUN go get -u github.com/subfinder/subfinder
+
+RUN gem install aquatone
 
 EXPOSE 1337
