@@ -32,10 +32,10 @@
     cd security-spellbook
 
     # building image
-     $ docker build --rm --squash -t kali .
+    $ docker build --rm --squash -t kali .
 
     # create alias command
-     $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/ -ti kali /bin/bash'
+    $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/ -ti kali /bin/bash'
 ```
 
 
@@ -50,13 +50,13 @@ Recon Workflow
 
 AWS Workflow
 
-![AWS Workflow](files/aws-s3-workflow.jpg)
+<p align="center"> 
+    <img src="files/aws-s3-workflow.jpg">
+</p>
 
 ---
 
-
-
-##### Tricks
+### Tricks
 
 ```bash
     # enumarate subdomains
