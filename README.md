@@ -1,8 +1,20 @@
-# Security spellbook
+<p align="center">
+  <h3 align="center">Security Spellbook</h3>
+  <p align="center">My collection of pentesting and bug bounty hunting tricks/scripts</p>
 
-My collection of pentesting/bug bounty tricks/scripts
+  <p align="center">
+    <a href="https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md">
+      <img src="https://img.shields.io/badge/license-MIT-blue.svg">
+    </a>
+    <a href="https://github.com/GouveaHeitor/security-spellbook/releases">
+      <img src="https://img.shields.io/badge/version-0.1-blue.svg">
+    </a>
+    <a href="https://twitter.com/GouveaHeitor">
+      <img src="https://img.shields.io/badge/twitter-@GouveaHeitor-blue.svg">
+    </a>
+  </p>
+</p>
 
-[![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
 ---
 
 ```
@@ -31,10 +43,10 @@ My collection of pentesting/bug bounty tricks/scripts
 
 ---
 Recon Workflow
+
 ![Recon Workflow](files/recon-workflow.jpeg)
 
 ---
-
 
 AWS Workflow
 
