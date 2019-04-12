@@ -13,7 +13,7 @@ My collection of pentesting/bug bounty tricks/scripts
     [+] TWITTER:      @GouveaHeitor
 ```
 
-##### Install
+### Install
 
 ```bash 
     git clone https://github.com/GouveaHeitor/security-spellbook
@@ -27,10 +27,21 @@ My collection of pentesting/bug bounty tricks/scripts
 ```
 
 
-##### Workflow's
+### Workflow's
+
+---
+Recon Workflow
+![Recon Workflow](files/recon-workflow.jpeg)
+
+---
 
 
-[!Image](/files/aws-s3-workflow.jpg)
+AWS Workflow
+
+![AWS Workflow](files/aws-s3-workflow.jpg)
+
+---
+
 
 
 ##### Tricks
@@ -56,18 +67,18 @@ My collection of pentesting/bug bounty tricks/scripts
     $~ nc 127.0.0.1 21666       # client
 ```
 
-##### Bugs
+### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**
 
-##### License
+### License
 
 - This work is licensed under [**MIT License**](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
 
-##### Contribution
+### Contribution
 
 - Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)[**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
 
-##### Disclaimer
+### Disclaimer
 
 I do private jobs, if you are interested send me an e-mail at: **hi@heitorgouvea.me**
