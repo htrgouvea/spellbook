@@ -15,7 +15,7 @@ My collection of pentesting/bug bounty tricks/scripts
 
 ##### Install
 
-```bash
+```bash 
     git clone https://github.com/GouveaHeitor/security-spellbook
     cd security-spellbook
 
@@ -25,6 +25,13 @@ My collection of pentesting/bug bounty tricks/scripts
     # create alias command
      $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/ -ti kali /bin/bash'
 ```
+
+
+##### Workflow's
+
+
+[!Image](/files/aws-s3-workflow.jpg)
+
 
 ##### Tricks
 
