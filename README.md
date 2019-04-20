@@ -79,6 +79,14 @@ AWS Workflow
     $~ nc 127.0.0.1 21666       # client
 ```
 
+
+### Notes
+
+```bash
+    $ docker stop $(docker ps -a -q)
+    $ docker rm $(docker ps -a -q)
+```
+
 ### Bugs
 
 - Report bugs in my email: **hi@heitorgouvea.me**
