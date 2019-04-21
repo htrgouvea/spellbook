@@ -39,6 +39,8 @@ RUN apt install -qy \
   fping \
   golang \
   exiftool \
+  steghide \
+  binwalk \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
