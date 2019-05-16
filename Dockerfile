@@ -7,6 +7,7 @@ RUN apt -qy dist-upgrade
 RUN apt -qy install
 
 RUN apt install -qy \
+  gcc \
   wget \
   curl \
   git \
@@ -41,6 +42,7 @@ RUN apt install -qy \
   exiftool \
   steghide \
   binwalk \
+  metagoofil \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
