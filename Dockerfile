@@ -43,6 +43,7 @@ RUN apt install -qy \
   steghide \
   binwalk \
   metagoofil \
+  recon-ng \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
