@@ -15,6 +15,7 @@ RUN apt install -qy \
   unzip \
   nmap \
   wpscan \
+  dirb \
   nikto \
   sqlmap \
   hashcat \
