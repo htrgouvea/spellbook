@@ -45,6 +45,7 @@ RUN apt install -qy \
   binwalk \
   metagoofil \
   recon-ng \
+  wordlists \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
