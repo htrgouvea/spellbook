@@ -53,6 +53,8 @@ RUN apt install -qy \
 RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
+RUN pip install httplib2
+
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
 
