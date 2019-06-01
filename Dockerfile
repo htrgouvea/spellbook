@@ -50,6 +50,7 @@ RUN apt install -qy \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
 
+RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
 
