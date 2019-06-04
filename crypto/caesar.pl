@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 
+use 5.010;
+use strict;
+use warnings;
+
 sub main {
     my $string = $ARGV[0];
     my $key    = $ARGV[1];
@@ -11,7 +15,7 @@ sub main {
             $key = 26 - $key;
         }
 
-        $caesar = $string =~ s/([A-Z])/chr(((ord(uc $1) - 65 + $key) % 26) + 65)/geir;
+        my $caesar = $string =~ s/([A-Z])/chr(((ord(uc $1) - 65 + $key) % 26) + 65)/geir;
 
         print $caesar, "\n";
     }

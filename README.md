@@ -97,7 +97,7 @@ AWS Workflow
 
 ### Contribution
 
-- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕)[**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
+- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕) [**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
 
 ### Disclaimer
 

@@ -4,7 +4,6 @@ MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
 RUN apt -qy update
 RUN apt list --upgradable
 RUN apt -qy dist-upgrade
-RUN apt -qy install
 
 RUN apt install -qy \
   gcc \
@@ -46,16 +45,15 @@ RUN apt install -qy \
   metagoofil \
   recon-ng \
   wordlists \
+  libjson-perl \
+  libwww-perl \
+  libmime-base32-perl \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
 
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
-RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-RUN cpanm LWP::UserAgent JSON MIME::Base32 Text::Morse WWW::Mechanize
-
 RUN pip install httplib2
-
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
 

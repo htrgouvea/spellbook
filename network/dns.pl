@@ -10,7 +10,6 @@ sub main {
 	my $target = $ARGV[0];
 
 	if ($target) {
-		my $timout = 5;
 		my $res    = new Net::DNS::Resolver;
 		my $bgsock = $res -> bgsend ($target);
 		my $sel    = IO::Select -> new ($bgsock);

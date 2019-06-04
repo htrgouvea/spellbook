@@ -8,8 +8,7 @@ use warnings;
 sub main {
   if (@ARGV >= 1) {
     my $protocol = getprotobyname ("tcp");
-
-    my $target = inet_aton ($ARGV[0]);
+    my $target   = inet_aton ($ARGV[0]);
 
     $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
 
