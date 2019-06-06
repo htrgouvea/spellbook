@@ -10,7 +10,6 @@ sub main {
     my $option = $ARGV[2];
 
     if (@ARGV >= 2) {
-
         if ($option eq "-d") {
             $key = 26 - $key;
         }

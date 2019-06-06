@@ -1,60 +1,28 @@
 #!/usr/bin/perl
 
-use URI;
 use 5.010;
 use strict;
 use warnings;
 use WWW::Mechanize;
 
 sub main {
-  my $target = $ARGV[0];
+    my $url = $ARGV[0];
 
-  if ($target) {
-    if ($target !~ /^https?:/) {
-      $target = 'http://' . $target;
-    }
+    if ($url) {
+        my $mech = WWW::Mechanize -> new();
 
-    my @urls = $target;
-    my %seen = ();
-    my @links = ();
+        $mech -> get($url);
 
-    while (my $link = shift @urls) {
-      next if $seen{$link}++;
+        my @links = $mech -> links();
+        my %seen  = ();
+        
+        foreach my $link (@links) {
+            $url = $link -> url();
+            next if $seen{$url}++;
 
-      print $link . "\n";
-
-      my $host = URI -> new($link) -> host();
-
-      my $mech = WWW::Mechanize -> new();
-
-      eval {
-        $mech -> get($link);
-      };
-
-      return if ($@);
-
-      my @links = $mech -> links();
-      my %seen = ();
-
-      foreach my $uri (@links) {
-        my $url = $uri -> url_abs();
-        next if $url eq $link;
-        my $hurl;
-
-        eval { $hurl = URI -> new($url) -> host(); };
-
-        next unless $hurl;
-
-        if ($hurl =~ $host) {
-          next if $seen{$url}++;
+            print "$url\n";
         }
-      }
-
-      @links = keys %seen;
-
-      push @urls, @links;
     }
-  }
 }
 
 main();
