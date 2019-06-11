@@ -32,7 +32,7 @@ sub main {
         exit;;
     }
 
-    print "Usage: exiftool.pl <image.png> '<script>alert('payload here');</script>'\n";
+    print "Usage: perl exifs.pl <image.png> '<script>alert('payload here');</script>'\n";
 }
 
 main();
