@@ -48,6 +48,9 @@ RUN apt install -qy \
   libjson-perl \
   libwww-perl \
   libmime-base32-perl \
+  nodejs \
+  npm \
+  netdiscover \
   && apt clean \
   && apt -y autoremove \
   && rm -rf /var/lib/apt/lists/*
@@ -56,5 +59,6 @@ RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
+RUN cpan install LWP::Protocol::https IO::Socket::SSL
 
 EXPOSE 1337

