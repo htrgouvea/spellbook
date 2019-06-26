@@ -58,7 +58,7 @@ RUN apt install -qy \
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
-RUN git clone https://github.com/codingo/Interlace && cd Interlace && python3 setup.py install
+RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 RUN cpan install LWP::Protocol::https IO::Socket::SSL
 
 EXPOSE 1337
