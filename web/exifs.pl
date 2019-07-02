@@ -8,7 +8,7 @@ sub main {
     my $image   = $ARGV[0];
     my $payload = $ARGV[1];
 
-    if ($image && $image) {
+    if ($image && $payload) {
         my @exifs = (
             "ImageDescription",
             "Make",
