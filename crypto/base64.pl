@@ -6,13 +6,12 @@ use warnings;
 use MIME::Base64;
 
 sub main {
-  my $string = $ARGV[0];
+  	my $string = $ARGV[0];
 
-  if ($string) {
-    my $decoded = MIME::Base64::decode($string);
-    
-    print $decoded;
-  }
+  	if ($string) {
+    	my $decoded = MIME::Base64::decode($string);
+    	print "$decoded\n";
+  	}
 }
 
 main();

@@ -79,7 +79,6 @@ AWS Workflow
     $~ nc 127.0.0.1 21666       # client
 ```
 
-
 ### Notes
 
 ```bash
@@ -89,7 +88,7 @@ AWS Workflow
 
 ### Bugs
 
-- Report bugs in my email: **hi@heitorgouvea.me**
+- Report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues)
 
 ### License
 
@@ -98,7 +97,3 @@ AWS Workflow
 ### Contribution
 
 - Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕) [**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
-
-### Disclaimer
-
-I do private jobs, if you are interested send me an e-mail at: **hi@heitorgouvea.me**

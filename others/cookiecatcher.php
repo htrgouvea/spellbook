@@ -1,7 +1,6 @@
 <?php 
 
 if (($_GET['cookie'] == "") || ($_GET['location'] == "")) {
-    // no action needed
 }
 
 else {

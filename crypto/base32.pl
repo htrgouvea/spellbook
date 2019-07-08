@@ -6,13 +6,12 @@ use warnings;
 use MIME::Base32;
 
 sub main {
-  my $string = $ARGV[0];
+	my $string = $ARGV[0];
 
-  if ($string) {
-    my $decoded = MIME::Base32::decode($string);
-
-    print "$decoded\n";
-  }
+  	if ($string) {
+    	my $decoded = MIME::Base32::decode($string);
+    	print "$decoded\n";
+  	}
 }
 
 main();

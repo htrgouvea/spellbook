@@ -5,11 +5,10 @@ use strict;
 use warnings;
 
 sub main {
-  my $target = $ARGV[0];
+  	my $target = $ARGV[0];
 
-  if ($target) {
-
-  }
+  	if ($target) {
+  	}
 }
 
 main();
