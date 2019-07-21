@@ -41,8 +41,6 @@ RUN apt install -qy \
   	exiftool \
   	steghide \
   	binwalk \
-  	metagoofil \
-  	recon-ng \
   	wordlists \
   	libjson-perl \
   	libwww-perl \
