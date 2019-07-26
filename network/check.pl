@@ -6,7 +6,7 @@ use warnings;
 use Net::Ping;
 
 sub main {
-    my $target = $ARGV[0];
+	my $target = $ARGV[0];
 
     if ($target) {
         $target =~ s/https:\/\/// || $target =~ s/http:\/\/// || $target =~ s/www.//;
