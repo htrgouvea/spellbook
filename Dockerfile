@@ -45,7 +45,7 @@ RUN apt install -qy \
   	nodejs \
   	npm \
   	netdiscover \
-	mariadb-server
+	mariadb-server \
   	&& apt clean \
   	&& apt -y autoremove \
   	&& rm -rf /var/lib/apt/lists/*
