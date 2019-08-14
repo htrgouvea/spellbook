@@ -42,20 +42,21 @@ RUN apt install -qy \
   	steghide \
   	binwalk \
   	wordlists \
-  	libjson-perl \
-  	libwww-perl \
-  	libmime-base32-perl \
   	nodejs \
   	npm \
   	netdiscover \
+	mariadb-server
   	&& apt clean \
   	&& apt -y autoremove \
   	&& rm -rf /var/lib/apt/lists/*
 
+RUN mysqld_safe
+RUN mysql -uroot -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin'"
+RUN mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION"
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
-RUN cpan install LWP::Protocol::https IO::Socket::SSL
+RUN cpan install LWP::Protocol::https IO::Socket::SSL DBIx::Custom Switch Config::Simple JSON LWP::UserAgent MIME::Base32 Text::Morse IO::Socket::Timeout Net::DNS WWW::Mechanize
 
-EXPOSE 1337
+EXPOSE 1337 3306
