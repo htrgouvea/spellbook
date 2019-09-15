@@ -22,7 +22,6 @@
     [+] EMAIL:        hi@heitorgouvea.me
     [+] WEBSITE:      https://heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TWITTER:      @GouveaHeitor
 ```
 
 ### Install
