@@ -9,9 +9,6 @@
     <a href="https://github.com/GouveaHeitor/security-spellbook/releases">
       <img src="https://img.shields.io/badge/version-0.1-blue.svg">
     </a>
-    <a href="https://twitter.com/GouveaHeitor">
-      <img src="https://img.shields.io/badge/twitter-@GouveaHeitor-blue.svg">
-    </a>
   </p>
 </p>
 
@@ -22,7 +19,6 @@
     [+] EMAIL:        hi@heitorgouvea.me
     [+] WEBSITE:      https://heitorgouvea.me
     [+] GITHUB:       https://github.com/GouveaHeitor
-    [+] TWITTER:      @GouveaHeitor
 ```
 
 ### Install
@@ -49,10 +45,6 @@ Recon Workflow
 ---
 
 AWS Workflow
-
-<p align="center"> 
-    <img src="files/aws-s3-workflow.jpg">
-</p>
 
 ---
 
