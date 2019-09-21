@@ -2,7 +2,9 @@
 
 ### Summary:
 
-Hi $target Team, I find a problem related to your password policy, it is weak and does not incorporate the basic security principles, making room for others attacks types.
+Hi $target Team,
+
+I find a problem related to your password policy, it is weak and does not incorporate the basic security principles, making room for others attacks types.
 
 ### Steps To Reproduce:
 

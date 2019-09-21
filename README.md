@@ -34,20 +34,6 @@
     $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/Workstation:/home/ -ti kali /bin/bash'
 ```
 
-
-### Workflow's
-
----
-Recon Workflow
-
-![Recon Workflow](files/recon-workflow.jpeg)
-
----
-
-AWS Workflow
-
----
-
 ### Tricks
 
 ```bash

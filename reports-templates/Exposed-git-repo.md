@@ -2,7 +2,7 @@
 
 ### Summary
 
-Hello $target,
+Hi $target Team,
 
 I found an exposed git repository. Git metadata directory (.git) was found in this folder. An attacker can extract sensitive information by requesting the hidden metadata directory that version control tool Git creates. The metadata directories are used for development purposes to keep track of development changes to a set of source code before it is committed back to a central repository (and vice-versa). When code is rolled to a live server from a repository, it is supposed to be done as an export rather than as a local working copy, and hence this problem.
 

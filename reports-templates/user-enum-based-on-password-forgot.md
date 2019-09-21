@@ -1,6 +1,6 @@
 ### Summary
 
-Hello $target,
+Hi $target Team,
 
 I have found a vulnerability by which an attacker can get access of all the emails accounts associated with $target. The forgot password parameter can be brute forced through which an attacker can get the email address.
 

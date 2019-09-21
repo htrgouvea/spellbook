@@ -2,7 +2,9 @@
 
 ### Summary:
 
-Hi $target Team, I found a problem related to your session management, it is weak and does not incorporate the basic security principles, making room for others attacks types.
+Hi $target Team,
+
+I found a problem related to your session management, it is weak and does not incorporate the basic security principles, making room for others attacks types.
 
 This vulnerability boils down to: you can authenticate to the same account on more than one device at a time, without prompting the user for permission. This device may have another operating system, another version and even another IP.
 
