@@ -1,6 +1,6 @@
 <p align="center">
   <h3 align="center">Security Spellbook</h3>
-  <p align="center">My collection of pentesting and bug bounty hunting tricks/scripts</p>
+  <p align="center">My collection of custom scripts, plugins, exploits and others small things</p>
 
   <p align="center">
     <a href="https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md">
@@ -32,41 +32,13 @@
 
     # create alias command
     $ alias kali='docker run -p 1337:1337 -v /Users/$(whoami)/Documents/:/home/ -ti kali /bin/bash'
-```
 
-### Tricks
-
-```bash
-    # enumarate subdomains
-    $~ for subdomain in $(cat wordlists/subdomains.txt);do ruby network/check.rb ${subdomain}target.com; done
-
-    # port scanning
-    $~ for port in {1..65535}; do perl network/portscan.pl target.com $port; done
-
-    # range scanning
-    $~ for host in {21..25}; do perl network/portscan.pl 104.24.111.${host} 80; done
-
-    # links extract
-    $~ perl web/links.pl https://target.com
-
-    # admin finder
-    $~ perl web/adminfinder.pl https://target.com
-
-    # backdoor access
-    $~ perl network/backdoor.pl # agent
-    $~ nc 127.0.0.1 21666       # client
-```
-
-### Notes
-
-```bash
+    # stop containers
     $ docker stop $(docker ps -a -q)
+
+    # remove containers
     $ docker rm $(docker ps -a -q)
 ```
-
-### Bugs
-
-- Report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues)
 
 ### License
 
@@ -74,4 +46,4 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily♥ welcome. (✿◕‿◕) [**See here the contribution guidelines**](/.github/CONTRIBUTING.md)
+- Your contributions and suggestions are heartily♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues)(✿◕‿◕) 
