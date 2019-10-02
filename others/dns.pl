@@ -1,0 +1,35 @@
+#!/usr/bin/perl
+
+use 5.010;
+use strict;
+use warnings;
+use Net::DNS;
+use IO::Select;
+
+sub main {
+	my $target = $ARGV[0];
+
+	if ($target) {
+		my $res    = new Net::DNS::Resolver;
+		my $bgsock = $res -> bgsend ($target);
+		my $sel    = IO::Select -> new ($bgsock);
+		my @ready  = $sel -> can_read ();
+
+		if (@ready) {
+			foreach my $sock (@ready) {
+				if ($sock == $bgsock) {
+					my $packet = $res -> bgread ($bgsock);
+
+					$packet -> print;
+					$bgsock = undef;
+				}
+
+				$sel -> remove($sock);
+				$sock = undef;
+			}
+		}
+	}
+}
+
+main();
+exit;

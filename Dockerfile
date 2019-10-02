@@ -27,7 +27,6 @@ RUN apt install -qy \
   	exploitdb \
   	weevely \
   	theharvester \
-  	gdb \
   	fcrackzip \
   	metasploit-framework \
   	hashid \
@@ -58,7 +57,7 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN cpan install LWP::Protocol::https IO::Socket::SSL DBIx::Custom Switch Config::Simple JSON LWP::UserAgent MIME::Base32 Text::Morse IO::Socket::Timeout
+# RUN cpan install LWP::Protocol::https IO::Socket::SSL DBIx::Custom Switch Config::Simple JSON LWP::UserAgent MIME::Base32 Text::Morse IO::Socket::Timeout
 
 # RUN mysqld_safe > /dev/null 2>&1 &
 # RUN mysql -uroot -e "CREATE USER 'admin'@'0.0.0.0' IDENTIFIED BY 'admin'"
