@@ -57,7 +57,7 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN gem install rest-client
+RUN gem install rest-client json
 
 # RUN mysqld_safe > /dev/null 2>&1 &
 # RUN mysql -uroot -e "CREATE USER 'admin'@'0.0.0.0' IDENTIFIED BY 'admin'"

