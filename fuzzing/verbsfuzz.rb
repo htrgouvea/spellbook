@@ -1,5 +1,11 @@
 #!/usr/bin/env ruby
 
+
+# to do things
+# also fuzzing content type
+# output data in format of postman/insomnia/burp suite colletion
+
+
 require 'net/http'
 
 target   = ARGV[0]
