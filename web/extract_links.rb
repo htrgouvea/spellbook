@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# extract links from web pages / to review
+
 require 'open-uri'
 
 file = open(ARGV[0]).read
