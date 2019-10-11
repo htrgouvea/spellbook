@@ -6,9 +6,9 @@ def main
     password = ARGV[2]
 
     if apkfile && pkgname && password
-        system('keytool -genkey -keystore', pkgname, '.jks -storepass', password, '-storetype jks -alias $nome -keyalg rsa -dname "CN=DESEC" -keypass', password)
-        system('jarsigner -keystore', pkgname, '.jks -storepass', password, '-storetype jks -sigalg sha1withrsa -digestalg sha1', apkfile, pkgname)
-        system('jarsigner -verify -certs -verbose', apkfile)
+        system("keytool -genkey -keystore \"#{pkgname}\" .jks -storepass \"#{password}\" -storetype jks -alias \"#{pkgname}\" -keyalg rsa -dname \"CN=DESEC\" -keypass \"#{password}\"")
+        system("jarsigner -keystore \"#{pkgname}\" .jks -storepass \"#{password}\" -storetype jks -sigalg sha1withrsa -digestalg sha1 \"#{apkfile}\" \"#{pkgname}\"")
+        system("jarsigner -verify -certs -verbose \"#{apkfile}\"")
     else 
         puts "ruby apk_sing.rb <apkfile.apk> <package_name> <password>\n"
     end
