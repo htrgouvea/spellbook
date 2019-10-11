@@ -1,3 +1,5 @@
+## User Enumeration via Forgot Password
+
 ### Summary
 
 Hi $target Team,
