@@ -1,7 +1,7 @@
 FROM kalilinux/kali-linux-docker:latest
 MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
 
-EXPOSE 1337 3306
+EXPOSE 1337
 
 RUN apt -qy update
 RUN apt list --upgradable
@@ -34,7 +34,6 @@ RUN apt install -qy \
   	smali \
   	dex2jar \
   	whois \
-  	smtp-user-enum \
   	hydra \
   	netcat \
   	fping \
@@ -58,7 +57,3 @@ RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
 RUN gem install rest-client json
-
-# RUN mysqld_safe > /dev/null 2>&1 &
-# RUN mysql -uroot -e "CREATE USER 'admin'@'0.0.0.0' IDENTIFIED BY 'admin'"
-# RUN mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'0.0.0.0' WITH GRANT OPTION"
