@@ -1,12 +1,8 @@
 /* 
-   Android SSL Re-pinning frida script v0.2 030417-pier 
-
+   Android SSL Re-pinning / Frida Script
    $ adb push burpca-cert-der.crt /data/local/tmp/cert-der.crt
    $ frida -U -f it.app.mobile -l frida-android-repinning.js --no-pause
-
    https://techblog.mediaservice.net/2017/07/universal-android-ssl-pinning-bypass-with-frida/
-   
-   UPDATE 20191605: Fixed undeclared var. Thanks to @oleavr and @ehsanpc9999 !
 */
 
 setTimeout(function(){

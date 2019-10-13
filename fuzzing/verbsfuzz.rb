@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-
 # to do things
+# fuzzing verbs
+# fuzzing routes
 # also fuzzing content type
 # output data in format of postman/insomnia/burp suite colletion
-
 
 require 'net/http'
 
@@ -12,7 +12,7 @@ target   = ARGV[0]
 wordlist = ARGV[1]
 
 class Purge < Net::HTTPRequest
-    METHOD = "L33T"
+    METHOD = "1337"
     REQUEST_HAS_BODY = false
     RESPONSE_HAS_BODY = false
   end
