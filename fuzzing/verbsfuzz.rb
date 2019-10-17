@@ -26,6 +26,9 @@ if target && wordlist
     # verbs = [
     #     "GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "CONNECT", "TRACE", "PATCH", "SUBSCRIBE", "MOVE", "REPORT",
     #     "UNLOCK", "0", "%s%s%s%s", "PURGE", "POLL", "OPTIONS", "NOTIFY", "SEARCH", "1337", "JEFF", "CATS", "*"
+
+    #      "DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", 
+    #      "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"
     # ]
 
     # verbs.each do |verb|
