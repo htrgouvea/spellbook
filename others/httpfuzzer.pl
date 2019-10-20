@@ -15,8 +15,7 @@ sub main {
 
         my $header = [
             "Accept" => "application/json",
-            "Content-Type" => "application/json",
-            "" => ""
+            "Content-Type" => "application/json"
         ];
 
         my @verbs = (
