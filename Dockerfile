@@ -56,4 +56,4 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN gem install rest-client json
+RUN gem install rest-client json net-ping
