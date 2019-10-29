@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# extract links from web pages / to review
+# refact code
 
 require 'open-uri'
 

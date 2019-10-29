@@ -6,17 +6,15 @@ require 'rest-client'
 def main
     target = ARGV[0]
 
-    if target 
-        request = RestClient::Request.new(
-            :method     => :get,
-            :url        => target + '/wp-json/wp/v2/users/',
-            :verify_ssl => false
-        ).execute
+    if target
+        request = RestClient.get "#{target}/wp-json/wp/v2/users/"
 
-        parse = JSON.parse(request.body)
-        
-        parse.each do |parsing|
-            puts "[ ! ] Username -> #{parsing['slug']}\n"
+        if request.code == 200
+            parse = JSON.parse(request.body)
+            
+            parse.each do |parsing|
+                puts "[ ! ] Username -> #{parsing['slug']}\n"
+            end
         end
     end
 end

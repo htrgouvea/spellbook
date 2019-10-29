@@ -21,7 +21,6 @@ RUN apt install -qy \
   	sqlmap \
   	hashcat \
   	john \
-  	findmyhash \
   	radare2 \
   	apktool \
   	exploitdb \
