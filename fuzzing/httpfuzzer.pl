@@ -6,6 +6,12 @@ use warnings;
 use HTTP::Request;
 use LWP::UserAgent;
 
+# to do
+# also fuzzing content type
+# output data in format of postman/insomnia/burp suite colletion
+# multi therads
+# create options to filter the output via CLI
+
 sub main {
     my $target   = $ARGV[0];
     my $wordlist = $ARGV[1];
@@ -20,7 +26,9 @@ sub main {
 
         my @verbs = (
             "GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS", "CONNECT", "TRACE", "PATCH", "SUBSCRIBE", "MOVE", "REPORT",
-            "UNLOCK", "0", "%s%s%s%s", "PURGE", "POLL", "OPTIONS", "NOTIFY", "SEARCH", "1337", "JEFF", "CATS", "*"
+            "UNLOCK", "%s%s%s%s", "PURGE", "POLL", "OPTIONS", "NOTIFY", "SEARCH", "1337", "JEFF", "CATS", "*",
+            "DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING",  "GOAWAY", "WINDOW_UPDATE", 
+            "CONTINUATION"
         );
         
         open (my $routes, "<", $wordlist);
@@ -36,7 +44,7 @@ sub main {
                 my $httpCode    = $response -> code();
                 my $httpMessage = $response -> message();
 
-                print "[ ! ] -> [$httpCode] | $endpoint \t [$verb] - $httpMessage\n";
+                print "[!] -> [$httpCode] | $endpoint \t [$verb] - $httpMessage\n";
             }
         }
 
