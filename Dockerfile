@@ -16,16 +16,12 @@ RUN apt install -qy \
   	unzip \
   	nmap \
   	wpscan \
-  	dirb \
-  	nikto \
   	sqlmap \
-  	hashcat \
   	john \
   	radare2 \
   	apktool \
   	exploitdb \
   	weevely \
-  	theharvester \
   	fcrackzip \
   	metasploit-framework \
   	hashid \
@@ -41,8 +37,6 @@ RUN apt install -qy \
   	steghide \
   	binwalk \
   	wordlists \
-  	nodejs \
-  	npm \
   	netdiscover \
 	mycli \
   	&& apt clean \
@@ -55,4 +49,4 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN gem install rest-client json net-ping
+RUN cpan install 
