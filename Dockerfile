@@ -49,4 +49,4 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN cpan install 
+RUN cpan install JSON LWP::UserAgent IO::Socket::SSL LWP::Protocol::https
