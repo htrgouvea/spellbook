@@ -37,7 +37,6 @@ RUN apt install -qy \
   	steghide \
   	binwalk \
   	wordlists \
-  	netdiscover \
 	mycli \
   	&& apt clean \
   	&& apt -y autoremove \
@@ -49,4 +48,5 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 # RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN cpan install JSON LWP::UserAgent IO::Socket::SSL LWP::Protocol::https HTTP::Request
+RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+# RUN cpanm Switch IO::Socket::SSL LWP::UserAgent HTTP::Request LWP::Protocol::https JSON Config::Simple
