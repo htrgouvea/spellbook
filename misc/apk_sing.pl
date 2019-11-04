@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Use: perl apk_sign.pl <apkfile.apk> <package_name> <password>
+
 use 5.010;
 use strict;
 use warnings;
@@ -13,11 +15,7 @@ sub main {
         system("keytool -genkey -keystore $pkgname .jks -storepass $password -storetype jks -alias $pkgname -keyalg rsa -dname \"CN=DESEC\" -keypass $password")
         system("jarsigner -keystore $pkgname .jks -storepass $password -storetype jks -sigalg sha1withrsa -digestalg sha1 $apkfile $pkgname")
         system("jarsigner -verify -certs -verbose $apkfile")
-        
-        exit;
     }
-
-    print "[!] - Usage: perl apk_sign.pl <apkfile.apk> <package_name> <password>\n";
 }
 
 main();

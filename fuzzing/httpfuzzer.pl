@@ -1,16 +1,18 @@
 #!/usr/bin/perl
 
-use 5.010;
-use strict;
-use warnings;
-use HTTP::Request;
-use LWP::UserAgent;
+# Use: $ perl httpfuzzer.pl https://target.com /wordlists/http/api_paths.txt
 
 # to do
 # also fuzzing content type
 # output data in format of postman/insomnia/burp suite colletion
 # multi therads
 # create options to filter the output via CLI
+
+use 5.010;
+use strict;
+use warnings;
+use HTTP::Request;
+use LWP::UserAgent;
 
 sub main {
     my $target   = $ARGV[0];

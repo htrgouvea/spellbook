@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Use: perl wp_username_exposed.pl https://target.com
+
 use JSON;
 use 5.010;
 use strict;
@@ -24,11 +26,7 @@ sub main {
                 print "[+] - Username -> $username\n";
             }
         }
-
-        exit;
-    }
-
-    print "[!] - Usage: perl wp_username_exposed.pl https://target.com\n"
+    }   
 }
 
 main();

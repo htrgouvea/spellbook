@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+# Use: $ perl bdorks.pl https://target.com
+
 use 5.010;
 use strict;
 use warnings;
