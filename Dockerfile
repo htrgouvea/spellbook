@@ -48,5 +48,5 @@ RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
 # RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
-RUN curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-# RUN cpanm Switch IO::Socket::SSL LWP::UserAgent HTTP::Request LWP::Protocol::https JSON Config::Simple
+RUN sudo curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+# RUN cpanm Switch IO::Socket::SSL LWP::UserAgent HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize
