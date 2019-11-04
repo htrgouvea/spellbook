@@ -1,7 +1,7 @@
 FROM kalilinux/kali-linux-docker:latest
 MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
 
-EXPOSE 1337
+EXPOSE 1337, 3306, 8080
 
 RUN apt -qy update
 RUN apt list --upgradable
@@ -49,4 +49,4 @@ RUN export PATH=$PATH:~/go/bin/
 # RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install
 
 RUN sudo curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-# RUN cpanm Switch IO::Socket::SSL LWP::UserAgent HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize
+# RUN cpanm Switch IO::Socket::SSL LWP::UserAgent HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize Mojolicious::Lite 
