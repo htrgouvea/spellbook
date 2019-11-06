@@ -5,7 +5,7 @@
 # to do
 # fuzzing content type
 # fuzzing params??
-# output data in format of postman/insomnia/burp suite colletion
+# output data in format of postman colletion
 # multi therads
 # create options to filter the output via CLI
 
