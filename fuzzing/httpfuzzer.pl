@@ -3,7 +3,8 @@
 # Use: $ perl httpfuzzer.pl https://target.com /wordlists/http/api_paths.txt
 
 # to do
-# also fuzzing content type
+# fuzzing content type
+# fuzzing params??
 # output data in format of postman/insomnia/burp suite colletion
 # multi therads
 # create options to filter the output via CLI
