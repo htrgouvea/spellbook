@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 # Use: $ perl httpfuzzer.pl https://target.com /wordlists/http/api_paths.txt
 
