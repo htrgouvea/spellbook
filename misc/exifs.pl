@@ -11,7 +11,7 @@ sub main {
     my $payload = $ARGV[1];
 
     if ($image && $payload) {
-        my @exifs = [
+        my @exifs = (
             "ImageDescription",
             "Make",
             "Model",
@@ -25,10 +25,10 @@ sub main {
             "Location",
             "Description",
             "Author"
-        ];
+        );
 
         foreach my $exif (@exifs) {
-            system ("exiftool -$exif=$payload $image");
+            system ("exiftool -$exif='$payload' $image\n");
         }
     }
 }
