@@ -1,0 +1,126 @@
+{  
+   "_type": "export",
+   "__export_format": 4,
+   "resources":[
+      {
+         "_id":"req_4bae2d1610ef4030bc14aed4a5606402",
+         "authentication":{
+
+         },
+         "body":{
+
+         },
+         "created":1574798297659,
+         "description":"",
+         "headers":[
+
+         ],
+         "isPrivate":false,
+         "metaSortKey":-1574798297659,
+         "method":"GET",
+         "modified":1574798311066,
+         "name":"Request RAW Paste Data",
+         "parameters":[
+
+         ],
+         "parentId":"fld_87932cf470064f3d8404fad7a3b5aeab",
+         "settingDisableRenderRequestBody":false,
+         "settingEncodeUrl":true,
+         "settingRebuildPath":true,
+         "settingSendCookies":true,
+         "settingStoreCookies":true,
+         "url":"https://scrape.pastebin.com/api_scrape_item.php?i=Pnmt7Leg",
+         "_type":"request"
+      },
+      {
+         "_id":"fld_87932cf470064f3d8404fad7a3b5aeab",
+         "created":1574798135621,
+         "description":"",
+         "environment":{
+
+         },
+         "environmentPropertyOrder":null,
+         "metaSortKey":-1574798135621,
+         "modified":1574798135621,
+         "name":"Pastebin",
+         "parentId":"wrk_fd4d664855e243b09336055a496f837b",
+         "_type":"request_group"
+      },
+      {
+         "_id":"wrk_fd4d664855e243b09336055a496f837b",
+         "created":1574798077182,
+         "description":"APIs of Brand Monitor Product",
+         "modified":1574798126557,
+         "name":"Brand Monitor",
+         "parentId":null,
+         "_type":"workspace"
+      },
+      {
+         "_id":"req_b4ec88320fa741f4bbdf0313854e0b75",
+         "authentication":{
+
+         },
+         "body":{
+
+         },
+         "created":1574798249600,
+         "description":"",
+         "headers":[
+
+         ],
+         "isPrivate":false,
+         "metaSortKey":-1574798249601,
+         "method":"GET",
+         "modified":1574798337615,
+         "name":"Request Most Recent Pastes",
+         "parameters":[
+
+         ],
+         "parentId":"fld_87932cf470064f3d8404fad7a3b5aeab",
+         "settingDisableRenderRequestBody":false,
+         "settingEncodeUrl":true,
+         "settingRebuildPath":true,
+         "settingSendCookies":false,
+         "settingStoreCookies":true,
+         "url":"https://scrape.pastebin.com/api_scraping.php",
+         "_type":"request"
+      },
+      {
+         "_id":"env_1a28c2b6eacfc1ee30aa4cc3eac419bdb5ccfd2c",
+         "color":null,
+         "created":1574798077224,
+         "data":{
+
+         },
+         "dataPropertyOrder":null,
+         "isPrivate":false,
+         "metaSortKey":1574798077224,
+         "modified":1574798077224,
+         "name":"Base Environment",
+         "parentId":"wrk_fd4d664855e243b09336055a496f837b",
+         "_type":"environment"
+      },
+      {
+         "_id":"jar_1a28c2b6eacfc1ee30aa4cc3eac419bdb5ccfd2c",
+         "cookies":[
+            {
+               "creation":"2019-11-26T19:57:33.718Z",
+               "domain":"pastebin.com",
+               "expires":"2019-12-26T19:57:33.000Z",
+               "hostOnly":false,
+               "httpOnly":true,
+               "id":"9193571995240775",
+               "key":"__cfduid",
+               "lastAccessed":"2019-11-26T19:57:33.718Z",
+               "path":"/",
+               "value":"dcb266f5dd48b016efdcbbad158ad57a61574798253"
+            }
+         ],
+         "created":1574798077228,
+         "modified":1574798253718,
+         "name":"Default Jar",
+         "parentId":"wrk_fd4d664855e243b09336055a496f837b",
+         "_type":"cookie_jar"
+      }
+   ]
+}  
