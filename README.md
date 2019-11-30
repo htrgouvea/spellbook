@@ -14,13 +14,6 @@
 
 ---
 
-```
-    [+] AUTOR:        Heitor Gouvêa
-    [+] EMAIL:        hi@heitorgouvea.me
-    [+] WEBSITE:      https://heitorgouvea.me
-    [+] GITHUB:       https://github.com/GouveaHeitor
-```
-
 #### Install
 
 ```bash 
