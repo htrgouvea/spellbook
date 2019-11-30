@@ -14,14 +14,7 @@
 
 ---
 
-```
-    [+] AUTOR:        Heitor Gouvêa
-    [+] EMAIL:        hi@heitorgouvea.me
-    [+] WEBSITE:      https://heitorgouvea.me
-    [+] GITHUB:       https://github.com/GouveaHeitor
-```
-
-#### Install
+### Download & Install
 
 ```bash 
     git clone https://github.com/GouveaHeitor/security-spellbook
@@ -40,10 +33,10 @@
     $ docker rm $(docker ps -a -q)
 ```
 
-#### Contribution
+### Contribution
 
 - Your contributions and suggestions are heartily♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues)(✿◕‿◕) 
 
-#### License
+### License
 
 - This work is licensed under [**MIT License.**](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
