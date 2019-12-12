@@ -2,7 +2,7 @@
 
 # Usage: perl extract_links.pl https://target.com
 
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 use WWW::Mechanize;

@@ -4,7 +4,7 @@
 # Use: $ perl no_rate_limit.pl https://target.com
 
 use JSON;
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 use LWP::UserAgent;
