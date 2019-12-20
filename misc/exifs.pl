@@ -2,7 +2,7 @@
 
 # Use: perl exifs.pl <image.png> '<script>alert('alert');</script>'
 
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 

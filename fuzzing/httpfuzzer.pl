@@ -9,7 +9,7 @@
 # multi therads
 # create options to filter the output via CLI
 
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 use HTTP::Request;

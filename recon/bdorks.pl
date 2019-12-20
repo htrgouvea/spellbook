@@ -2,7 +2,7 @@
 
 # Use: $ perl bdorks.pl https://target.com
 
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 use WWW::Mechanize;

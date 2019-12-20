@@ -2,7 +2,7 @@
 
 # Use: perl apk_sign.pl <apkfile.apk> <package_name> <password>
 
-use 5.010;
+use 5.018;
 use strict;
 use warnings;
 
