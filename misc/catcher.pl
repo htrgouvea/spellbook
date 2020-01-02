@@ -9,7 +9,8 @@ use Mojolicious::Lite -signatures;
 
 get "/catcher" => sub ($catcher) {
 	$catcher -> res -> headers -> header("Access-Control-Allow-Origin" => "*");
-
+	$catcher -> res -> headers -> header("Content-Security-Policy" => "default-src   'none';");
+	
 	my $cookie = $catcher -> param("cookie");
 	my $domain = $catcher -> param("domain");
 	
@@ -19,7 +20,7 @@ get "/catcher" => sub ($catcher) {
 
 	return (
 		$catcher -> render (
-			text => "<script>window.location='https://google.com';</script>"
+			text => "Ok"
 		)
 	);
 };
