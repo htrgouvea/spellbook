@@ -50,5 +50,3 @@ RUN export PATH=$PATH:~/go/bin/
 
 RUN sudo curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN cpanm Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize Mojolicious::Lite re::engine::TRE
-
-# RUN git clone https://github.com/codingo/Interlace interlace && cd interlace && python3 setup.py install

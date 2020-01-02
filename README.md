@@ -37,7 +37,6 @@
 
 - Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues) See here the [**Security Policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
 
-
 ### License
 
 - This work is licensed under [**MIT License.**](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
