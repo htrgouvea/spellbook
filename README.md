@@ -35,7 +35,7 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues) See here the [**Security Policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
+- Your contributions and suggestions are heartily ♥ welcome. [**See here the contribution guidelines.**](/.github/CONTRIBUTING.md) Please, report bugs via [**issues page.**](https://github.com/GouveaHeitor/security-spellbook/issues) See here the [**security policy.**](./github/SECURITY.md) (✿ ◕‿◕) 
 
 ### License
 
