@@ -39,6 +39,7 @@ RUN apt install -qy \
   	binwalk \
   	wordlists \
 	mycli \
+	dirb \
 	libwww-perl \
   	&& apt clean \
   	&& apt -y autoremove \
@@ -50,3 +51,5 @@ RUN export PATH=$PATH:~/go/bin/
 
 RUN sudo curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 RUN cpanm Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize Mojolicious::Lite re::engine::TRE
+
+RUN gem install aquatone
