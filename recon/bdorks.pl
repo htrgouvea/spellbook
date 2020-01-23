@@ -19,7 +19,11 @@ sub main {
             "site:$domain intitle:index.of",
             "site:$domain intext:(password | passcode | senha | login | username | userid | user)",
             "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal)",
-            "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx)"
+            "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx)",
+            # "site:$domain inurl: redirect url uri" # dork for find open redirects
+            # site:pastebin.com $domain # search on pastebin
+            # site:trello.com $domain # search on trello
+            
         );
 
         foreach my $dork (@dorks) {

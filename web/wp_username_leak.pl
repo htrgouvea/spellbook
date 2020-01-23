@@ -6,6 +6,7 @@ use JSON;
 use 5.018;
 use strict;
 use warnings;
+use Try::Tiny;
 use LWP::UserAgent;
 
 sub main {
@@ -18,14 +19,18 @@ sub main {
 	    my $request   = $userAgent -> get($target);
 	    my $httpCode  = $request -> code();
 
-        if ($httpCode == 200) {
+        try {
             my $content = decode_json ($request -> content);
-
+            
             foreach my $data (@$content) {
                 my $username = $data -> {'slug'};
                 print "[+] - Username -> $username\n";
             }
         }
+        
+        catch {
+            warn "caught error: $_";
+        };
     }   
 }
 

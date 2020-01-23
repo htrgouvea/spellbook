@@ -17,7 +17,6 @@ Based on this, an attacker can automate this type of request and enumerate in a 
 
 The impact here is that an attacker can enumerate users registered on the platform and use that information to carry out other types of more elaborate attacks in the future.
 
-
 ### Mitigation
 
 Add rate limit on the application.
