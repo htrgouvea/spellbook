@@ -1,4 +1,4 @@
-## Publicly accessible Git Directory
+## Publicly accessible Git Repository Directory
 
 ### Summary
 

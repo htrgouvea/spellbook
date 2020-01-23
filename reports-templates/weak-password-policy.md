@@ -14,7 +14,7 @@ I find a problem related to your password policy, it is weak and does not incorp
 
 ### Mitigation
 
-Use complex password management.
+Use a complex password policy. For example: it requires that all passwords have at least 8 characters, in addition to requiring a combination of uppercase and lowercase letters and numbers.
 
 ### Impact
 
