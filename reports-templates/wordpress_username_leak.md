@@ -1,4 +1,4 @@
-## Weak Password Policy
+## Username Leak in WordPress API
 
 ### Summary:
 

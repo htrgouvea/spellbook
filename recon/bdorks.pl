@@ -20,10 +20,9 @@ sub main {
             "site:$domain intext:(password | passcode | senha | login | username | userid | user)",
             "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal)",
             "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx)",
-            # "site:$domain inurl: redirect url uri" # dork for find open redirects
-            # site:pastebin.com $domain # search on pastebin
-            # site:trello.com $domain # search on trello
-            
+            "site:pastebin.com $domain",
+            "site:trello.com $domain",
+            # "site:$domain inurl: redirect url uri"
         );
 
         foreach my $dork (@dorks) {

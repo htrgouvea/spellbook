@@ -29,7 +29,7 @@ sub main {
         }
         
         catch {
-            warn "caught error: $_";
+            warn "[-] - Warning: it was not possible to extract users from this URL.\n";
         };
     }   
 }

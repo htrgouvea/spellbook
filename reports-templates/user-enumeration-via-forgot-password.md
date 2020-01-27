@@ -7,9 +7,8 @@ I found a vulnerability that allows an attacker to enumerate the users present o
 
 Well, we have two behaviors on this page:
 
-1 - When a valid email is provided on this page, it returns feedback saying that an email has been sent to this user.
-
-2 - When an invalid email is provided on this page, it returns feedback saying that the user does not exist on the platform.
+    1. - When a valid email is provided on this page, it returns feedback saying that an email has been sent to this user.
+    2. - When an invalid email is provided on this page, it returns feedback saying that the user does not exist on the platform.
 
 Based on this, an attacker can automate this type of request and enumerate in a massive way which users are present on the platform, opening a surface for him to execute other types of attacks.
 
