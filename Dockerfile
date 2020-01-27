@@ -40,7 +40,9 @@ RUN apt install -qy \
   	wordlists \
 	mycli \
 	dirb \
+	tcpdump \
 	libwww-perl \
+	libdbd-mysql-perl \
   	&& apt clean \
   	&& apt -y autoremove \
   	&& rm -rf /var/lib/apt/lists/*
@@ -48,8 +50,5 @@ RUN apt install -qy \
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip install httplib2
 RUN export PATH=$PATH:~/go/bin/
-
-RUN sudo curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-RUN cpanm Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request LWP::Protocol::https JSON Config::Simple WWW::Mechanize Mojolicious::Lite re::engine::TRE
-
 RUN gem install aquatone
+RUN cpan Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request LWP::Protocol::https JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom
