@@ -26,6 +26,9 @@
     # create alias command
     $ alias kali='docker run -p 8080:8080 -p 1337:1337 -v /Users/$(whoami)/Documents/:/home/ -ti kali /bin/bash'
 
+    # use this container
+    $ kali
+    
     # stop containers
     $ docker stop $(docker ps -a -q)
 
