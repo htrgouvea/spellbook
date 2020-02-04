@@ -28,12 +28,19 @@
 
     # use this container
     $ kali
-    
+
     # stop containers
     $ docker stop $(docker ps -a -q)
 
     # remove containers
     $ docker rm $(docker ps -a -q)
+```
+
+### Basic use
+
+```bash
+    # 
+    $ 
 ```
 
 ### Contribution
