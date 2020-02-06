@@ -2,13 +2,6 @@
 
 # Use: $ perl httpfuzzer.pl https://target.com /wordlists/http/api_paths.txt
 
-# to do
-# fuzzing content type
-# fuzzing params??
-# output data in format of postman colletion
-# multi therads
-# create options to filter the output via CLI
-
 use 5.018;
 use strict;
 use warnings;

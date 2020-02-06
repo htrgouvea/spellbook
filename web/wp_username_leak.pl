@@ -24,6 +24,7 @@ sub main {
             
             foreach my $data (@$content) {
                 my $username = $data -> {'slug'};
+                
                 print "[+] - Username -> $username\n";
             }
         }
