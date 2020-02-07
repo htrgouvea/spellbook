@@ -11,14 +11,14 @@ sub main {
     if ($file) {
         my $data = XMLin($file);
 
-        my $package = $data -> {package};
-        my $backup = $data -> {application} -> {'android:allowBackup'};
-        my $debug = $data -> {application} -> {'android:debuggable'};
-
+        my $package = $data -> {'package'};
+        my $backup  = $data -> {application} -> {'android:allowBackup'};
+        my $debug   = $data -> {application} -> {'android:debuggable'};
+        
         print "
-            \r[ - ] | Package name: $package
-            \r[ - ] | Debug -> $debug
-            \r[ - ] | Backup -> $backup\n";
+            \r[ - ] -> Package name: $package
+            \r[ - ] -> Debug: $debug
+            \r[ - ] -> Backup: $backup\n\n";
     }
 }
 
