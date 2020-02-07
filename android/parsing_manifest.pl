@@ -1,7 +1,5 @@
 #!/usr/bin/env perl
 
-# draft code 
-
 use 5.018;
 use strict;
 use warnings;

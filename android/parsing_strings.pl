@@ -1,15 +1,16 @@
 #!/usr/bin/env perl
 
-# draft code 
-
 use 5.018;
 use strict;
 use warnings;
+use XML::Simple;
 
 sub main {
-    my $target = $ARGV[0];
+    my $file = $ARGV[0];
 
-    if ($target) {
+    if ($file) {
+        my $data = XMLin($file);
+        
         print "here\n";
     }
 }
