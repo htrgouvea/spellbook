@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Usage: perl aquatone.pl <file_from_aquatone.json>
+# Usage: perl aquatone.pl <file_from_aquatone.txt>
 
 use 5.018;
 use strict;

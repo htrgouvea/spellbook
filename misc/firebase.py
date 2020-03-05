@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Usage: python firebase.py
+ 
 import pyrebase 
 
 config = { 
