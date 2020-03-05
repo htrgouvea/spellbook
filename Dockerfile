@@ -1,4 +1,4 @@
-FROM kalilinux/kali-linux-docker:latest
+FROM kalilinux/kali-rolling:latest
 MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
 
 COPY . /usr/share/security-spellbook
@@ -6,6 +6,7 @@ WORKDIR /home/
 
 EXPOSE 1337 3306 8080
 
+RUN echo "Acquire::http::Pipeline-Depth 0;\nAcquire::http::No-Cache true;\nAcquire::BrokenProxy true;" > /etc/apt/apt.conf.d/99fixbadproxy
 RUN apt -qy update
 RUN apt list --upgradable
 RUN apt -qy dist-upgrade
