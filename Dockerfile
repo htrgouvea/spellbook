@@ -24,6 +24,7 @@ RUN apt install -qy \
   	wpscan \
   	sqlmap \
   	john \
+	amass \
   	radare2 \
   	apktool \
   	exploitdb \
