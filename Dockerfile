@@ -1,12 +1,9 @@
 FROM kalilinux/kali-rolling:latest
-MAINTAINER  Heitor Gouvêa hi@heitorgouvea.me
+MAINTAINER  Heitor Gouvêa <hi@heitorgouvea.me>
 
-COPY . /usr/share/security-spellbook
 WORKDIR /home/
+EXPOSE 1337 9090
 
-EXPOSE 1337 3306 8080
-
-RUN echo "Acquire::http::Pipeline-Depth 0;\nAcquire::http::No-Cache true;\nAcquire::BrokenProxy true;" > /etc/apt/apt.conf.d/99fixbadproxy
 RUN apt -qy update
 RUN apt list --upgradable
 RUN apt -qy dist-upgrade
@@ -14,13 +11,10 @@ RUN apt -qy dist-upgrade
 RUN apt install -qy \
 	gcc \
   	wget \
-  	curl \
-  	git \
 	python3 \
   	python-pip \
   	man \
   	unzip \
-  	nmap \
   	wpscan \
   	sqlmap \
   	john \
@@ -43,9 +37,9 @@ RUN apt install -qy \
   	binwalk \
   	wordlists \
 	mycli \
+	golang \
 	dirb \
 	testssl.sh \
-	tcpdump \
 	libwww-perl \
 	libdbd-mysql-perl \
   	&& apt clean \
@@ -54,5 +48,4 @@ RUN apt install -qy \
 
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip install httplib2
-RUN gem install aquatone
-RUN cpan Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request LWP::Protocol::https JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom File::Which
+RUN cpan Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom

@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Use: $ perl httpfuzzer.pl https://target.com /wordlists/http/api_paths.txt
+# Use: $ perl verbshttp.pl https://target.com /wordlists/http/api_paths.txt
 
 use 5.018;
 use strict;
@@ -16,8 +16,8 @@ sub main {
         my $userAgent = LWP::UserAgent -> new();
 
         my $header = [
-            "Accept" => "application/json",
-            "Content-Type" => "application/json"
+            "Accept" => "*/*",
+            "Content-Type" => "*/*"
         ];
 
         my @verbs = (

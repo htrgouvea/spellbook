@@ -15,7 +15,6 @@ sub main {
             chomp($_);
             
             my $data = decode_json($_);
-
             print $data -> {name}, "\n";
         }
 

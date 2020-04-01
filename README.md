@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/security-spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.1.2-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.1.3-blue.svg">
     </a>
   </p>
 </p>
@@ -24,7 +24,7 @@
     $ docker build --rm --squash -t kali .
 
     # Create alias command
-    $ alias kali='docker run -p 8080:8080 -p 1337:1337 -ti kali /bin/bash'
+    $ alias kali='docker run -p 1337:1337 -p 9090:9090 -ti kali /bin/bash'
 
     # Use this container
     $ kali
@@ -36,9 +36,9 @@
     $ docker rm kali
 ```
 
-Tool |  Description
----- | ----
-fuzzing/verbshttp.pl | A tool to fuzzing all HTTP verbs in a Target
+Tool |  Category | Description | Link
+---- | ---- | ---- | ----
+verbshttp.pl | Fuzzing | A tool to fuzzing all HTTP verbs | [View]()
 
 ### Contribution
 
