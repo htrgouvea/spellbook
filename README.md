@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/security-spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.1-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.1.2-blue.svg">
     </a>
   </p>
 </p>
@@ -20,28 +20,25 @@
     git clone https://github.com/GouveaHeitor/security-spellbook
     cd security-spellbook
 
-    # building image
+    # Building image
     $ docker build --rm --squash -t kali .
 
-    # create alias command
-    $ alias kali='docker run -p 8080:8080 -p 1337:1337 -v /Users/$(whoami)/Documents/:/home/ -ti kali /bin/bash'
+    # Create alias command
+    $ alias kali='docker run -p 8080:8080 -p 1337:1337 -ti kali /bin/bash'
 
-    # use this container
+    # Use this container
     $ kali
 
-    # stop containers
-    $ docker stop $(docker ps -a -q)
+    # Stop container
+    $ docker stop kali
 
-    # remove containers
-    $ docker rm $(docker ps -a -q)
+    # Remove container
+    $ docker rm kali
 ```
 
-### Basic use
-
-```bash
-    # 
-    $
-```
+Tool |  Description
+---- | ----
+fuzzing/verbshttp.pl | A tool to fuzzing all HTTP verbs in a Target
 
 ### Contribution
 
