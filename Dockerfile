@@ -9,8 +9,8 @@ RUN apt list --upgradable
 RUN apt -qy dist-upgrade
 
 RUN apt install -qy \
-	gcc \
-  	wget \
+#	gcc \
+#  	wget \
 	python3 \
   	python-pip \
   	man \
@@ -26,7 +26,7 @@ RUN apt install -qy \
   	fcrackzip \
   	metasploit-framework \
   	hashid \
-  	smali \
+#  	smali \
   	jadx \
   	whois \
   	hydra \
