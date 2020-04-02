@@ -23,17 +23,8 @@
     # Building image
     $ docker build --rm --squash -t kali .
 
-    # Create alias command
-    $ alias kali='docker run -p 1337:1337 -p 9090:9090 -ti kali /bin/bash'
-
-    # Use this container
-    $ kali
-
-    # Stop container
-    $ docker stop kali
-
-    # Remove container
-    $ docker rm kali
+    # Using this container
+    $ docker run -p 1337:1337 -p 9090:9090 -ti kali /bin/bash
 ```
 
 ### Content
@@ -41,6 +32,7 @@
   Tool |  Category | Description | Link
   ---- | ---- | ---- | ----
   verbshttp.pl | Fuzzing | A tool to fuzzing all HTTP verbs | [View]()
+  hunter.pl | Recon | Extract all e-mails collected by hunter.io | [View](/recon/hunter.pl)
 
 ### Contribution
 
