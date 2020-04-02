@@ -20,9 +20,8 @@ sub main {
             "site:$domain intext:(password | passcode | senha | login | username | userid | user)",
             "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal)",
             "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx)",
-            "site:pastebin.com $domain",
-            "site:trello.com $domain",
-            # "site:$domain inurl: redirect url uri"
+            "site:pastebin.com intext:$domain",
+            "site:trello.com intext:$domain"
         );
 
         foreach my $dork (@dorks) {
@@ -37,7 +36,8 @@ sub main {
                     next if $seen{$url}++;
 
                     if ($url =~ m/^https?/ && $url !~ m/bing|live|microsoft|msn/) {
-                        print "[!] - $url\n";
+                        print "[!] - $dork\n";
+                        print "[+] - $url\n";
                     }
                 }
             }
