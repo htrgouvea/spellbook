@@ -18,14 +18,15 @@ sub main {
         my @dorks = (
             "site:$domain intitle:index.of",
             "site:$domain intext:(password | passcode | senha | login | username | userid | user)",
-            "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal)",
-            "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx)",
-            "site:pastebin.com intext:$domain",
-            "site:trello.com intext:$domain"
+            "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal) filetype:(pdf | txt | docx | sql | csv | xlsx)",
+            # "site:pastebin.com intext:$domain",
+            # "site:trello.com intext:$domain"
         );
 
         foreach my $dork (@dorks) {
-            for (my $page = 0; $page <= 5; $page++) {
+            print "[!] - $dork\n";
+
+            for (my $page = 0; $page <= 10; $page++) {
                 my $url = "http://www.bing.com/search?q=" . $dork . "&first=" . $page . "0";
                         
                 $mech -> get($url);
@@ -36,11 +37,12 @@ sub main {
                     next if $seen{$url}++;
 
                     if ($url =~ m/^https?/ && $url !~ m/bing|live|microsoft|msn/) {
-                        print "[!] - $dork\n";
                         print "[+] - $url\n";
                     }
                 }
             }
+
+            print "\n";
         }
     }
 }

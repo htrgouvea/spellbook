@@ -5,7 +5,6 @@ use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
-use Data::Dumper;
 
 sub main {
     my $domain = $ARGV[0];
@@ -24,8 +23,7 @@ sub main {
                 print $email -> {'value'}, "\n";
             }
         }
-    }   
-
+    }
 }
 
 main();
