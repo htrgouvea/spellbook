@@ -36,8 +36,8 @@
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page.](https://github.com/GouveaHeitor/security-spellbook/issues) See here the [security policy.](./SECURITY.md) (✿ ◕‿◕) 
-
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page.](https://github.com/GouveaHeitor/security-spellbook/issues) See here the [security policy.](./SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://github.com/GouveaHeitor/perl-style-guide).
+ 
 ### License
 
 - This work is licensed under [MIT License.](https://github.com/GouveaHeitor/security-spellbook/blob/master/LICENSE.md)
