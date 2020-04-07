@@ -4,3 +4,4 @@
 output/
 tests/
 .creds
+*.creds

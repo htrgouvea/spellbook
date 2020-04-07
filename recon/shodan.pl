@@ -20,16 +20,15 @@ sub main {
         if ($httpCode == 200) {
             my $content = decode_json($request -> content);
 
-            print $ip, "\n";
+            print "\n$ip\n";
 
             foreach my $data (@{$content -> {'data'}}) {
-                my $port = $data -> {'port'};
+                my $port      = $data -> {'port'};
                 my $transport = $data -> {'transport'};
+                my $service   = $data -> {'_shodan'} -> {'module'};
 
-                print "$transport -> $port\n";
+                print "[$transport] -> $port | $service\n";
             }
-
-            print "\n";
         }
     }   
 
