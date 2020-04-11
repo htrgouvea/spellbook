@@ -26,6 +26,7 @@ sub main {
             "site:dontpad.com intext:$domain",
             "site:mindmeister.com intext:$domain",
             "site:stackoverflow.com intext:$domain"
+            "site:$domain inurl:(pydio_public | pydio-public | public_pydio | public-pydio | pydio/public/ | public/pydio/ | pydio)"
         );
 
         foreach my $dork (@dorks) {
