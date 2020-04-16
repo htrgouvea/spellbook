@@ -24,7 +24,8 @@ sub main {
             "site:github.com intext:$domain",
             "site:dontpad.com intext:$domain",
             "site:mindmeister.com intext:$domain",
-            "site:stackoverflow.com intext:$domain"
+            "site:stackoverflow.com intext:$domain",
+            "site:ideone.com | site:codebeautify.org | site:codeshare.io | site:codepen.io | site:repl.it | site:justpaste.it | site:jsfiddle.net $",
             "site:$domain inurl:(pydio_public | pydio-public | public_pydio | public-pydio | pydio/public/ | public/pydio/ | pydio)"
         );
 
