@@ -9,8 +9,6 @@ RUN apt list --upgradable
 RUN apt -qy dist-upgrade
 
 RUN apt install -qy \
-#	gcc \
-#  	wget \
 	python3 \
   	python-pip \
   	man \
@@ -26,9 +24,7 @@ RUN apt install -qy \
   	fcrackzip \
   	metasploit-framework \
   	hashid \
-#  	smali \
   	jadx \
-  	whois \
   	hydra \
   	netcat \
   	fping \
@@ -36,9 +32,9 @@ RUN apt install -qy \
   	steghide \
   	binwalk \
   	wordlists \
-	mycli \
+	# mycli \
 	golang \
-	dirb \
+	# dirb \
 	testssl.sh \
 	libwww-perl \
 	libdbd-mysql-perl \
@@ -47,5 +43,5 @@ RUN apt install -qy \
   	&& rm -rf /var/lib/apt/lists/*
 
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
-RUN pip install httplib2
-RUN cpan Switch Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom
+RUN pip install httplib2 mmh3 requests
+RUN cpan Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom

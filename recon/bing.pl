@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: $ perl bing.pl target.com
+# Usage: $ perl bing.pl target.com
 
 use 5.018;
 use strict;
