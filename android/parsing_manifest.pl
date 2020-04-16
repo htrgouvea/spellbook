@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Usage: perl parsing_manifest.pl <AndroidManifest.xml>
 
 use 5.018;
 use strict;

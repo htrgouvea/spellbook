@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Usage: perl nmap.pl nmap-file.xml
 
 use 5.018;
 use strict;

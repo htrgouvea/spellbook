@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: $ perl param_fuzzer.pl https://target.com /wordlists/http/params.txt
+# Usage: $ perl params.pl https://target.com /wordlists/http/params.txt
 
 use 5.018;
 use strict;

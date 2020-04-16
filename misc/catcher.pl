@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: perl catcher.pl daemon -m production -l http://*:8080
+# Usage: perl catcher.pl daemon -m production -l http://*:8080
 
 use 5.018;
 use strict;

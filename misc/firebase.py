@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-# Usage: python firebase.py
+# Usage: python firebase_dump.py <apiKey> <authDomain> <databaseURL> <storageBucket>
  
 import pyrebase 
 

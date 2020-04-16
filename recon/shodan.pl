@@ -1,11 +1,11 @@
 #!/usr/bin/env perl
+# Usage: perl shodan.pl target.com
 
 use 5.018;
 use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
-use Data::Dumper;
 
 sub main {
     my $ip = $ARGV[0];

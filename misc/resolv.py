@@ -1,10 +1,17 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# Usage: python resolv.py target.com
 
 import sys
 import socket
 
-hostname = sys.argv[1]
-ip = socket.gethostbyname(hostname)
+def resolv(hostname):
+    if (hostname):
+        ip = socket.gethostbyname(hostname)
 
-print ip
+        try:
+            return ip
+        except:
+            return 0
+    return 0
+
+print resolv(sys.argv[1])

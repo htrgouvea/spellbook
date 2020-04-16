@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: perl exifs.pl <image.png> '<script>alert('alert');</script>'
+# Usage: perl exifs.pl <image.png> '<script>alert('alert');</script>'
 
 use 5.018;
 use strict;

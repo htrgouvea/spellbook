@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Usage: perl zoomeye.pl target.com
 
 use 5.018;
 use strict;

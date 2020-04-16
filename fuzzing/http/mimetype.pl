@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: $ perl contenttype_fuzzer.pl https://target.com/api/v1/endpoint
+# Usage: $ perl mimetype.pl https://target.com/api/v1/endpoint
 
 use 5.018;
 use strict;

@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-
 # Usage: perl extract_links.pl https://target.com  # draft code / i need implement recursive function
 
 use 5.018;

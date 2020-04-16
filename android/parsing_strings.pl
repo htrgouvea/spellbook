@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Usage: perl parsing_strings.pl <strings.xml>
 
 use 5.018;
 use strict;

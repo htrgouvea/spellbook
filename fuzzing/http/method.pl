@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: $ perl verbshttp.pl https://target.com /wordlists/http/api_paths.txt
+# Usage: $ perl method.pl https://target.com /wordlists/http/api_paths.txt
 
 use 5.018;
 use strict;

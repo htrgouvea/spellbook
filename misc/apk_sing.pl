@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
-
-# Use: perl apk_sign.pl <apkfile.apk> <package_name> <password>
+# Usage: perl apk_sign.pl <apkfile.apk> <package_name> <password>
 
 use 5.018;
 use strict;

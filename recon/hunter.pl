@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# Usage: perl hunter.io domain.com
 
 use 5.018;
 use strict;
