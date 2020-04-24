@@ -7,9 +7,9 @@ import socket
 def resolv(hostname):
     if (hostname):
         ip = socket.gethostbyname(hostname)
-
+        
         try:
-            return ip
+            return hostname
         except:
             return 0
     return 0

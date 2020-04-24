@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Usage: perl nmap.pl nmap-file.xml
+# Usage: perl nmap.pl <nmap_output_file.xml>
 
 use 5.018;
 use strict;
@@ -19,12 +19,12 @@ sub main {
         foreach my $content (@{$data -> {host} -> {ports} -> {port}}) {
             my $state = $content -> {state} -> {state};
 
-            if ($state eq "open") {
+            if (($state eq "open") || ($state eq "filtered")) {
                 my $port     = $content -> {portid};
                 my $protocol = $content -> {protocol};
                 my $service  = $content -> {service} -> {name};
 
-                print "[$protocol] -> $port \t | $service\n";
+                print "[$protocol] | [$state]-> $port \t | $service\n";
             }
         };
     }

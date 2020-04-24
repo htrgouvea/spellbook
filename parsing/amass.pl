@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Usage: perl amass.pl amass-output.json
+# Usage: perl amass.pl <amass-output.json>
 
 use 5.018;
 use strict;
@@ -14,7 +14,7 @@ sub main {
 
         while (<$domains>) {
             chomp($_);
-            
+
             my $data = decode_json($_);
             print $data -> {name}, "\n";
         }
