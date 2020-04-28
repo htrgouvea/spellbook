@@ -10,7 +10,7 @@ RUN apt -qy dist-upgrade
 
 RUN apt install -qy \
 	python3 \
-  	python-pip \
+  	python3-pip \
   	man \
   	unzip \
   	wpscan \
@@ -35,6 +35,7 @@ RUN apt install -qy \
 	# mycli \
 	golang \
 	# dirb \
+	tree \
 	testssl.sh \
 	libwww-perl \
 	libdbd-mysql-perl \
@@ -43,6 +44,6 @@ RUN apt install -qy \
   	&& rm -rf /var/lib/apt/lists/*
 
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
-RUN pip install httplib2 mmh3 requests
+RUN pip3 install httplib2 mmh3 requests
 RUN cpan Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom
 RUN cpan install Email::MIME Email::Sender::Simple Email::Sender::Transport::SMTP

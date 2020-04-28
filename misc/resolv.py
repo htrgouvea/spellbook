@@ -5,13 +5,12 @@ import sys
 import socket
 
 def resolv(hostname):
-    if (hostname):
-        ip = socket.gethostbyname(hostname)
-        
+    if (hostname):  
         try:
-            return hostname
+            ip = socket.gethostbyname_ex(hostname)
+            print hostname
         except:
             return 0
     return 0
 
-print resolv(sys.argv[1])
+resolv(sys.argv[1])
