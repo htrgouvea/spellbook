@@ -6,6 +6,7 @@ use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
+use Data::Dumper;
 
 sub main {
     my $ip = $ARGV[0];
@@ -20,14 +21,18 @@ sub main {
         if ($httpCode == 200) {
             my $content = decode_json($request -> content);
 
-            print "\n$ip\n";
-
             foreach my $data (@{$content -> {'data'}}) {
+                my $product = "unknown";
+
+                if ($data -> {'product'}) {
+                    $product = $data -> {'product'};
+                }
+
                 my $port      = $data -> {'port'};
                 my $transport = $data -> {'transport'};
                 my $service   = $data -> {'_shodan'} -> {'module'};
 
-                print "[$transport] -> $port | $service\n";
+                print "$ip: [$transport] -> $port | $service | $product\n";
             }
         }
     }   

@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/security-spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.1.3-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.2-blue.svg">
     </a>
   </p>
 </p>
