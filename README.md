@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/projects/spellbook/logo.png" width="150px" height="150px">
-  <h2 align="center">Security Spellbook</h2>
+  <h2 align="center">Spellbook</h2>
   <p align="center">My collection of custom scripts, plugins, exploits and others small things</p>
 
   <p align="center">
