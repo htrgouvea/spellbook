@@ -18,7 +18,11 @@ sub main {
             my @links = $mech -> links();
 
             for my $link (@links) {
-                print $link -> url(), "\n";
+                my $url = $link -> url();
+
+                if (($url) && ($url !~ m/#/)) {
+                    print $url, "\n";
+                }
             }
         }
     }
