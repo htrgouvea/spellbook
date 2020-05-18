@@ -33,7 +33,6 @@ RUN apt install -qy \
   	binwalk \
   	wordlists \
 	golang \
-	# dirb \
 	tree \
 	testssl.sh \
 	libwww-perl \
