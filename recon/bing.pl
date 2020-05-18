@@ -5,6 +5,7 @@ use 5.018;
 use strict;
 use warnings;
 use WWW::Mechanize;
+use Mojo::Util qw( url_escape);
 
 sub main {
     my $domain = $ARGV[0];
@@ -15,26 +16,23 @@ sub main {
         my @urls = ();
 
         my @dorks = (
-            "site:$domain intitle:index.of",
-            "site:$domain intext:(password | passcode | senha | login | username | userid | user)",
-            "site:$domain intext:(restrito | confidencial | interno | private | restricted | internal)",
-            "site:$domain filetype:(pdf | txt | docx | sql | csv | xlsx | ovpn)",
-            "site:pastebin.com intext:$domain",
-            "site:trello.com intext:$domain",
-            "site:github.com intext:$domain",
-            "site:dontpad.com intext:$domain",
-            "site:mindmeister.com intext:$domain",
-            "site:stackoverflow.com intext:$domain",
-            "site:ideone.com | site:codebeautify.org | site:codeshare.io | site:codepen.io | site:repl.it | site:justpaste.it | site:jsfiddle.net $domain",
-            "site:$domain inurl:(pydio_public | pydio-public | public_pydio | public-pydio | pydio/public/ | public/pydio/ | pydio)"
+            "(site:$domain) && (filetype:pdf || ppt || xls || doc) && (inbody:restrito | confidencial | interno | private | restricted | internal)",
+            "site:$domain intitle:\"Index of\"",
+            "(site:$domain) && (inbody:login || username || user || e-mail || usuário || userid) && (inbody:senha || password || passcode)",
+            "site:pastebin.com inbody:\"$domain\"",
+            "site:github.com inbody:\"$domain\"",
+            "site:trello.com inbody:\"$domain\"",
+            "site:stackoverflow.com inbody:\"$domain\"",
+            "(site:$domain) && (filetype:.bak || .sql)",
+            "(site:$domain) && (inbody:\"Hacked by\" || \"Owned by\" || \"Pwned by\")"
         );
 
         foreach my $dork (@dorks) {
-            print "\n[-] DORK: $dork\n";
+            $dork = url_escape($dork);
 
             for (my $page = 0; $page <= 10; $page++) {
                 my $url = "http://www.bing.com/search?q=" . $dork . "&first=" . $page . "0";
-                        
+
                 $mech -> get($url);
                 my @links = $mech -> links();
                         
