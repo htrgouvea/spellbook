@@ -19,4 +19,4 @@ RUN apt -qy update \
 
 RUN cpan install re::engine::TRE Mojolicious::Lite
 
-CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8080"]
+CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8001"]
