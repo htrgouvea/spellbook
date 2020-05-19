@@ -1,0 +1,5 @@
+Next labs:
+    - RCE
+    - IDOR
+    - Error Handling
+    - Blind SSRF

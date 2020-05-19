@@ -1,7 +1,7 @@
 FROM debian:latest
 MAINTAINER Heitor Gouvêa <hi@heitorgouvea.me>
 
-EXPOSE 8080
+EXPOSE 8002
 
 COPY . /usr/src/ssrf
 WORKDIR /usr/src/ssrf
@@ -19,4 +19,4 @@ RUN apt -qy update \
 
 RUN cpan install Mojolicious::Lite
 
-CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8080"]
+CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8002"]
