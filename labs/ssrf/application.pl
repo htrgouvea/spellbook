@@ -40,7 +40,7 @@ get "/" => sub ($request) {
         foreach my $hit (@blacklist) {
             if ($host eq $hit) {
                 return ($request -> render ( 
-                    text => "Sorry bro! You can do better!!!"
+                    text => "Sorry bro! You can do it better!!!"
                 )); 
             }
         }
