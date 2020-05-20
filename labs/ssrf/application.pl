@@ -31,7 +31,7 @@ get "/" => sub ($request) {
         my $userAgent = Mojo::UserAgent -> new();
 
         my @blacklist = (
-            "localhost", "0.0.0.0", "127.0.0.1", "127.0.0.2", "169.254.169.254", "instance-data"
+            "localhost", "0.0.0.0", "127.0.0.1", "127.0.0.2", "169.254.169.254", "instance-data",
             "0:0:0:0:0:ffff:a9fe:a9fe", "::ffff:a9fe:a9fe", "[::]", "0000::1", "0xA9.0xFE.0xA9.0xFE",
             "0251.00376.000251.0000376", "169.254.169.254.xip.io", "www.owasp.org.1ynrnhl.xip.io",
             "1ynrnhl.xip.io", "0251.00376.000251.0000376"
