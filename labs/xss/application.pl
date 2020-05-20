@@ -15,7 +15,7 @@ get "/" => sub ($request) {
 
     if (($xss) && (length($xss) <= 32)) { 
         my @blacklist = (
-            "script", ";", "img", "link", "onload", "onfocus", "onblur", "onclick"
+            "script", ";", "img", "link", "onload", "onfocus", "onblur", "onclick",
             "(", ")", "/", "onerror", "onplay", "onend", "svg", "<details", "audio",
             "h1", "h2", "h3", "h4", "h5", "h6", "iframe", "div", "section", "marquee", "onstart",
             "onmouseover", "onmousehover", "<body", "onmouseout", "onanimationend", "onanimationstart",
