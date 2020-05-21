@@ -3,3 +3,8 @@ Next labs:
     - IDOR
     - Error Handling
     - Blind SSRF
+    - Open Redirect
+    - Rate Limit
+    - Unrestricted File Upload
+    - Improper Session Management
+    - Weak Password Policy
