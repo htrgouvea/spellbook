@@ -1,10 +1,10 @@
 FROM debian:latest
 MAINTAINER Heitor Gouvêa <hi@heitorgouvea.me>
 
-EXPOSE 8001
+EXPOSE 8003
 
-COPY . /usr/src/xss
-WORKDIR /usr/src/xss
+COPY . /usr/src/blind-ssrf
+WORKDIR /usr/src/blind-ssrf
 
 RUN apt -qy update \
     && apt list --upgradable \
@@ -16,6 +16,7 @@ RUN apt -qy update \
     && apt clean \
   	&& apt -y autoremove
 
+
 RUN cpan install Mojolicious::Lite
 
-CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8001"]
+CMD ["perl", "application.pl", "daemon", "-m", "production", "-l", "http://*:8003"]

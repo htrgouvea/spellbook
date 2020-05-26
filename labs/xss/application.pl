@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Use: perl awesome-waf.pl daemon -m production -l http://*:8001
+# Use: perl application.pl daemon -m production -l http://*:8001
 # Try pop up some thing on your browser
 
 use 5.018;
@@ -10,7 +10,6 @@ use Mojolicious::Lite -signatures;
 
 get "/" => sub ($request) {
     my $xss = $request -> param("TryHarder");
-
     $xss = lc $xss;
 
     if (($xss) && (length($xss) <= 32)) { 
@@ -21,15 +20,12 @@ get "/" => sub ($request) {
             "onmouseover", "onmousehover", "<body", "onmouseout", "onanimationend", "onanimationstart",
             "onbeforeprint", "onbegin", "onblur", "oncanplay", "<textarea", "select", "object", "data", "input",
             "alert", "confirm", "javascript", ":", "xss", "<b>", "<i>", "</b>", "</i>", "%",
-            "onmouseup", "onwheel", "xss" 
-            # "\", "<html"
+            "onmouseup", "onwheel", "xss"
         );
 
-        for (my $i = 0; $i <= 3; $i++) {
+        for (my $i = 0; $i <= 10; $i++) {
              foreach my $filter (@blacklist) {
-                if ($xss =~ /\($filter\)/i) {
-                    $xss =~ s/$filter//;
-                }                
+                $xss =~ s/$filter//;          
             }
         }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
-# Use: perl application.pl daemon -m production -l http://*:8002
-# Try discover the internal hostname
+# Use: perl best-cloud-security.pl daemon -m production -l http://*:8003
+# Try pop up some thing on browser
 
 use 5.018;
 use strict;
@@ -10,10 +10,11 @@ use Mojo::UserAgent;
 use Mojolicious::Lite -signatures;
 
 get "/" => sub ($request) {
-    my $read = $request -> param("read");
+    my $param = $request -> param("get");
 
-    if (($read) && (length($read) <= 52)) { 
-        my $url    = Mojo::URL -> new($read);
+    if (($param) && (length($param) <= 52)) { 
+        my $url = Mojo::URL -> new($param);
+
         my $scheme = $url -> scheme;
 
         if ($scheme) {
@@ -46,21 +47,21 @@ get "/" => sub ($request) {
                 }
             }
 
-            my $getContent = $userAgent -> get($read) -> result();
+            my $getContent = $userAgent -> get($param) -> result();
 
             if ($getContent -> is_success) {
                 my $content = $getContent -> body();
 
                 return ($request -> render ( 
-                    text => "
-                    <html>
+                    text => "<html>
                         <head>
                             <title>Awesome Web Security - AWS</title>
                             <!-- The flag is internal hostname of this server ;) -->
                         </head>
                         <body>
                             $content
-                        </body> 
+                        </body>
+                        
                     </html>"
                     
                 ));   
@@ -79,7 +80,7 @@ get "/" => sub ($request) {
     }
     
     return ($request -> render (
-        text => "<script>window.location='/?read=https://nozaki.io/js/app.js'</script>"
+        text => "<script>window.location='/?get=https://nozaki.io/images/evie_default_bg.jpeg'</script>"
     ));
 };
 

@@ -44,4 +44,4 @@ RUN apt install -qy \
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
 RUN pip3 install httplib2 mmh3 requests
 RUN cpan Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom
-RUN cpan install Email::MIME Email::Sender::Simple Email::Sender::Transport::SMTP Perl::Critic Path::Iterator::Rule
+RUN cpan install Email::MIME Email::Sender::Simple Email::Sender::Transport::SMTP Perl::Critic Path::Iterator::Rule Mojo::mysql DBIx::Custom Mojo::Util

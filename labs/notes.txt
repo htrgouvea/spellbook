@@ -1,5 +1,7 @@
 Next labs:
-    - RCE
-    - IDOR
-    - Error Handling
-    - Blind SSRF
+    - RCE / DL
+    - Dump creds / DL
+    - IDOR / twitter
+    - Error Handling / pydio
+    - Blind SSRF / pydio
+    - Open Redirect / caixa
