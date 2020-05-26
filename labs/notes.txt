@@ -1,7 +1,10 @@
 Next labs:
-    - RCE / DL
-    - Dump creds / DL
-    - IDOR / twitter
-    - Error Handling / pydio
-    - Blind SSRF / pydio
-    - Open Redirect / caixa
+    - RCE / Dump Creds -> DL
+    - IDOR -> Twitter
+    - Error Handling / Blind SSRF -> Pydio
+    - Open Redirect -> Caixa
+    - Rate Limit
+    - Unrestricted File Upload
+    - Improper Session Management
+    - Weak Password Policy
+
