@@ -20,15 +20,47 @@ Here you will find a "spellbook" with my personal scripts, exploits and other sm
 
 ---
 
-### Download & Install
+### Usage
 
-```bash 
-    # Cloning
-    git clone https://github.com/GouveaHeitor/spellbook && cd spellbook
-    
-    # Building and using this container
-    $ docker build --rm --squash -t spellbook .
-    $ docker run -v /root/home:/home/ -p 1337:1337 -p 9090:9090 -ti spellbook /bin/bash
+```bash
+Spellbook v0.0.1
+Core Commands
+==============
+	Command       Description
+	-------       -----------
+	--show        List modules, you can filter by category
+	--module      Set a module to use
+	--read        Read the code of a module
+	--output      Create a output file
+
+Copyright Spellbook (c) 2020 | Heitor Gouvêa
+```
+
+### Examples
+
+```bash
+$ perl spellbook.pl --show recon
+
+...
+Name: extract_links
+Category: recon
+Description: A module to extract links from a page
+Package: Recon::Extract_Links
+=================================================
+...
+
+$ perl spellbook.pl -m Recon::Extract_Links -t https://heitorgouvea.me
+
+/images/favicon.ico
+//fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin-ext,vietnamese
+/css/main.css
+https://heitorgouvea.me/
+/
+/projects
+/about
+/2020/01/03/From-Open-Redirect-to-Session-Token-Leak
+https://twitter.com/GouveaHeitor
+https://github.com/GouveaHeitor
 ```
 
 ---
