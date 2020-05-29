@@ -5,4 +5,5 @@ output/
 tests/
 .creds
 *.creds
+data/
 targets/
