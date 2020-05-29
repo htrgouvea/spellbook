@@ -1,0 +1,84 @@
+{
+    "packages": [
+        {
+            "id": "0001",
+            "category": "recon",
+            "name": "find_emails",
+            "description": "Find e-mails from a domain using hunter.io API",
+            "package": "Recon::Find_Emails",
+            "location": "Modules/Recon/Find_Emails.pm"
+        },
+        {
+            "id": "0002",
+            "category": "recon",
+            "name": "passive_enum",
+            "description": "Enumerate ports and service from a IP using Shodan API",
+            "package": "Recon::Passive_Enum",
+            "location": "Modules/Recon/Passive_Enum.pm"
+        },
+        {
+            "id": "0003",
+            "category": "exploit",
+            "name": "wordpress_username_leak",
+            "description": "A exploit to read usernames leaked on WordPress API",
+            "package": "Exploit::Wordpress_Username_Leak",
+            "location": "Modules/Exploit/Wordpress_Username_Leak.pm"
+        },
+        {
+            "id": "0004",
+            "category": "exploit",
+            "name": "takeover_aws_ses",
+            "description": "A exploit to send e-mails using AWS SeS",
+            "package": "Exploit::TakeOver_AWS_SeS",
+            "location": "Modules/Exploit/TakeOver_AWS_SeS.pm"
+        },
+        {
+            "id": "0005",
+            "category": "recon",
+            "name": "bing_dorks",
+            "description": "A module to use bing dorks",
+            "package": "Recon::Bing",
+            "location": "Modules/Recon/Bing.pm"
+        },
+        {
+            "id": "0006",
+            "category": "recon",
+            "name": "extract_links",
+            "description": "A module to extract links from a page",
+            "package": "Recon::Extract_Links",
+            "location": "Modules/Recon/Extract_Links.pm"
+        },
+        {
+            "id": "0007",
+            "category": "parsing",
+            "name": "amass_parsing",
+            "description": "A module to parsing output from amass",
+            "package": "Parser::Amass",
+            "location": "Modules/Parser/Amass.pm"
+        },
+        {
+            "id": "0008",
+            "category": "parsing",
+            "name": "parsing_android_manifest",
+            "description": "A module to parsing AndroidManifst.xml",
+            "package": "Parser::Android_Manifest",
+            "location": "Modules/Parser/Android_Manifest.pm"
+        },
+        {
+            "id": "0009",
+            "category": "parsing",
+            "name": "parsing_android_strings",
+            "description": "A module to parsing strings.xml from a APK",
+            "package": "Parser::Android_Strings",
+            "location": "Modules/Parser/Android_Strings.pm"
+        },
+        {
+            "id": "0010",
+            "category": "parsing",
+            "name": "parsing_nmap_xml",
+            "description": "A module to parsing XML output from Nmap",
+            "package": "Parser::Nmap",
+            "location": "Modules/Parser/Nmap.pm"
+        }
+    ] 
+}

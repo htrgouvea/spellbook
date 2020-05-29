@@ -5,4 +5,6 @@ output/
 tests/
 .creds
 *.creds
+data/
 targets/
+.config/credentials.json

@@ -1,8 +1,0 @@
-foo1
-id
-limit
-offset
-version
-foo2
-foo6
-_method
