@@ -7,10 +7,12 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.2-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.0.3-blue.svg">
     </a>
   </p>
 </p>
+
+⚠️ __Warning:__ Spellbook is currently in __development__, you've been warned :) and please consider [contributing](./github/CONTRIBUTING.md)
 
 ---
 
@@ -23,7 +25,7 @@ Here you will find a "spellbook" with my personal scripts, exploits and other sm
 ### Usage
 
 ```bash
-Spellbook v0.0.1
+Spellbook v0.0.3
 Core Commands
 ==============
 	Command       Description
@@ -32,8 +34,6 @@ Core Commands
 	--module      Set a module to use
 	--read        Read the code of a module
 	--output      Create a output file
-
-Copyright Spellbook (c) 2020 | Heitor Gouvêa
 ```
 
 ### Examples
@@ -41,26 +41,32 @@ Copyright Spellbook (c) 2020 | Heitor Gouvêa
 ```bash
 $ perl spellbook.pl --show recon
 
-...
-Name: extract_links
+Name: find_emails
 Category: recon
-Description: A module to extract links from a page
-Package: Recon::Extract_Links
+Description: Find e-mails from a domain using hunter.io API
+Package: Recon::Find_Emails
+=================================================
+
+
+Name: passive_enum
+Category: recon
+Description: Enumerate ports and service from a IP using Shodan API
+Package: Recon::Passive_Enum
 =================================================
 ...
 
-$ perl spellbook.pl -m Recon::Extract_Links -t https://heitorgouvea.me
+$ perl spellbook.pl -m Recon::Find_Emails -t github.com
 
-/images/favicon.ico
-//fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin-ext,vietnamese
-/css/main.css
-https://heitorgouvea.me/
-/
-/projects
-/about
-/2020/01/03/From-Open-Redirect-to-Session-Token-Leak
-https://twitter.com/GouveaHeitor
-https://github.com/GouveaHeitor
+stanleygoldman@github.com
+bryanmacfarlane@github.com
+rob.rix@github.com
+rschultheis@github.com
+pedrolacerda@github.com
+jonahberquist@github.com
+brendan@github.com
+michaelsainz@github.com
+acadavid@github.com
+patrick.reynolds@github.com
 ```
 
 ---
