@@ -1,13 +1,10 @@
-#!/usr/bin/env perl
-# Usage: perl exifs.pl <image.png> '<script>alert('alert');</script>'
+package Modules::Auxiliary::Exifs;
 
-use 5.018;
 use strict;
 use warnings;
 
-sub main {
-    my $image   = $ARGV[0];
-    my $payload = $ARGV[1];
+sub new {
+    my ($self, $image, $payload) = @_;
 
     if ($image && $payload) {
         my @exifs = (
@@ -32,5 +29,4 @@ sub main {
     }
 }
 
-main();
-exit;
+1;
