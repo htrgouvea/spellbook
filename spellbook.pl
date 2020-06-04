@@ -76,7 +76,7 @@ sub main {
                     my $location = $package -> {location};
                     
                     require $location;
-
+                    
                     my @run = "Modules::$module" -> new($target);
 
                     foreach my $result (@run) {

@@ -79,6 +79,14 @@
             "description": "A module to parsing XML output from Nmap",
             "package": "Parser::Nmap",
             "location": "Modules/Parser/Nmap.pm"
+        },
+        {
+            "id": "0011",
+            "category": "auxiliary",
+            "name": "new_project",
+            "description": "A module to create my personal structure of folder when i start a new project",
+            "package": "Auxiliary::New_Target",
+            "location": "Modules/Auxiliary/New_Target.pm"
         }
     ] 
 }
