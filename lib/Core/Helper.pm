@@ -1,4 +1,4 @@
-package Functions::Helper;
+package Core::Helper;
 
 use strict;
 use warnings;

@@ -4,10 +4,10 @@ use 5.018;
 use strict;
 use warnings;
 use lib "./lib/";
+use Core::Helper;
 use Getopt::Long;
 use Mojo::File;
 use Mojo::JSON qw(decode_json);
-use Functions::Helper;
 
 sub main {
     my $packages = Mojo::File -> new(".config/packages.json");
@@ -27,8 +27,10 @@ sub main {
             "--read=s"   => \$read,
             "--output=s" => \$output
         ) or die (
-            return Functions::Helper -> new()
+            return Core::Helper -> new()
         );
+
+        # Yeah, I know, i need refact this shit
 
         if ($show) {
             foreach my $package (@{$hash -> {"packages"}}) {
@@ -88,7 +90,7 @@ sub main {
             return 1;
         }
 
-        return Functions::Helper -> new();
+        return Core::Helper -> new();
     }
 }
 
