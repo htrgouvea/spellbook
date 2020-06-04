@@ -87,6 +87,23 @@
             "description": "A module to create my personal structure of folder when i start a new project",
             "package": "Auxiliary::New_Target",
             "location": "Modules/Auxiliary/New_Target.pm"
+        },
+        {
+            "id": "0012",
+            "category": "recon",
+            "name": "host_resolv",
+            "description": "A module to resolv a host",
+            "package": "Recon::Host_Resolv",
+            "location": "Modules/Recon/Host_Resolv.pm"
+        }
+        ,
+        {
+            "id": "0013",
+            "category": "recon",
+            "name": "get_ip",
+            "description": "A module to get ip from a host",
+            "package": "Recon::Get_IP",
+            "location": "Modules/Recon/Get_IP.pm"
         }
     ] 
 }
