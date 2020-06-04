@@ -1,11 +1,10 @@
-package Exifs;
+package Modules::Auxiliary::Exifs;
 
 use strict;
 use warnings;
 
 sub new {
-    my $image   = $ARGV[0];
-    my $payload = $ARGV[1];
+    my ($self, $image, $payload) = @_;
 
     if ($image && $payload) {
         my @exifs = (

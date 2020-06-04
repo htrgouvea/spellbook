@@ -34,7 +34,7 @@ Here you will find a "spellbook" with my personal scripts, exploits and other sm
 ### How to use
 
 ```bash
-Spellbook v0.0.3
+Spellbook v0.0.4
 Core Commands
 ==============
 	Command       Description
@@ -42,7 +42,6 @@ Core Commands
 	--show        List modules, you can filter by category
 	--module      Set a module to use
 	--read        Read the code of a module
-	--output      Create a output file
 ```
 
 ### Examples

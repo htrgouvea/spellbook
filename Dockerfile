@@ -19,7 +19,6 @@ RUN apt install -qy \
   	sqlmap \
   	john \
 	amass \
-  	radare2 \
   	apktool \
   	exploitdb \
   	weevely \
@@ -31,10 +30,7 @@ RUN apt install -qy \
   	netcat \
   	fping \
   	exiftool \
-  	steghide \
-  	binwalk \
   	wordlists \
-	golang \
 	tree \
 	testssl.sh \
 	libwww-perl \
@@ -44,5 +40,21 @@ RUN apt install -qy \
   	&& rm -rf /var/lib/apt/lists/*
 
 RUN gunzip /usr/share/wordlists/rockyou.txt.gz
-RUN cpan Switch IO::Socket::SSL LWP::UserAgent LWP::Protocol::https HTTP::Request JSON Mojolicious::Lite Config::Simple WWW::Mechanize re::engine::TRE DBIx::Custom
-RUN cpan install Email::MIME Email::Sender::Simple Email::Sender::Transport::SMTP Perl::Critic Path::Iterator::Rule Mojo::mysql DBIx::Custom Mojo::Util
+RUN cpan install Switch \
+	IO::Socket::SSL \
+	LWP::UserAgent \
+	LWP::Protocol::https \
+	HTTP::Request \
+	JSON \
+	Mojolicious::Lite \
+	Config::Simple \
+	WWW::Mechanize \
+	re::engine::TRE \
+	DBIx::Custom \
+	Email::MIME \
+	Email::Sender::Simple \
+	Email::Sender::Transport::SMTP \
+	Perl::Critic \
+	Path::Iterator::Rule \
+	Mojo::mysql \
+	Mojo::Util
