@@ -1,28 +1,31 @@
+package Modules::Auxiliary::New_Target;
 
-#!/usr/bin/env perl
-
-use 5.018;
 use strict;
 use warnings;
 
-sub main {
-    my $target = $ARGV[0];
+sub new {
+    my ($self, $target) = @_;
 
     if ($target) {
         my @folders = ("recon", "notes", "files", "exploits", "proofs");
         my @recon = ("amass",  "notes", "emails", "shodan", "zoomeye", "nmap",  "headers");
+        
+        my @result = (); 
 
         foreach my $folder(@folders) {
-            system("mkdir $target/$folder");
+            system("mkdir -p $target/$folder");
 
             if ($folder eq "recon") {
                 foreach my $recon (@recon) {
                     system("mkdir $target/$folder/$recon");
                 }
             }
+
+            push @result, "created $target/$folder\n";
         }
+
+        return @result;
     }
 }
 
-main();
-exit;
+1;
