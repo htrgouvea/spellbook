@@ -86,7 +86,7 @@ patrick.reynolds@github.com
 
 First, you need to specify your module in the list of packages that Spellbook reads, present in: .config/packages.json
 
-![](https://heitorgouvea.me/images/projects/spellbook/example-packages-json.png)
+![](https://heitorgouvea.me/images/projects/spellbook/example_packages-json.png)
 
 Just copy the last block of the json and insert the information of the new module;
 
