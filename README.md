@@ -81,6 +81,12 @@ patrick.reynolds@github.com
 
 ---
 
+### Demo
+
+video here
+
+---
+
 ### How to create new modules
 
 First, you need to specify your module in the list of packages that Spellbook reads, present in: .config/packages.json
@@ -89,7 +95,7 @@ First, you need to specify your module in the list of packages that Spellbook re
 
 Just copy the last block of the json and insert the information of the new module;
 
-Second, all modules are stored and accessible through the lib / Modules folder, each module is organized in a third folder that defines its category, such as:
+Second, all modules are stored and accessible through the lib/Modules folder, each module is organized in a third folder that defines its category, such as:
 
 ![](https://heitorgouvea.me/images/projects/spellbook/list-modules.png)
 

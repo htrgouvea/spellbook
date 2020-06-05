@@ -9,14 +9,20 @@ sub new {
 
     if ($hostname) {
         my @result = ();
+        open (my $file, "<", $hostname);
 
-        my $resolver = Net::DNS::Resolver -> new();
-        my $resolv = $resolver -> search($hostname);
+        while (<$file>) {
+            chomp($_);
 
-        if ($resolv) {
-            push @result, $hostname;
+            my $resolver = Net::DNS::Resolver -> new();
+            my $resolv = $resolver -> search($_);
+
+            if ($resolv) {
+                push @result, $_, "\n";
+            }
         }
 
+        close ($file);
         return @result;
     }
 }

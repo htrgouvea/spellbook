@@ -9,12 +9,17 @@ sub new {
 
     if ($hostname) {
         my @result = ();
+        open (my $file, "<", $hostname);
 
-        my $ip = gethostbyname($hostname);
-        my $toString = inet_ntoa($ip);
+        while (<$file>) {
+            chomp ($_);
+            my $ip = gethostbyname($_);
+            my $toString = inet_ntoa($ip);
         
-        push @result, $toString;
+            push @result, $toString, "\n";
+        }
 
+        close ($file);
         return @result;
     }
 }
