@@ -10,10 +10,10 @@ use Mojo::File;
 use Mojo::JSON qw(decode_json);
 
 sub main {
-    my $packages = Mojo::File -> new(".config/packages.json");
+    my $modules = Mojo::File -> new(".config/modules.json");
     
-    if ($packages) {
-        my $list = $packages -> slurp();
+    if ($modules) {
+        my $list = $modules -> slurp();
         my $hash = decode_json($list);
         
         my (
@@ -31,22 +31,19 @@ sub main {
         );
 
         # Yeah, I know, i need refact this shit
-
         if ($show) {
-            foreach my $package (@{$hash -> {"packages"}}) {
+            foreach my $module (@{$hash -> {"modules"}}) {
                 if ($show eq "all") {
-                    print "\nName: ", $package -> {name}, "\n";
-                    print "Category: ", $package -> {category}, "\n";
-                    print "Description: ", $package -> {description}, "\n";
-                    print "Package: ", $package -> {package}, "\n";
+                    print "Module: ", $module -> {module}, "\n";
+                    print "Category: ", $module -> {category}, "\n";
+                    print "Description: ", $module -> {description}, "\n";
                     print "=================================================", "\n\n"
                 }
 
-                elsif ($show eq $package -> {category}) {
-                    print "\nName: ", $package -> {name}, "\n";
-                    print "Category: ", $package -> {category}, "\n";
-                    print "Description: ", $package -> {description}, "\n";
-                    print "Package: ", $package -> {package}, "\n";
+                elsif ($show eq $module -> {category}) {
+                    print "Module: ", $module -> {module}, "\n";
+                    print "Category: ", $module -> {category}, "\n";
+                    print "Description: ", $module -> {description}, "\n";
                     print "=================================================", "\n\n"
                 }
 
@@ -59,9 +56,9 @@ sub main {
         }
 
         if ($read) {
-            foreach my $package (@{$hash -> {"packages"}}) {
-                if ($package -> {package} eq $read) {
-                    my $location = $package -> {location};
+            foreach my $module (@{$hash -> {"modules"}}) {
+                if ($module -> {module} eq $read) {
+                    my $location = $module -> {location};
 
                     my $file = Mojo::File -> new("./lib/" . $location);
                     
@@ -73,8 +70,9 @@ sub main {
         }
 
         if ($module) {
-            foreach my $package (@{$hash -> {"packages"}}) {
-                if ($package -> {package} eq $module) {
+            foreach my $package (@{$hash -> {"modules"}}) {
+                if ($package -> {module} eq $module) {
+                    
                     my $location = $package -> {location};
                     
                     require $location;
