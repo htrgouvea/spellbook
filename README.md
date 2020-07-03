@@ -12,11 +12,11 @@
   </p>
 </p>
 
-⚠️ __Warning:__ Spellbook is currently in __development__, you've been warned :) and please consider [contributing!](./github/CONTRIBUTING.md)
-
 ---
 
 ### Summary
+
+⚠️ __Warning:__ Spellbook is currently in __development__, you've been warned :) and please consider [contributing!](./github/CONTRIBUTING.md)
 
 Here you will find a "spellbook" with my personal scripts, exploits and other small things I wrote during my bug hunts, pentesting or red teaming missions. Like any other spellbook, some things here are not going to be very easy to understand, but like any other spellbook it couldn't be different, right?
 
