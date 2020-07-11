@@ -1,4 +1,4 @@
-package Modules::Parser::Amass;
+package Spellbook::Parser::Amass;
 
 use strict;
 use warnings;

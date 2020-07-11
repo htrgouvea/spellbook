@@ -5,77 +5,77 @@
             "category": "recon",
             "description": "Find e-mails from a domain using hunter.io API",
             "module": "Recon::Find_Emails",
-            "location": "Modules/Recon/Find_Emails.pm"
+            "location": "Spellbook/Recon/Find_Emails.pm"
         },
         {
             "id": "0002",
             "category": "recon",
             "description": "Enumerate ports and service from a IP using Shodan API",
             "module": "Recon::Passive_Enum",
-            "location": "Modules/Recon/Passive_Enum.pm"
+            "location": "Spellbook/Recon/Passive_Enum.pm"
         },
         {
             "id": "0003",
             "category": "exploit",
             "description": "A exploit to read usernames leaked on WordPress API",
             "module": "Exploit::Wordpress_Username_Leak",
-            "location": "Modules/Exploit/Wordpress_Username_Leak.pm"
+            "location": "Spellbook/Exploit/Wordpress_Username_Leak.pm"
         },
         {
             "id": "0005",
             "category": "recon",
             "description": "A module to use bing dorks",
             "module": "Recon::Bing",
-            "location": "Modules/Recon/Bing.pm"
+            "location": "Spellbook/Recon/Bing.pm"
         },
         {
             "id": "0006",
             "category": "recon",
             "description": "A module to extract links from a page",
             "module": "Recon::Extract_Links",
-            "location": "Modules/Recon/Extract_Links.pm"
+            "location": "Spellbook/Recon/Extract_Links.pm"
         },
         {
             "id": "0007",
             "category": "parsing",
             "description": "A module to parsing output from amass",
             "module": "Parser::Amass",
-            "location": "Modules/Parser/Amass.pm"
+            "location": "Spellbook/Parser/Amass.pm"
         },
         {
             "id": "0008",
             "category": "parsing",
             "description": "A module to parsing AndroidManifst.xml",
             "module": "Parser::Android_Manifest",
-            "location": "Modules/Parser/Android_Manifest.pm"
+            "location": "Spellbook/Parser/Android_Manifest.pm"
         },
         {
             "id": "0009",
             "category": "parsing",
             "description": "A module to parsing strings.xml from a APK",
             "module": "Parser::Android_Strings",
-            "location": "Modules/Parser/Android_Strings.pm"
+            "location": "Spellbook/Parser/Android_Strings.pm"
         },
         {
             "id": "0010",
             "category": "parsing",
             "description": "A module to parsing XML output from Nmap",
             "module": "Parser::Nmap",
-            "location": "Modules/Parser/Nmap.pm"
+            "location": "Spellbook/Parser/Nmap.pm"
         },
         {
             "id": "0011",
             "category": "auxiliary",
             "description": "A module to create my personal structure of folder when i start a new project",
             "module": "Auxiliary::New_Target",
-            "location": "Modules/Auxiliary/New_Target.pm"
+            "location": "Spellbook/Auxiliary/New_Target.pm"
         },
         {
             "id": "0012",
             "category": "recon",
             "description": "A module to resolv all host's from a file",
             "module": "Recon::Host_Resolv",
-            "location": "Modules/Recon/Host_Resolv.pm"
+            "location": "Spellbook/Recon/Host_Resolv.pm"
         }
         ,
         {
@@ -83,7 +83,7 @@
             "category": "recon",
             "description": "A module to get ip from a host list from a file",
             "module": "Recon::Get_IP",
-            "location": "Modules/Recon/Get_IP.pm"
+            "location": "Spellbook/Recon/Get_IP.pm"
         }
     ] 
 }

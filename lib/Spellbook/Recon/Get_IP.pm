@@ -1,4 +1,4 @@
-package Modules::Recon::Get_IP;
+package Spellbook::Recon::Get_IP;
 
 use strict;
 use warnings;

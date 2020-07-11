@@ -1,4 +1,4 @@
-package Modules::Recon::Host_Resolv;
+package Spellbook::Recon::Host_Resolv;
 
 use strict;
 use warnings;

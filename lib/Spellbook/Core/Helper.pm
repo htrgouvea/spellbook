@@ -1,11 +1,11 @@
-package Core::Helper;
+package Spellbook::Core::Helper;
 
 use strict;
 use warnings;
 
 sub new {
     print "
-        \rSpellbook v0.0.4
+        \rSpellbook v0.0.5
 		\rCore Commands
 		\r==============
 		\r\tCommand       Description

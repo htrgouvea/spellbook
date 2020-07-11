@@ -1,4 +1,4 @@
-package Modules::Parser::Android_Strings;
+package Spellbook::Parser::Android_Strings;
 
 use strict;
 use warnings;

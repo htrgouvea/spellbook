@@ -1,4 +1,4 @@
-package Core::GetCredentials;
+package Spellbook::Core::GetCredentials;
 
 use strict;
 use warnings;

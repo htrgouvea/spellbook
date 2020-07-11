@@ -36,7 +36,7 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 ### How to use
 
 ```bash
-Spellbook v0.0.4
+Spellbook v0.0.5
 Core Commands
 ==============
 	Command       Description

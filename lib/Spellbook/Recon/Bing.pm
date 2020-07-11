@@ -1,4 +1,4 @@
-package Modules::Recon::Bing;
+package Spellbook::Recon::Bing;
 
 use strict;
 use warnings;

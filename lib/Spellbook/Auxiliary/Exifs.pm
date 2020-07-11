@@ -1,4 +1,4 @@
-package Modules::Auxiliary::Exifs;
+package Spellbook::Auxiliary::Exifs;
 
 use strict;
 use warnings;

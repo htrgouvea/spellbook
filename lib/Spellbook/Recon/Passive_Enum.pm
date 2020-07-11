@@ -1,4 +1,4 @@
-package Modules::Recon::Passive_Enum;
+package Spellbook::Recon::Passive_Enum;
 
 use strict;
 use warnings;

@@ -1,4 +1,4 @@
-package Modules::Recon::Extract_Links;
+package Spellbook::Recon::Extract_Links;
 
 use strict;
 use warnings;

@@ -1,4 +1,4 @@
-package Modules::Android::APKSign;
+package Spellbook::Android::APKSign;
 
 use strict;
 use warnings;

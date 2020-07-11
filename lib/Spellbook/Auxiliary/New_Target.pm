@@ -1,4 +1,4 @@
-package Modules::Auxiliary::New_Target;
+package Spellbook::Auxiliary::New_Target;
 
 use strict;
 use warnings;

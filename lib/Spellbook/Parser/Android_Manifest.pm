@@ -1,4 +1,4 @@
-package Modules::Parser::Android_Manifest;
+package Spellbook::Parser::Android_Manifest;
 
 use strict;
 use warnings;

@@ -1,4 +1,4 @@
-package Modules::Parser::Nmap;
+package Spellbook::Parser::Nmap;
 
 use strict;
 use warnings;

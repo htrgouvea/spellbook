@@ -1,4 +1,4 @@
-package Modules::Recon::Find_Emails;
+package Spellbook::Recon::Find_Emails;
 
 use strict;
 use warnings;

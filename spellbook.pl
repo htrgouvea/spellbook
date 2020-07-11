@@ -4,10 +4,10 @@ use 5.018;
 use strict;
 use warnings;
 use lib "./lib/";
-use Core::Helper;
 use Getopt::Long;
 use Mojo::File;
 use Mojo::JSON qw(decode_json);
+use Spellbook::Core::Helper;
 
 sub main {
     my $modules = Mojo::File -> new(".config/modules.json");
@@ -27,7 +27,7 @@ sub main {
             "--read=s"   => \$read,
             "--output=s" => \$output
         ) or die (
-            return Core::Helper -> new()
+            return Spellbook::Core::Helper -> new()
         );
 
         # Yeah, I know, i need refact this shit
@@ -77,7 +77,7 @@ sub main {
                     
                     require $location;
                     
-                    my @run = "Modules::$module" -> new($target);
+                    my @run = "Spellbook::$module" -> new($target);
 
                     foreach my $result (@run) {
                         print $result;
@@ -88,7 +88,7 @@ sub main {
             return 1;
         }
 
-        return Core::Helper -> new();
+        return Spellbook::Core::Helper -> new();
     }
 }
 
