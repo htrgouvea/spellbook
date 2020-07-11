@@ -1,4 +1,4 @@
-# Contributing to the Security-spellbook!
+# Contributing to the Spellbook!
 
 
 ## License
