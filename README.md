@@ -27,7 +27,10 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 ### Download and install
 
 ```
+  # Download
   $ git clone https://github.com/GouveaHeitor/spellbook && cd spellbook
+
+  # Install libs and dependencies
   $ cpan install Getopt::Long Mojo::File Mojo::JSON
 ```
 
@@ -46,58 +49,9 @@ Core Commands
 	--read        Read the code of a module
 ```
 
-### Examples
+### Demo
 
-```bash
-# You can use the --show option to list the available modules
-# valid parameters: all, recon, exploit, auxiliary or parser
-$ perl spellbook.pl --show recon
-
-Module: Recon::Find_Emails
-Category: recon
-Description: Find e-mails from a domain using hunter.io API
-=================================================
-
-
-Module: Recon::Passive_Enum
-Category: recon
-Description: Enumerate ports and service from a IP using Shodan API
-=================================================
-...
-
-# To use a module, you can use the -m option followed by the name of the module
-# followed by -t which is the main entry point of the module
-$ perl spellbook.pl -m Recon::Find_Emails -t github.com
-
-stanleygoldman@github.com
-bryanmacfarlane@github.com
-rob.rix@github.com
-rschultheis@github.com
-pedrolacerda@github.com
-jonahberquist@github.com
-brendan@github.com
-michaelsainz@github.com
-acadavid@github.com
-patrick.reynolds@github.com
-```
-
----
-
-### How to create new modules
-
-First, you need to specify your module in the list of packages that Spellbook reads, present in: **.config/modules.json**
-
-![](https://heitorgouvea.me/images/projects/spellbook/example_packages-json.png)
-
-Just copy the last block of the json and insert the information of the new module;
-
-Second, all modules are stored and accessible through the lib/Modules folder, each module is organized in a third folder that defines its category, such as:
-
-![](https://heitorgouvea.me/images/projects/spellbook/list-modules.png)
-
-Find the folder for the specific category of your module, or create one, then you can create your module normally like any other Perl module.
-
-The only premise is that your module receives a main entry point and returns the results in an array.
+![Gif here]()
 
 ---
 
