@@ -3,86 +3,86 @@
         {
             "id": "0001",
             "category": "recon",
-            "description": "Find e-mails from a domain using hunter.io API",
             "module": "Recon::Find_Emails",
+            "description": "Find e-mails from a domain using hunter.io API",
             "location": "Spellbook/Recon/Find_Emails.pm"
         },
         {
             "id": "0002",
             "category": "recon",
-            "description": "Enumerate ports and service from a IP using Shodan API",
             "module": "Recon::Passive_Enum",
+            "description": "Enumerate ports and service from a IP using Shodan API",
             "location": "Spellbook/Recon/Passive_Enum.pm"
         },
         {
             "id": "0003",
             "category": "exploit",
-            "description": "A exploit to read usernames leaked on WordPress API",
             "module": "Exploit::Wordpress_Username_Leak",
+            "description": "A exploit to read usernames leaked on WordPress API",
             "location": "Spellbook/Exploit/Wordpress_Username_Leak.pm"
         },
         {
             "id": "0005",
             "category": "recon",
-            "description": "A module to use bing dorks",
             "module": "Recon::Bing",
+            "description": "A module to use bing dorks",
             "location": "Spellbook/Recon/Bing.pm"
         },
         {
             "id": "0006",
             "category": "recon",
-            "description": "A module to extract links from a page",
             "module": "Recon::Extract_Links",
+            "description": "A module to extract links from a page",
             "location": "Spellbook/Recon/Extract_Links.pm"
         },
         {
             "id": "0007",
             "category": "parsing",
-            "description": "A module to parsing output from amass",
             "module": "Parser::Amass",
+            "description": "A module to parsing output from amass",
             "location": "Spellbook/Parser/Amass.pm"
         },
         {
             "id": "0008",
             "category": "parsing",
-            "description": "A module to parsing AndroidManifst.xml",
             "module": "Parser::Android_Manifest",
+            "description": "A module to parsing AndroidManifst.xml",
             "location": "Spellbook/Parser/Android_Manifest.pm"
         },
         {
             "id": "0009",
             "category": "parsing",
-            "description": "A module to parsing strings.xml from a APK",
             "module": "Parser::Android_Strings",
+            "description": "A module to parsing strings.xml from a APK",
             "location": "Spellbook/Parser/Android_Strings.pm"
         },
         {
             "id": "0010",
             "category": "parsing",
-            "description": "A module to parsing XML output from Nmap",
             "module": "Parser::Nmap",
+            "description": "A module to parsing XML output from Nmap",
             "location": "Spellbook/Parser/Nmap.pm"
         },
         {
             "id": "0011",
             "category": "auxiliary",
-            "description": "A module to create my personal structure of folder when i start a new project",
             "module": "Auxiliary::New_Target",
+            "description": "A module to create my personal structure of folder when i start a new project",
             "location": "Spellbook/Auxiliary/New_Target.pm"
         },
         {
             "id": "0012",
             "category": "recon",
-            "description": "A module to resolv all host's from a file",
             "module": "Recon::Host_Resolv",
+            "description": "A module to resolv all host's from a file",
             "location": "Spellbook/Recon/Host_Resolv.pm"
         }
         ,
         {
             "id": "0013",
             "category": "recon",
-            "description": "A module to get ip from a host list from a file",
             "module": "Recon::Get_IP",
+            "description": "A module to get ip from a host list from a file",
             "location": "Spellbook/Recon/Get_IP.pm"
         }
     ] 
