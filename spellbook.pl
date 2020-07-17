@@ -78,7 +78,7 @@ sub main {
                     require $location;
                     
                     my @run = "Spellbook::$module" -> new($target);
-
+                    
                     foreach my $result (@run) {
                         print $result;
                     }

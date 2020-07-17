@@ -6,19 +6,32 @@ use warnings;
 sub new {
     my ($self, $target) = @_;
 
+    print $target;
+
     if ($target) {
-        my @folders = ("recon", "notes", "files", "exploits", "proofs");
-        my @recon = ("amass",  "notes", "emails", "shodan", "zoomeye", "nmap",  "headers");
+        my @folders = ("recon", "notes", "files");
+        my @recon   = ("amass", "emails", "shodan", "zoomeye", "nmap",  "headers");
+        my @files   = ("exploits", "proofs");
         
+        print "here";
+
         my @result = (); 
 
         foreach my $folder(@folders) {
-            system("mkdir -p $target/$folder");
-
             if ($folder eq "recon") {
                 foreach my $recon (@recon) {
-                    system("mkdir $target/$folder/$recon");
+                    system("mkdir -p $target/$folder/$recon");
                 }
+            }
+
+            elsif ($folder eq "files") {
+                foreach my $file (@files) {
+                    system("mkdir -p $target/$folder/$file");
+                }
+            }
+
+            else {
+                system("mkdir -p $target/$folder");
             }
 
             push @result, "created $target/$folder\n";
