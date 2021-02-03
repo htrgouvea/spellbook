@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/GouveaHeitor/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.0.4-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.0.6-blue.svg">
     </a>
   </p>
 </p>
@@ -28,7 +28,7 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 
 ```
   # Download
-  $ git clone https://github.com/GouveaHeitor/spellbook && cd spellbook
+  $ git clone https://github.com/htrgouvea/spellbook && cd spellbook
 
   # Install libs and dependencies
   $ cpan install Getopt::Long Mojo::File Mojo::JSON
@@ -39,7 +39,7 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 ### How to use
 
 ```bash
-Spellbook v0.0.5
+Spellbook v0.0.6
 Core Commands
 ==============
 	Command       Description
@@ -58,8 +58,6 @@ Core Commands
 ### Contribution
 
 - Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/GouveaHeitor/spellbook/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
-
-- If you want to contribute financially to this project, an alternative is to become my ["Patreon"](https://patreon.com/offgouvea) or make a donation via [Paypal.](https://www.paypal.com/donate?hosted_button_id=4283L7ZNWN3M6)
 
 ---
 
