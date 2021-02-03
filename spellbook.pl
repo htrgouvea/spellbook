@@ -16,16 +16,13 @@ sub main {
         my $list = $modules -> slurp();
         my $hash = decode_json($list);
         
-        my (
-            $show, $module, $target, $read, $output
-        );
+        my ($show, $module, $target, $read);
 
         GetOptions (
             "--show=s"   => \$show,
             "--module=s" => \$module,
             "--target=s" => \$target,
-            "--read=s"   => \$read,
-            "--output=s" => \$output
+            "--read=s"   => \$read
         ) or die (
             return Spellbook::Core::Helper -> new()
         );
@@ -75,7 +72,7 @@ sub main {
                     
                     my $location = $package -> {location};
                     
-                    require $location;
+                    require "Spellbook/" . $location;
                     
                     my @run = "Spellbook::$module" -> new($target);
                     

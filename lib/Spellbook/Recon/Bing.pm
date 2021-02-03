@@ -14,15 +14,22 @@ sub new {
         my @urls = ();
 
         my @dorks = (
+            "(site:$domain) && (filetype:doc || docx || odt || rtf || sxw || psw || ppt || pptx || pps || csv", #Publicly exposed documents
+            "(site:$domain) intitle:index.of", # Detecting Directory Listing
+            "(site:$domain) && (filetype:xml || conf || cnf || reg || inf || rdp || fg || txt || ora || ini || env)", # Configuration Files
+            # "(site:$domain) filetype:sql | filetype:dbf | filetype:mdb", # Database files exposed
+            # "(site:$domain) filetype:log", # Log files exposed
+            "(site:$domain) && (filetype:bkf || bkp || bak || old || backup)", # Backup and old files
+            # "(site:$domain) inurl:login | inurl:signin | intitle:Login | intitle:sign in | inurl:auth", # Detecting Login pages
+            # "(site:$domain) intfiletype:\"sql syntax near\" | intfiletype:\"syntax error has occurred\" | intfiletype:\"incorrect syntax near\" | intfiletype:\"unexpected end of SQL command\" | intfiletype:\"Warning: mysql_connect()\" | intfiletype:\"Warning: mysql_query()\" | intfiletype:\"Warning: pg_connect()\"", # SQL errors
+            # "(site:$domain) filetype:php intitle:phpinfo \"published by the PHP Group\"", # PHP errors / warnings
+            # "(site:$domain) inurl:signup | inurl:register | intitle:Signup", # Signup pages
+            "(site:$domain) && (inbody:\"Hacked by\" || \"Owned by\" || \"Pwned by\")", # Possible deface pages
+            # "site:pastebin.com | site:paste2.org | site:pastehtml.com | site:slexy.org | site:snipplr.com | site:snipt.net | site:tfiletypesnip.com | site:bitpaste.app | site:justpaste.it | site:heypasteit.com | site:hastebin.com | site:dpaste.org | site:dpaste.com | site:codepad.org | site:jsitor.com | site:codepen.io | site:jsfiddle.net | site:dotnetfiddle.net | site:phpfiddle.org | site:ide.geeksforgeeks.org | site:repl.it | site:ideone.com | site:paste.debian.net | site:paste.org | site:paste.org.ru | site:codebeautify.org  | site:codeshare.io | site:trello.com \"$domain\"", # Search Pastebin.com / pasting sites
+            # "site:stackoverflow.com \"$domain\"", # Search Stackoverflow.com
+            # "site:github.com | site:gitlab.com \"$domain\"", # Search Github.com and Gitlab.com
             "(site:$domain) && (filetype:pdf || ppt || xls || doc) && (inbody:restrito | confidencial | interno | private | restricted | internal)",
-            "site:$domain intitle:\"Index of\"",
             "(site:$domain) && (inbody:login || username || user || e-mail || usuário || userid) && (inbody:senha || password || passcode)",
-            "site:pastebin.com inbody:\"$domain\"",
-            "site:github.com inbody:\"$domain\"",
-            "site:trello.com inbody:\"$domain\"",
-            "site:stackoverflow.com inbody:\"$domain\"",
-            "(site:$domain) && (filetype:.bak || .sql)",
-            "(site:$domain) && (inbody:\"Hacked by\" || \"Owned by\" || \"Pwned by\")"
         );
 
         my @results = ();
@@ -41,7 +48,7 @@ sub new {
                     next if $seen{$url}++;
 
                     if ($url =~ m/^https?/ && $url !~ m/bing|live|microsoft|msn/) {
-                        push @results, "[+] $url\n";
+                        push @results, "$url\n";
                     }
                 }
             }

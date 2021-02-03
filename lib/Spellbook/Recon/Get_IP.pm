@@ -13,6 +13,7 @@ sub new {
 
         while (<$file>) {
             chomp ($_);
+            
             my $ip = gethostbyname($_);
             my $toString = inet_ntoa($ip);
         
