@@ -4,88 +4,32 @@ use 5.018;
 use strict;
 use warnings;
 use lib "./lib/";
-use Getopt::Long;
 use Mojo::File;
-use Mojo::JSON qw(decode_json);
 use Spellbook::Core::Helper;
+use Spellbook::Core::Search;
+use Spellbook::Core::Module;
+use Mojo::JSON qw(decode_json);
+use Getopt::Long qw(:config no_ignore_case);;
 
 sub main {
-    my $modules = Mojo::File -> new(".config/modules.json");
+    my $resources = Mojo::File -> new(".config/modules.json");
     
-    if ($modules) {
-        my $list = $modules -> slurp();
-        my $hash = decode_json($list);
+    if ($resources) {
+        my $list = $resources -> slurp();
+        my $modules = decode_json($list);
         
-        my ($show, $module, $target, $read);
+        my ($search, $module, $target);
 
         GetOptions (
-            "--show=s"   => \$show,
-            "--module=s" => \$module,
-            "--target=s" => \$target,
-            "--read=s"   => \$read
-        ) or die (
-            return Spellbook::Core::Helper -> new()
+            "s|search=s" => \$search,
+            "m|module=s" => \$module,
+            "t|target=s" => \$target
         );
 
-        # Yeah, I know, i need refact this shit
-        if ($show) {
-            foreach my $module (@{$hash -> {"modules"}}) {
-                if ($show eq "all") {
-                    print "Module: ", $module -> {module}, "\n";
-                    print "Category: ", $module -> {category}, "\n";
-                    print "Description: ", $module -> {description}, "\n";
-                    print "=================================================", "\n\n"
-                }
+        Spellbook::Core::Search -> new($modules, $search) if $search;
+        Spellbook::Core::Module -> new($modules, $module, $target) if $module;
 
-                elsif ($show eq $module -> {category}) {
-                    print "Module: ", $module -> {module}, "\n";
-                    print "Category: ", $module -> {category}, "\n";
-                    print "Description: ", $module -> {description}, "\n";
-                    print "=================================================", "\n\n"
-                }
-
-                else {
-                    #
-                }
-            }
-
-            return 1;
-        }
-
-        if ($read) {
-            foreach my $module (@{$hash -> {"modules"}}) {
-                if ($module -> {module} eq $read) {
-                    my $location = $module -> {location};
-
-                    my $file = Mojo::File -> new("./lib/" . $location);
-                    
-                    print "\n", $file -> slurp(), "\n";
-                }
-            }
-
-            return 1;
-        }
-
-        if ($module) {
-            foreach my $package (@{$hash -> {"modules"}}) {
-                if ($package -> {module} eq $module) {
-                    
-                    my $location = $package -> {location};
-                    
-                    require "Spellbook/" . $location;
-                    
-                    my @run = "Spellbook::$module" -> new($target);
-                    
-                    foreach my $result (@run) {
-                        print $result;
-                    }
-                }
-            }
-
-            return 1;
-        }
-
-        return Spellbook::Core::Helper -> new();
+        # return Spellbook::Core::Helper -> new();
     }
 }
 
