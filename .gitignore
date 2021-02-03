@@ -7,4 +7,4 @@ tests/
 *.creds
 data/
 targets/
-.config/credentials.json
+.config/credentials.yml
