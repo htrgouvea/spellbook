@@ -4,13 +4,13 @@ use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
-use Core::GetCredentials;
+use Spellbook::Core::GetCredentials;
 
 sub new {
     my ($self, $domain) = @_;
 
     if ($domain) {
-        my $apiKey    = Core::GetCredentials -> new("hunter");
+        my $apiKey    = Spellbook::Core::GetCredentials -> new("hunter");
         my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$domain&api_key=$apiKey";
         my $userAgent = LWP::UserAgent -> new();
 	    my $request   = $userAgent -> get($endpoint);
