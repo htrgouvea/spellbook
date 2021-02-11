@@ -25,6 +25,3 @@ package Spellbook::Core::Module {
 }
 
 1;
-
-
-            

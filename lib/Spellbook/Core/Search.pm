@@ -3,7 +3,7 @@ package Spellbook::Core::Search {
     use warnings;
 
     sub new {
-        my ($self, $search, $modules) = @_;
+        my ($self, $modules, $search) = @_;
 
         foreach my $module (@{$modules -> {"modules"}}) {
             if ($search eq $module -> {category}) {
@@ -19,6 +19,3 @@ package Spellbook::Core::Search {
 }
 
 1;
-
-
-            

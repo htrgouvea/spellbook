@@ -25,11 +25,10 @@ sub main {
             "m|module=s" => \$module,
             "t|target=s" => \$target
         );
-
-        Spellbook::Core::Search -> new($modules, $search) if $search;
-        Spellbook::Core::Module -> new($modules, $module, $target) if $module;
-
-        # return Spellbook::Core::Helper -> new();
+        
+        return Spellbook::Core::Search -> new($modules, $search) if $search;
+        return Spellbook::Core::Module -> new($modules, $module, $target) if $module;
+        return Spellbook::Core::Helper -> new();
     }
 }
 
