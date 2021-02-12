@@ -1,19 +1,15 @@
-package Spellbook::Recon::Extract_Links;
+package Spellbook::Recon::Extract_Links {
+    use strict;
+    use warnings;
+    use WWW::Mechanize;
 
-use strict;
-use warnings;
-use WWW::Mechanize;
+    sub new {
+        my ($self, $target) = @_;
 
-sub new {
-    my ($self, $target) = @_;
-
-    if ($target) {
-        my $mech    = WWW::Mechanize -> new();
-        my $request = $mech -> get($target);
-        my $status  = $mech -> status();
-
-        if ($status == "200") {
-            my @links = $mech -> links();
+        if ($target) {
+            my $mech    = WWW::Mechanize -> new();
+            my $request = $mech -> get($target);
+            my @links   = $mech -> links();
             my @results;
 
             for my $link (@links) {
