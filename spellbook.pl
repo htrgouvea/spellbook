@@ -3,8 +3,8 @@
 use 5.018;
 use strict;
 use warnings;
-use lib "./lib/";
 use Mojo::File;
+use Find::Lib "./lib";
 use Spellbook::Core::Helper;
 use Spellbook::Core::Search;
 use Spellbook::Core::Module;
