@@ -5,7 +5,7 @@ use warnings;
 
 sub new {
     print "
-        \rSpellbook v0.0.6
+        \rSpellbook v0.0.7
 		\rCore Commands
 		\r==============
 		\r\tCommand          Description
