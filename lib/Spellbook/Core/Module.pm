@@ -3,16 +3,13 @@ package Spellbook::Core::Module {
     use warnings;
 
     sub new {
-        my ($self, $modules, $module, $target) = @_;
+        my ($self, $modules, $module, $target, $parameter) = @_;
 
         foreach my $package (@{$modules -> {"modules"}}) {
-            if ($package -> {module} eq $module) {
-                    
-                my $location = $package -> {location};
-                    
-                require "Spellbook/" . $location;
-                    
-                my @run = "Spellbook::$module" -> new($target);
+            if ($package -> {module} eq $module) {                    
+                require "Spellbook/" . $package -> {location};
+
+                my @run = "Spellbook::$module" -> new($target, $parameter);
                     
                 foreach my $result (@run) {
                     print $result;
