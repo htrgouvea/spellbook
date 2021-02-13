@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.0.6-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.0.7-blue.svg">
     </a>
   </p>
 </p>
@@ -36,15 +36,16 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 
 ### How to use
 
-```bash
-Spellbook v0.0.6
+```
+Spellbook v0.0.7
 Core Commands
 ==============
-	Command       Description
-	-------       -----------
-	--show        List modules, you can filter by category
-	--module      Set a module to use
-	--read        Read the code of a module
+	Command          Description
+	-------          -----------
+	-s, --search     List modules, you can filter by category
+	-m, --module     Set a module to use
+	-t, --target     Set a target
+	-p, --parameter  Set a value for a module parameter
 ```
 
 ---
