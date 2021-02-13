@@ -4,14 +4,14 @@ use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
-use Spellbook::Core::GetCredentials;
+use Spellbook::Core::Credentials;
 
 sub new {
-    my ($self, $domain) = @_;
+    my ($self, $target) = @_;
 
-    if ($domain) {
-        my $apiKey    = Spellbook::Core::GetCredentials -> new("hunter");
-        my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$domain&api_key=$apiKey";
+    if ($target) {
+        my $apiKey    = Spellbook::Core::Credentials -> new("hunter");
+        my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$apiKey";
         my $userAgent = LWP::UserAgent -> new();
 	    my $request   = $userAgent -> get($endpoint);
 	    my $httpCode  = $request -> code();
@@ -21,7 +21,7 @@ sub new {
         if ($httpCode == 200) {
             my $content = decode_json($request -> content);
 
-            foreach my $email (@{$content -> {'data'} -> {'emails'}}) {
+            foreach my $email (@{$content -> {data} -> {emails}}) {
                 push @result, $email -> {'value'}, "\n";
             }
         }
