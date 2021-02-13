@@ -1,6 +1,8 @@
-name: Audit code for security bugs and best-pratictes
-on: [push]
-
+name: Audit code
+on: 
+  push:
+    branches: 
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,4 +12,4 @@ jobs:
     - name: Audit code
       run: |
         sudo apt install -y libpath-iterator-rule-perl libtest-perl-critic-perl 
-        curl -L https://gist.githubusercontent.com/GouveaHeitor/b7df5c12c0ba49662b32918d6fa3dec1/raw/72c60bc46796153ce1b874d201d5ffa4e761b519/audit.pl >> audit.pl && perl audit.pl
+        curl -L https://gist.githubusercontent.com/htrgouvea/b7df5c12c0ba49662b32918d6fa3dec1/raw/72c60bc46796153ce1b874d201d5ffa4e761b519/audit.pl >> audit.pl && perl audit.pl
