@@ -27,6 +27,13 @@
             "module": "Helpers::New_Target",
             "description": "A module to create my personal structure of folder when i start a new project",
             "location": "Helpers/New_Target.pm"
+        },
+        {
+            "id": "0006",
+            "category": "exploits",
+            "module": "Exploits::CVE_2006_3392",
+            "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220",
+            "location": "Exploits/CVE_2006_3392.pm"
         }
     ] 
 }
