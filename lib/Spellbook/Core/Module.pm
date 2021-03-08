@@ -10,7 +10,7 @@ package Spellbook::Core::Module {
                 require "Spellbook/" . $package -> {location};
 
                 my @run = "Spellbook::$module" -> new($target, $parameter);
-                    
+                
                 foreach my $result (@run) {
                     print $result;
                 }

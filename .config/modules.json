@@ -34,6 +34,20 @@
             "module": "Exploits::CVE_2006_3392",
             "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220",
             "location": "Exploits/CVE_2006_3392.pm"
+        },
+        {
+            "id": "0007",
+            "category": "helpers",
+            "module": "Helpers::Exifs",
+            "description": "",
+            "location": "Helpers/Exifs.pm"
+        },
+        {
+            "id": "0008",
+            "category": "recon",
+            "module": "Recon::Host_Resolv",
+            "description": "Resolv a spefic host via DNS",
+            "location": "Recon/Host_Resolv.pm"
         }
     ] 
 }

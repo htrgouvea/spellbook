@@ -1,29 +1,23 @@
-package Spellbook::Recon::Host_Resolv;
+package Spellbook::Recon::Host_Resolv {
+    use strict;
+    use warnings;
+    use Net::DNS;
 
-use strict;
-use warnings;
-use Net::DNS;
-
-sub new {
-    my ($self, $hostname) = @_;
-
-    if ($hostname) {
-        my @result = ();
-        open (my $file, "<", $hostname);
-
-        while (<$file>) {
-            chomp($_);
+    sub new {
+        my ($self, $hostname) = @_;
+    
+        if ($hostname) {
+            my @result = ();
 
             my $resolver = Net::DNS::Resolver -> new();
-            my $resolv = $resolver -> search($_);
+            my $resolv = $resolver -> search($hostname);
 
             if ($resolv) {
-                push @result, $_, "\n";
+                push @result, $hostname, "\n";
             }
-        }
 
-        close ($file);
-        return @result;
+            return @result;
+        }
     }
 }
 
