@@ -48,6 +48,13 @@
             "module": "Recon::Host_Resolv",
             "description": "Resolv a spefic host via DNS",
             "location": "Recon/Host_Resolv.pm"
+        },
+        {
+            "id": "0009",
+            "category": "recon",
+            "module": "Recon::Shodan_Enum",
+            "description": "Use Shodan API to enumerate a host: ports, service names, cve's",
+            "location": "Recon/Shodan_Enum.pm"
         }
     ] 
 }

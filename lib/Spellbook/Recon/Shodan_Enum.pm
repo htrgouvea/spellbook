@@ -1,16 +1,16 @@
-package Spellbook::Recon::Passive_Enum;
+package Spellbook::Recon::Shodan_Enum;
 
 use strict;
 use warnings;
 use JSON;
 use LWP::UserAgent;
-use Core::GetCredentials;
+use Spellbook::Core::Credentials;
 
 sub new {
     my ($self, $ip) = @_;
 
     if ($ip) {
-        my $apiKey    = Core::GetCredentials -> new("shodan");
+        my $apiKey    = Spellbook::Core::Credentials -> new("shodan");
         my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
         my $userAgent = LWP::UserAgent -> new();
 	    my $request   = $userAgent -> get($endpoint);
@@ -27,7 +27,7 @@ sub new {
                 my $transport = $data -> {'transport'};
                 my $service   = $data -> {'_shodan'} -> {'module'};
 
-                push @results, "$ip: [$transport] -> $port | $service | $product\n";
+                push @results, "$ip | $transport | $port | $service | $product\n";
             }
         }
 
