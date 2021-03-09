@@ -18,6 +18,8 @@
 
 Here you will find a "spellbook" with my personal scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions. Like any other spellbook, some things here are not going to be very easy to understand, it couldn't be different, right?
 
+Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](#references)
+
 The main focus of this "micro-framework" is to keep my personal scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Furthermore, the Spellbook is just a research project that so far is no big deal and does not replace a truly robust framework.
 
 ---
@@ -156,3 +158,7 @@ package Spellbook::Core::Name {
 ### License
 
 - This work is licensed under [MIT License.](/LICENSE.md)
+
+### References
+
+1. [https://en.wikipedia.org/wiki/Flow-based_programming](https://en.wikipedia.org/wiki/Flow-based_programming)
