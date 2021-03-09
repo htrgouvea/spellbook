@@ -23,7 +23,7 @@
         },
         {
             "id": "0004",
-            "category": "helpers",
+            "category": "helper",
             "module": "Helpers::New_Target",
             "description": "A module to create my personal structure of folder when i start a new project",
             "location": "Helpers/New_Target.pm"
@@ -37,7 +37,7 @@
         },
         {
             "id": "0007",
-            "category": "helpers",
+            "category": "helper",
             "module": "Helpers::Exifs",
             "description": "",
             "location": "Helpers/Exifs.pm"
@@ -55,6 +55,13 @@
             "module": "Recon::Shodan_Enum",
             "description": "Use Shodan API to enumerate a host: ports, service names, cve's",
             "location": "Recon/Shodan_Enum.pm"
+        },
+        {
+            "id": "0010",
+            "category": "helper",
+            "module": "Helper::Read_File",
+            "description": "",
+            "location": "Helper/Read_file.pm"
         }
     ] 
 }
