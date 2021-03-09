@@ -1,8 +1,8 @@
-package Spellbook::Auxiliary::Exifs;
+package Spellbook::Helper::Exifs;
 
 use strict;
 use warnings;
-use Image::ExifTool;
+use Image::ExifTool; # https://metacpan.org/pod/Image::ExifTool
 
 sub new {
     my ($self, $image, $payload) = @_; # I need find a method to pass this parameters
@@ -37,5 +37,3 @@ sub new {
 }
 
 1;
-
-# https://metacpan.org/pod/Image::ExifTool

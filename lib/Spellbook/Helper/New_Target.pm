@@ -1,4 +1,4 @@
-package Spellbook::Helpers::New_Target {
+package Spellbook::Helper::New_Target {
     use strict;
     use warnings;
 
