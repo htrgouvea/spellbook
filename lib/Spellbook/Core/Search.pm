@@ -7,8 +7,9 @@ package Spellbook::Core::Search {
 
         foreach my $module (@{$modules -> {"modules"}}) {
             if ($search eq $module -> {category}) {
-                print "Module: ", $module -> {module}, "\n";
-                print "Category: ", $module -> {category}, "\n";
+                my $name =  ucfirst $module -> {category} . "::" . $module -> {module};
+                                
+                print "Module: ", $name, "\n";
                 print "Description: ", $module -> {description}, "\n";
                 print "=================================================", "\n\n";
             }

@@ -3,19 +3,18 @@ package Spellbook::Core::Resources {
     use warnings;
     use Mojo::File;
     use Mojo::JSON qw(decode_json);
+    use Data::Dumper;
 
     sub new {
-        my ($self, $platform) = @_;
-
+        my ($self) = @_;
         my $resources = Mojo::File -> new(".config/modules.json");
-
+        
         if ($resources) {
             my $list = $resources -> slurp();
             my $modules = decode_json($list);
 
             return $modules;
         }
-
 
         return 0;
     }
