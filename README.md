@@ -57,12 +57,10 @@ Core Commands
 $ perl spellbook.pl --search exploits
 
 Module: Exploits::CVE_2017_5487
-Category: exploits
 Description: Read usernames leaked on WordPress API
 =================================================
 
 Module: Exploits::CVE_2006_3392
-Category: exploits
 Description: Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220
 =================================================
 ...
@@ -91,16 +89,14 @@ You need to specify your module in the list of Spellbook modules, present in: .c
         {
             "id": "0001",
             "category": "recon",
-            "module": "Recon::Find_Emails",
+            "module": "Find_Emails",
             "description": "Find e-mails from a domain using hunter.io API",
-            "location": "Recon/Find_Emails.pm"
         },
         {
             "id": "0002",
             "category": "exploits",
-            "module": "Exploits::CVE_2017_5487",
+            "module": "CVE_2017_5487",
             "description": "Read usernames leaked on WordPress API",
-            "location": "Exploits/CVE_2017_5487.pm"
         },
 ...
 ```
