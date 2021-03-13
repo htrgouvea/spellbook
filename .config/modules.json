@@ -3,65 +3,20 @@
         {
             "id": "0001",
             "category": "recon",
-            "module": "Recon::Find_Emails",
-            "description": "Find e-mails from a domain using hunter.io API",
-            "location": "Recon/Find_Emails.pm"
+            "module": "Find_Emails",
+            "description": "Find e-mails from a domain using hunter.io API"
         },
         {
             "id": "0002",
-            "category": "exploits",
-            "module": "Exploits::CVE_2017_5487",
-            "description": "Read usernames leaked on WordPress API",
-            "location": "Exploits/CVE_2017_5487.pm"
+            "category": "helper",
+            "module": "Read_File",
+            "description": ""
         },
         {
             "id": "0003",
             "category": "recon",
-            "module": "Recon::Extract_Links",
-            "description": "A module to extract links from a page",
-            "location": "Recon/Extract_Links.pm"
-        },
-        {
-            "id": "0004",
-            "category": "helper",
-            "module": "Helpers::New_Target",
-            "description": "A module to create my personal structure of folder when i start a new project",
-            "location": "Helpers/New_Target.pm"
-        },
-        {
-            "id": "0006",
-            "category": "exploits",
-            "module": "Exploits::CVE_2006_3392",
-            "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220",
-            "location": "Exploits/CVE_2006_3392.pm"
-        },
-        {
-            "id": "0007",
-            "category": "helper",
-            "module": "Helpers::Exifs",
-            "description": "",
-            "location": "Helpers/Exifs.pm"
-        },
-        {
-            "id": "0008",
-            "category": "recon",
-            "module": "Recon::Host_Resolv",
-            "description": "Resolv a spefic host via DNS",
-            "location": "Recon/Host_Resolv.pm"
-        },
-        {
-            "id": "0009",
-            "category": "recon",
-            "module": "Recon::Shodan_Enum",
-            "description": "Use Shodan API to enumerate a host: ports, service names, cve's",
-            "location": "Recon/Shodan_Enum.pm"
-        },
-        {
-            "id": "0010",
-            "category": "helper",
-            "module": "Helper::Read_File",
-            "description": "",
-            "location": "Helper/Read_file.pm"
+            "module": "Host_Resolv",
+            "description": ""
         }
-    ] 
+    ]
 }
