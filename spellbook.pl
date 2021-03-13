@@ -27,6 +27,8 @@ sub main {
         return Spellbook::Core::Module -> new($resources, $module, $target, $parameter) if $module;
         return Spellbook::Core::Helper -> new();
     }
+
+    return Spellbook::Core::Helper -> new();
 }
 
 main();
