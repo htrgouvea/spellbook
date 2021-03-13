@@ -6,6 +6,8 @@ package Spellbook::Helper::Read_File {
     sub new {
         my ($self, $filename, $parameter) = @_;
         
+        my @results = ();
+
         if ($filename) {
             my $resources = Spellbook::Core::Resources -> new();
             
@@ -17,12 +19,16 @@ package Spellbook::Helper::Read_File {
                 if ($parameter) {
                     my $return = Spellbook::Core::Module -> new ($resources, $parameter, $_);
                 }
+
+                else {
+                    push @results, $_, "\n";
+                }
             }
 
             close ($file);
         }
-        
 
+        return @results;
     }
 }
 
