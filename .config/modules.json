@@ -15,8 +15,56 @@
         {
             "id": "0003",
             "category": "recon",
+            "module": "Get_Headers",
+            "description": "Get all HTTP headers from an URL"
+        },
+        {
+            "id": "0004",
+            "category": "recon",
+            "module": "Get_IP",
+            "description": "Get an IP from a hostname"
+        },
+        {
+            "id": "0005",
+            "category": "exploits",
+            "module": "CVE_2017_5487",
+            "description": "Read usernames leaked on WordPress API"
+        },
+        {
+            "id": "0006",
+            "category": "recon",
+            "module": "Extract_Links",
+            "description": "A module to extract links from a page"
+        },
+        {
+            "id": "0007",
+            "category": "helper",
+            "module": "New_Target",
+            "description": "A module to create my personal structure of folder when i start a new project"
+        },
+        {
+            "id": "0008",
+            "category": "exploits",
+            "module": "CVE_2006_3392",
+            "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220"
+        },
+        {
+            "id": "0009",
+            "category": "recon",
             "module": "Host_Resolv",
-            "description": ""
+            "description": "Resolv a spefic host via DNS"
+        },
+        {
+            "id": "0010",
+            "category": "recon",
+            "module": "Shodan_Enum",
+            "description": "Use Shodan API to enumerate a host: ports, service names, cve's"
+        },
+        {
+            "id": "0011",
+            "category": "exploits",
+            "module": "Shellshock",
+            "description": "Exploit for shellshock vuln"
         }
     ]
 }
