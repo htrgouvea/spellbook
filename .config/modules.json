@@ -10,7 +10,7 @@
             "id": "0002",
             "category": "helper",
             "module": "Read_File",
-            "description": ""
+            "description": "Read a file and send the entries to other module"
         },
         {
             "id": "0003",
