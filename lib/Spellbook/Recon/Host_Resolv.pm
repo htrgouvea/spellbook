@@ -2,22 +2,22 @@ package Spellbook::Recon::Host_Resolv {
     use strict;
     use warnings;
     use Net::DNS;
+    use Try::Tiny;
 
     sub new {
         my ($self, $hostname) = @_;
-    
+        my @result = ();
+
         if ($hostname) {
-            my @result = ();
-
             my $resolver = Net::DNS::Resolver -> new();
-            my $resolv = $resolver -> search($hostname);
+            my $search  = $resolver -> search($hostname);
 
-            if ($resolv) {
+            if ($search) {
                 push @result, $hostname, "\n";
-            }
-
-            return @result;
+            } 
         }
+        
+        return @result;
     }
 }
 
