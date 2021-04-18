@@ -5,12 +5,11 @@ package Spellbook::Helper::Read_File {
 
     sub new {
         my ($self, $filename, $parameter) = @_;
-        
         my @results = ();
 
         if ($filename) {
             my $resources = Spellbook::Core::Resources -> new();
-            
+
             open (my $file, "<", $filename);
 
             while (<$file>) {
