@@ -31,4 +31,4 @@ sub main {
     return Spellbook::Core::Helper -> new();
 }
 
-main();
+exit main();
