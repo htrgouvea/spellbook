@@ -16,7 +16,7 @@
             "id": "0003",
             "category": "recon",
             "module": "Get_Headers",
-            "description": "Get all HTTP headers from an URL"
+            "description": "Get all HTTP headers from an web server"
         },
         {
             "id": "0004",
@@ -65,6 +65,24 @@
             "category": "exploits",
             "module": "Shellshock",
             "description": "Exploit for shellshock vuln"
+        },
+        {
+            "id": "0012",
+            "category": "exploits",
+            "module": "Subdomain_Takeover_Checker",
+            "description": "A checker for the possibility of subdomain takeover attack"
+        },
+        {
+            "id": "0013",
+            "category": "helper",
+            "module": "Generate_UUID",
+            "description": ""
+        },
+        {
+            "id": "0014",
+            "category": "helper",
+            "module": "Nmap_Parser",
+            "description": ""
         }
     ]
 }

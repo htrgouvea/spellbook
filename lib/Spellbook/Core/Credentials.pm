@@ -14,6 +14,4 @@ package Spellbook::Core::Credentials {
     }
 }
 
-
-
 1;

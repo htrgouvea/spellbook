@@ -39,7 +39,7 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 ### How to use
 
 ```
-Spellbook v0.0.7
+Spellbook v0.0.9
 Core Commands
 ==============
 	Command          Description
