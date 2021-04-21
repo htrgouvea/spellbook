@@ -74,14 +74,8 @@
         },
         {
             "id": "0013",
-            "category": "helper",
-            "module": "Generate_UUID",
-            "description": ""
-        },
-        {
-            "id": "0014",
-            "category": "helper",
-            "module": "Nmap_Parser",
+            "category": "workflows",
+            "module": "Passive_Recon",
             "description": ""
         }
     ]
