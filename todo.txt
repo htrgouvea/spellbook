@@ -1,3 +1,0 @@
-Adicionar -h como opção em: search, module, parameter
-Fazer parameter virar um hash que suporte multiplos valores
-adicionar menu de ajuda em cada modulo
