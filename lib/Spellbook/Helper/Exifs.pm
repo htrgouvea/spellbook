@@ -2,7 +2,7 @@ package Spellbook::Helper::Exifs;
 
 use strict;
 use warnings;
-use Image::ExifTool; # https://metacpan.org/pod/Image::ExifTool
+# use Image::ExifTool; # https://metacpan.org/pod/Image::ExifTool
 
 sub new {
     my ($self, $image, $payload) = @_; # I need find a method to pass this parameters
@@ -28,11 +28,11 @@ sub new {
         );
 
         foreach my $exif (@exifs) {
-            $exifTool -> SetNewValue($exif, $payload);
+            # $exifTool -> SetNewValue($exif, $payload);
             # system ("exiftool -$exif='$payload' $image\n");
         }
 
-        my $write = $exifTool -> WriteInfo($image, "$image.exif");
+        # my $write = $exifTool -> WriteInfo($image, "$image.exif");
     }
 }
 

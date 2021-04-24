@@ -16,7 +16,7 @@ package Spellbook::Core::Resources {
             return $modules;
         }
 
-        return 0;
+        return 1;
     }
 }
 

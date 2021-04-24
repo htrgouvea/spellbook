@@ -8,6 +8,7 @@ use Spellbook::Core::Credentials;
 
 sub new {
     my ($self, $target) = @_;
+    my @result = ();
 
     if ($target) {
         my $apiKey    = Spellbook::Core::Credentials -> new("hunter");
@@ -16,15 +17,13 @@ sub new {
 	    my $request   = $userAgent -> get($endpoint);
 	    my $httpCode  = $request -> code();
 
-        my @result = ();
-
         if ($httpCode == 200) {
             my $content = decode_json($request -> content);
 
             foreach my $email (@{$content -> {data} -> {emails}}) {
                 push @result, $email -> {'value'}, "\n";
             }
-        }
+        }    
 
         return @result;
     }

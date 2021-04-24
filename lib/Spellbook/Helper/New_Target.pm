@@ -4,12 +4,11 @@ package Spellbook::Helper::New_Target {
 
     sub new {
         my ($self, $target) = @_;
+        my @result = (); 
 
         if ($target) {
             my @folders = ("recon", "notes", "files");
             my @files   = ("exploits", "proofs");
-
-            my @result = (); 
 
             foreach my $folder (@folders) {
                 if ($folder eq "files") {
@@ -24,9 +23,9 @@ package Spellbook::Helper::New_Target {
 
                 push @result, "created $target/$folder\n";
             }
-
-            return @result;
         }
+
+        return @result;
     }
 }
 

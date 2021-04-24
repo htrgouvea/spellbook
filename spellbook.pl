@@ -8,7 +8,7 @@ use Spellbook::Core::Helper;
 use Spellbook::Core::Search;
 use Spellbook::Core::Module;
 use Spellbook::Core::Resources;
-use Getopt::Long qw(:config no_ignore_case);;
+use Getopt::Long qw(:config no_ignore_case);
 
 sub main {
     my $resources = Spellbook::Core::Resources -> new();

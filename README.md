@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.0.9-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.1.0-blue.svg">
     </a>
   </p>
 </p>
@@ -16,11 +16,9 @@
 
 ### Summary
 
-Here you will find a "spellbook" with my personal scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions. Like any other spellbook, some things here are not going to be very easy to understand, it couldn't be different, right?
-
 Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](#references)
 
-The main focus of this "micro-framework" is to keep my personal scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Furthermore, the Spellbook is just a research project that so far is no big deal and does not replace a truly robust framework.
+The main focus of this “micro-framework” is to keep my personal scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Here you will find my “spellbook”: scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions.
 
 ---
 
@@ -39,7 +37,7 @@ The main focus of this "micro-framework" is to keep my personal scripts organize
 ### How to use
 
 ```
-Spellbook v0.0.9
+Spellbook v0.1.0
 Core Commands
 ==============
 	Command          Description
