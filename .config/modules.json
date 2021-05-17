@@ -69,7 +69,7 @@
         {
             "id": "0012",
             "category": "exploits",
-            "module": "Subdomain_Takeover_Checker",
+            "module": "Subdomain_Takeover_Check",
             "description": "A checker for the possibility of subdomain takeover attack"
         },
         {
