@@ -76,7 +76,7 @@
             "id": "0013",
             "category": "workflows",
             "module": "Passive_Recon",
-            "description": ""
+            "description": "Workflow to run all modules of passive recon"
         }
     ]
 }
