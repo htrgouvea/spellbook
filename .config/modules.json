@@ -34,13 +34,13 @@
             "id": "0006",
             "category": "recon",
             "module": "Extract_Links",
-            "description": "A module to extract links from a page"
+            "description": "A module to extract all links from a web page"
         },
         {
             "id": "0007",
             "category": "helper",
             "module": "New_Target",
-            "description": "A module to create my personal structure of folder when i start a new project"
+            "description": "A module to create the structure folder when start a new project"
         },
         {
             "id": "0008",

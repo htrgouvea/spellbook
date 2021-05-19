@@ -24,12 +24,12 @@ The main focus of this “micro-framework” is to keep my personal scripts orga
 
 ### Download and install
 
-```
-  # Download
-  $ git clone https://github.com/htrgouvea/spellbook && cd spellbook
+```bash
+# Download
+$ git clone https://github.com/htrgouvea/spellbook && cd spellbook
 
-  # Install libs and dependencies
-  $ cpan install Getopt::Long Mojo::File Mojo::JSON
+# Install libs and dependencies
+$ cpan install Getopt::Long Mojo::File Mojo::JSON
 ```
 
 ---
