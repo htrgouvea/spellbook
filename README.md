@@ -75,7 +75,7 @@ games:x:5:60:games:/usr/games:/bin/sh
 ...
 ```
 
-If you are interested in developing new modules, a good start is to read the [development guide](/docs/Developer_Guide.md).
+If you are interested in developing new modules, a good start is to read the [development guide](/wiki/Developer-Guide).
 
 ---
 
