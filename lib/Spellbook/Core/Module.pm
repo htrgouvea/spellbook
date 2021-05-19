@@ -5,7 +5,7 @@ package Spellbook::Core::Module {
     sub new {
         my ($self, $modules, $module, $target, $parameter) = @_;
 
-        foreach my $package (@{$modules -> {"modules"}}) {
+        foreach my $package (@{$modules -> {modules}}) {
             # i need refact everything's here ;)
             my $category = ucfirst $package -> {category};
             my $name =  $category . "::" . $package -> {module};
