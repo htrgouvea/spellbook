@@ -12,7 +12,7 @@ package Spellbook::Recon::Shodan_Enum {
         if ($ip) {
             my $apiKey    = Spellbook::Core::Credentials -> new("shodan");
             my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
-            my $userAgent = LWP::UserAgent -> new();
+            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
             my $request   = $userAgent -> get($endpoint);
             my $httpCode  = $request -> code();
 

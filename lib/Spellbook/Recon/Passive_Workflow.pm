@@ -1,4 +1,4 @@
-package Spellbook::Workflows::Passive_Recon {
+package Spellbook::Recon::Passive_Workflow {
     use strict;
     use warnings;
     use Spellbook::Recon::Host_Resolv;
@@ -7,7 +7,6 @@ package Spellbook::Workflows::Passive_Recon {
 
     sub new {
         my ($self, $hostname) = @_;
-
         my @results = ();
 
         if ($hostname) {
@@ -15,9 +14,10 @@ package Spellbook::Workflows::Passive_Recon {
 
             if ($resolv) {
                 my @ip = Spellbook::Recon::Get_IP -> new($hostname);
-                my @shodan = Spellbook::Recon::Shodan_Enum -> new($ip[0]);
-            
-                push @results, @shodan;
+                if ($ip[0]) {
+                    my @shodan = Spellbook::Recon::Shodan_Enum -> new($ip[0]);
+                    push @results, @shodan;
+                }
             }
         }
 

@@ -1,7 +1,6 @@
 package Spellbook::Core::Search {
     use strict;
     use warnings;
-    use Data::Dumper;
 
     sub new {
         my ($self, $modules, $search) = @_;
@@ -9,6 +8,7 @@ package Spellbook::Core::Search {
         foreach my $module (@{$modules -> {modules}}) {
             for (keys %{$module}) {
                 my $value = $module -> {$_};
+                
                 if ($search =~ m/$value/g) {      
                     print "Module: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
                     print "Description: ", $module -> {description}, "\n";

@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.1.0-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.1.1-blue.svg">
     </a>
   </p>
 </p>
@@ -37,7 +37,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON
 ### How to use
 
 ```
-Spellbook v0.1.0
+Spellbook v0.1.1
 Core Commands
 ==============
 	Command          Description

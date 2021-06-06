@@ -3,7 +3,6 @@ package Spellbook::Core::Resources {
     use warnings;
     use Mojo::File;
     use Mojo::JSON qw(decode_json);
-    use Data::Dumper;
 
     sub new {
         my ($self) = @_;
@@ -16,7 +15,7 @@ package Spellbook::Core::Resources {
             return $modules;
         }
 
-        return 1;
+        return 0;
     }
 }
 

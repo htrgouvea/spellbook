@@ -2,7 +2,6 @@ package Spellbook::Recon::Host_Resolv {
     use strict;
     use warnings;
     use Net::DNS;
-    use Try::Tiny;
 
     sub new {
         my ($self, $hostname) = @_;
