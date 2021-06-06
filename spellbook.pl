@@ -23,7 +23,7 @@ sub main {
             "p|parameter=s" => \$parameter
         );
         
-        return Spellbook::Core::Search -> new($resources, $search) if $search;
+        return Spellbook::Core::Search -> new($resources, lc $search) if $search;
         return Spellbook::Core::Module -> new($resources, $module, $target, $parameter) if $module;
         return Spellbook::Core::Helper -> new();
     }
