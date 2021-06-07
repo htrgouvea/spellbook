@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.1.1-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.1.2-blue.svg">
     </a>
   </p>
 </p>
@@ -18,7 +18,7 @@
 
 Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](#references)
 
-The main focus of this “micro-framework” is to keep my personal scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Here you will find my “spellbook”: scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions.
+The main focus of this “micro-framework” is to keep scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Here you will find my “spellbook”: scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions.
 
 ---
 
@@ -37,7 +37,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON
 ### How to use
 
 ```
-Spellbook v0.1.1
+Spellbook v0.1.2
 Core Commands
 ==============
 	Command          Description
@@ -75,13 +75,13 @@ games:x:5:60:games:/usr/games:/bin/sh
 ...
 ```
 
-If you are interested in developing new modules, a good start is to read the [development guide](/wiki/Developer-Guide).
+If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
 
 ---
 
 ### Contribution
 
-- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/spellbook/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕) This project follows the best practices defined by this [style guide](https://heitorgouvea.me/projects/perl-style-guide).
+- Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/spellbook/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)
 
 ---
 

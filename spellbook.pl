@@ -17,15 +17,14 @@ sub main {
         my ($search, $module, $target, $parameter);
 
         GetOptions (
-            "s|search=s"  => \$search,
-            "m|module=s"  => \$module,
-            "t|target=s"  => \$target,
+            "s|search=s"    => \$search,
+            "m|module=s"    => \$module,
+            "t|target=s"    => \$target,
             "p|parameter=s" => \$parameter
         );
         
         return Spellbook::Core::Search -> new($resources, lc $search) if $search;
         return Spellbook::Core::Module -> new($resources, $module, $target, $parameter) if $module;
-        return Spellbook::Core::Helper -> new();
     }
 
     return Spellbook::Core::Helper -> new();
