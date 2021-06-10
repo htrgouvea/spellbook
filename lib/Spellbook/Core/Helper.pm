@@ -4,15 +4,14 @@ package Spellbook::Core::Helper {
 
 	sub new {
 		print "
-			\rSpellbook v0.1.2
+			\rSpellbook v0.2.0
 			\rCore Commands
 			\r==============
 			\r\tCommand          Description
 			\r\t-------          -----------
 			\r\t-s, --search     List modules, you can filter by category
 			\r\t-m, --module     Define a module to use
-			\r\t-t, --target     Set a target
-			\r\t-p, --parameter  Set a value for a module parameter\n\n";
+			\r\t-h, --help       To see help menu of a module\n\n";
 		
 		return 1;
 	}
