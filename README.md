@@ -16,9 +16,9 @@
 
 ### Summary
 
-Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](#references)
+Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](https://en.wikipedia.org/wiki/Flow-based_programming)
 
-The main focus of this “micro-framework” is to keep scripts organized and make them available in a structure where I can reuse the code that has already been written to write something else. Here you will find my “spellbook”: scripts, exploits and other small things I wrote during my bug hunting jorney, pentesting or red teaming missions.
+The main focus of this “micro-framework” is turn in reality the rapid development of security tools using reusable patterns of FBP. 
 
 ---
 
@@ -37,15 +37,14 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON
 ### How to use
 
 ```
-Spellbook v0.1.2
+Spellbook v0.2.0
 Core Commands
 ==============
 	Command          Description
 	-------          -----------
 	-s, --search     List modules, you can filter by category
 	-m, --module     Set a module to use
-	-t, --target     Set a target
-	-p, --parameter  Set a value for a module parameter
+  -h, --help       To see help menu of a module
 ```
 
 ### Example
@@ -88,9 +87,3 @@ If you are interested in developing new modules, a good start point is to read t
 ### License
 
 - This work is licensed under [MIT License.](/LICENSE.md)
-
----
-
-### References
-
-1. [https://en.wikipedia.org/wiki/Flow-based_programming](https://en.wikipedia.org/wiki/Flow-based_programming)
