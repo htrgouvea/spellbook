@@ -44,7 +44,7 @@ Core Commands
 	-------          -----------
 	-s, --search     List modules, you can filter by category
 	-m, --module     Set a module to use
-  -h, --help       To see help menu of a module
+	-h, --help       To see help menu of a module
 ```
 
 ### Example
