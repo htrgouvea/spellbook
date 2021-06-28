@@ -2,24 +2,33 @@ package Spellbook::Core::Credentials {
     use strict;
     use warnings;
     use Mojo::File;
-    use Mojo::JSON qw(decode_json);
+    use Mojo::JSON qw(decode_json encode_json);
     use Getopt::Long;
+    use Data::Dumper;
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $platform);
+        my ($help, $platform, $value);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help" => \$help,
             "p|platform=s" => \$platform,
+            "v|value=s" => \$value,
         );
             
         if ($platform) {
             my $credentials = Mojo::File -> new(".config/credentials.json");
 
-            my $read = $credentials -> slurp();
-            my $content = decode_json($read);
+            my $data = $credentials -> slurp();
+            my $content = decode_json($data);
+
+            if ($value) {            
+                $content -> {$platform} = $value;
+                $credentials -> spurt(encode_json($content));
+
+                return "Value updated\n";
+            }
 
             return $content -> {$platform}, "\n";
         }
@@ -29,7 +38,8 @@ package Spellbook::Core::Credentials {
             \rCore::Credentials
             \r==============
             \r-h, --help       See this menu
-            \r-p, --platform   Read some credentials filtering by platform\n\n";
+            \r-p, --platform   Read some credentials filtering by platform
+            \r-v, --value      Define a value of a plaform\n\n";
         }
         
         return 0;
