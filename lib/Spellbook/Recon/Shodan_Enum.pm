@@ -6,12 +6,18 @@ package Spellbook::Recon::Shodan_Enum {
     use Spellbook::Core::Credentials;
 
     sub new {
-        my ($self, $ip) = @_;
-        my @results = ();
+        my ($self, $parameters) = @_;
+        my ($help, $target, @result);
 
-        if ($ip) {
-            my $apiKey    = Spellbook::Core::Credentials -> new("shodan");
-            my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target
+        );
+
+        if ($target) {
+            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
+            my $endpoint  = "https://api.shodan.io/shodan/host/$target?key=$apiKey";
             my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
             my $request   = $userAgent -> get($endpoint);
             my $httpCode  = $request -> code();
@@ -31,17 +37,27 @@ package Spellbook::Recon::Shodan_Enum {
                             push @cves, $_;
                         }
 
-                        push @results, "$transport://$ip:$port | $service | $product | @cves\n";
+                        push @result, "$transport://$target:$port | $service | $product | @cves\n";
                     }
 
                     else {
-                        push @results, "$transport://$ip:$port | $service | $product\n";
+                        push @result, "$transport://$target:$port | $service | $product\n";
                     }
                 }
             }
-        }   
 
-        return @results;
+            return @result;
+        }
+
+        if ($help) {
+            return "
+                \rRecon::Shodan_Enum
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set an IP to see infos on shodan API\n\n";
+        }
+
+        return 0;
     }
 }
 
