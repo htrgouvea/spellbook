@@ -101,6 +101,12 @@
             "category": "helper",
             "module": "Generate_UUID",
             "description": "A simple helper to generate uuid v1, v2, v3 and v4"
+        },
+        {
+            "id": "0018",
+            "category": "recon",
+            "module": "Bing",
+            "description": "Module to perform passive recon using Bing dorks"
         }
     ]
 }
