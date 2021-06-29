@@ -4,30 +4,47 @@ package Spellbook::Helper::Read_File {
     use Spellbook::Core::Module;
 
     sub new {
-        my ($self, $filename, $parameter) = @_;
-        my @results = ();
+        my ($self, $parameters)= @_;
+        my ($help, $file, $module, @result);
 
-        if ($filename) {
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "f|file=s" => \$file,
+            # "m|module=s" => \$module
+        );
+
+        if ($file) {
             my $resources = Spellbook::Core::Resources -> new();
 
-            open (my $file, "<", $filename);
+            open (my $filename, "<", $file);
 
-            while (<$file>) {
+            while (<$filename>) {
                 chomp ($_);
 
-                if ($parameter) {
-                    my $return = Spellbook::Core::Module -> new ($resources, $parameter, $_);
-                }
+                # if ($module) {
+                #     my $return = Spellbook::Core::Module -> new ($resources, $module, $_);
+                # }
 
                 else {
-                    push @results, $_, "\n";
+                    push @result, $_, "\n";
                 }
             }
 
-            close ($file);
+            close ($filename);
+
+            return @result;
         }
 
-        return @results;
+         if ($help) {
+            return "
+                \rHelper::Read_File
+                \r=====================
+                \r-h, --help     See this menu
+                \r-f, --file     Define a file to read\n\n";
+        }
+        
+        return 0;
     }
 }
 

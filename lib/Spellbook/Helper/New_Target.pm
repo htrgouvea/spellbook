@@ -3,8 +3,14 @@ package Spellbook::Helper::New_Target {
     use warnings;
 
     sub new {
-        my ($self, $target) = @_;
-        my @result = (); 
+        my ($self, $parameters)= @_;
+        my ($help, $target @result);
+
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=i" => \$target,
+        );
 
         if ($target) {
             my @folders = ("recon", "notes", "files");
@@ -23,9 +29,19 @@ package Spellbook::Helper::New_Target {
 
                 push @result, "created $target/$folder\n";
             }
+
+            return @result;
         }
 
-        return @result;
+        if ($help) {
+            return "
+                \rHelper::New_Target
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Create a new target folder structure\n\n";
+        }
+
+        return 0;
     }
 }
 

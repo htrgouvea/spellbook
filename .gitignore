@@ -9,3 +9,6 @@ data/
 targets/
 .config/credentials.yml
 .config/credentials.json
+credentials.json
+*credentials.json
+.config/credentials.json

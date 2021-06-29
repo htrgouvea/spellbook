@@ -26,7 +26,7 @@
         },
         {
             "id": "0005",
-            "category": "exploits",
+            "category": "exploit",
             "module": "CVE_2017_5487",
             "description": "Read usernames leaked on WordPress API"
         },
@@ -44,7 +44,7 @@
         },
         {
             "id": "0008",
-            "category": "exploits",
+            "category": "exploit",
             "module": "CVE_2006_3392",
             "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220"
         },
@@ -62,21 +62,51 @@
         },
         {
             "id": "0011",
-            "category": "exploits",
+            "category": "exploit",
             "module": "Shellshock",
             "description": "Exploit for shellshock vuln"
         },
         {
             "id": "0012",
-            "category": "exploits",
+            "category": "exploit",
             "module": "Subdomain_Takeover_Check",
             "description": "A checker for the possibility of subdomain takeover attack"
         },
         {
             "id": "0013",
-            "category": "workflows",
-            "module": "Passive_Recon",
-            "description": ""
+            "category": "recon",
+            "module": "Passive_Workflow",
+            "description": "Workflow to run all modules of passive recon"
+        },
+        {
+            "id": "0014",
+            "category": "core",
+            "module": "Credentials",
+            "description": "Read, create, update local credentials used by Spellbook"
+        },
+        {
+            "id": "0015",
+            "category": "exploit",
+            "module": "CVE_2016_10045",
+            "description": "PHPMailer < 5.2.20 Remote Code Execution PoC 0day Exploit (CVE-2016-10045) (Bypass of the CVE-2016-1033 patch)"
+        },
+        {
+            "id": "0016",
+            "category": "helper",
+            "module": "Exifs_Write",
+            "description": "Write payloads into images and PDFs files"
+        },
+        {
+            "id": "0017",
+            "category": "helper",
+            "module": "Generate_UUID",
+            "description": "A simple helper to generate uuid v1, v2, v3 and v4"
+        },
+        {
+            "id": "0018",
+            "category": "recon",
+            "module": "Bing",
+            "description": "Module to perform passive recon using Bing dorks"
         }
     ]
 }

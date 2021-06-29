@@ -4,11 +4,20 @@ package Spellbook::Recon::Extract_Links {
     use WWW::Mechanize;
 
     sub new {
-        my ($self, $target) = @_;
-        my @results = ();
+        my ($self, $parameters)= @_;
+        my ($help, $target, @result);
+
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target,
+        );
 
         if ($target) {
-            my $mech    = WWW::Mechanize -> new();
+            my $mech    = WWW::Mechanize -> new (
+                ssl_opts => { verify_hostname => 0 }
+            );
+            
             my $request = $mech -> get($target);
             my @links   = $mech -> links();
             
@@ -16,12 +25,22 @@ package Spellbook::Recon::Extract_Links {
                 my $url = $link -> url();
 
                 if (($url) && ($url !~ m/#/)) {
-                    push @results, $url, "\n";
+                    push @result, $url, "\n";
                 }
             }
+
+            return @result;
         }
 
-        return @results;
+        if ($help) {
+            return "
+                \rRecon::Extrac_Links
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a web page to extract all links\n\n";
+        }
+
+        return 0;
     }
 }
 

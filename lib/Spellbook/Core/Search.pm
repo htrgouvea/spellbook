@@ -5,14 +5,15 @@ package Spellbook::Core::Search {
     sub new {
         my ($self, $modules, $search) = @_;
 
-        foreach my $module (@{$modules -> {"modules"}}) {
-            # i need refact everything's here ;)
-            if ($search eq $module -> {category}) {
-                my $name =  ucfirst $module -> {category} . "::" . $module -> {module};
-                                
-                print "Module: ", $name, "\n";
-                print "Description: ", $module -> {description}, "\n";
-                print "=================================================", "\n\n";
+        foreach my $module (@{$modules -> {modules}}) {
+            for (keys %{$module}) {
+                my $value = lc $module -> {$_};
+                
+                if ($search =~ m/$value/g) {
+                    print "Module: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
+                    print "Description: ", $module -> {description}, "\n";
+                    print "=================================================", "\n\n";
+                }
             }
         }
 

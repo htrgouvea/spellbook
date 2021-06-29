@@ -4,23 +4,35 @@ package Spellbook::Helper::Generate_UUID {
     use UUID::Tiny ':std';
 
     sub new {
-        my ($self, $value, $param) = @_; 
-        my @results = ();
+        my ($self, $parameters)= @_;
+        my ($help, $version, $repeat, @result);
 
-        if ($value) {
-            my $versions = {
-                v1 => "UUID_V1",
-                v2 => "UUID_V2",
-                v3 => "UUID_V3",
-                v4 => "UUID_V4",
-                v5 => "UUID_V5"
-            };
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "v|version=i" => \$version,
+            "r|repeat=i" => \$repeat
+        );
+
+        if ($version) {
+            for (my $i = 0; $i <= $repeat; $i++) {
+                my $generate = create_uuid_as_string($version);
+                push @result, $generate, "\n";
+            }
             
-            my $generate = create_uuid_as_string($versions -> {$value});
-            # print $generate, "\n";
+            return @result;
         }
 
-        return @results;
+        if ($help) {
+            return "
+                \rHelper::Generate_UUID
+                \r=====================
+                \r-h, --help     See this menu
+                \r-v, --version  Version of UUID algorithm
+                \r-r, --repeat   Quantities of repetitions\n\n";
+        }
+
+        return 0;
     }
 }
 

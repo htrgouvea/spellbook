@@ -4,18 +4,32 @@ package Spellbook::Recon::Get_IP {
     use Socket;
 
     sub new {
-        my ($self, $hostname) = @_;
-        my @results = ();
+        my ($self, $parameters) = @_;
+        my ($help, $target);
 
-        if ($hostname) {
-            my $ip = gethostbyname($hostname);
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target
+        );
+
+        if ($target) {
+            my $ip = gethostbyname($target);
 
             if ($ip) {
-                push @results, inet_ntoa($ip), "\n";
+                return inet_ntoa($ip);
             }       
         }
 
-        return @results;
+        if ($help) {
+            return "
+                \rRecon::Get_IP
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set a domain to get the IP\n\n";
+        }
+
+        return 0;
     }
 }
 
