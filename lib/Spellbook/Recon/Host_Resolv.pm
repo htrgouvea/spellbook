@@ -4,19 +4,33 @@ package Spellbook::Recon::Host_Resolv {
     use Net::DNS;
 
     sub new {
-        my ($self, $hostname) = @_;
-        my @result = ();
+        my ($self, $parameters) = @_;
+        my ($help, $target);
 
-        if ($hostname) {
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target
+        );
+
+        if ($target) {
             my $resolver = Net::DNS::Resolver -> new();
-            my $search  = $resolver -> search($hostname);
+            my $search  = $resolver -> search($target);
 
             if ($search) {
-                push @result, $hostname, "\n";
+                return $target, "\n";
             } 
         }
         
-        return @result;
+        if ($help) {
+            return "
+                \rRecon::Get_IP
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set a domain to get the IP\n\n";
+        }
+
+        return 0;
     }
 }
 
