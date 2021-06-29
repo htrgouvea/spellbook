@@ -2,7 +2,6 @@ package Spellbook::Recon::Get_Headers {
     use strict;
     use warnings;
     use LWP::UserAgent;
-    use Try::Tiny;
 
     sub new {
         my ($self, $parameters) = @_;
