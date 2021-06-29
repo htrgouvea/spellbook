@@ -95,6 +95,12 @@
             "category": "helper",
             "module": "Exifs_Write",
             "description": "Write payloads into images and PDFs files"
+        },
+        {
+            "id": "0017",
+            "category": "helper",
+            "module": "Generate_UUID",
+            "description": "A simple helper to generate uuid v1, v2, v3 and v4"
         }
     ]
 }
