@@ -51,7 +51,6 @@ Core Commands
 
 ```
 # Searching for exploits 
-```
 $ perl spellbook.pl --search exploit
 
 Module: Exploit::CVE_2017_5487
@@ -79,7 +78,8 @@ bin:x:2:2:bin:/bin:/bin/sh
 sys:x:3:3:sys:/dev:/bin/sh
 sync:x:4:65534:sync:/bin:/bin/sync
 games:x:5:60:games:/usr/games:/bin/sh
-...
+[...]
+
 ```
 
 If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
