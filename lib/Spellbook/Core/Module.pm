@@ -14,7 +14,7 @@ package Spellbook::Core::Module {
                 my @run = "Spellbook::$name" -> new(@parameters);
                 
                 foreach my $result (@run) {
-                    print $result;
+                    print $result, "\n";
                 }
 
                 return 1;
