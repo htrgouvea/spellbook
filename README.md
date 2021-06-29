@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.2.0-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.2.1-blue.svg">
     </a>
   </p>
 </p>
@@ -37,7 +37,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON
 ### How to use
 
 ```
-Spellbook v0.2.0
+Spellbook v0.2.1
 Core Commands
 ==============
 	Command          Description
@@ -49,19 +49,27 @@ Core Commands
 
 ### Example
 
-```bash
+```
 # Searching for exploits 
-$ perl spellbook.pl --search exploits
+```
+$ perl spellbook.pl --search exploit
 
-Module: Exploits::CVE_2017_5487
+Module: Exploit::CVE_2017_5487
 Description: Read usernames leaked on WordPress API
 =================================================
 
-Module: Exploits::CVE_2006_3392
-Description: Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220
+Module: Exploit::Shellshock
+Description: Exploit for shellshock vuln
 =================================================
-...
 
+Module: Exploit::Subdomain_Takeover_Check
+Description: A checker for the possibility of subdomain takeover attack
+=================================================
+
+[...]
+```
+
+```
 # Using an exploit
 $ perl spellbook.pl -m Exploits::CVE_2006_3392 -t http://172.30.0.15:10000/ -p /etc/passwd
 
