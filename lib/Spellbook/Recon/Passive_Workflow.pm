@@ -6,22 +6,46 @@ package Spellbook::Recon::Passive_Workflow {
     use Spellbook::Recon::Shodan_Enum;
 
     sub new {
-        my ($self, $hostname) = @_;
-        my @results = ();
+        my ($self, $parameters) = @_;
+        my ($help, $target, @result);
 
-        if ($hostname) {
-            my $resolv = Spellbook::Recon::Host_Resolv -> new($hostname);
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target
+        );
+
+        if ($target) {
+            my $resolv = Spellbook::Recon::Host_Resolv -> new ([
+                "--target" => $target
+            ]);
 
             if ($resolv) {
-                my @ip = Spellbook::Recon::Get_IP -> new($hostname);
-                if ($ip[0]) {
-                    my @shodan = Spellbook::Recon::Shodan_Enum -> new($ip[0]);
-                    push @results, @shodan;
+                my $ip = Spellbook::Recon::Get_IP -> new ([
+                    "--target" => $target
+                ]);
+
+                if ($ip) {
+                    my @shodan = Spellbook::Recon::Shodan_Enum -> new([
+                        "--target" => $ip
+                    ]);
+
+                    push @result, @shodan;
                 }
             }
+
+            return @result;
         }
 
-        return @results;
+        if ($help) {
+            return "
+                \rRecon::Shodan_Enum
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set an IP to see infos on shodan API\n\n";
+        }
+
+        return 0;
     }
 }
 
