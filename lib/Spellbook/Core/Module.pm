@@ -16,10 +16,14 @@ package Spellbook::Core::Module {
                 foreach my $result (@run) {
                     print $result;
                 }
+
+                return 1;
             }
         }
+        
+        print "\n[!] Module not found.\n\n";
 
-        return 1;
+        return 0;
     }
 }
 
