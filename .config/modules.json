@@ -83,6 +83,18 @@
             "category": "core",
             "module": "Credentials",
             "description": "Read, create, update local credentials used by Spellbook"
+        },
+        {
+            "id": "0015",
+            "category": "exploit",
+            "module": "CVE_2016_10045",
+            "description": "PHPMailer < 5.2.20 Remote Code Execution PoC 0day Exploit (CVE-2016-10045) (Bypass of the CVE-2016-1033 patch)"
+        },
+        {
+            "id": "0016",
+            "category": "helper",
+            "module": "Exifs_Write",
+            "description": "Write payloads into images and PDFs files"
         }
     ]
 }
