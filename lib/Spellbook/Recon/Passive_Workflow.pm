@@ -16,19 +16,13 @@ package Spellbook::Recon::Passive_Workflow {
         );
 
         if ($target) {
-            my $resolv = Spellbook::Recon::Host_Resolv -> new ([
-                "--target" => $target
-            ]);
+            my $resolv = Spellbook::Recon::Host_Resolv -> new (["--target" => $target]);
 
             if ($resolv) {
-                my $ip = Spellbook::Recon::Get_IP -> new ([
-                    "--target" => $target
-                ]);
+                my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
 
                 if ($ip) {
-                    my @shodan = Spellbook::Recon::Shodan_Enum -> new([
-                        "--target" => $ip
-                    ]);
+                    my @shodan = Spellbook::Recon::Shodan_Enum -> new(["--target" => $ip]);
 
                     push @result, @shodan;
                 }
