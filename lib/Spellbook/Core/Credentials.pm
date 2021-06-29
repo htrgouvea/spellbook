@@ -4,7 +4,6 @@ package Spellbook::Core::Credentials {
     use Mojo::File;
     use Mojo::JSON qw(decode_json encode_json);
     use Getopt::Long;
-    use Data::Dumper;
 
     sub new {
         my ($self, $parameters) = @_;
