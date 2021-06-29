@@ -17,7 +17,7 @@ package Spellbook::Recon::Get_IP {
             my $ip = gethostbyname($target);
 
             if ($ip) {
-                return inet_ntoa($ip), "\n";
+                return inet_ntoa($ip);
             }       
         }
 

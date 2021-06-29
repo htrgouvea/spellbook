@@ -18,7 +18,7 @@ package Spellbook::Recon::Host_Resolv {
             my $search  = $resolver -> search($target);
 
             if ($search) {
-                return $target, "\n";
+                return $target;
             } 
         }
         
