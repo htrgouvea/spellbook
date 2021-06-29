@@ -11,9 +11,9 @@ package Spellbook::Core::Credentials {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"       => \$help,
             "p|platform=s" => \$platform,
-            "v|value=s" => \$value,
+            "v|value=s"    => \$value,
         );
             
         if ($platform) {
@@ -29,7 +29,7 @@ package Spellbook::Core::Credentials {
                 return "Value updated\n";
             }
 
-            return $content -> {$platform}, "\n";
+            return $content -> {$platform};
         }
 
         if ($help) {
