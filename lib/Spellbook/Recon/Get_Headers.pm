@@ -5,25 +5,33 @@ package Spellbook::Recon::Get_Headers {
     use Try::Tiny;
 
     sub new {
-        my ($self, $hostname, $parameter) = @_;
-        my @results = ();
+        my ($self, $parameters) = @_;
+        my ($help, $target, @result);
 
-        if ($hostname) {
-            my $ua = LWP::UserAgent -> new(
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help" => \$help,
+            "t|target=s" => \$target
+        );
+    
+        if ($target) {
+            my $ua = LWP::UserAgent -> new (
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            try {
-                my $request = $ua -> get("https://$hostname");
-                push @results, $request -> headers_as_string, "\n";
-            }
-
-            catch {
-                #
-            }
+            my $response = $ua -> get($target);
+            return $response -> headers_as_string, "\n";
         }
 
-        return @results;
+        if ($help) {
+            return "
+                \rRecon::Get_Headers
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set a URL to collect all headers\n\n";
+        }
+
+        return 0;
     }
 }
 
