@@ -7,13 +7,19 @@ use LWP::UserAgent;
 use Spellbook::Core::Credentials;
 
 sub new {
-    my ($self, $target) = @_;
-    my @result = ();
+    my ($self, $parameters) = @_;
+    my ($help, $target, @result);
+
+    Getopt::Long::GetOptionsFromArray (
+        $parameters,
+        "h|help" => \$help,
+        "t|target=s" => \$target
+    );
 
     if ($target) {
-        my $apiKey    = Spellbook::Core::Credentials -> new("hunter");
+        my $apiKey    = Spellbook::Core::Credentials -> new (["--platform" => "hunter"]);
         my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$apiKey";
-        my $userAgent = LWP::UserAgent -> new();
+        my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
 	    my $request   = $userAgent -> get($endpoint);
 	    my $httpCode  = $request -> code();
 
@@ -23,9 +29,19 @@ sub new {
             foreach my $email (@{$content -> {data} -> {emails}}) {
                 push @result, $email -> {'value'}, "\n";
             }
+
+            return @result;
         }    
 
-        return @result;
+        if ($help) {
+            return "
+                \rRecon::Find_Emails
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a domain to find emails\n\n";
+        }
+
+        return 0;
     }
 }
 
