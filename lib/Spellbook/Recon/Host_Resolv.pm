@@ -24,7 +24,7 @@ package Spellbook::Recon::Host_Resolv {
         
         if ($help) {
             return "
-                \rRecon::Get_IP
+                \rRecon::Host_Resolv
                 \r=====================
                 \r-h, --help     See this menu
                 \r-t, --target   Set a domain to get the IP\n\n";
