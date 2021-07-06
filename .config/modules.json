@@ -107,6 +107,12 @@
             "category": "recon",
             "module": "Bing",
             "description": "Module to perform passive recon using Bing dorks"
+        },
+        {
+            "id": "0019",
+            "category": "android",
+            "module": "APKSign",
+            "description": "Sign APKs"
         }
     ]
 }
