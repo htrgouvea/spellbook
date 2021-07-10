@@ -15,7 +15,7 @@ package Spellbook::Android::APKSign {
         );
 
         if ($apkfile && $name && $password) {
-            system("keytool -genkey -keystore $name .jks -storepass $password -storetype jks -alias $name -keyalg rsa -dname \"CN=DESEC\" -keypass $password");
+            system("keytool -genkey -keystore $name .jks -storepass $password -storetype jks -alias $name -keyalg rsa -dname \"CN=Google\" -keypass $password");
             system("jarsigner -keystore $name .jks -storepass $password -storetype jks -sigalg sha1withrsa -digestalg sha1 $apkfile $name");
             system("jarsigner -verify -certs -verbose $apkfile");
         }
