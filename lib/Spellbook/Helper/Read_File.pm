@@ -5,13 +5,13 @@ package Spellbook::Helper::Read_File {
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $file, $module, @result);
+        my ($help, $file, $entrypoint, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help" => \$help,
             "f|file=s" => \$file,
-            # "m|module=s" => \$module
+            "e|entrypoint=s" => \$entrypoint
         );
 
         if ($file) {
@@ -22,12 +22,18 @@ package Spellbook::Helper::Read_File {
             while (<$filename>) {
                 chomp ($_);
 
-                # if ($module) {
-                #     my $return = Spellbook::Core::Module -> new ($resources, $module, $_);
-                # }
+                if ($entrypoint) {
+                    my $return = Spellbook::Core::Module -> new (
+                        $resources,
+                        $entrypoint,
+                        [
+                            "--target" => $_
+                        ]
+                    );
+                }
 
                 else {
-                    push @result, $_, "\n";
+                    push @result, $_,;
                 }
             }
 

@@ -1,20 +1,37 @@
-package Spellbook::Android::APKSign;
+package Spellbook::Android::APKSign {
+    use strict;
+    use warnings;
 
-# i need refact this code
+    sub new {
+        my ($self, $parameters) = @_;
+        my ($help, $apkfile, $name, $password);
 
-use strict;
-use warnings;
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help"       => \$help,
+            "a|apk=s"      => \$apkfile,
+            "n|name=s"     => \$name,
+            "p|password=s" => \$password,
+        );
 
-sub new {
-    my ($self, $apkfile, $pkgname, $passowrd) = @_;
+        if ($apkfile && $name && $password) {
+            system("keytool -genkey -keystore $name .jks -storepass $password -storetype jks -alias $name -keyalg rsa -dname \"CN=Google\" -keypass $password");
+            system("jarsigner -keystore $name .jks -storepass $password -storetype jks -sigalg sha1withrsa -digestalg sha1 $apkfile $name");
+            system("jarsigner -verify -certs -verbose $apkfile");
+        }
 
-    if ($apkfile && $pkgname && $password) {
-        system("keytool -genkey -keystore $pkgname .jks -storepass $password -storetype jks -alias $pkgname -keyalg rsa -dname \"CN=DESEC\" -keypass $password")
-        system("jarsigner -keystore $pkgname .jks -storepass $password -storetype jks -sigalg sha1withrsa -digestalg sha1 $apkfile $pkgname")
-        system("jarsigner -verify -certs -verbose $apkfile")
+        if ($help) {
+            return "
+            \rAndroid::APKSign
+            \r================
+            \r-h, --help       See this menu
+            \r-a, --apk        Pass the APK file
+            \r-n, --name       Set de package name
+            \r-p, --password   Define a password\n";
+        }
+        
+        return 0;
     }
-
-    return 1;
 }
 
 1;
