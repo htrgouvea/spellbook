@@ -113,6 +113,12 @@
             "category": "android",
             "module": "APKSign",
             "description": "Sign APKs"
+        },
+        {
+            "id": "0020",
+            "category": "recon",
+            "module": "WayBackUrls",
+            "description": "Find paths of an application using WayBackMachine API"
         }
     ]
 }
