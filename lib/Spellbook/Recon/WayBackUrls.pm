@@ -3,7 +3,6 @@ package Spellbook::Recon::WayBackUrls {
     use warnings;
     use JSON;
     use LWP::UserAgent;
-    use Data::Dumper;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -45,4 +44,3 @@ package Spellbook::Recon::WayBackUrls {
 }
 
 1;
-
