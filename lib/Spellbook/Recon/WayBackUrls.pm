@@ -3,6 +3,7 @@ package Spellbook::Recon::WayBackUrls {
     use warnings;
     use JSON;
     use LWP::UserAgent;
+    use Mojo::URL;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -22,9 +23,10 @@ package Spellbook::Recon::WayBackUrls {
             if ($request -> code() == 200) {
                 my $content = decode_json($request -> content);
 
-                foreach my $path (@{$content}) {
-                    $path -> [2] =~ s/^http:\/\/|^https:\/\///;
-                    push @result, $path -> [2];
+                foreach my $fullurl (@{$content}) {
+                    my $url = Mojo::URL -> new($fullurl -> [2]);
+
+                    push @result, $url -> path();
                 }
             }
 
