@@ -4,7 +4,7 @@ package Spellbook::Core::Helper {
 
 	sub new {
 		print "
-			\rSpellbook v0.2.0
+			\rSpellbook v0.2.2
 			\rCore Commands
 			\r==============
 			\r\tCommand          Description
