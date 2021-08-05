@@ -17,7 +17,7 @@ package Spellbook::Recon::Extract_Links {
             my $mech    = WWW::Mechanize -> new (
                 ssl_opts => { verify_hostname => 0 }
             );
-            
+
             my $request = $mech -> get($target);
             my @links   = $mech -> links();
             
@@ -25,7 +25,7 @@ package Spellbook::Recon::Extract_Links {
                 my $url = $link -> url();
 
                 if (($url) && ($url !~ m/#/)) {
-                    push @result, $url, "\n";
+                    push @result, $url;
                 }
             }
 
