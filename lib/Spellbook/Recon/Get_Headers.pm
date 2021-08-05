@@ -19,6 +19,7 @@ package Spellbook::Recon::Get_Headers {
             );
 
             my $response = $ua -> get($target);
+            
             return $response -> headers_as_string, "\n";
         }
 

@@ -46,8 +46,9 @@ package Spellbook::Helper::Read_File {
             return "
                 \rHelper::Read_File
                 \r=====================
-                \r-h, --help     See this menu
-                \r-f, --file     Define a file to read\n\n";
+                \r-h, --help        See this menu
+                \r-f, --file        Define a file to read
+                \r-e, --entrypoint  Set a other module to send the output\n\n";
         }
         
         return 0;
