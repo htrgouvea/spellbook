@@ -17,7 +17,7 @@ package Spellbook::Helper::Generate_UUID {
         if ($version) {
             for (my $i = 0; $i <= $repeat; $i++) {
                 my $generate = create_uuid_as_string($version);
-                push @result, $generate, "\n";
+                push @result, $generate;
             }
             
             return @result;
