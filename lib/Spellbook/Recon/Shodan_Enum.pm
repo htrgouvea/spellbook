@@ -37,11 +37,11 @@ package Spellbook::Recon::Shodan_Enum {
                             push @cves, $_;
                         }
 
-                        push @result, "$transport://$target:$port | $service | $product | @cves\n";
+                        push @result, "$transport://$target:$port | $service | $product | @cves";
                     }
 
                     else {
-                        push @result, "$transport://$target:$port | $service | $product\n";
+                        push @result, "$transport://$target:$port | $service | $product";
                     }
                 }
             }

@@ -1,16 +1,18 @@
 package Spellbook::Recon::Extract_Links {
     use strict;
     use warnings;
+    use Try::Tiny;
     use WWW::Mechanize;
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $target, @result);
+        my ($help, $target, $recursive, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help" => \$help,
             "t|target=s" => \$target,
+            "r|recursive" => \$recursive
         );
 
         if ($target) {
@@ -26,6 +28,16 @@ package Spellbook::Recon::Extract_Links {
 
                 if (($url) && ($url !~ m/#/)) {
                     push @result, $url;
+
+                    if (($url !~ "^(http|https)://") && ($recursive)) {
+                        try {
+                            my $teste = Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
+                        }
+
+                        catch {
+                            # 
+                        }
+                    }
                 }
             }
 
