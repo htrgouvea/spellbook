@@ -124,7 +124,7 @@
             "id": "0022",
             "category": "exploit",
             "module": "CVE_2021_41773",
-            "description": "Path Traversal in Apache HTTP Server"
+            "description": "Exploit path Traversal or RCE in Apache HTTP Server 2.4"
         }
     ]
 }
