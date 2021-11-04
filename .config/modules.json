@@ -125,6 +125,12 @@
             "category": "exploit",
             "module": "CVE_2021_41773",
             "description": "Exploit path Traversal or RCE in Apache HTTP Server 2.4"
+        },
+        {
+            "id": "0023",
+            "category": "exploit",
+            "module": "Pwn_DB",
+            "description": "Reading leakeds credentials using pwndb database"
         }
     ]
 }
