@@ -20,6 +20,9 @@ Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a 
 
 The main focus of this “micro-framework” is turn in reality the rapid development of security tools using reusable patterns of FBP. 
 
+
+"Third clark law: any sufficiently advanced technology is indistinguishable from magic" - that's why this project is called spellbook.
+
 ---
 
 ### Download and install
