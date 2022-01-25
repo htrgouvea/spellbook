@@ -16,9 +16,9 @@ package Spellbook::Android::Manifest {
         if ($file) {
             my $data = XMLin($file);
 
-            my $package = $data -> {'package'};
-            my $backup  = $data -> {application} -> {'android:allowBackup'};
-            my $debug   = $data -> {application} -> {'android:debuggable'};
+            my $package = $data -> {"package"};
+            my $backup  = $data -> {application} -> {"android:allowBackup"};
+            my $debug   = $data -> {application} -> {"android:debuggable"};
 
             ### clear traffic true
             ### deep link / scheme without host
