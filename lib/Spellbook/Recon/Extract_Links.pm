@@ -10,13 +10,13 @@ package Spellbook::Recon::Extract_Links {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "t|target=s" => \$target,
+            "h|help"      => \$help,
+            "t|target=s"  => \$target,
             "r|recursive" => \$recursive
         );
 
         if ($target) {
-            my $mech    = WWW::Mechanize -> new (
+            my $mech = WWW::Mechanize -> new (
                 ssl_opts => { verify_hostname => 0 }
             );
 
@@ -29,9 +29,10 @@ package Spellbook::Recon::Extract_Links {
                 if (($url) && ($url !~ m/#/)) {
                     push @result, $url;
 
-                    if (($url !~ "^(http|https)://") && ($recursive)) {
+                    # draft recursive function
+                    if (($recursive) && ($url !~ "^(http|https)://")) {
                         try {
-                            my $teste = Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
+                            Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
                         }
 
                         catch {
@@ -48,8 +49,9 @@ package Spellbook::Recon::Extract_Links {
             return "
                 \rRecon::Extrac_Links
                 \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a web page to extract all links\n\n";
+                \r-h, --help       See this menu
+                \r-t, --target     Define a web page to extract all links
+                \r-r, --recursive  Draft recursive function\n\n";
         }
 
         return 0;

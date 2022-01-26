@@ -31,17 +31,17 @@ package Spellbook::Recon::Find_Emails {
 
                 return @result;
             }    
-
-            if ($help) {
-                return "
-                    \rRecon::Find_Emails
-                    \r=====================
-                    \r-h, --help     See this menu
-                    \r-t, --target   Define a domain to find emails\n\n";
-            }
-
-            return 0;
         }
+
+        if ($help) {
+            return "
+                \rRecon::Find_Emails
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a domain to find emails\n";
+        }
+
+        return 0;
     }
 }
 

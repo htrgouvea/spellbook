@@ -20,6 +20,9 @@ Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a 
 
 The main focus of this “micro-framework” is turn in reality the rapid development of security tools using reusable patterns of FBP. 
 
+
+"Third clark law: any sufficiently advanced technology is indistinguishable from magic" - that's why this project is called spellbook.
+
 ---
 
 ### Download and install
@@ -29,7 +32,7 @@ The main focus of this “micro-framework” is turn in reality the rapid develo
 $ git clone https://github.com/htrgouvea/spellbook && cd spellbook
 
 # Install libs and dependencies
-$ cpan install Getopt::Long Mojo::File Mojo::JSON
+$ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
 ```
 
 ---
