@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.2.2-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.2.3-blue.svg">
     </a>
   </p>
 </p>
@@ -19,7 +19,6 @@
 Spellbook uses FBP: "In computer programming, flow-based programming (FBP) is a programming paradigm that defines applications as networks of "black box" processes, which exchange data across predefined connections by message passing, where the connections are specified externally to the processes. These black box processes can be reconnected endlessly to form different applications without having to be changed internally. FBP is thus naturally component-oriented." [[1]](https://en.wikipedia.org/wiki/Flow-based_programming)
 
 The main focus of this “micro-framework” is turn in reality the rapid development of security tools using reusable patterns of FBP. 
-
 
 "Third clark law: any sufficiently advanced technology is indistinguishable from magic" - that's why this project is called spellbook.
 
@@ -40,7 +39,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
 ### How to use
 
 ```
-Spellbook v0.2.2
+Spellbook v0.2.3
 Core Commands
 ==============
 	Command          Description
