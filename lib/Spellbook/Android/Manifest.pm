@@ -22,7 +22,7 @@ package Spellbook::Android::Manifest {
 
             ### clear traffic true
             ### deep link / scheme without host
-            ### 
+            ### https://www.mentebinaria.com.br/artigos/pequenas-liga%C3%A7%C3%B5es-grandes-vulnerabilidades-uma-breve-introdu%C3%A7%C3%A3o-a-deep-links-em-android-r75/
 
             return "
                 \r[ - ] -> Package name: $package

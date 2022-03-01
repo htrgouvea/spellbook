@@ -1,8 +1,8 @@
 package Spellbook::Recon::Passive_Workflow {
     use strict;
     use warnings;
-    use Spellbook::Recon::Host_Resolv;
     use Spellbook::Recon::Get_IP;
+    use Spellbook::Recon::Host_Resolv;
     use Spellbook::Recon::Shodan_Enum;
 
     sub new {

@@ -131,6 +131,12 @@
             "category": "exploit",
             "module": "Pwn_DB",
             "description": "Reading leakeds credentials using pwndb database"
+        },
+        {
+            "id": "0024",
+            "category": "parser",
+            "module": "Nmap",
+            "description": ""
         }
     ]
 }

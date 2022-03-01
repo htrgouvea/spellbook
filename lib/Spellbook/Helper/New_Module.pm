@@ -1,13 +1,12 @@
-package Spellbook::Exploit::S3_Bucket_Misconfig {
+package Spellbook::Helper::New_Module {
     use strict;
-    use warings;
+    use warnings;
 
     sub new {
         my ($self, $parameters) = @_;
-
+        
         return 1;
     }
-
 }
 
 1;
