@@ -143,6 +143,12 @@
             "category": "recon",
             "module": "Subdomain_Enumeration",
             "description": "Enumeration of subdomains from a target using SecurityTrails API"
+        },
+        {
+            "id": "0026",
+            "category": "helper",
+            "module": "Scope",
+            "description": "Extract and write infos from a YAML as your scope file"
         }
     ]
 }
