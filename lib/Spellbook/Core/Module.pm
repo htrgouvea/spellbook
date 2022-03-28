@@ -13,13 +13,16 @@ package Spellbook::Core::Module {
                 require "Spellbook/" . $category . "/" . $package -> {module} . ".pm";
                 my @run = "Spellbook::$name" -> new(@parameters);
                 
+                my @results;
+
                 foreach my $result (@run) {
                     if ($result ne "0") {
+                        push @results, $result;
                         print $result, "\n";
                     }
                 }
 
-                return 1;
+                return @results;
             }
         }
         
