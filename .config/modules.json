@@ -112,7 +112,7 @@
             "id": "0019",
             "category": "android",
             "module": "APKSign",
-            "description": "Sign APKs"
+            "description": "Asign APKs"
         },
         {
             "id": "0020",
@@ -136,7 +136,19 @@
             "id": "0024",
             "category": "parser",
             "module": "Nmap",
-            "description": ""
+            "description": "Parse XML output from Nmap to extract open ports"
+        },
+        {
+            "id": "0025",
+            "category": "recon",
+            "module": "Subdomain_Enumeration",
+            "description": "Enumeration of subdomains from a target using SecurityTrails API"
+        },
+        {
+            "id": "0026",
+            "category": "helper",
+            "module": "Scope",
+            "description": "Extract and write infos from a YAML as your scope file"
         }
     ]
 }
