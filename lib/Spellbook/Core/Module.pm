@@ -18,7 +18,6 @@ package Spellbook::Core::Module {
                 foreach my $result (@run) {
                     if ($result ne "0") {
                         push @results, $result;
-                        print $result, "\n";
                     }
                 }
 
@@ -26,9 +25,7 @@ package Spellbook::Core::Module {
             }
         }
         
-        print "\n[!] Module not found.\n\n";
-
-        return 0;
+        return "\n[!] Module not found.\n\n";
     }
 }
 
