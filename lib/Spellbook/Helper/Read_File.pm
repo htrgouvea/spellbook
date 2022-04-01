@@ -15,21 +15,14 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            my $resources = Spellbook::Core::Resources -> new();
-
             open (my $filename, "<", $file);
 
             while (<$filename>) {
                 chomp ($_);
 
                 if ($entrypoint) {
-                    my $return = Spellbook::Core::Module -> new (
-                        $resources,
-                        $entrypoint,
-                        [
-                            "--target" => $_
-                        ]
-                    );
+                    my $resources = Spellbook::Core::Resources -> new();
+                    my $return = Spellbook::Core::Module -> new ($resources, $entrypoint, ["--target" => $_]);
                 }
 
                 else {
@@ -42,7 +35,7 @@ package Spellbook::Helper::Read_File {
             return @result;
         }
 
-         if ($help) {
+        if ($help) {
             return "
                 \rHelper::Read_File
                 \r=====================

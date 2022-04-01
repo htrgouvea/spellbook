@@ -39,7 +39,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
 ### How to use
 
 ```
-Spellbook v0.2.3
+Spellbook v0.2.4
 Core Commands
 ==============
 	Command          Description

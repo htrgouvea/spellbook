@@ -16,8 +16,6 @@ package Spellbook::Core::Search {
                 }
             }
         }
-
-        return 1;
     }
 }
 
