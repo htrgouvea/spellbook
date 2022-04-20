@@ -149,6 +149,12 @@
             "category": "helper",
             "module": "Scope",
             "description": "Extract and write infos from a YAML as your scope file"
+        },
+        {
+            "id": "0027",
+            "category": "Exploit",
+            "module": "S3_Bucket",
+            "description": "Module to read and write files on AWS S3 Bucket service"
         }
     ]
 }
