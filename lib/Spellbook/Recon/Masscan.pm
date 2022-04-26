@@ -3,6 +3,7 @@ package Spellbook::Recon::Masscan {
     use warnings;
     use Masscan::Scanner;
     use List::MoreUtils qw(uniq);
+    use Spellbook::Recon::Get_IP;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -20,8 +21,10 @@ package Spellbook::Recon::Masscan {
         );
 
         if (@target) {
+            my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
+
             my $masscan = Masscan::Scanner -> new(
-                hosts     => \@target,
+                hosts     => \@ip,
                 ports     => \@ports,
                 arguments => \@arguments
             );
