@@ -3,7 +3,6 @@ package Spellbook::Recon::Masscan {
     use warnings;
     use Masscan::Scanner;
     use List::MoreUtils qw(uniq);
-    use Data::Dumper;
     
     sub new {
         my ($self, $parameters) = @_;

@@ -21,7 +21,7 @@ package Spellbook::Parser::Nmap {
             my $host = $data -> {host} -> {address} -> {addr};
             
             foreach my $content (@{$data -> {host} -> {ports} -> {port}}) {
-                    print Dumper($content);
+                    # print Dumper($content);
 
                     # push @result, $element -> {Key};
                 

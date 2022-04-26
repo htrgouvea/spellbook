@@ -16,8 +16,8 @@ package Spellbook::Recon::Dorking {
         if ($dork) {
             my $engine = WWW::DuckDuckGo -> new() -> zci("$dork");
             
-            use Data::Dumper;
-            print Dumper($engine -> Answer());
+            # use Data::Dumper;
+            # print Dumper($engine -> Answer());
 
             return @result;
         }

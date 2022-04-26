@@ -49,7 +49,7 @@ package Spellbook::Recon::Nmap_Scanner {
             
             my $results = $scanner -> scan();
 
-            print Dumper($results);
+            # print Dumper($results);
         } 
 
         if ($help) {
