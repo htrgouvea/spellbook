@@ -11,11 +11,11 @@ package Spellbook::Helper::Scope {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "S|scope=s" => \$scope,
+            "h|help"          => \$help,
+            "S|scope=s"       => \$scope,
             "i|information=s" => \$information,
-            "e|entrypoint=s" => \$entrypoint,
-            "save=s" => \$save
+            "e|entrypoint=s"  => \$entrypoint,
+            "save=s"          => \$save
         );
 
         if ($scope) {
@@ -51,7 +51,7 @@ package Spellbook::Helper::Scope {
                 \rHelper::Scope
                 \r=====================
                 \r-h, --help         See this menu
-                \r-s, --scope        Define a YML file as a scope
+                \r-S, --scope        Define a YML file as a scope
                 \r-i, --information  Set an information to extract from your scope
                 \r-e, --entrypoint   Send informations to another entrypoint module
                 \r--save             Save the output on some attribute\n\n";
