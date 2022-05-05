@@ -3,7 +3,6 @@ package Spellbook::Parser::Bucket {
     use warnings;
     use XML::Simple;
     use LWP::UserAgent;
-    use Data::Dumper;
 
     sub new {
         my ($self, $parameters) = @_;

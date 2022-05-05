@@ -2,24 +2,30 @@ package Spellbook::Recon::Masscan {
     use strict;
     use warnings;
     use Masscan::Scanner;
-    use Data::Dumper;
+    use List::MoreUtils qw(uniq);
+    use Spellbook::Recon::Get_IP;
     
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, @target, @ports, @arguments, @result);
+        my ($help, @target, @result);
+        
+        my @arguments = qw(--banners);
+        my @ports     = "1-1000";
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "t|target=s" => \@target,
-            "p|port=s" => \@ports,
+            "h|help"      => \$help,
+            "t|target=s"  => \@target,
+            "p|port=s"    => \@ports,
             "a|arguments" => \@arguments
         );
 
         if (@target) {
+            my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
+
             my $masscan = Masscan::Scanner -> new(
-                hosts => \@target, 
-                ports => \@ports, 
+                hosts     => \@ip,
+                ports     => \@ports,
                 arguments => \@arguments
             );
 
@@ -29,8 +35,10 @@ package Spellbook::Recon::Masscan {
                 my $result = $masscan -> scan_results();
 
                 foreach my $value (@{$result -> {"scan_results"}}) {
-                    print $value -> {"ip"} . ":" .  $value -> {"ports"} -> [0] -> {"port"}, "\n";
+                    push @result, $target[0] . ":" . $value -> {"ports"} -> [0] -> {"port"};
                 }
+                
+                return uniq @result;
             }
         } 
 

@@ -1,4 +1,5 @@
-requires 'Find::Lib';
 requires 'Mojo::File';
-requires 'YAML::Tiny';
+requires 'Find::Lib', '1.04';
+requires 'YAML::Tiny', '1.73';
+requires 'Masscan::Scanner';
 requires 'Net::DNS';

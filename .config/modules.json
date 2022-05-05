@@ -105,8 +105,8 @@
         {
             "id": "0018",
             "category": "recon",
-            "module": "Bing",
-            "description": "Module to perform passive recon using Bing dorks"
+            "module": "Dorking",
+            "description": "Perform passive recon via dorks using DuckDuckGo engine"
         },
         {
             "id": "0019",
@@ -149,6 +149,18 @@
             "category": "helper",
             "module": "Scope",
             "description": "Extract and write infos from a YAML as your scope file"
+        },
+        {
+            "id": "0027",
+            "category": "exploit",
+            "module": "S3_Bucket",
+            "description": "Module to read and write files on AWS S3 Bucket service"
+        },
+        {
+            "id": "0028",
+            "category": "recon",
+            "module": "Masscan",
+            "description": "Scanning services of assets with masscan"
         }
     ]
 }
