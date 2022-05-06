@@ -1,4 +1,4 @@
-package Spellbook::Recon::Get_Headers {
+package Spellbook::Recon::HTTP_Probe {
     use strict;
     use warnings;
     use LWP::UserAgent;
@@ -14,21 +14,18 @@ package Spellbook::Recon::Get_Headers {
         );
     
         if ($target) {
-            my $ua = LWP::UserAgent -> new (
-                ssl_opts => { verify_hostname => 0 }
-            );
+            my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 0 });
+            my $response = $userAgent -> get($target);
 
-            my $response = $ua -> get($target);
-            
-            return $response -> headers_as_string, "\n";
+            if ($response) { return $target; }
         }
 
         if ($help) {
             return "
-                \rRecon::Get_Headers
+                \rRecon::HTTP_Probe
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t, --target   Set a URL to collect all headers\n\n";
+                \r-t, --target   Define a target to make a HTTP request probe\n\n";
         }
 
         return 0;

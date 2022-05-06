@@ -10,7 +10,7 @@ package Spellbook::Recon::Masscan {
         my ($help, @target, @result);
         
         my @arguments = qw(--banners);
-        my @ports     = "1-1000";
+        my @ports     = "1-65535";
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -34,7 +34,7 @@ package Spellbook::Recon::Masscan {
             if ($scan) {
                 my $result = $masscan -> scan_results();
 
-                foreach my $value (@{$result -> {"scan_results"}}) {
+                foreach my $value (@{$result -> {"scan_results"}}) {                    
                     push @result, $target[0] . ":" . $value -> {"ports"} -> [0] -> {"port"};
                 }
                 

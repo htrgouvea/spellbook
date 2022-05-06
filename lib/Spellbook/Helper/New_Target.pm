@@ -4,7 +4,7 @@ package Spellbook::Helper::New_Target {
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $target @result);
+        my ($help, $target, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
