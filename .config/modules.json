@@ -15,8 +15,8 @@
         {
             "id": "0003",
             "category": "recon",
-            "module": "Get_Headers",
-            "description": "Get all HTTP headers from an web server"
+            "module": "HTTP_Probe",
+            "description": "Make a HTTP request probe"
         },
         {
             "id": "0004",
@@ -161,6 +161,12 @@
             "category": "recon",
             "module": "Masscan",
             "description": "Scanning services of assets with masscan"
+        },
+        {
+            "id": "0028",
+            "category": "helper",
+            "module": "HackerOne_Scraper",
+            "description": ""
         }
     ]
 }
