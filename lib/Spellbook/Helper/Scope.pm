@@ -18,7 +18,7 @@ package Spellbook::Helper::Scope {
             "save=s"          => \$save
         );
 
-        if ($scope) {
+        if ($scope && $information) {
             my $yamlfile = YAML::Tiny -> read($scope);
         
             foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
