@@ -3,9 +3,10 @@ package Spellbook::Recon::Extract_Links {
     use warnings;
     use Try::Tiny;
     use WWW::Mechanize;
+    use List::MoreUtils qw(uniq);
 
     sub new {
-        my ($self, $parameters)= @_;
+        my ($self, $parameters) = @_;
         my ($help, $target, $recursive, @result);
 
         Getopt::Long::GetOptionsFromArray (
@@ -17,10 +18,11 @@ package Spellbook::Recon::Extract_Links {
 
         if ($target) {
             my $mech = WWW::Mechanize -> new (
+                autocheck => 0,
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            my $request = $mech -> get($target);
+            my $request = $mech -> get("https://$target");
             my @links   = $mech -> links();
             
             for my $link (@links) {
@@ -28,11 +30,10 @@ package Spellbook::Recon::Extract_Links {
 
                 if (($url) && ($url !~ m/#/)) {
                     push @result, $url;
-
-                    # draft recursive function
+                    
                     if (($recursive) && ($url !~ "^(http|https)://")) {
                         try {
-                            Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
+                            push @result, Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
                         }
 
                         catch {
@@ -42,7 +43,7 @@ package Spellbook::Recon::Extract_Links {
                 }
             }
 
-            return @result;
+            return uniq @result;
         }
 
         if ($help) {

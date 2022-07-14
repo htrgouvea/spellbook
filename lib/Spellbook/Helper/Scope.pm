@@ -18,16 +18,17 @@ package Spellbook::Helper::Scope {
             "save=s"          => \$save
         );
 
-        if ($scope) {
+        if ($scope && $information) {
             my $yamlfile = YAML::Tiny -> read($scope);
         
             foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
                 if ($entrypoint) {
                     my $resources = Spellbook::Core::Resources -> new();
+
                     my @return = Spellbook::Core::Module -> new (
                         $resources, 
                         $entrypoint, 
-                        ["--target" => $info],
+                        ["--target" => $info]
                     );
                     
                     push @results, @return;

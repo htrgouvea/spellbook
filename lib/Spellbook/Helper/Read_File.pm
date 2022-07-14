@@ -23,6 +23,10 @@ package Spellbook::Helper::Read_File {
                 if ($entrypoint) {
                     my $resources = Spellbook::Core::Resources -> new();
                     my $return = Spellbook::Core::Module -> new ($resources, $entrypoint, ["--target" => $_]);
+                    
+                    if ($return) { 
+                        push @result, $_;
+                    }
                 }
 
                 else {
