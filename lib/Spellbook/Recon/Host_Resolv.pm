@@ -9,13 +9,13 @@ package Spellbook::Recon::Host_Resolv {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 
         if ($target) {
             my $resolver = Net::DNS::Resolver -> new();
-            my $search  = $resolver -> search($target);
+            my $search = $resolver -> search($target);
 
             if ($search) {
                 return $target;

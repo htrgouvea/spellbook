@@ -37,12 +37,6 @@
             "description": "A module to extract all links from a web page"
         },
         {
-            "id": "0007",
-            "category": "helper",
-            "module": "New_Target",
-            "description": "A module to create the structure folder when start a new project"
-        },
-        {
             "id": "0008",
             "category": "exploit",
             "module": "CVE_2006_3392",
@@ -64,12 +58,12 @@
             "id": "0011",
             "category": "exploit",
             "module": "Shellshock",
-            "description": "Exploit for shellshock vuln"
+            "description": "Exploit for shellshock vulnerability"
         },
         {
             "id": "0012",
             "category": "exploit",
-            "module": "Subdomain_Takeover_Check",
+            "module": "Subdomain_Takeover",
             "description": "A checker for the possibility of subdomain takeover attack"
         },
         {
@@ -101,12 +95,6 @@
             "category": "helper",
             "module": "Generate_UUID",
             "description": "A simple helper to generate uuid v1, v2, v3 and v4"
-        },
-        {
-            "id": "0018",
-            "category": "recon",
-            "module": "Dorking",
-            "description": "Perform passive recon via dorks using DuckDuckGo engine"
         },
         {
             "id": "0019",
@@ -151,22 +139,10 @@
             "description": "Extract and write infos from a YAML as your scope file"
         },
         {
-            "id": "0027",
-            "category": "exploit",
-            "module": "S3_Bucket",
-            "description": "Module to read and write files on AWS S3 Bucket service"
-        },
-        {
             "id": "0028",
             "category": "recon",
             "module": "Masscan",
             "description": "Scanning services of assets with masscan"
-        },
-        {
-            "id": "0028",
-            "category": "helper",
-            "module": "HackerOne_Scraper",
-            "description": ""
         }
     ]
 }
