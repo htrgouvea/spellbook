@@ -37,6 +37,12 @@
             "description": "A module to extract all links from a web page"
         },
         {
+            "id": "0007",
+            "category": "recon",
+            "module": "DNS_Bruteforce",
+            "description": "Active enumeration of subdomains using DNS brute-force"
+        },
+        {
             "id": "0008",
             "category": "exploit",
             "module": "CVE_2006_3392",
