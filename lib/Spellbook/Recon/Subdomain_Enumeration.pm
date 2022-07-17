@@ -11,7 +11,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 

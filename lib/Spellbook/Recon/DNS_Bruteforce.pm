@@ -6,20 +6,30 @@ package Spellbook::Recon::DNS_Bruteforce {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $file);
+        my ($help, $target, @result);
+        my $wordlist = "./files/subdomains.txt";
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"     => \$help,
             "t|target=s" => \$target,
-            "f|file=s"   => \$file
+            "f|file=s"   => \$wordlist
         );
 
-        if ($target) {
-            
-            my $resolv = Spellbook::Recon::Host_Resolv -> new(
-                ["target" => $target]
-            );
+        if (($target) && ($wordlist)) {
+            my @file = Spellbook::Helper::Read_File -> new (["-f" => $wordlist]);
+
+            if (@file) {
+                foreach my $line (@file) {
+                    my $return = Spellbook::Recon::Host_Resolv -> new (["--target" => "$line.$target"]);
+                    
+                    if ($return) {
+                        push @result, "$line.$target";
+                    }
+                }
+            }
+
+            return @result;
         }
         
         if ($help) {

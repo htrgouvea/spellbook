@@ -10,7 +10,7 @@ package Spellbook::Parser::Bucket {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target,
         );
 
@@ -32,7 +32,7 @@ package Spellbook::Parser::Bucket {
 
         if ($help) {
             return "
-                \r
+                \rParser::Bucket
                 \r=====================
                 \r-h, --help     See this menu
                 \r-t, --target   \n\n";

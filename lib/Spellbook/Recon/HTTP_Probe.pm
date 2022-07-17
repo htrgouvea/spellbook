@@ -9,7 +9,7 @@ package Spellbook::Recon::HTTP_Probe {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
     
@@ -17,7 +17,9 @@ package Spellbook::Recon::HTTP_Probe {
             my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 0 });
             my $response = $userAgent -> get($target);
 
-            if ($response) { return $target; }
+            if ($response) { 
+                return $target;
+            }
         }
 
         if ($help) {
