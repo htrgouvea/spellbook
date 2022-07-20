@@ -30,7 +30,7 @@ package Spellbook::Helper::Scope {
                         $entrypoint, 
                         ["--target" => $info]
                     );
-                    
+
                     push @results, @return;
                 } 
 
@@ -43,7 +43,7 @@ package Spellbook::Helper::Scope {
                 $yamlfile -> [0] -> {$save} = [@results];
                 $yamlfile -> write ($scope);
             }
-
+                        
             return @results;
         }
 
