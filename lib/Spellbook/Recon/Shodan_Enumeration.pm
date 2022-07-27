@@ -1,4 +1,4 @@
-package Spellbook::Recon::Shodan_Enum {
+package Spellbook::Recon::Shodan_Enumeration {
     use strict;
     use warnings;
     use JSON;
