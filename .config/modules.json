@@ -73,12 +73,6 @@
             "description": "A checker for the possibility of subdomain takeover attack"
         },
         {
-            "id": "0013",
-            "category": "recon",
-            "module": "Passive_Workflow",
-            "description": "Workflow to run all modules of passive recon"
-        },
-        {
             "id": "0014",
             "category": "core",
             "module": "Credentials",

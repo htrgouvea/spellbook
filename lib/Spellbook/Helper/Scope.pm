@@ -40,8 +40,10 @@ package Spellbook::Helper::Scope {
             }
 
             if ($save) {
-                $yamlfile -> [0] -> {$save} = [@results];
-                $yamlfile -> write ($scope);
+                for (keys @results) {
+                    $yamlfile -> [0] -> {$save} -> [$_] = $results[$_];
+                    $yamlfile -> write ($scope);                  
+                }
             }
                         
             return @results;

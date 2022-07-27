@@ -3,7 +3,10 @@ package Spellbook::Recon::Shodan_Enum {
     use warnings;
     use JSON;
     use LWP::UserAgent;
+    use Spellbook::Recon::Get_IP;
+    use Spellbook::Recon::Host_Resolv;
     use Spellbook::Core::Credentials;
+    use Data::Validate::Domain qw(is_domain);
 
     sub new {
         my ($self, $parameters) = @_;
@@ -11,11 +14,19 @@ package Spellbook::Recon::Shodan_Enum {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 
         if ($target) {
+            my $validate = is_domain($target);
+
+            if ($validate) {
+                my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
+
+                if ($ip) { $target = $ip; }
+            }
+
             my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
             my $endpoint  = "https://api.shodan.io/shodan/host/$target?key=$apiKey";
             my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });

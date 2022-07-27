@@ -4,6 +4,7 @@ package Spellbook::Recon::Passive_Workflow {
     use Spellbook::Recon::Get_IP;
     use Spellbook::Recon::Host_Resolv;
     use Spellbook::Recon::Shodan_Enum;
+    
 
     sub new {
         my ($self, $parameters) = @_;
@@ -14,19 +15,13 @@ package Spellbook::Recon::Passive_Workflow {
             "h|help" => \$help,
             "t|target=s" => \$target
         );
+        
+        print "true\n";
 
-        if ($target) {
-            my $resolv = Spellbook::Recon::Host_Resolv -> new (["--target" => $target]);
+        
 
-            if ($resolv) {
-                my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
-
-                if ($ip) {
-                    my @shodan = Spellbook::Recon::Shodan_Enum -> new(["--target" => $ip]);
-
-                    push @result, @shodan;
-                }
-            }
+            my @shodan = Spellbook::Recon::Shodan_Enum -> new(["--target" => $target]);
+            push @result, @shodan;
 
             return @result;
         }
