@@ -57,7 +57,7 @@
         {
             "id": "0010",
             "category": "recon",
-            "module": "Shodan_Enum",
+            "module": "Shodan_Enumeration",
             "description": "Use Shodan API to enumerate a host: ports, service names, cve's"
         },
         {
@@ -71,6 +71,12 @@
             "category": "exploit",
             "module": "Subdomain_Takeover",
             "description": "A checker for the possibility of subdomain takeover attack"
+        },
+        {
+            "id": "0013",
+            "category": "recon",
+            "module": "Masscan",
+            "description": "Scanning services of assets with masscan"
         },
         {
             "id": "0014",
@@ -97,6 +103,12 @@
             "description": "A simple helper to generate uuid v1, v2, v3 and v4"
         },
         {
+            "id": "0026",
+            "category": "helper",
+            "module": "Scope",
+            "description": "Extract and write infos from a YAML as your scope file"
+        },
+        {
             "id": "0019",
             "category": "android",
             "module": "APKSign",
@@ -107,6 +119,12 @@
             "category": "recon",
             "module": "WayBackUrls",
             "description": "Find paths of an application using WayBackMachine API"
+        },
+        {
+            "id": "0021",
+            "category": "recon",
+            "module": "Subdomain_Enumeration",
+            "description": "Enumeration of subdomains from a target using SecurityTrails API"
         },
         {
             "id": "0022",
@@ -125,24 +143,6 @@
             "category": "parser",
             "module": "Nmap",
             "description": "Parse XML output from Nmap to extract open ports"
-        },
-        {
-            "id": "0025",
-            "category": "recon",
-            "module": "Subdomain_Enumeration",
-            "description": "Enumeration of subdomains from a target using SecurityTrails API"
-        },
-        {
-            "id": "0026",
-            "category": "helper",
-            "module": "Scope",
-            "description": "Extract and write infos from a YAML as your scope file"
-        },
-        {
-            "id": "0028",
-            "category": "recon",
-            "module": "Masscan",
-            "description": "Scanning services of assets with masscan"
         }
     ]
 }
