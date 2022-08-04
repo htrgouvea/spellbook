@@ -9,8 +9,8 @@ package Spellbook::Helper::Read_File {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "f|file=s" => \$file,
+            "h|help"         => \$help,
+            "f|file=s"       => \$file,
             "e|entrypoint=s" => \$entrypoint
         );
 
