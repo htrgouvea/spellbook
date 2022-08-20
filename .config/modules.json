@@ -143,6 +143,12 @@
             "category": "parser",
             "module": "Nmap",
             "description": "Parse XML output from Nmap to extract open ports"
+        },
+        {
+            "id": "0025",
+            "category": "core",
+            "module": "Orchestrator",
+            "description": "Runs another module with parallelism"
         }
     ]
 }

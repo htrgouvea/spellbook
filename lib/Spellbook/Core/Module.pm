@@ -16,7 +16,7 @@ package Spellbook::Core::Module {
                 my @results;
 
                 foreach my $result (@run) {
-                    if ($result ne "0") {
+                    if (defined($result) && $result ne "0") {
                         push @results, $result;
                     }
                 }
