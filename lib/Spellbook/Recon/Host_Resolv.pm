@@ -14,8 +14,12 @@ package Spellbook::Recon::Host_Resolv {
         );
 
         if ($target) {
+            if ($target =~ /^http(s)?:\/\//) {
+                $target =~ s/^http(s)?:\/\///;
+            }
+
             my $resolver = Net::DNS::Resolver -> new();
-            my $search = $resolver -> search($target);
+            my $search   = $resolver -> search($target);
 
             if ($search) {
                 return $target;

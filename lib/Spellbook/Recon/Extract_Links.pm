@@ -22,7 +22,11 @@ package Spellbook::Recon::Extract_Links {
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            my $request = $mech -> get("https://$target");
+            if ($target !~ /^http(s)?:\/\//) { 
+                $target = "https://$target";
+            }
+
+            my $request = $mech -> get($target);
             my @links   = $mech -> links();
             
             for my $link (@links) {

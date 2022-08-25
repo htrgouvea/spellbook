@@ -16,6 +16,10 @@ package Spellbook::Recon::Subdomain_Enumeration {
         );
 
         if ($target) {
+            if ($target =~ /^http(s)?:\/\//) {
+                $target =~ s/^http(s)?:\/\///;
+            }
+            
             my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
             my $endpoint  = "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true";
             my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
