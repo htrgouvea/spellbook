@@ -7,58 +7,69 @@ package Spellbook::Core::Orchestrator {
     use threads::shared;
     use Spellbook::Helper::Read_File;
     
-
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $wordlist, $module);
+
         my $threads = 10;
         my $resources = Spellbook::Core::Resources -> new();
         
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"      => \$help,
-            "t|threads=i"  => \$threads,
-            "w|wordlist=s"  => \$wordlist,
-            "e|entrypoint=s" => \$module,
+            "h|help"         => \$help,
+            "t|threads=i"    => \$threads,
+            "w|wordlist=s"   => \$wordlist,
+            "e|entrypoint=s" => \$module
         );
 
-        if ($help) {
-            print <<HELP;
-Core::Orchestrator
-==============
--h, --help          See this menu
--t, --threads       Number of threads
--w, --wordlist      Wordlist file
--e, --entrypoint    Module to execute
+        if ($module) {
+            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new([ "-f", $wordlist ]));
+            $queue -> end();
+            my @results :shared;
+            
+            async {
+                while (defined(my $target = $queue -> dequeue())) {
+                    my @res;
 
-HELP
-            exit(0)
+                    if (ref $module eq "CODE") {
+                        @res = $module -> ($target, $parameters);
+                    }
+                    
+                    else {
+                        @res = Spellbook::Core::Module -> new (
+                            $resources,
+                            $module,
+                            [ "-t", $target, @$parameters ]
+                        );
+                    }
+                    
+                    lock(@results);
+                    
+                    if (@res) {
+                        push @results, @res;
+                    }
+                }
+            } 
+            
+            for 1 .. $threads;
+
+            while (threads->list(threads::running) > 0) {  }
+            $_->join() for threads->list(threads::all);
+
+            return @results;
         }
 
-        die "[-] No module specified to run\n" unless $module;
+        if ($help) {
+            return "
+                \rCore::Orchestrator
+                \r==============
+                \r\t-h, --help          See this menu
+                \r\t-t, --threads       Number of threads
+                \r\t-w, --wordlist      Wordlist file
+                \r\t-e, --entrypoint    Module to execute\n\n";
+        }
 
-        my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new([ "-f", $wordlist ]));
-        $queue->end();
-        my @results :shared;
-        
-        async {
-            while (defined(my $target = $queue->dequeue())) {
-                my @res;
-                if (ref $module eq "CODE") {
-                    @res = $module -> ($target, $parameters);
-                } else {
-                    @res = Spellbook::Core::Module -> new($resources, $module, [ "-t", $target, @$parameters ]);
-                }
-                
-                lock(@results);
-                push @results, @res if @res;
-            }
-        } for 1 .. $threads;
-
-        while (threads->list(threads::running) > 0) {  }
-        $_->join() for threads->list(threads::all);
-
-        return @results
+        return 0;
     }
 }
 
