@@ -21,10 +21,6 @@ package Spellbook::Recon::Masscan {
         );
 
         if (@target) {
-            if ($target[0] =~ /^http(s)?:\/\//) {
-                $target[0] =~ s/^http(s)?:\/\///;
-            }
-
             my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
 
             my $masscan = Masscan::Scanner -> new(
