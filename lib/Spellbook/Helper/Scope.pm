@@ -15,7 +15,7 @@ package Spellbook::Helper::Scope {
             "S|scope=s"       => \$scope,
             "i|information=s" => \$information,
             "e|entrypoint=s"  => \$entrypoint,
-            "save:+"          => \$save
+            "save:s"          => \$save
         );
 
         if ($scope && $information) {
@@ -41,12 +41,7 @@ package Spellbook::Helper::Scope {
 
             if ($save) {
                 for (keys @results) {
-                    # if ($save == 1) {
-                    #     $yamlfile -> [0] -> {$information} -> "www.magisterappsec.com" = $results[$_];
-                    # }
-
-                    
-                    $yamlfile -> [0] -> {$save} -> [$_] = $results[$_];
+                    $yamlfile -> [0] -> {$save} = [@results];
                     $yamlfile -> write ($scope);              
                 }
             }
