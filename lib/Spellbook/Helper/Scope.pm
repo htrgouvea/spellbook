@@ -1,7 +1,7 @@
 package Spellbook::Helper::Scope {
     use strict;
     use warnings;
-    use YAML::Tiny;
+    use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
     use Spellbook::Core::Module;
     use Spellbook::Core::Resources;
 
