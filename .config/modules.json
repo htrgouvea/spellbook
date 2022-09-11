@@ -149,6 +149,12 @@
             "category": "core",
             "module": "Orchestrator",
             "description": "Runs another module with parallelism"
+        },
+        {
+            "id": "0026",
+            "category": "exploit",
+            "module": "CORS_Misconfig",
+            "description": "Test webserver for CORS misconfiguration"
         }
     ]
 }
