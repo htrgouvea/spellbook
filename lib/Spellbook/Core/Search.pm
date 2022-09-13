@@ -10,9 +10,9 @@ package Spellbook::Core::Search {
                 my $value = lc $module -> {$_};
                 
                 if ($search =~ m/$value/g) {
-                    print "Module: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
+                    print "\nModule: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
                     print "Description: ", $module -> {description}, "\n";
-                    print "=================================================", "\n\n";
+                    print "=================================================", "\n";
                 }
             }
         }

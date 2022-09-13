@@ -9,7 +9,7 @@ package Spellbook::Recon::Dorking {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"   => \$help,
             "d|dork=s" => \$dork
         );
 

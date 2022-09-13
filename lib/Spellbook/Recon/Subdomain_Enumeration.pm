@@ -4,6 +4,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
     use JSON;
     use LWP::UserAgent;
     use Spellbook::Core::Credentials;
+    use List::MoreUtils qw(uniq);
     
     sub new {
         my ($self, $parameters) = @_;
@@ -11,18 +12,24 @@ package Spellbook::Recon::Subdomain_Enumeration {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 
         if ($target) {
-            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
-            my $endpoint  = "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true";
-            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
-            my $request   = $userAgent -> get($endpoint, "apikey" => $apiKey);
-            my $httpCode  = $request -> code();
+            if ($target =~ /^http(s)?:\/\//) {
+                $target =~ s/^http(s)?:\/\///;
+            }
 
-            if ($httpCode == 200) {
+            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
+            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
+
+            my $st_endpoint  = "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true";
+            my $otx_endpoint = "https://prod-otxp-web.otx.alienvault.io/otxapi/indicators/domain/passive_dns/$target";
+            
+            my $request = $userAgent -> get($st_endpoint, "apikey" => $apiKey);
+
+            if ($request -> code() == 200) {
                 my $content = decode_json($request -> content);
                 
                 foreach my $subdomain (@{$content -> {"subdomains"}}) {
@@ -30,7 +37,17 @@ package Spellbook::Recon::Subdomain_Enumeration {
                 }
             }
 
-            return @result;
+            $request   = $userAgent -> get ($otx_endpoint);
+
+            if ($request -> code() == 200) {
+                my $data = decode_json($request -> content());
+
+                foreach my $value (@{$data -> {"passive_dns"}}) {
+                    push @result, $value -> {"hostname"};
+                }
+            }
+
+            return uniq @result;
         } 
 
         if ($help) {

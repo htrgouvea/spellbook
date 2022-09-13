@@ -11,7 +11,7 @@ package Spellbook::Recon::Find_Emails {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 

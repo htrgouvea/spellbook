@@ -7,7 +7,7 @@ package Spellbook::Core::Module {
 
         foreach my $package (@{$modules -> {modules}}) {
             my $category = ucfirst $package -> {category};
-            my $name =  $category . "::" . $package -> {module};
+            my $name = $category . "::" . $package -> {module};
 
             if ($name eq $module) {  
                 require "Spellbook/" . $category . "/" . $package -> {module} . ".pm";
@@ -16,7 +16,7 @@ package Spellbook::Core::Module {
                 my @results;
 
                 foreach my $result (@run) {
-                    if ($result ne "0") {
+                    if (defined($result) && $result ne "0") {
                         push @results, $result;
                     }
                 }

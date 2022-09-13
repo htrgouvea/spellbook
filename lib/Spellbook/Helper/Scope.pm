@@ -1,7 +1,7 @@
 package Spellbook::Helper::Scope {
     use strict;
     use warnings;
-    use YAML::Tiny;
+    use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
     use Spellbook::Core::Module;
     use Spellbook::Core::Resources;
 
@@ -15,7 +15,7 @@ package Spellbook::Helper::Scope {
             "S|scope=s"       => \$scope,
             "i|information=s" => \$information,
             "e|entrypoint=s"  => \$entrypoint,
-            "save=s"          => \$save
+            "save:s"          => \$save
         );
 
         if ($scope && $information) {
@@ -26,11 +26,11 @@ package Spellbook::Helper::Scope {
                     my $resources = Spellbook::Core::Resources -> new();
 
                     my @return = Spellbook::Core::Module -> new (
-                        $resources, 
-                        $entrypoint, 
+                        $resources,
+                        $entrypoint,
                         ["--target" => $info]
                     );
-                    
+
                     push @results, @return;
                 } 
 
@@ -40,10 +40,12 @@ package Spellbook::Helper::Scope {
             }
 
             if ($save) {
-                $yamlfile -> [0] -> {$save} = [@results];
-                $yamlfile -> write ($scope);
+                for (keys @results) {
+                    $yamlfile -> [0] -> {$save} = [@results];
+                    $yamlfile -> write ($scope);              
+                }
             }
-
+                        
             return @results;
         }
 

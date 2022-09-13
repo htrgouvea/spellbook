@@ -9,11 +9,15 @@ package Spellbook::Recon::Get_IP {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"     => \$help,
             "t|target=s" => \$target
         );
 
         if ($target) {
+            if ($target =~ /^http(s)?:\/\//) {
+                $target =~ s/^http(s)?:\/\///;
+            }
+
             my $ip = gethostbyname($target);
 
             if ($ip) {

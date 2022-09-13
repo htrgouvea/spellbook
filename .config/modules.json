@@ -37,6 +37,12 @@
             "description": "A module to extract all links from a web page"
         },
         {
+            "id": "0007",
+            "category": "recon",
+            "module": "DNS_Bruteforce",
+            "description": "Active enumeration of subdomains using DNS brute-force"
+        },
+        {
             "id": "0008",
             "category": "exploit",
             "module": "CVE_2006_3392",
@@ -51,7 +57,7 @@
         {
             "id": "0010",
             "category": "recon",
-            "module": "Shodan_Enum",
+            "module": "Shodan_Enumeration",
             "description": "Use Shodan API to enumerate a host: ports, service names, cve's"
         },
         {
@@ -69,8 +75,8 @@
         {
             "id": "0013",
             "category": "recon",
-            "module": "Passive_Workflow",
-            "description": "Workflow to run all modules of passive recon"
+            "module": "Masscan",
+            "description": "Scanning services of assets with masscan"
         },
         {
             "id": "0014",
@@ -97,6 +103,12 @@
             "description": "A simple helper to generate uuid v1, v2, v3 and v4"
         },
         {
+            "id": "0026",
+            "category": "helper",
+            "module": "Scope",
+            "description": "Extract and write infos from a YAML as your scope file"
+        },
+        {
             "id": "0019",
             "category": "android",
             "module": "APKSign",
@@ -107,6 +119,12 @@
             "category": "recon",
             "module": "WayBackUrls",
             "description": "Find paths of an application using WayBackMachine API"
+        },
+        {
+            "id": "0021",
+            "category": "recon",
+            "module": "Subdomain_Enumeration",
+            "description": "Enumeration of subdomains from a target using SecurityTrails API"
         },
         {
             "id": "0022",
@@ -128,21 +146,15 @@
         },
         {
             "id": "0025",
-            "category": "recon",
-            "module": "Subdomain_Enumeration",
-            "description": "Enumeration of subdomains from a target using SecurityTrails API"
+            "category": "core",
+            "module": "Orchestrator",
+            "description": "Runs another module with parallelism"
         },
         {
             "id": "0026",
-            "category": "helper",
-            "module": "Scope",
-            "description": "Extract and write infos from a YAML as your scope file"
-        },
-        {
-            "id": "0028",
-            "category": "recon",
-            "module": "Masscan",
-            "description": "Scanning services of assets with masscan"
+            "category": "exploit",
+            "module": "CORS_Misconfig",
+            "description": "Test webserver for CORS misconfiguration"
         }
     ]
 }

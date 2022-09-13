@@ -19,7 +19,7 @@ sub main {
             "s|search=s"    => \$search,
             "m|module=s"    => \$module
         );
-        
+
         @result = Spellbook::Core::Search -> new($resources, lc $search) if $search;
         @result = Spellbook::Core::Module -> new($resources, $module, \@ARGV) if $module;
 

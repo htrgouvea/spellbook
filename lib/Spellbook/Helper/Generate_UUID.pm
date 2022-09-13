@@ -9,9 +9,9 @@ package Spellbook::Helper::Generate_UUID {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
+            "h|help"      => \$help,
             "v|version=i" => \$version,
-            "r|repeat=i" => \$repeat
+            "r|repeat=i"  => \$repeat
         );
 
         if ($version) {
