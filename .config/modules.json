@@ -155,6 +155,12 @@
             "category": "exploit",
             "module": "CORS_Misconfig",
             "description": "Test webserver for CORS misconfiguration"
+        },
+        {
+            "id": "00267",
+            "category": "exploit",
+            "module": "Mixed_Content",
+            "description": "Check if a page has content served over HTTP"
         }
     ]
 }
