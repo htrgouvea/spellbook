@@ -18,7 +18,7 @@ package Spellbook::Recon::HTTP_Probe {
                 $target = "https://$target";
             }
 
-            my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 0 });
+            my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 1 });
             my $response  = $userAgent -> get($target);
 
             if ($response) { 
