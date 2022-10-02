@@ -11,7 +11,7 @@ package Spellbook::Core::Orchestrator {
         my ($self, $parameters) = @_;
         my ($help, $wordlist, $module);
 
-        my $threads = 10;
+        my $threads   = 10;
         my $resources = Spellbook::Core::Resources -> new();
         
         Getopt::Long::GetOptionsFromArray (
@@ -23,38 +23,31 @@ package Spellbook::Core::Orchestrator {
         );
 
         if ($module) {
-            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new([ "-f", $wordlist ]));
+            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new([ "--filef", $wordlist ]));
+            
             $queue -> end();
             my @results :shared;
             
             async {
                 while (defined(my $target = $queue -> dequeue())) {
-                    my @res;
-
-                    if (ref $module eq "CODE") {
-                        @res = $module -> ($target, $parameters);
-                    }
-                    
-                    else {
-                        @res = Spellbook::Core::Module -> new (
-                            $resources,
-                            $module,
-                            [ "-t", $target, @$parameters ]
-                        );
-                    }
+                    my @response = Spellbook::Core::Module -> new (
+                        $resources,
+                        $module,
+                        [ "--target" => $target, @$parameters ]
+                    );
                     
                     lock(@results);
                     
-                    if (@res) {
-                        push @results, @res;
+                    if (@response) {
+                        push @results, @response;
                     }
                 }
             } 
             
             for 1 .. $threads;
 
-            while (threads->list(threads::running) > 0) {  }
-            $_->join() for threads->list(threads::all);
+            while (threads -> list(threads::running) > 0) {  }
+            $_ -> join() for threads -> list(threads::all);
 
             return @results;
         }
