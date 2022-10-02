@@ -12,7 +12,6 @@ package Spellbook::Core::Orchestrator {
         my ($help, $wordlist, $module);
 
         my $threads   = 10;
-        my $resources = Spellbook::Core::Resources -> new();
         
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -23,7 +22,7 @@ package Spellbook::Core::Orchestrator {
         );
 
         if ($module) {
-            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new([ "--filef", $wordlist ]));
+            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
             
             $queue -> end();
             my @results :shared;
@@ -31,7 +30,6 @@ package Spellbook::Core::Orchestrator {
             async {
                 while (defined(my $target = $queue -> dequeue())) {
                     my @response = Spellbook::Core::Module -> new (
-                        $resources,
                         $module,
                         [ "--target" => $target, @$parameters ]
                     );
@@ -46,8 +44,10 @@ package Spellbook::Core::Orchestrator {
             
             for 1 .. $threads;
 
-            while (threads -> list(threads::running) > 0) {  }
-            $_ -> join() for threads -> list(threads::all);
+            while (threads -> list(threads::running) > 0) { 
+                $_ -> join() for threads -> list(threads::all);
+            }
+            
 
             return @results;
         }

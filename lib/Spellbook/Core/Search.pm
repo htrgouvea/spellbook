@@ -3,9 +3,11 @@ package Spellbook::Core::Search {
     use warnings;
 
     sub new {
-        my ($self, $modules, $search) = @_;
+        my ($self, $search) = @_;
 
-        foreach my $module (@{$modules -> {modules}}) {
+        my $resources = Spellbook::Core::Resources -> new();
+        
+        foreach my $module (@{$resources -> {modules}}) {
             for (keys %{$module}) {
                 my $value = lc $module -> {$_};
                 

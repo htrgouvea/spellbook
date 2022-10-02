@@ -21,8 +21,7 @@ package Spellbook::Helper::Read_File {
                 chomp ($_);
 
                 if ($entrypoint) {
-                    my $resources = Spellbook::Core::Resources -> new();
-                    my $return = Spellbook::Core::Module -> new ($resources, $entrypoint, ["--target" => $_]);
+                    my $return = Spellbook::Core::Module -> new ($entrypoint, ["--target" => $_]);
                     
                     if ($return) { 
                         push @result, $_;

@@ -3,7 +3,6 @@ package Spellbook::Helper::Scope {
     use warnings;
     use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
     use Spellbook::Core::Module;
-    use Spellbook::Core::Resources;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -23,10 +22,7 @@ package Spellbook::Helper::Scope {
         
             foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
                 if ($entrypoint) {
-                    my $resources = Spellbook::Core::Resources -> new();
-
                     my @return = Spellbook::Core::Module -> new (
-                        $resources,
                         $entrypoint,
                         ["--target" => $info]
                     );
