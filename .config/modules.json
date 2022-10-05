@@ -157,10 +157,22 @@
             "description": "Test webserver for CORS misconfiguration"
         },
         {
-            "id": "00267",
+            "id": "0027",
             "category": "exploit",
             "module": "Mixed_Content",
             "description": "Check if a page has content served over HTTP"
+        },
+        {
+            "id": "0028",
+            "category": "exploit",
+            "module": "Headers_Misconfig",
+            "description": ""
+        },
+        {
+            "id": "0029",
+            "category": "exploit",
+            "module": "None_Attack",
+            "description": ""
         }
     ]
 }

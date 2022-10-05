@@ -1,11 +1,14 @@
 package Spellbook::Core::Module {
     use strict;
     use warnings;
+    use Spellbook::Core::Resources;
 
     sub new {
-        my ($self, $modules, $module, @parameters) = @_;
+        my ($self, $module, @parameters) = @_;
 
-        foreach my $package (@{$modules -> {modules}}) {
+        my $resources = Spellbook::Core::Resources -> new();
+
+        foreach my $package (@{$resources -> {modules}}) {
             my $category = ucfirst $package -> {category};
             my $name = $category . "::" . $package -> {module};
 
