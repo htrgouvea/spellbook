@@ -6,10 +6,11 @@ package Spellbook::Core::Orchestrator {
     use Thread::Queue;
     use threads::shared;
     use Spellbook::Helper::Read_File;
+    use Data::Dumper;
     
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $wordlist, $module);
+        my ($help, $wordlist, $module, $list);
 
         my $threads   = 10;
         
@@ -18,12 +19,21 @@ package Spellbook::Core::Orchestrator {
             "h|help"         => \$help,
             "t|threads=i"    => \$threads,
             "w|wordlist=s"   => \$wordlist,
-            "e|entrypoint=s" => \$module
+            "e|entrypoint=s" => \$module,
+            "l|list=s"       => \$list
         );
 
         if ($module) {
-            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
-            
+            my $queue;
+
+            if ($wordlist) {
+                $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
+            }
+
+            else {
+                $queue = Thread::Queue -> new(@{$list});
+            }
+
             $queue -> end();
             my @results :shared;
             
