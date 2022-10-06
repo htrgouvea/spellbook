@@ -13,8 +13,8 @@ sub main {
     my ($search, $module, @result);
     
     Getopt::Long::GetOptions (
-        "s|search=s"    => \$search,
-        "m|module=s"    => \$module
+        "s|search=s" => \$search,
+        "m|module=s" => \$module
     );
 
     @result = Spellbook::Core::Search -> new(lc $search) if $search;

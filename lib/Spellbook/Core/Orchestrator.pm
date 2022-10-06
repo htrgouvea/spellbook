@@ -6,7 +6,6 @@ package Spellbook::Core::Orchestrator {
     use Thread::Queue;
     use threads::shared;
     use Spellbook::Helper::Read_File;
-    use Data::Dumper;
     
     sub new {
         my ($self, $parameters) = @_;

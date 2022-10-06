@@ -4,7 +4,6 @@ package Spellbook::Helper::Scope {
     use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
-    use Data::Dumper;
 
     sub new {
         my ($self, $parameters) = @_;
