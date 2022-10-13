@@ -1,0 +1,24 @@
+---
+assets:
+  - www.example.net
+  - example.net
+  - www.example.com
+name: 'Example Company'
+scope:
+  - example.com
+  - example.net
+services:
+  - www.example.net:443
+  - www.example.net:80
+  - example.net:443
+  - example.net:80
+  - www.example.com:80
+  - www.example.com:443
+source: HackerOne
+webapps:
+  - http://www.example.com:443
+  - http://example.net:443
+  - http://www.example.net:443
+  - http://www.example.com:80
+  - http://example.net:80
+  - http://www.example.net:80

@@ -26,7 +26,7 @@ package Spellbook::Recon::WayBackUrls {
                 foreach my $fullurl (@{$content}) {
                     my $url = Mojo::URL -> new($fullurl -> [2]);
 
-                    push @result, $url -> path();
+                    push @result, $url -> path() -> to_abs_string;
                 }
             }
 

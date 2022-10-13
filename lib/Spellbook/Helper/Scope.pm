@@ -3,45 +3,52 @@ package Spellbook::Helper::Scope {
     use warnings;
     use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
     use Spellbook::Core::Module;
+    use Spellbook::Core::Orchestrator;
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $scope, $information, $entrypoint, $save, @results);
+        my ($help, $scope, $information, $entrypoint, $save, @results, @response);
 
+        my $threads = 10;
+        
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"          => \$help,
             "S|scope=s"       => \$scope,
             "i|information=s" => \$information,
             "e|entrypoint=s"  => \$entrypoint,
+            "t|threads=i"     => \$threads,
             "save:s"          => \$save
         );
 
         if ($scope && $information) {
             my $yamlfile = YAML::Tiny -> read($scope);
-        
-            foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
-                if ($entrypoint) {
-                    my @return = Spellbook::Core::Module -> new (
-                        $entrypoint,
-                        ["--target" => $info]
-                    );
 
-                    push @results, @return;
-                } 
+            if ($entrypoint) {
+                my @response = Spellbook::Core::Orchestrator -> new (
+                    [
+                        "--entrypoint" => $entrypoint,
+                        "--list"        => $yamlfile -> [0] -> {$information},
+                        "--threads"     => $threads
+                    ]
+                );
 
-                else {
+                push @results, @response;
+            }
+
+            else {
+                foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
                     push @results, $info;
                 }
             }
-
+    
             if ($save) {
                 for (keys @results) {
                     $yamlfile -> [0] -> {$save} = [@results];
                     $yamlfile -> write ($scope);              
                 }
             }
-                        
+
             return @results;
         }
 

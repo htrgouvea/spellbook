@@ -6,7 +6,6 @@ tests/
 .creds
 *.creds
 data/
-targets/
 .config/credentials.yml
 .config/credentials.json
 credentials.json

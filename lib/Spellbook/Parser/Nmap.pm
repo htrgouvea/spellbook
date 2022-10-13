@@ -2,7 +2,6 @@ package Spellbook::Parser::Nmap {
     use strict;
     use warnings;
     use XML::Simple;
-    use Data::Dumper;
 
     sub new {
         my ($self, $parameters)= @_;

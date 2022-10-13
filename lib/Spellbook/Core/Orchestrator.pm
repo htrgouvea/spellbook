@@ -6,24 +6,32 @@ package Spellbook::Core::Orchestrator {
     use Thread::Queue;
     use threads::shared;
     use Spellbook::Helper::Read_File;
+    use List::MoreUtils qw(uniq);
     
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $wordlist, $module);
+        my ($help, $wordlist, $module, $list, $queue);
 
-        my $threads   = 10;
+        my $threads = 10;
         
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"         => \$help,
             "t|threads=i"    => \$threads,
             "w|wordlist=s"   => \$wordlist,
-            "e|entrypoint=s" => \$module
+            "e|entrypoint=s" => \$module,
+            "l|list=s"       => \$list
         );
 
         if ($module) {
-            my $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
-            
+            if ($wordlist) {
+                $queue = Thread::Queue -> new (Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
+            }
+
+            else {
+                $queue = Thread::Queue -> new(@{$list});
+            }
+
             $queue -> end();
             my @results :shared;
             
@@ -49,7 +57,7 @@ package Spellbook::Core::Orchestrator {
             }
             
 
-            return @results;
+            return uniq @results;
         }
 
         if ($help) {

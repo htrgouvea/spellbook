@@ -12,10 +12,10 @@ package Spellbook::Recon::HTTP_Probe {
             "h|help"     => \$help,
             "t|target=s" => \$target
         );
-    
+
         if ($target) {
             if ($target !~ /^http(s)?:\/\//) { 
-                $target = "https://$target";
+                $target = "http://$target";
             }
 
             my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 1 });
