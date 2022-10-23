@@ -4,6 +4,7 @@ package Spellbook::Recon::Masscan {
     use Masscan::Scanner;
     use List::MoreUtils qw(uniq);
     use Spellbook::Recon::Get_IP;
+    use Spellbook::Helper::CDN_Checker;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -21,24 +22,28 @@ package Spellbook::Recon::Masscan {
         );
 
         if (@target) {
-            my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
+            my $CDN_Checker = Spellbook::Helper::CDN_Checker -> new (["--target" => $target[0]]);
 
-            my $masscan = Masscan::Scanner -> new(
-                hosts     => \@ip,
-                ports     => \@ports,
-                arguments => \@arguments
-            );
+            if (!$CDN_Checker) {
+                my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
 
-            my $scan = $masscan -> scan();
+                my $masscan = Masscan::Scanner -> new(
+                    hosts     => \@ip,
+                    ports     => \@ports,
+                    arguments => \@arguments
+                );
 
-            if ($scan) {
-                my $result = $masscan -> scan_results();
+                my $scan = $masscan -> scan();
 
-                foreach my $value (@{$result -> {"scan_results"}}) {                    
-                    push @result, $target[0] . ":" . $value -> {"ports"} -> [0] -> {"port"};
+                if ($scan) {
+                    my $result = $masscan -> scan_results();
+
+                    foreach my $value (@{$result -> {"scan_results"}}) {                    
+                        push @result, $target[0] . ":" . $value -> {"ports"} -> [0] -> {"port"};
+                    }
+                    
+                    return uniq @result;
                 }
-                
-                return uniq @result;
             }
         } 
 
