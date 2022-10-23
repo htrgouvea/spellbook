@@ -173,6 +173,12 @@
             "category": "exploit",
             "module": "None_Attack",
             "description": ""
+        },
+        {
+            "id": "0030",
+            "category": "helper",
+            "module": "CDN_Checker",
+            "description": "Check if a target is behind a CDN provider, based on Project Discovery list"
         }
     ]
 }
