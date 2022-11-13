@@ -31,7 +31,7 @@ The main focus of this “micro-framework” is turn in reality the rapid develo
 $ git clone https://github.com/htrgouvea/spellbook && cd spellbook
 
 # Install libs and dependencies
-$ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
+$ cpanm --installdeps .
 ```
 
 ---
@@ -39,7 +39,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
 ### How to use
 
 ```
-Spellbook v0.2.6
+Spellbook v0.2.8
 Core Commands
 ==============
 	Command          Description
