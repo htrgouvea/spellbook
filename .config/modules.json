@@ -179,6 +179,12 @@
             "category": "helper",
             "module": "CDN_Checker",
             "description": "Check if a target is behind a CDN provider, based on Project Discovery list"
+        },
+        {
+            "id": "0031",
+            "category": "parser",
+            "module": "Sitemap",
+            "description": "Extract urls from a sitemap file"
         }
     ]
 }
