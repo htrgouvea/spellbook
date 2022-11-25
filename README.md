@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.2.7-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.2.9-blue.svg">
     </a>
   </p>
 </p>
@@ -31,7 +31,7 @@ The main focus of this “micro-framework” is turn in reality the rapid develo
 $ git clone https://github.com/htrgouvea/spellbook && cd spellbook
 
 # Install libs and dependencies
-$ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
+$ cpanm --installdeps .
 ```
 
 ---
@@ -39,7 +39,7 @@ $ cpan install Getopt::Long Mojo::File Mojo::JSON Find::Lib
 ### How to use
 
 ```
-Spellbook v0.2.6
+Spellbook v0.2.9
 Core Commands
 ==============
 	Command          Description
@@ -93,6 +93,15 @@ games:x:5:60:games:/usr/games:/bin/sh
 ```
 
 If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
+
+---
+
+### Docker container
+
+```
+$ docker build -t spellbook .
+$ docker run -ti --rm spellbook --search exploits
+```
 
 ---
 
