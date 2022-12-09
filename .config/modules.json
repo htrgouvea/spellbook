@@ -185,6 +185,12 @@
             "category": "parser",
             "module": "Sitemap",
             "description": "Extract urls from a sitemap file"
+        },
+        {
+            "id": "0032",
+            "category": "helper",
+            "module": "Permutations",
+            "description": ""
         }
     ]
 }
