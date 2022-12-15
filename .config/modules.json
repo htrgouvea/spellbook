@@ -190,7 +190,7 @@
             "id": "0032",
             "category": "helper",
             "module": "Permutations",
-            "description": ""
+            "description": "Perform permutations on a string"
         }
     ]
 }
