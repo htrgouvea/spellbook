@@ -191,6 +191,24 @@
             "category": "helper",
             "module": "Permutations",
             "description": "Perform permutations on a string"
+        },
+        {
+            "id": "0033",
+            "category": "recon",
+            "module": "HaveBeenPwned",
+            "description": ""
+        },
+        {
+            "id": "0034",
+            "category": "bruteforce",
+            "module": "Wordpress",
+            "description": ""
+        },
+        {
+            "id": "0035",
+            "category": "exploit",
+            "module": "S3_Misconfig",
+            "description": ""
         }
     ]
 }
