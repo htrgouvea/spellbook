@@ -9,6 +9,10 @@ package Spellbook::Android::Strings {
         if ($file) {
             my $data = XMLin($file);
 
+            # resources.arsc/strings.xml
+            # res/xml/file_paths.xml
+
+            
             # if (Dumper($data) =~ m/:\/\//) {
             #     return "true";
             # }

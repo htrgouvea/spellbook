@@ -2,6 +2,7 @@ package Spellbook::Parser::Sitemap {
     use strict;
     use warnings;
     use LWP::UserAgent;
+    use URI;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -28,7 +29,12 @@ package Spellbook::Parser::Sitemap {
                 my $content = $request -> content();
 
                 while ($content =~ m/<loc>(.*?)<\/loc>/g) {
-                    push @result, $1;
+                    my $url = URI -> new($1);
+                    $target = URI -> new($target);
+
+                    if ($url -> host() eq $target -> host()) {
+                        push @result, $1;
+                    }
                 }
             }
         

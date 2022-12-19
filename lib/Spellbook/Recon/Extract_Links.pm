@@ -7,13 +7,13 @@ package Spellbook::Recon::Extract_Links {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $recursive, @result);
+        my ($help, $target, $deep, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"      => \$help,
-            "t|target=s"  => \$target,
-            "r|recursive" => \$recursive
+            "h|help"     => \$help,
+            "t|target=s" => \$target,
+            "d|deep"     => \$deep
         );
 
         if ($target) {
@@ -22,7 +22,7 @@ package Spellbook::Recon::Extract_Links {
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            if ($target !~ /^http(s)?:\/\//) { 
+            if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
             }
 
@@ -35,7 +35,7 @@ package Spellbook::Recon::Extract_Links {
                 if (($url) && ($url !~ m/#/)) {
                     push @result, $url;
                     
-                    if (($recursive) && ($url !~ "^(http|https)://")) {
+                    if (($deep) && ($url !~ "^(http|https)://")) {
                         try {
                             push @result, Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
                         }
@@ -56,7 +56,7 @@ package Spellbook::Recon::Extract_Links {
                 \r=====================
                 \r-h, --help       See this menu
                 \r-t, --target     Define a web page to extract all links
-                \r-r, --recursive  Draft recursive function\n\n";
+                \r-d, --deep       Draft recursive function\n\n";
         }
 
         return 0;
