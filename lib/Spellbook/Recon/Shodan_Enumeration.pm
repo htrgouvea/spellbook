@@ -28,35 +28,33 @@ package Spellbook::Recon::Shodan_Enumeration {
             if ($validate) {
                 my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
 
-                if ($ip) { $target = $ip; }
-            }
+                my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
+                my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
+                my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
+                my $request   = $userAgent -> get($endpoint);
+                my $httpCode  = $request -> code();
 
-            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
-            my $endpoint  = "https://api.shodan.io/shodan/host/$target?key=$apiKey";
-            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
-            my $request   = $userAgent -> get($endpoint);
-            my $httpCode  = $request -> code();
+                if ($httpCode == 200) {
+                    my $content = decode_json($request -> content);
 
-            if ($httpCode == 200) {
-                my $content = decode_json($request -> content);
+                    foreach my $data (@{$content -> {"data"}}) {
+                        my $product   = $data -> {"product"} || "unknow";
+                        my $port      = $data -> {"port"};
+                        my $transport = $data -> {"transport"};
+                        my $service   = $data -> {"_shodan"} -> {"module"};
+                        my @cves      = {};
 
-                foreach my $data (@{$content -> {"data"}}) {
-                    my $product   = $data -> {"product"} || "unknow";
-                    my $port      = $data -> {"port"};
-                    my $transport = $data -> {"transport"};
-                    my $service   = $data -> {"_shodan"} -> {"module"};
-                    my @cves      = {};
+                        if ($data -> {"vulns"}) {
+                            for (keys %{$data -> {"vulns"}}) {
+                                push @cves, $_;
+                            }
 
-                    if ($data -> {"vulns"}) {
-                        for (keys %{$data -> {"vulns"}}) {
-                            push @cves, $_;
+                            push @result, "$transport://$target:$port | $service | $product | @cves";
                         }
 
-                        push @result, "$transport://$target:$port | $service | $product | @cves";
-                    }
-
-                    else {
-                        push @result, "$transport://$target:$port | $service | $product";
+                        else {
+                            push @result, "$transport://$target:$port | $service | $product";
+                        }
                     }
                 }
             }

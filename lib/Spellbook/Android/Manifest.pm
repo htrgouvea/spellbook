@@ -24,6 +24,10 @@ package Spellbook::Android::Manifest {
             ### deep link / scheme without host
             ### https://www.mentebinaria.com.br/artigos/pequenas-liga%C3%A7%C3%B5es-grandes-vulnerabilidades-uma-breve-introdu%C3%A7%C3%A3o-a-deep-links-em-android-r75/
 
+            # Exported Android Components
+            # Access to protected intents via exported Activities
+            # Access to sensitive data via exported Activity
+            
             return "
                 \r[ - ] -> Package name: $package
                 \r[ - ] -> Debug: $debug

@@ -166,13 +166,13 @@
             "id": "0028",
             "category": "exploit",
             "module": "Headers_Misconfig",
-            "description": ""
+            "description": "Analyze response headers of an application looking for security issues"
         },
         {
             "id": "0029",
             "category": "exploit",
             "module": "None_Attack",
-            "description": ""
+            "description": "Lorem ipsum"
         },
         {
             "id": "0030",
@@ -190,7 +190,25 @@
             "id": "0032",
             "category": "helper",
             "module": "Permutations",
-            "description": ""
+            "description": "Perform permutations on a string"
+        },
+        {
+            "id": "0033",
+            "category": "recon",
+            "module": "HaveBeenPwned",
+            "description": "Query if an e-mail has present in a data leak"
+        },
+        {
+            "id": "0034",
+            "category": "bruteforce",
+            "module": "Wordpress",
+            "description": "Perform brute-force attack into login page of wordpress"
+        },
+        {
+            "id": "0035",
+            "category": "exploit",
+            "module": "S3_Misconfig",
+            "description": "Upload files into AWS S3 Buckets with weak security policies"
         }
     ]
 }

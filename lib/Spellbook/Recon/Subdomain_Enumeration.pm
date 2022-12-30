@@ -24,26 +24,28 @@ package Spellbook::Recon::Subdomain_Enumeration {
             my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
             my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
 
-            my $st_endpoint  = "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true";
-            my $otx_endpoint = "https://prod-otxp-web.otx.alienvault.io/otxapi/indicators/domain/passive_dns/$target";
-            
-            my $request = $userAgent -> get($st_endpoint, "apikey" => $apiKey);
+            my @endpoints = (
+                "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true",
+                "https://prod-otxp-web.otx.alienvault.io/otxapi/indicators/domain/passive_dns/$target"
+            );
 
-            if ($request -> code() == 200) {
-                my $content = decode_json($request -> content);
-                
-                foreach my $subdomain (@{$content -> {"subdomains"}}) {
-                    push @result, "$subdomain.$target";
-                }
-            }
+            foreach my $endpoint (@endpoints) {
+                my $request = $userAgent -> get($endpoint, "apikey" => $apiKey);
 
-            $request   = $userAgent -> get ($otx_endpoint);
-
-            if ($request -> code() == 200) {
-                my $data = decode_json($request -> content());
-
-                foreach my $value (@{$data -> {"passive_dns"}}) {
-                    push @result, $value -> {"hostname"};
+                if ($request -> code() == 200) {
+                    my $content = decode_json($request -> content);
+                    
+                    if ($content -> {"subdomains"}) {
+                        foreach my $subdomain (@{$content -> {"subdomains"}}) {
+                            push @result, "$subdomain.$target";
+                        }
+                    }
+                    
+                    if ($content -> {"passive_dns"}) {
+                        foreach my $value (@{$content -> {"passive_dns"}}) {
+                            push @result, $value -> {"hostname"};
+                        }
+                    }
                 }
             }
 
