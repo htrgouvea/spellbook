@@ -5,7 +5,9 @@ package Spellbook::Helper::Generate_UUID {
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $version, $repeat, @result);
+        my ($help, $version, @result);
+
+        my $repeat = 1;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -15,8 +17,9 @@ package Spellbook::Helper::Generate_UUID {
         );
 
         if ($version) {
-            for (my $i = 0; $i <= $repeat; $i++) {
+            for (my $i = 1; $i <= $repeat; $i++) {
                 my $generate = create_uuid_as_string($version);
+                
                 push @result, $generate;
             }
             
