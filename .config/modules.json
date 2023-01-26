@@ -209,6 +209,12 @@
             "category": "exploit",
             "module": "S3_Misconfig",
             "description": "Upload files into AWS S3 Buckets with weak security policies"
+        },
+        {
+            "id": "0036",
+            "category": "platform",
+            "module": "HackerOne",
+            "description": "Extract informations of targets from HackerOne platform"
         }
     ]
 }
