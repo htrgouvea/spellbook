@@ -9,8 +9,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install dependencies
       run: |
-        sudo apt install -y perl
-        sudo cpan install Mojo::File Find::Lib YAML::Tiny Masscan::Scanner Net::DNS WWW::Mechanize
+        sudo apt install -y perl cpanminus
+        sudo cpanm --installdeps .
     - name: Verify the basic usage
       run: |
         perl spellbook.pl --help
