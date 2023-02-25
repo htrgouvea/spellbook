@@ -2,6 +2,8 @@ package Spellbook::Parser::Nmap {
     use strict;
     use warnings;
     use XML::Simple;
+    
+    # https://metacpan.org/pod/Nmap::Parser
 
     sub new {
         my ($self, $parameters)= @_;
@@ -19,13 +21,10 @@ package Spellbook::Parser::Nmap {
             
             my $host = $data -> {host} -> {address} -> {addr};
             
-            foreach my $content (@{$data -> {host} -> {ports} -> {port}}) {
-                    # print Dumper($content);
-
-                    # push @result, $element -> {Key};
-                
-            }
-
+            # foreach my $content (@{$data -> {host} -> {ports} -> {port}}) {
+            #         print Dumper($content);
+            #         push @result, $element -> {Key};
+            # }
            
             #     my $state = $content -> {state} -> {state};
 

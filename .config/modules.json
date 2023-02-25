@@ -215,6 +215,12 @@
             "category": "platform",
             "module": "HackerOne",
             "description": "Extract informations of targets from HackerOne platform"
+        },
+        {
+            "id": "0037",
+            "category": "exploit",
+            "module": "Redis_Unauth",
+            "description": "Verify if a Redis server is vulnerable to unauthenticated access"
         }
     ]
 }
