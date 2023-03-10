@@ -42,7 +42,7 @@ package Spellbook::Recon::Extract_Links {
 
                         catch {
                             # 
-                        }
+                        };
                     }
                 }
             }
