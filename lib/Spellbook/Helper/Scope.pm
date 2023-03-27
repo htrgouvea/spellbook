@@ -10,7 +10,7 @@ package Spellbook::Helper::Scope {
         my ($help, $scope, $information, $entrypoint, $save, @results, @response);
 
         my $threads = 10;
-        
+
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"          => \$help,

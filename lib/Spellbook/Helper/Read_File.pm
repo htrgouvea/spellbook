@@ -29,7 +29,7 @@ package Spellbook::Helper::Read_File {
                 }
 
                 else {
-                    push @result, $_,;
+                    push @result, $_;
                 }
             }
 

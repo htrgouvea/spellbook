@@ -221,6 +221,12 @@
             "category": "exploit",
             "module": "Redis_Unauth",
             "description": "Verify if a Redis server is vulnerable to unauthenticated access"
+        },
+        {
+            "id": "0038",
+            "category": "exploit",
+            "module": "Swagger_XSS",
+            "description": "Find Reflected XSS in API Docs using Swagger UI - CVE-2016-1000226"
         }
     ]
 }
