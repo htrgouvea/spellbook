@@ -12,3 +12,4 @@ credentials.json
 *credentials.json
 .config/credentials.json
 targets/
+temp/
