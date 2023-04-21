@@ -18,7 +18,7 @@ package Spellbook::Recon::Masscan {
             "t|target=s"  => \@target,
             "p|port=s"    => \@ports,
             "a|arguments" => \@arguments,
-            "skip-cdn"  => \$skip_cdn
+            "skip-cdn"    => \$skip_cdn
         );        
 
         if (@target) {
@@ -34,7 +34,7 @@ package Spellbook::Recon::Masscan {
 
             my @ip = Spellbook::Recon::Get_IP -> new(["--target" => $target[0]]);
 
-            my $masscan = Masscan::Scanner -> new(
+            my $masscan = Masscan::Scanner -> new (
                 hosts     => \@ip,
                 ports     => \@ports,
                 arguments => \@arguments
