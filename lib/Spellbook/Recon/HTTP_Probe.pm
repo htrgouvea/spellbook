@@ -15,10 +15,16 @@ package Spellbook::Recon::HTTP_Probe {
 
         if ($target) {
             if ($target !~ /^http(s)?:\/\//) { 
-                $target = "http://$target";
+                $target = "https://$target";
             }
 
-            my $userAgent = LWP::UserAgent -> new (ssl_opts => { verify_hostname => 1 });
+            my $userAgent = LWP::UserAgent -> new (
+                ssl_opts => { 
+                    verify_hostname => 0,
+                    SSL_verify_mode => 0 
+                }
+            );
+            
             my $response  = $userAgent -> get($target);
 
             if ($response) { 
