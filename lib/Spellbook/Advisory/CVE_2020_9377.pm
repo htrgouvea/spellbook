@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2020_9376 {
+package Spellbook::Advisory::CVE_2020_9376 {
     use strict;
     use warnings;
     use Mojo::UserAgent;

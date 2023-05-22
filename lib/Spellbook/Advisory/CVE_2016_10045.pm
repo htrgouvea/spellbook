@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2016_10045 {
+package Spellbook::Advisory::CVE_2016_10045 {
     use strict;
     use warnings;
     use LWP::UserAgent;

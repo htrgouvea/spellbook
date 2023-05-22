@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2017_5487 {
+package Spellbook::Advisory::CVE_2017_5487 {
     use JSON;
     use strict;
     use warnings;

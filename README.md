@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.3.0-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.3.1-blue.svg">
     </a>
   </p>
 </p>
@@ -39,7 +39,7 @@ $ cpanm --installdeps .
 ### How to use
 
 ```
-Spellbook v0.3.0
+Spellbook v0.3.1
 Core Commands
 ==============
 	Command          Description

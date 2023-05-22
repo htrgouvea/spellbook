@@ -44,7 +44,7 @@
         },
         {
             "id": "0008",
-            "category": "exploit",
+            "category": "advisory",
             "module": "CVE_2006_3392",
             "description": "Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220"
         },
@@ -86,7 +86,7 @@
         },
         {
             "id": "0015",
-            "category": "exploit",
+            "category": "advisory",
             "module": "CVE_2016_10045",
             "description": "PHPMailer < 5.2.20 Remote Code Execution PoC 0day Exploit (CVE-2016-10045) (Bypass of the CVE-2016-1033 patch)"
         },
@@ -128,7 +128,7 @@
         },
         {
             "id": "0022",
-            "category": "exploit",
+            "category": "advisory",
             "module": "CVE_2021_41773",
             "description": "Exploit path Traversal or RCE in Apache HTTP Server 2.4"
         },
@@ -227,6 +227,12 @@
             "category": "exploit",
             "module": "Swagger_XSS",
             "description": "Find Reflected XSS in API Docs using Swagger UI - CVE-2016-1000226"
+        },
+        {  
+            "id": "0039",
+            "category": "advisory",
+            "module": "CVE_2023_29489",
+            "description": "Exploit for cPanel Reflected XSS"
         }
     ]
 }

