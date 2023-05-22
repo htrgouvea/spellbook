@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2021_41773 {
+package Spellbook::Advisory::CVE_2021_41773 {
     use strict;
     use warnings;
     use Try::Tiny;

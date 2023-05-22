@@ -1,4 +1,4 @@
-package Spellbook::Exploit::CVE_2006_3392 {
+package Spellbook::Advisory::CVE_2006_3392 {
     use strict;
     use warnings;
     use Try::Tiny;
