@@ -227,6 +227,12 @@
             "category": "exploit",
             "module": "Swagger_XSS",
             "description": "Find Reflected XSS in API Docs using Swagger UI - CVE-2016-1000226"
+        },
+        {  
+            "id": "0039",
+            "category": "exploit",
+            "module": "CVE_2023_29489",
+            "description": "Exploit for cPanel Reflected XSS"
         }
     ]
 }
