@@ -19,7 +19,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
             }
                     
             my $userAgent = LWP::UserAgent -> new (
-                timeout  => 5,
+                timeout  => 3,
                 ssl_opts => { 
                     verify_hostname => 0,
                     SSL_verify_mode => 0
@@ -35,7 +35,9 @@ package Spellbook::Advisory::CVE_2023_29489 {
                 my $request = $userAgent -> get("$target/$payload");
 
                 if ($request -> code() == 400 ) {
-                    push @result, $target;
+                    if ($request -> content() =~ /cPanel/) {
+                        push @result, $target;
+                    }
                 }
             }
 
