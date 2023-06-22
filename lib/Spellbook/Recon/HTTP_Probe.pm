@@ -29,8 +29,10 @@ package Spellbook::Recon::HTTP_Probe {
             my $response  = $userAgent -> get($target);
 
             if ($response) { 
-                return $target;
+                push @result, $target;
             }
+
+            return @result;
         }
 
         if ($help) {
