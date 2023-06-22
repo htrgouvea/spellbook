@@ -25,7 +25,7 @@ package Spellbook::Core::Orchestrator {
 
         if ($module) {
             if ($wordlist) {
-                $queue = Thread::Queue -> new (Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
+                $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
             }
 
             else {
