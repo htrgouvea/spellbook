@@ -233,6 +233,12 @@
             "category": "advisory",
             "module": "CVE_2023_29489",
             "description": "Exploit for cPanel Reflected XSS"
+        },
+        {  
+            "id": "0040",
+            "category": "exploit",
+            "module": "SSTI",
+            "description": ""
         }
     ]
 }

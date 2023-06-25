@@ -5,11 +5,10 @@ package Spellbook::Core::Resources {
     use Mojo::JSON qw(decode_json);
 
     sub new {
-        my ($self) = @_;
         my $resources = Mojo::File -> new(".config/modules.json");
         
         if ($resources) {
-            my $list = $resources -> slurp();
+            my $list    = $resources -> slurp();
             my $modules = decode_json($list);
 
             return $modules;

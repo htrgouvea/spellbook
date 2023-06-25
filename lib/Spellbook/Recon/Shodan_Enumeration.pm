@@ -4,7 +4,6 @@ package Spellbook::Recon::Shodan_Enumeration {
     use JSON;
     use LWP::UserAgent;
     use Spellbook::Recon::Get_IP;
-    use Spellbook::Recon::Host_Resolv;
     use Spellbook::Core::Credentials;
     use Data::Validate::Domain qw(is_domain);
 
@@ -38,23 +37,22 @@ package Spellbook::Recon::Shodan_Enumeration {
                     my $content = decode_json($request -> content);
 
                     foreach my $data (@{$content -> {"data"}}) {
-                        my $product   = $data -> {"product"} || "unknow";
                         my $port      = $data -> {"port"};
-                        my $transport = $data -> {"transport"};
-                        my $service   = $data -> {"_shodan"} -> {"module"};
-                        my @cves      = {};
 
-                        if ($data -> {"vulns"}) {
-                            for (keys %{$data -> {"vulns"}}) {
-                                push @cves, $_;
-                            }
+                        # my $product   = $data -> {"product"} || "unknow";
+                        # my $transport = $data -> {"transport"};
+                        # my $service   = $data -> {"_shodan"} -> {"module"};
+                        # my @cves      = {};
 
-                            push @result, "$transport://$target:$port | $service | $product | @cves";
-                        }
+                        # if ($data -> {"vulns"}) {
+                        #     for (keys %{$data -> {"vulns"}}) {
+                        #         push @cves, $_;
+                        #     }
 
-                        else {
-                            push @result, "$transport://$target:$port | $service | $product";
-                        }
+                        #     push @result, "$transport://$target:$port | $service | $product | @cves";
+                        # }
+
+                        push @result, "$target:$port";
                     }
                 }
             }
