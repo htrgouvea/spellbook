@@ -25,8 +25,6 @@ package Spellbook::Core::Credentials {
             if ($value) {            
                 $content -> {$platform} = $value;
                 $credentials -> spurt(encode_json($content));
-
-                return "Value updated\n";
             }
 
             return $content -> {$platform};
