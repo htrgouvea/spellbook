@@ -38,8 +38,7 @@ package Spellbook::Core::Orchestrator {
             async {
                 while (defined(my $target = $queue -> dequeue())) {
                     my @response = Spellbook::Core::Module -> new (
-                        $module,
-                        [ "--target" => $target, @$parameters ]
+                        $module, [ "--target" => $target, @$parameters ]
                     );
                     
                     lock(@results);
@@ -55,7 +54,6 @@ package Spellbook::Core::Orchestrator {
             while (threads -> list(threads::running) > 0) { 
                 $_ -> join() for threads -> list(threads::all);
             }
-            
 
             return uniq @results;
         }

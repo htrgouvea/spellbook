@@ -17,11 +17,11 @@ sub main {
         "m|module=s" => \$module
     );
 
-    @result = Spellbook::Core::Search -> new(lc $search) if $search;
+    @result = Spellbook::Core::Search -> new($search) if $search;
     @result = Spellbook::Core::Module -> new($module, \@ARGV) if $module;
 
-    foreach my $result (@result) {
-        print $result, "\n";
+    foreach my $item (@result) {
+        print $item, "\n";
     }
 
     return Spellbook::Core::Helper -> new() unless $search || $module;

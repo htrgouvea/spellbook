@@ -11,7 +11,7 @@ package Spellbook::Core::Search {
             for (keys %{$module}) {
                 my $value = lc $module -> {$_};
                 
-                if ($search =~ m/$value/g) {
+                if (lc $search =~ m/$value/g) {
                     print "\nModule: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
                     print "Description: ", $module -> {description}, "\n";
                     print "=================================================", "\n";
