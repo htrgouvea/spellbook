@@ -239,6 +239,12 @@
             "category": "exploit",
             "module": "Reflected_XSS",
             "description": ""
+        },
+        {  
+            "id": "0041",
+            "category": "recon",
+            "module": "Internal_DNS",
+            "description": "Verify if a domain has a resolution to internal IP"
         }
     ]
 }
