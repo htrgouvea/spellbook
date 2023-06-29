@@ -4,7 +4,6 @@ package Spellbook::Recon::WayBackUrls {
     use JSON;
     use LWP::UserAgent;
     use Mojo::URL;
-    use Data::Dumper;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -23,7 +22,7 @@ package Spellbook::Recon::WayBackUrls {
             my $userAgent = LWP::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
             
-            if (($request -> code() == 200) && ($request -> content ne '[]')) {
+            if (($request -> code() == 200) && ($request -> content ne "[]")) {
                 my $content = decode_json($request -> content);
 
                 foreach my $fullurl (@{$content}) {
