@@ -1,4 +1,4 @@
-FROM perl:5.36
+FROM perl:5.38
 
 COPY . /usr/src/spellbook
 WORKDIR /usr/src/spellbook
