@@ -245,6 +245,12 @@
             "category": "recon",
             "module": "Internal_DNS",
             "description": "Verify if a domain has a resolution to internal IP"
+        },
+        {  
+            "id": "0042",
+            "category": "helper",
+            "module": "Reverse_Shell",
+            "description": "Generate reverse shell payloads"
         }
     ]
 }
