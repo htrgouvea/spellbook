@@ -251,6 +251,12 @@
             "category": "helper",
             "module": "Reverse_Shell",
             "description": "Generate reverse shell payloads"
+        },
+        {  
+            "id": "0043",
+            "category": "helper",
+            "module": "Host_Normalization",
+            "description": "Normalize a hostname to a valid format"
         }
     ]
 }
