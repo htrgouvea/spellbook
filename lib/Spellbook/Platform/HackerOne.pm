@@ -5,7 +5,7 @@ package Spellbook::Platform::HackerOne {
     use MIME::Base64;
     use LWP::UserAgent;
     use Spellbook::Core::Credentials;
-    use Try::Tiny;
+    use Spellbook::Helper::Host_Normalization;
 
     sub new {
         my ($self, $parameters)= @_;
@@ -28,20 +28,15 @@ package Spellbook::Platform::HackerOne {
                 "Authorization" => "Basic " . encode_base64($token)
             );
 
-
             if ($response -> is_success()) {
                 my $data     = decode_json($response -> decoded_content());
                 my $programs = $data -> {"data"};
 
                 for my $scope (@{$data -> {"relationships"} -> {"structured_scopes"} -> {"data"}}) {
-                    if ($scope -> {"attributes"} -> {"asset_type"} eq "URL") {
+                    if (($scope -> {"attributes"} -> {"asset_type"} eq "URL") && ($scope -> {"attributes"} -> {"eligible_for_bounty"})) {
                         my $url = $scope -> {"attributes"} -> {"asset_identifier"};
-
-                        if ($url =~ m/^\*./) {
-                            $url =~ s/^\*.//;
-                        }
-
-                        push @result, $url;
+                        
+                        push @result, Spellbook::Helper::Host_Normalization -> new(["--target" => $url]);
                     }
                 }
             }
@@ -54,7 +49,7 @@ package Spellbook::Platform::HackerOne {
                 \rPlatform::HackerOne
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t, --target   Program ID from HackerOne\n\n";
+                \r-t, --target   Program handle from HackerOne\n\n";
         }
 
         return 0;
