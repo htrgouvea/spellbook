@@ -257,6 +257,12 @@
             "category": "helper",
             "module": "Host_Normalization",
             "description": "Normalize a hostname to a valid format"
+        },
+        {  
+            "id": "0044",
+            "category": "advisory",
+            "module": "CVE_2023_38646",
+            "description": "Pre-Auth RCE in Metabase"
         }
     ]
 }
