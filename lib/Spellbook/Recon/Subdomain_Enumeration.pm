@@ -2,9 +2,9 @@ package Spellbook::Recon::Subdomain_Enumeration {
     use strict;
     use warnings;
     use JSON;
-    use LWP::UserAgent;
-    use Spellbook::Core::Credentials;
     use List::MoreUtils qw(uniq);
+    use Spellbook::Core::UserAgent;
+    use Spellbook::Core::Credentials;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -21,7 +21,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
                 $target =~ s/^http(s)?:\/\///;
             }
 
-            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
 
             my @endpoints = (

@@ -2,7 +2,7 @@ package Spellbook::Parser::Bucket {
     use strict;
     use warnings;
     use XML::Simple;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -15,7 +15,7 @@ package Spellbook::Parser::Bucket {
         );
 
         if ($target) {
-            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($target);
 
             if ($request -> code() == 200) {

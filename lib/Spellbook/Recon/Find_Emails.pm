@@ -2,7 +2,7 @@ package Spellbook::Recon::Find_Emails {
     use strict;
     use warnings;
     use JSON;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
 
     sub new {
@@ -18,7 +18,7 @@ package Spellbook::Recon::Find_Emails {
         if ($target) {
             my $apiKey    = Spellbook::Core::Credentials -> new (["--platform" => "hunter"]);
             my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$apiKey";
-            my $userAgent = LWP::UserAgent -> new(ssl_opts => { verify_hostname => 0 });
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
             my $httpCode  = $request -> code();
 

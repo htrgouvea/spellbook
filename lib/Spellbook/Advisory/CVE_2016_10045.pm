@@ -1,7 +1,7 @@
 package Spellbook::Advisory::CVE_2016_10045 {
     use strict;
     use warnings;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -26,9 +26,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
                 $target = "https://$target";
             }
 
-            my $userAgent = LWP::UserAgent -> new (
-                ssl_opts => { verify_hostname => 0 }
-            );
+            my $userAgent = Spellbook::Core::UserAgent -> new();
 
             if ($shell{"name"} ne "spellbook_xpl.php") {
                 my $code = Mojo::File -> new($shell{name});
