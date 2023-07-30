@@ -2,8 +2,8 @@ package Spellbook::Recon::WayBackUrls {
     use strict;
     use warnings;
     use JSON;
-    use LWP::UserAgent;
     use Mojo::URL;
+    use Spellbook::Core::UserAgent;
     
     sub new {
         my ($self, $parameters) = @_;
@@ -19,7 +19,7 @@ package Spellbook::Recon::WayBackUrls {
             sleep(1);
             
             my $endpoint  = "http://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
-            my $userAgent = LWP::UserAgent -> new();
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
             
             if (($request -> code() == 200) && ($request -> content ne "[]")) {

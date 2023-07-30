@@ -1,7 +1,7 @@
 package Spellbook::Recon::HTTP_Probe {
     use strict;
     use warnings;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -18,17 +18,10 @@ package Spellbook::Recon::HTTP_Probe {
                 $target = "https://$target";
             }
 
-            my $userAgent = LWP::UserAgent -> new (
-                timeout  => 5,
-                ssl_opts => { 
-                    verify_hostname => 0,
-                    SSL_verify_mode => 0
-                }
-            );
-            
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
 
-            if ($response) { 
+            if ($response -> code() != 500) { 
                 push @result, $target;
             }
 

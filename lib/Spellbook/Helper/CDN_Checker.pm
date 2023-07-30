@@ -3,7 +3,7 @@ package Spellbook::Helper::CDN_Checker {
     use warnings;
     use JSON;
     use Net::IP;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
     use Spellbook::Recon::Get_IP;
 
     sub new {
@@ -21,7 +21,7 @@ package Spellbook::Helper::CDN_Checker {
 
             if ($ip) {
                 my $cnd_list  = "https://cdn.nuclei.sh";
-                my $useragent = LWP::UserAgent -> new ();
+                my $useragent = Spellbook::Core::UserAgent -> new ();
                 my $request   = $useragent -> get($cnd_list);
 
                 if ($request -> code == 200) {

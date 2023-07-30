@@ -1,8 +1,8 @@
 package Spellbook::Parser::Sitemap {
     use strict;
     use warnings;
-    use LWP::UserAgent;
     use URI;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -18,11 +18,7 @@ package Spellbook::Parser::Sitemap {
             if ($target !~ /^http(s)?:\/\//) { $target = "https://$target"; }
             if ($target !~ /\/sitemap.xml$/) { $target = "$target/sitemap.xml"; }
 
-            my $userAgent = LWP::UserAgent -> new(
-                agent => "Spellbook",
-                ssl_opts => { verify_hostname => 0 }
-            );
-
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request = $userAgent -> get($target);
 
             if ($request -> code() == 200) {

@@ -3,7 +3,7 @@ package Spellbook::Platform::HackerOne {
     use warnings;
     use JSON;
     use MIME::Base64;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
     use Spellbook::Helper::Host_Normalization;
 
@@ -20,7 +20,7 @@ package Spellbook::Platform::HackerOne {
         my $token = Spellbook::Core::Credentials -> new(["--platform" => "hackerone"]);
         
         if ($token && $target) {
-            my $useragent = LWP::UserAgent -> new();
+            my $useragent = Spellbook::Core::UserAgent -> new();
             my $api_url   = "https://api.hackerone.com/v1/hackers/programs/$target";
 
             my $response = $useragent -> get ($api_url,

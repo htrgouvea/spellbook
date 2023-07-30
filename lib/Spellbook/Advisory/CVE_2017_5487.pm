@@ -3,7 +3,7 @@ package Spellbook::Advisory::CVE_2017_5487 {
     use strict;
     use warnings;
     use Try::Tiny;
-    use LWP::UserAgent;
+    use Spellbook::Core::UserAgent;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -20,10 +20,7 @@ package Spellbook::Advisory::CVE_2017_5487 {
                 $target = "http://$target";
             }
                     
-            my $userAgent = LWP::UserAgent -> new (
-                agent => "Spellbook",
-                ssl_opts => { verify_hostname => 0 }
-            );
+            my $userAgent = Spellbook::Core::UserAgent -> new();
         
             my $request = $userAgent -> get("$target/wp-json/wp/v2/users");
 
