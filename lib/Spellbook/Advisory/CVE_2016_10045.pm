@@ -1,6 +1,7 @@
 package Spellbook::Advisory::CVE_2016_10045 {
     use strict;
     use warnings;
+    use Try::Tiny;
     use Spellbook::Core::UserAgent;
 
     sub new {
@@ -30,6 +31,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
             if ($shell{"name"} ne "spellbook_xpl.php") {
                 my $code = Mojo::File -> new($shell{name});
+
                 $shell{code} = $code -> slurp();
             }
             

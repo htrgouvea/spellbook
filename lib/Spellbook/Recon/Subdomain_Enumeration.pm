@@ -34,13 +34,13 @@ package Spellbook::Recon::Subdomain_Enumeration {
 
                 if ($request -> code() == 200) {
                     my $content = decode_json($request -> content);
-                    
+
                     if ($content -> {"subdomains"}) {
                         foreach my $subdomain (@{$content -> {"subdomains"}}) {
                             push @result, "$subdomain.$target";
                         }
                     }
-                    
+
                     if ($content -> {"passive_dns"}) {
                         foreach my $value (@{$content -> {"passive_dns"}}) {
                             push @result, $value -> {"hostname"};

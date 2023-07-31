@@ -21,7 +21,6 @@ package Spellbook::Advisory::CVE_2017_5487 {
             }
                     
             my $userAgent = Spellbook::Core::UserAgent -> new();
-        
             my $request = $userAgent -> get("$target/wp-json/wp/v2/users");
 
             if ($request -> code() == 200 ) {

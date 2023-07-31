@@ -19,7 +19,7 @@ package Spellbook::Parser::Bucket {
             my $request   = $userAgent -> get($target);
 
             if ($request -> code() == 200) {
-                my $xml  = XML::Simple -> new();
+                my $xml = XML::Simple -> new();
                 my $content = $xml -> XMLin($request -> content());
 
                 foreach my $element (@{$content -> {Contents}}) {

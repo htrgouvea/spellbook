@@ -15,9 +15,7 @@ package Spellbook::Recon::WayBackUrls {
             "t|target=s" => \$target
         );
 
-        if ($target) {
-            sleep(1);
-            
+        if ($target) {        
             my $endpoint  = "http://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
@@ -29,7 +27,7 @@ package Spellbook::Recon::WayBackUrls {
                     push @result, $fullurl -> [2];
                 }
             }
-            
+
             return @result;
         }
 
