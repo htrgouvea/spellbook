@@ -10,8 +10,10 @@ package Spellbook::Core::UserAgent {
                 verify_hostname => 0,
                 SSL_verify_mode => 0
             },
-            agent => "Spellbook / v0.3.2"
+            agent => "Spellbook / v0.3.3"
         );
+
+        $userAgent -> default_headers -> push_header("Cache-Control" => "no-cache");
 
         return $userAgent;
     }
