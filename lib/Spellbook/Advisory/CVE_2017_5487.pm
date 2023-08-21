@@ -26,7 +26,7 @@ package Spellbook::Advisory::CVE_2017_5487 {
             if ($request -> code() == 200 ) {
                 try {
                     my $content = decode_json ($request -> content());
-            
+
                     foreach my $data (@$content) {
                         my $username = $data -> {slug};
                         
