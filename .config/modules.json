@@ -226,7 +226,7 @@
             "id": "0038",
             "category": "exploit",
             "module": "Swagger_XSS",
-            "description": "Find Reflected XSS in API Docs using Swagger UI - CVE-2016-1000226"
+            "description": "Find Reflected Cross-Site Scripting in API Docs using Swagger UI - CVE-2016-1000226"
         },
         {  
             "id": "0039",

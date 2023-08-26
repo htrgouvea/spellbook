@@ -10,8 +10,8 @@ package Spellbook::Core::Search {
         foreach my $module (@{$resources -> {modules}}) {
             for (keys %{$module}) {
                 my $value = lc $module -> {$_};
-                
-                if (lc $search =~ m/$value/g) {
+
+                if (index($value, lc $search) != -1) {
                     print "\nModule: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
                     print "Description: ", $module -> {description}, "\n";
                     print "=================================================", "\n";
