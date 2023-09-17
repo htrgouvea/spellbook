@@ -263,6 +263,18 @@
             "category": "advisory",
             "module": "CVE_2023_38646",
             "description": "Pre-Auth RCE in Metabase"
+        },
+        {  
+            "id": "0045",
+            "category": "recon",
+            "module": "Detect_Error",
+            "description": ""
+        },
+        {  
+            "id": "0046",
+            "category": "exploit",
+            "module": "DataBreach",
+            "description": ""
         }
     ]
 }
