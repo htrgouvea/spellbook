@@ -275,6 +275,18 @@
             "category": "exploit",
             "module": "DataBreach",
             "description": ""
+        },
+        {  
+            "id": "0047",
+            "category": "recon",
+            "module": "Screenshot",
+            "description": "Take screenshot from web pages"
+        },
+        {  
+            "id": "0048",
+            "category": "recon",
+            "module": "Technologies",
+            "description": "Detect the stack of a web application"
         }
     ]
 }
