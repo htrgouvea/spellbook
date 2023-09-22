@@ -16,6 +16,10 @@ package Spellbook::Recon::Technologies {
         );
 
         if ($target) {
+            if ($target !~ /^http(s)?:\/\//) { 
+                $target = "https://$target";
+            }
+
             my $userAgent    = Spellbook::Core::UserAgent -> new();
             my $request      = $userAgent -> get($target);
             my %headers_hash = pairmap { $a => [ $request -> headers -> header($a) ] } $request -> headers -> flatten;
