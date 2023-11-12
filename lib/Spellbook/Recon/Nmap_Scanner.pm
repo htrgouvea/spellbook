@@ -49,6 +49,8 @@ package Spellbook::Recon::Nmap_Scanner {
             my $results = $scanner -> scan();
 
             # print Dumper($results);
+
+            return @result;
         } 
 
         if ($help) {

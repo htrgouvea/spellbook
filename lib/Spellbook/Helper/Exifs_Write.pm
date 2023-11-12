@@ -5,7 +5,7 @@ package Spellbook::Helper::Exifs_Write {
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $file, $payload, @result);
+        my ($help, $file, $payload);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
