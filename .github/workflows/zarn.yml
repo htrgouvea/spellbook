@@ -19,7 +19,7 @@ jobs:
         cd zarn && sudo cpanm --installdeps .
     - name: Hunt for findings
       run: |
-        perl zarn.pl --source ../ --sarif zarn.sarif
+        perl zarn/zarn.pl --source . --sarif zarn.sarif
     - uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: zarn.sarif
