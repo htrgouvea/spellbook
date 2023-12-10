@@ -287,6 +287,12 @@
             "category": "recon",
             "module": "Technologies",
             "description": "Detect the stack of a web application"
+        },
+        {  
+            "id": "0049",
+            "category": "advisory",
+            "module": "CVE_2021_24891",
+            "description": "DOM XSS elementor Wordpress plugin"
         }
     ]
 }
