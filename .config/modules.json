@@ -298,7 +298,7 @@
             "id": "0050",
             "category": "exploit",
             "module": "S3_Bucket_Takeover",
-            "description": ""
+            "description": "Detection possible of takeover on AWS S3 Bucket resource"
         }
     ]
 }
