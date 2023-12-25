@@ -293,6 +293,12 @@
             "category": "advisory",
             "module": "CVE_2021_24891",
             "description": "DOM XSS elementor Wordpress plugin"
+        },
+        {  
+            "id": "0050",
+            "category": "exploit",
+            "module": "S3_Bucket_Takeover",
+            "description": ""
         }
     ]
 }
