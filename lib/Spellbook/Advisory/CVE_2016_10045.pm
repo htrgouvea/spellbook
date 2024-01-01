@@ -57,6 +57,8 @@ package Spellbook::Advisory::CVE_2016_10045 {
                     "message" => $shell{code}
                 ]);
             };
+
+            return @results;
         }
 
         if ($help) {

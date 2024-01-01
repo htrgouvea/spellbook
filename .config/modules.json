@@ -287,6 +287,18 @@
             "category": "recon",
             "module": "Technologies",
             "description": "Detect the stack of a web application"
+        },
+        {  
+            "id": "0049",
+            "category": "advisory",
+            "module": "CVE_2021_24891",
+            "description": "DOM XSS elementor Wordpress plugin"
+        },
+        {  
+            "id": "0050",
+            "category": "exploit",
+            "module": "S3_Bucket_Takeover",
+            "description": "Detection possible of takeover on AWS S3 Bucket resource"
         }
     ]
 }

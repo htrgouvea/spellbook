@@ -5,7 +5,7 @@ package Spellbook::Helper::Host_Normalization {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, @result);
+        my ($help, $target);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,

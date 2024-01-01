@@ -5,7 +5,7 @@ package Spellbook::Helper::Reverse_Shell {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, @result);
+        my ($help, $target);
         
         my $port = 1337;
         my $lang = "perl";
