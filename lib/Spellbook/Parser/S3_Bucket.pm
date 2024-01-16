@@ -1,4 +1,4 @@
-package Spellbook::Parser::Bucket {
+package Spellbook::Parser::S3_Bucket {
     use strict;
     use warnings;
     use XML::Simple;
