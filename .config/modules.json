@@ -323,6 +323,12 @@
             "category": "parser",
             "module": "Nozaki",
             "description": ""
+        },
+        {
+            "id": "0055",
+            "category": "advisory",
+            "module": "CVE_2021_41174",
+            "description": "Exploit for XSS vulnerability on grafana"
         }
     ]
 }
