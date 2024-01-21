@@ -20,17 +20,17 @@ package Spellbook::Helper::CDN_Checker {
             my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
 
             if ($ip) {
-                my $cnd_list  = "https://cdn.nuclei.sh";
+                my $cnd_list  = "https://raw.githubusercontent.com/projectdiscovery/cdncheck/main/cmd/generate-index/sources_data.json";
                 my $useragent = Spellbook::Core::UserAgent -> new ();
                 my $request   = $useragent -> get($cnd_list);
 
                 if ($request -> code == 200) {
-                    my $content = decode_json($request -> content);
-                    
+                    my $data    = decode_json($request -> content);
+                    my $content = $data -> {"cdn"};
+
                     for (keys %{$content}) {
                         for (@{$content -> {$_}}) {
                             my $range = Net::IP -> new($_);
-
                             my $value = Net::IP -> new($ip);
                             my $match =  $range -> overlaps($value);
 
