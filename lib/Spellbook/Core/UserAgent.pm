@@ -14,6 +14,7 @@ package Spellbook::Core::UserAgent {
         );
 
         $userAgent -> default_headers -> push_header("Cache-Control" => "no-cache");
+        $userAgent -> max_redirect(0);
 
         return $userAgent;
     }

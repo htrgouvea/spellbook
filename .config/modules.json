@@ -206,9 +206,9 @@
         },
         {
             "id": "0035",
-            "category": "exploit",
-            "module": "S3_Misconfig",
-            "description": "Upload files into AWS S3 Buckets with weak security policies"
+            "category": "parser",
+            "module": "S3_Bucket",
+            "description": "Extract the path of files from a S3 Bucket with object listing"
         },
         {
             "id": "0036",
@@ -238,7 +238,7 @@
             "id": "0040",
             "category": "exploit",
             "module": "Reflected_XSS",
-            "description": ""
+            "description": "PoC"
         },
         {  
             "id": "0041",
@@ -268,13 +268,13 @@
             "id": "0045",
             "category": "recon",
             "module": "Detect_Error",
-            "description": ""
+            "description": "PoC"
         },
         {  
             "id": "0046",
             "category": "exploit",
             "module": "DataBreach",
-            "description": ""
+            "description": "PoC"
         },
         {  
             "id": "0047",
@@ -299,6 +299,36 @@
             "category": "exploit",
             "module": "S3_Bucket_Takeover",
             "description": "Detection possible of takeover on AWS S3 Bucket resource"
+        },
+        {  
+            "id": "0051",
+            "category": "exploit",
+            "module": "Upload_Via_PUT",
+            "description": ""
+        },
+        {
+            "id": "0052",
+            "category": "exploit",
+            "module": "Open_Redirect",
+            "description": "Detect application vulnerable"
+        },
+        {
+            "id": "0053",
+            "category": "exploit",
+            "module": "Dependency_Confusion",
+            "description": ""
+        },
+        {
+            "id": "0054",
+            "category": "parser",
+            "module": "Nozaki",
+            "description": ""
+        },
+        {
+            "id": "0055",
+            "category": "advisory",
+            "module": "CVE_2021_41174",
+            "description": "Exploit for XSS vulnerability on grafana"
         }
     ]
 }
