@@ -329,6 +329,18 @@
             "category": "advisory",
             "module": "CVE_2021_41174",
             "description": "Exploit for XSS vulnerability on grafana"
+        },
+        {
+            "id": "0056",
+            "category": "advisory",
+            "module": "CVE_2020_9376",
+            "description": "DLINK-610 Credentials Dumper"
+        },
+        {
+            "id": "0056",
+            "category": "advisory",
+            "module": "CVE_2020_9377",
+            "description": "DLINK-610 Auth RCE"
         }
     ]
 }
