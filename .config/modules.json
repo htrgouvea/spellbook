@@ -334,13 +334,13 @@
             "id": "0056",
             "category": "advisory",
             "module": "CVE_2020_9376",
-            "description": "DLINK-610 Credentials Dumper"
+            "description": "Exploit for dump credentials of router DLINK 610"
         },
         {
             "id": "0056",
             "category": "advisory",
             "module": "CVE_2020_9377",
-            "description": "DLINK-610 Auth RCE"
+            "description": "Exploit auth RCE vulnerability at router DLINK-610"
         }
     ]
 }
