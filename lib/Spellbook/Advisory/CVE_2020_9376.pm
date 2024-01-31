@@ -31,9 +31,10 @@ package Spellbook::Advisory::CVE_2020_9376 {
                 my $name = $dom -> at("entry > name") -> text();
                 my $password = $dom -> at("entry > password") -> text();
 
-                print "Name: $name\n";
-                print "Password: $password\n";
+                push @results, "$name:$password";
             }
+
+            return @results;
         }
 
         if ($help) {
@@ -41,7 +42,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
                 \rAdvisory::CVE_2020_9376
                 \r=======================
                 \r-h, --help     See this menu
-                \r-t, --target   Define a target\n\n";
+                \r-t, --target   Define a target to exploit\n\n";
         }
 
         return 0;
