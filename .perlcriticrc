@@ -1,3 +1,4 @@
-severity = 5
+severity = 4
 
 [-TestingAndDebugging::RequireUseStrict]
+[-TestingAndDebugging::RequireUseWarnings]
