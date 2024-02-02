@@ -341,6 +341,12 @@
             "category": "advisory",
             "module": "CVE_2020_9377",
             "description": "Exploit auth RCE vulnerability at router DLINK-610"
+        },
+        {
+            "id": "0057",
+            "category": "recon",
+            "module": "Shodan",
+            "description": ""
         }
     ]
 }
