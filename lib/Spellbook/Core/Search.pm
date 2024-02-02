@@ -3,7 +3,7 @@ package Spellbook::Core::Search {
     use warnings;
 
     sub new {
-        my ($self, $search) = @_;
+        my ($self, $search, @results) = @_;
 
         my $resources = Spellbook::Core::Resources -> new();
         
@@ -18,6 +18,8 @@ package Spellbook::Core::Search {
                 }
             }
         }
+
+        return @results;
     }
 }
 
