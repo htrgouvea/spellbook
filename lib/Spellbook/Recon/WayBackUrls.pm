@@ -2,7 +2,6 @@ package Spellbook::Recon::WayBackUrls {
     use strict;
     use warnings;
     use JSON;
-    use Mojo::URL;
     use Spellbook::Core::UserAgent;
     
     sub new {
