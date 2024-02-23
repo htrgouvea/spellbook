@@ -208,7 +208,7 @@
             "id": "0035",
             "category": "parser",
             "module": "S3_Bucket",
-            "description": "Extract the path of files from a S3 Bucket with object listing"
+            "description": "Extract the path of files from a resource with object listing"
         },
         {
             "id": "0036",
@@ -298,7 +298,7 @@
             "id": "0050",
             "category": "exploit",
             "module": "S3_Bucket_Takeover",
-            "description": "Detection possible of takeover on AWS S3 Bucket resource"
+            "description": "Detection possible of takeover on resource"
         },
         {  
             "id": "0051",
