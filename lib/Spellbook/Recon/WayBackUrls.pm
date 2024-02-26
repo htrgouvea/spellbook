@@ -23,7 +23,9 @@ package Spellbook::Recon::WayBackUrls {
                 my $content = decode_json($request -> content);
 
                 foreach my $fullurl (@{$content}) {
-                    push @result, $fullurl -> [2];
+                    if ($fullurl -> [2] ne "original") {
+                        push @result, $fullurl -> [2];
+                    }
                 }
             }
 
