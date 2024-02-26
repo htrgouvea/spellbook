@@ -3,6 +3,7 @@ package Spellbook::Parser::S3_Bucket {
     use warnings;
     use XML::Simple;
     use Spellbook::Core::UserAgent;
+    use Try::Tiny;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -15,15 +16,23 @@ package Spellbook::Parser::S3_Bucket {
         );
 
         if ($target) {
+            if ($target !~ /^http(s)?:\/\//) {
+                $target = "https://$target";    
+            }
+            
+            if ($target !~ /\/$/) { $target .= "/"; }
+
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($target);
 
             if ($request -> code() == 200) {
-                my $xml = XML::Simple -> new();
-                my $content = $xml -> XMLin($request -> content());
+                try {
+                    my $xml = XML::Simple -> new();
+                    my $content = $xml -> XMLin($request -> content());
 
-                foreach my $element (@{$content -> {Contents}}) {
-                    push @result, $element -> {Key};
+                    foreach my $element (@{$content -> {Contents}}) {
+                        push @result, $target . $element -> {Key};
+                    }
                 }
             }
         
