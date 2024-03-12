@@ -344,6 +344,12 @@
         },
         {
             "id": "0057",
+            "category": "advisory",
+            "module": "Laravel_Ignition_XSS",
+            "description": "Laravel Ignition contains a cross-site scripting vulnerability when debug mode is enabled"
+        },
+        {
+            "id": "0058",
             "category": "recon",
             "module": "Shodan",
             "description": ""
