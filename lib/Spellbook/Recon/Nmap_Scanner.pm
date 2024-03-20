@@ -12,6 +12,8 @@ package Spellbook::Recon::Nmap_Scanner {
         my $status = $host -> status();
     
         print "$hostname ($addresses) is $status\n";
+
+        return 0;
     }
     
     sub port_found {
@@ -25,7 +27,8 @@ package Spellbook::Recon::Nmap_Scanner {
         print "On host $name ($addresses), found ",
             $port->state()," port ",
             join('/', $port -> protocol(), $port -> portid()), "\n";
-    
+
+        return 0;
     }
 
     sub new {

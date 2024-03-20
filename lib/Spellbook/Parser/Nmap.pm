@@ -7,7 +7,7 @@ package Spellbook::Parser::Nmap {
 
     sub new {
         my ($self, $parameters)= @_;
-        my ($help, $file);
+        my ($help, $file, @results);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -37,8 +37,7 @@ package Spellbook::Parser::Nmap {
             #     }
             # };
             
-            # my @results;
-            # return @results;
+            return @results;
         }
 
         if ($help) {

