@@ -2,7 +2,6 @@ package Spellbook::Recon::WayBackUrls {
     use strict;
     use warnings;
     use JSON;
-    use Mojo::URL;
     use Spellbook::Core::UserAgent;
     
     sub new {
@@ -24,7 +23,9 @@ package Spellbook::Recon::WayBackUrls {
                 my $content = decode_json($request -> content);
 
                 foreach my $fullurl (@{$content}) {
-                    push @result, $fullurl -> [2];
+                    if ($fullurl -> [2] ne "original") {
+                        push @result, $fullurl -> [2];
+                    }
                 }
             }
 

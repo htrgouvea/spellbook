@@ -17,6 +17,15 @@ package Spellbook::Android::Strings {
             #     return "true";
             # }
         }
+
+        if ($help) {
+            return "
+            \rAndroid::
+            \r================
+            \r-h, --help       See this menu\n";
+        }
+
+        return 0;
     }
 }
 

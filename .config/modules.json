@@ -208,7 +208,7 @@
             "id": "0035",
             "category": "parser",
             "module": "S3_Bucket",
-            "description": "Extract the path of files from a S3 Bucket with object listing"
+            "description": "Extract the path of files from a resource with object listing"
         },
         {
             "id": "0036",
@@ -298,7 +298,7 @@
             "id": "0050",
             "category": "exploit",
             "module": "S3_Bucket_Takeover",
-            "description": "Detection possible of takeover on AWS S3 Bucket resource"
+            "description": "Detection possible of takeover on resource"
         },
         {  
             "id": "0051",
@@ -329,6 +329,30 @@
             "category": "advisory",
             "module": "CVE_2021_41174",
             "description": "Exploit for XSS vulnerability on grafana"
+        },
+        {
+            "id": "0056",
+            "category": "advisory",
+            "module": "CVE_2020_9376",
+            "description": "Exploit for dump credentials of router DLINK 610"
+        },
+        {
+            "id": "0056",
+            "category": "advisory",
+            "module": "CVE_2020_9377",
+            "description": "Exploit auth RCE vulnerability at router DLINK-610"
+        },
+        {
+            "id": "0057",
+            "category": "advisory",
+            "module": "Laravel_Ignition_XSS",
+            "description": "Laravel Ignition contains a cross-site scripting vulnerability when debug mode is enabled"
+        },
+        {
+            "id": "0058",
+            "category": "recon",
+            "module": "Shodan",
+            "description": ""
         }
     ]
 }
