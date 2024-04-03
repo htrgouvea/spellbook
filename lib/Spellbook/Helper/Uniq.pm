@@ -21,7 +21,7 @@ package Spellbook::Helper::Uniq {
                 \rHelper::Uniq
                 \r=====================
                 \r-h, --help     See this menu
-                \r-v, --value    Define a value\n\n";
+                \r-v, --target    Define a value\n\n";
         }
 
         return 0;
