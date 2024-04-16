@@ -14,8 +14,8 @@ package Spellbook::Core::Module {
 
             if ($name eq $module) {  
                 require "Spellbook/" . $category . "/" . $package -> {module} . ".pm";
+
                 my @run = "Spellbook::$name" -> new(@parameters);
-                
                 my @results;
 
                 foreach my $result (@run) {
