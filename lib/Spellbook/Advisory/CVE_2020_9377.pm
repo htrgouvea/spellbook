@@ -44,7 +44,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
                 \r=======================
                 \r-h, --help     See this menu
                 \r-t, --target   Define a target
-                \r-c, --cokie    Define a session cookie
+                \r-c, --cookie    Define a session cookie
                 \r-p, --payload  Set the command to run on the target\n\n";
         }
 
