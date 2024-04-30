@@ -16,8 +16,6 @@ package Spellbook::Advisory::CVE_2024_4040 {
             "help"      => \$help
         );
         
-        
-
         if ($target) {
             if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
