@@ -362,12 +362,6 @@
         },
         {
             "id": "0060",
-            "category": "bruteforce",
-            "module": "Vixting",
-            "description": ""
-        },
-        {
-            "id": "0061",
             "category": "exploit",
             "module": "Fullchain_DLINK",
             "description": ""
