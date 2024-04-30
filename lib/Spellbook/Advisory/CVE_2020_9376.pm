@@ -31,7 +31,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
                 my $name = $dom -> at("entry > name") -> text();
                 my $password = $dom -> at("entry > password") -> text();
 
-                print "$name:$password\n"; 
+                return "$name:$password";
             }
 
             return @results;

@@ -353,6 +353,18 @@
             "category": "recon",
             "module": "Shodan",
             "description": ""
+        },
+        {
+            "id": "0059",
+            "category": "helper",
+            "module": "Uniq",
+            "description": "Remove duplicate values"
+        },
+        {
+            "id": "0060",
+            "category": "exploit",
+            "module": "Fullchain_DLINK",
+            "description": ""
         }
     ]
 }

@@ -1,4 +1,4 @@
-package Spellbook::Bruteforce::Facebook {
+package Spellbook::Bruteforce::Twitter {
     use strict;
     use warnings;
     
@@ -19,7 +19,7 @@ package Spellbook::Bruteforce::Facebook {
 
         if ($help) {
             return "
-                \rBruteforce::Facebook
+                \rBruteforce::Twitter
                 \r=====================
                 \r-h, --help     See this menu
                 \r-t, --target   \n\n";

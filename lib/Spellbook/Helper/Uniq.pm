@@ -1,29 +1,30 @@
-package Spellbook::Bruteforce::Facebook {
+package Spellbook::Helper::Uniq {
     use strict;
     use warnings;
-    
+    use List::MoreUtils qw(uniq);
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, @result);
+        my ($help, $target);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
+            "h|help"    => \$help,
+            "v|target=s" => \$target
         );
 
         if ($target) {
-
-            return @result;
+            return uniq $target;
         }
 
         if ($help) {
             return "
-                \rBruteforce::Facebook
+                \rHelper::Uniq
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+                \r-v, --target    Define a value\n\n";
         }
+
+        return 0;
     }
 }
 

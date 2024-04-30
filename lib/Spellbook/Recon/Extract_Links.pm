@@ -26,25 +26,29 @@ package Spellbook::Recon::Extract_Links {
                 $target = "https://$target";
             }
 
+            if ($target =~ /\/$/) { chop($target); }
+
             my $request = $mech -> get($target);
             my @links   = $mech -> links();
             
             for my $link (@links) {
                 my $url = $link -> url();
 
-                if (($url) && ($url !~ m/#/)) {
-                    push @result, $url;
-                    
-                    if (($deep) && ($url !~ "^(http|https)://")) {
-                        try {
-                            push @result, Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
-                        }
+                if (($url) && ($url !~ m/#/) && ($url !~ /^http(s)?:\/\//)) {
+                    if ($url !~ /^\//) { $url = "/" . $url; }
 
-                        catch {
-                            # 
-                        };
-                    }
+                    push @result, $url;
+
+                    # if ($deep) {
+                    #     try {
+                    #         push @result, Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
+                    #     }
+                    # }
                 }
+            }
+
+            for my $item (@result) {
+                $item = $target . $item;
             }
 
             return uniq @result;
