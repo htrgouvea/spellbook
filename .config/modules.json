@@ -365,6 +365,12 @@
             "category": "exploit",
             "module": "Fullchain_DLINK",
             "description": ""
+        },
+        {
+            "id": "0061",
+            "category": "advisory",
+            "module": "CVE_2024_4040",
+            "description": "CrushFTP Server exploit"
         }
     ]
 }
