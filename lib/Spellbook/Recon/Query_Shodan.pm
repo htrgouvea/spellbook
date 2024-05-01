@@ -1,24 +1,23 @@
-package Spellbook::Recon::Shodan {
+package Spellbook::Recon::Query_Shodan {
     use strict;
     use warnings;
     use JSON;
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
-    use Data::Dumper;
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, @result);
+        my ($help, $query, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            "h|help"    => \$help,
+            "q|query=s" => \$query
         );
 
-        if ($target) {
+        if ($query) {
             my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
-            my $endpoint  = "https://api.shodan.io/shodan/host/search?key=$apiKey&query=product:D-LINK%20DIR-610&limit=300";
+            my $endpoint  = "https://api.shodan.io/shodan/host/search?key=$apiKey&query=$query&limit=300";
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
             my $httpCode  = $request -> code();
@@ -42,7 +41,7 @@ package Spellbook::Recon::Shodan {
                 \rRecon::Shodan
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t, --target   Set an IP to see infos on shodan API\n\n";
+                \r-t, --query    Define a query\n\n";
         }
 
         return 0;
