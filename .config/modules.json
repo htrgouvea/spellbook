@@ -351,8 +351,8 @@
         {
             "id": "0058",
             "category": "recon",
-            "module": "Shodan",
-            "description": ""
+            "module": "Query_Shodan",
+            "description": "Run queries and get IP + Port in Shodan Engine"
         },
         {
             "id": "0059",
