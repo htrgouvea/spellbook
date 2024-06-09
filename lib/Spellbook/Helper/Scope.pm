@@ -1,13 +1,13 @@
 package Spellbook::Helper::Scope {
     use strict;
     use warnings;
-    use YAML::Tiny; # https://metacpan.org/pod/YAML::Tiny
+    use YAML::Tiny;
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $scope, $information, $entrypoint, $save, @results, @response);
+        my ($help, $scope, $information, $entrypoint, $save, $keep, @results, @response);
 
         my $threads = 10;
 
@@ -18,6 +18,7 @@ package Spellbook::Helper::Scope {
             "i|information=s" => \$information,
             "e|entrypoint=s"  => \$entrypoint,
             "t|threads=i"     => \$threads,
+            "K|keep"          => \$keep,
             "save:s"          => \$save
         );
 
@@ -43,10 +44,15 @@ package Spellbook::Helper::Scope {
             }
     
             if ($save) {
-                for (keys @results) {
-                    $yamlfile -> [0] -> {$save} = [@results];
-                    $yamlfile -> write ($scope);              
+                if ($keep && exists $yamlfile->[0]->{$save}) {
+                    push @{$yamlfile->[0]->{$save}}, @results;
                 }
+                
+                else {
+                    $yamlfile->[0]->{$save} = [@results];
+                }
+                
+                $yamlfile->write($scope);
             }
 
             return @results;
@@ -60,6 +66,7 @@ package Spellbook::Helper::Scope {
                 \r-S, --scope        Define a YML file as a scope
                 \r-i, --information  Set an information to extract from your scope
                 \r-e, --entrypoint   Send informations to another entrypoint module
+                \r-K, --keep         Keep the current values in the file and add news values
                 \r--save             Save the output on some attribute\n\n";
         }
         
