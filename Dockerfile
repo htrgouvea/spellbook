@@ -4,7 +4,7 @@ COPY . /usr/src/spellbook
 WORKDIR /usr/src/spellbook
 
 RUN apt-get update && \
-    apt-get install -y masscan
+    apt-get install -y libpcap-dev masscan
 
 RUN cpanm --installdeps .
 
