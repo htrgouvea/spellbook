@@ -1,4 +1,4 @@
-FROM perl:5.32-threaded
+FROM perl:5.38-threaded
 
 COPY . /usr/src/spellbook
 WORKDIR /usr/src/spellbook
