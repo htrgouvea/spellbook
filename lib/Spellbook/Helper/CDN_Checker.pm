@@ -26,7 +26,7 @@ package Spellbook::Helper::CDN_Checker {
 
                 if ($request -> code == 200) {
                     my $data    = decode_json($request -> content);
-                    my $content = $data -> {"cdn"};
+                    my $content = $data -> {"cdn"}; # we have others options
 
                     for (keys %{$content}) {
                         for (@{$content -> {$_}}) {
