@@ -371,6 +371,18 @@
             "category": "advisory",
             "module": "CVE_2024_4040",
             "description": "CrushFTP Server exploit"
+        },
+        {
+            "id": "0062",
+            "category": "advisory",
+            "module": "CVE_2024_4577",
+            "description": "PHP CGI Argument Injection vulnerability"
+        },
+        {
+            "id": "0063",
+            "category": "advisory",
+            "module": "CVE_2021_41174",
+            "description": "Grafana Reflected XSS"
         }
     ]
 }
