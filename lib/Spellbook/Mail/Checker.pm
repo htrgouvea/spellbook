@@ -1,4 +1,4 @@
-package Spellbook {
+package Spellbook::Mail::Checker {
     use strict;
     use warnings;
 

@@ -20,6 +20,8 @@ package Spellbook::Parser::Nozaki {
             my $content  = decode_json($data);
 
             print $content;
+
+            return @result;
         }
 
         if ($help) {

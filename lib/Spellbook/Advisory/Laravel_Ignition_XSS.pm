@@ -15,7 +15,7 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
             
@@ -26,8 +26,8 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
 
             if (
                 $request -> code() == 500 &&
-                $request -> content() =~ m/Undefined index:/ &&
-                $request -> content() =~ m/$uuid[0]/
+                $request -> content() =~ m/Undefined index:/x &&
+                $request -> content() =~ m/$uuid[0]/x
             ) {
                 push @results, $target;
             }

@@ -15,7 +15,7 @@ package Spellbook::Recon::Detect_Error {
         );
 
         if ($target) {
-            $target =~ s/^http(s)?:\/\///;
+            $target =~ s/^http(s)?:\/\///x;
             
             my $resolv = Net::DNS::Resolver -> new();
             my $reply  = $resolv -> search($target);

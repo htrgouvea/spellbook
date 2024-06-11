@@ -14,8 +14,8 @@ package Spellbook::Recon::Get_IP {
         );
 
         if ($target) {
-            if ($target =~ /^http(s)?:\/\//) {
-                $target =~ s/^http(s)?:\/\///;
+            if ($target =~ /^http(s)?:\/\//x) {
+                $target =~ s/^http(s)?:\/\///x;
             }
 
             my $ip = gethostbyname($target);

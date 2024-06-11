@@ -20,7 +20,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
 

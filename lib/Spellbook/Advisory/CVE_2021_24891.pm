@@ -14,7 +14,7 @@ package Spellbook::Advisory::CVE_2021_24891 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
 
@@ -35,7 +35,7 @@ package Spellbook::Advisory::CVE_2021_24891 {
                 my $inner_hash = $fingerprints -> {$key};
                 my $request = $useragent -> get($target . $inner_hash->{endpoint});
 
-                if (($request -> code() == 200) && $request -> decoded_content() =~ m/$inner_hash->{regex}/) {
+                if (($request -> code() == 200) && $request -> decoded_content() =~ m/$inner_hash->{regex}/x) {
                     push @results, $target . $inner_hash -> {endpoint};
                 }
             }

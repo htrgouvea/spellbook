@@ -7,7 +7,7 @@ package Spellbook::Helper::Scope {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $scope, $information, $entrypoint, $save, $keep, @results, @response);
+        my ($help, $scope, $information, $entrypoint, $save, $keep, @results);
 
         my $threads = 10;
 

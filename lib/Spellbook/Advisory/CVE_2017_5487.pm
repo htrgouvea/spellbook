@@ -16,7 +16,7 @@ package Spellbook::Advisory::CVE_2017_5487 {
         );
 
         if ($target) {    
-            if ($target !~ /^http(s)?:\/\//) { 
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "http://$target";
             }
                     

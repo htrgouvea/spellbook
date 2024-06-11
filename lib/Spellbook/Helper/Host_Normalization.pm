@@ -14,15 +14,15 @@ package Spellbook::Helper::Host_Normalization {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) { 
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "http://$target";
             }
 
             my $uri  = URI::URL -> new($target);
             my $host = $uri -> host();
 
-            $host =~ s/^www\.//i;
-            $host =~ s/^\*.//;
+            $host =~ s/^www\.//ix;
+            $host =~ s/^\*.//x;
 
             return lc($host);
 

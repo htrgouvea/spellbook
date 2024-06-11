@@ -15,7 +15,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "http://$target";
             }
 
@@ -25,7 +25,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
             my $request   = HTTP::Request -> new("POST", "$target/getcfg.php", $headers, $payload);
             my $response  = $userAgent -> request($request);
 
-            if (($response -> code() == 200) && ($response -> content() =~ m/DIR-610/)) {
+            if (($response -> code() == 200) && ($response -> content() =~ m/DIR-610/x)) {
                 my $dom = Mojo::DOM -> new($response -> content());
 
                 my $name = $dom -> at("entry > name") -> text();

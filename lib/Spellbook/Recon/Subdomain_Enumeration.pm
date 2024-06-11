@@ -17,8 +17,8 @@ package Spellbook::Recon::Subdomain_Enumeration {
         );
 
         if ($target) {
-            if ($target =~ /^http(s)?:\/\//) {
-                $target =~ s/^http(s)?:\/\///;
+            if ($target =~ /^http(s)?:\/\//x) {
+                $target =~ s/^http(s)?:\/\///x;
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();

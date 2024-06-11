@@ -14,7 +14,7 @@ package Spellbook::Recon::HTTP_Probe {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//) { 
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "http://$target";
             }
 
