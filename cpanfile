@@ -7,3 +7,4 @@ requires "Net::DNS", "1.34";
 requires "WWW::Mechanize", "2.11";
 requires "Net::IP";
 requires "UUID::Tiny", "1.04";
+requires "WWW::Mechanize";
