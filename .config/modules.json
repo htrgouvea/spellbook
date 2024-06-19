@@ -285,7 +285,7 @@
         {  
             "id": "0048",
             "category": "recon",
-            "module": "Technologies",
+            "module": "Detect_Tech",
             "description": "Detect the stack of a web application"
         },
         {  
