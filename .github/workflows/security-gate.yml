@@ -1,4 +1,4 @@
-name: Security Gate - Instriq
+name: Security Gate
 
 on:
   push:
