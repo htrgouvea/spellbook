@@ -1,0 +1,18 @@
+read the source code searching for insecure connections, like HTTP, WS, FTP, SMTP;
+Search for private keys (criptography or simple secrets);
+    SECRET_KEY
+LFI/ Private file access
+Unprotected activities
+Unprotected services
+Intent redirection
+Incorrect URL verification
+Cross-app scripting
+Deep link
+    - CSRF
+    - Open redirection
+    - XSS
+    - LFIs
+
+AndroidManifest.xml
+- resources.arsc/strings.xml
+- res/xml/file_paths.xml
