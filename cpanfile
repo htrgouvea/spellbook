@@ -9,3 +9,4 @@ requires "Net::IP";
 requires "UUID::Tiny", "1.04";
 requires "WWW::Mechanize";
 requires "WWW::Wappalyzer";
+requires "Redis";

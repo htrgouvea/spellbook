@@ -11,9 +11,9 @@
     </a>
       <br/>
     <img src="https://github.com/htrgouvea/spellbook/actions/workflows/linter.yml/badge.svg">
-    <img src="https://github.com/htrgouvea/spellbook/actions/workflows/sast.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/spellbook/actions/workflows/zarn.yml/badge.svg">
     <img src="https://github.com/htrgouvea/spellbook/actions/workflows/security-gate.yml/badge.svg">
-    <img src="https://github.com/htrgouvea/spellbook/actions/workflows/test.yml/badge.svg">
+    <img src="https://github.com/htrgouvea/spellbook/actions/workflows/test-on-ubuntu.yml/badge.svg">
   </p>
 </p>
 
