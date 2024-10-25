@@ -377,6 +377,12 @@
             "category": "advisory",
             "module": "CVE_2024_4577",
             "description": "PHP CGI Argument Injection vulnerability"
+        },
+        {
+            "id": "0063",
+            "category": "exploit",
+            "module": "Django_Debug",
+            "description": "Detect if a Django application has the debug mode enabled"
         }
     ]
 }
