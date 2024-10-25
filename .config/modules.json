@@ -383,6 +383,12 @@
             "category": "exploit",
             "module": "Django_Debug",
             "description": "Detect if a Django application has the debug mode enabled"
+        },
+        {
+            "id": "0064",
+            "category": "recon",
+            "module": "Technologies",
+            "description": "Use wappalyzer to detect technologies from a website"
         }
     ]
 }
