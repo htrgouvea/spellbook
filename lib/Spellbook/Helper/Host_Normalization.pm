@@ -14,7 +14,7 @@ package Spellbook::Helper::Host_Normalization {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(?:s)?:\/\//x) {
                 $target = "http://$target";
             }
 
@@ -34,11 +34,14 @@ package Spellbook::Helper::Host_Normalization {
         }
 
         if ($help) {
-            return "
-                \rHelper::Host_Normalization
-                \r==========================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target to normalize\n\n";
+            return<<"EOT";
+
+Helper::Host_Normalization
+==========================
+-h, --help     See this menu
+-t, --target   Define a target to normalize\n\n";
+
+EOT
         }
 
         return 0;

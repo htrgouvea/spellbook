@@ -18,15 +18,18 @@ package Spellbook::Bruteforce::Instagram {
         if ($username) {
             my $useragent = LWP::UserAgent -> new();
 
-        } 
+        }
 
         if ($help) {
-            return "
-                \rExploit::Brute_Force_Instagram
-                \r=======================
-                \r-h, --help       See this menu
-                \r-u, --username   Define a username
-                \r-f, --file       Define a file to read\n\n";
+            return<<"EOT";
+
+Exploit::Brute_Force_Instagram
+=======================
+-h, --help       See this menu
+-u, --username   Define a username
+-f, --file       Define a file to read\n\n";
+
+EOT
         }
 
         return 0;

@@ -16,7 +16,7 @@ package Spellbook::Recon::Detect_Error {
 
         if ($target) {
             $target =~ s/^http(s)?:\/\///x;
-            
+
             my $resolv = Net::DNS::Resolver -> new();
             my $reply  = $resolv -> search($target);
 
@@ -30,7 +30,7 @@ package Spellbook::Recon::Detect_Error {
 
                         if ($request -> code() == 404) {
                             push @results, $target;
-                        }                            
+                        }
                     }
                 }
             }
@@ -39,11 +39,14 @@ package Spellbook::Recon::Detect_Error {
         }
 
         if ($help) {
-            return "
-                \rChecker
-                \r==============
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target\n\n";
+            return<<"EOT";
+
+Checker
+==============
+-h, --help     See this menu
+-t, --target   Define a target\n\n";
+
+EOT
         }
     }
 }

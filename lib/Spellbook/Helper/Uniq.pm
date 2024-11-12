@@ -17,11 +17,14 @@ package Spellbook::Helper::Uniq {
         }
 
         if ($help) {
-            return "
-                \rHelper::Uniq
-                \r=====================
-                \r-h, --help     See this menu
-                \r-v, --target    Define a value\n\n";
+            return<<"EOT";
+
+Helper::Uniq
+=====================
+-h, --help     See this menu
+-v, --target    Define a value\n\n";
+
+EOT
         }
 
         return 0;

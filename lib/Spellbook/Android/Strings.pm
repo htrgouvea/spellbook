@@ -12,17 +12,20 @@ package Spellbook::Android::Strings {
             # resources.arsc/strings.xml
             # res/xml/file_paths.xml
 
-            
+
             # if (Dumper($data) =~ m/:\/\//) {
             #     return "true";
             # }
         }
 
         if ($help) {
-            return "
-            \rAndroid::
-            \r================
-            \r-h, --help       See this menu\n";
+            return<<"EOT";
+
+Android::
+================
+-h, --help       See this menu\n";
+
+EOT
         }
 
         return 0;

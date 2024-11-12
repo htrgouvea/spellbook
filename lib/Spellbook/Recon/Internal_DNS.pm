@@ -26,11 +26,14 @@ package Spellbook::Recon::Internal_DNS {
         }
 
         if ($help) {
-             return "
-                \rRecon::Internal_DNS
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain to get the IP\n\n";
+             return<<"EOT";
+
+Recon::Internal_DNS
+=====================
+-h, --help     See this menu
+-t, --target   Set a domain to get the IP\n\n";
+
+EOT
         }
 
         return 0;

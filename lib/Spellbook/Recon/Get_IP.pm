@@ -22,15 +22,18 @@ package Spellbook::Recon::Get_IP {
 
             if ($ip) {
                 return inet_ntoa($ip);
-            }       
+            }
         }
 
         if ($help) {
-            return "
-                \rRecon::Get_IP
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain to get the IP\n\n";
+            return<<"EOT";
+
+Recon::Get_IP
+=====================
+-h, --help     See this menu
+-t, --target   Set a domain to get the IP\n\n";
+
+EOT
         }
 
         return 0;

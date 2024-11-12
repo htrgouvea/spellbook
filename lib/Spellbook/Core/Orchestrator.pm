@@ -7,13 +7,13 @@ package Spellbook::Core::Orchestrator {
     use threads::shared;
     use Spellbook::Helper::Read_File;
     use List::MoreUtils qw(uniq);
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $wordlist, $module, $list, $queue);
 
         my $threads = 10;
-        
+
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"         => \$help,
@@ -34,24 +34,24 @@ package Spellbook::Core::Orchestrator {
 
             $queue -> end();
             my @results :shared;
-            
+
             async {
                 while (defined(my $target = $queue -> dequeue())) {
                     my @response = Spellbook::Core::Module -> new (
                         $module, [ "--target" => $target, @$parameters ]
                     );
-                    
+
                     lock(@results);
-                    
+
                     if (@response) {
                         push @results, @response;
                     }
                 }
-            } 
-            
+            }
+
             for 1 .. $threads;
 
-            while (threads -> list(threads::running) > 0) { 
+            while (threads -> list(threads::running) > 0) {
                 $_ -> join() for threads -> list(threads::all);
             }
 
@@ -59,13 +59,16 @@ package Spellbook::Core::Orchestrator {
         }
 
         if ($help) {
-            return "
-                \rCore::Orchestrator
-                \r==============
-                \r\t-h, --help          See this menu
-                \r\t-t, --threads       Number of threads
-                \r\t-w, --wordlist      Wordlist file
-                \r\t-e, --entrypoint    Module to execute\n\n";
+            return<<"EOT";
+
+Core::Orchestrator
+==============
+-h, --help          See this menu
+-t, --threads       Number of threads
+-w, --wordlist      Wordlist file
+-e, --entrypoint    Module to execute\n\n";
+
+EOT
         }
 
         return 0;

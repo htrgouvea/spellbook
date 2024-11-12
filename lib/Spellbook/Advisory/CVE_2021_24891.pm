@@ -14,7 +14,7 @@ package Spellbook::Advisory::CVE_2021_24891 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(?:s)?:\/\//x) {
                 $target = "https://$target";
             }
 
@@ -44,11 +44,14 @@ package Spellbook::Advisory::CVE_2021_24891 {
         }
 
         if ($help) {
-            return "
-                \rAdvisory::CVE_2021_24891
-                \r=======================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target\n\n";
+            return<<"EOT";
+
+Advisory::CVE_2021_24891
+=======================
+-h, --help     See this menu
+-t, --target   Define a target\n\n";
+
+EOT
         }
 
         return 0;

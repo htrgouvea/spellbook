@@ -19,20 +19,23 @@ package Spellbook::Helper::Generate_UUID {
         if ($version) {
             for (my $i = 1; $i <= $repeat; $i++) {
                 my $generate = create_uuid_as_string($version);
-                
+
                 push @result, $generate;
             }
-            
+
             return @result;
         }
 
         if ($help) {
-            return "
-                \rHelper::Generate_UUID
-                \r=====================
-                \r-h, --help     See this menu
-                \r-v, --version  Version of UUID algorithm
-                \r-r, --repeat   Quantities of repetitions\n\n";
+            return<<"EOT";
+
+Helper::Generate_UUID
+=====================
+-h, --help     See this menu
+-v, --version  Version of UUID algorithm
+-r, --repeat   Quantities of repetitions\n\n";
+
+EOT
         }
 
         return 0;
