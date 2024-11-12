@@ -6,7 +6,7 @@ package Spellbook::Helper::Reverse_Shell {
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
-        
+
         my $port = 1337;
         my $lang = "perl";
 
@@ -28,15 +28,18 @@ package Spellbook::Helper::Reverse_Shell {
         }
 
         if ($help) {
-            return "
-                \rHelper::Reverse_Shell
-                \r=====================
-                \r-h, --help        See this menu
-                \r-t, --target      Set your IP/Host to send the reverse shell
-                \r-p, --port        Define a port to connect
-                \r-l, --lang        Default is perl, types avaible: perl, bash\n\n";
+            return<<"EOT";
+
+Helper::Reverse_Shell
+=====================
+-h, --help        See this menu
+-t, --target      Set your IP/Host to send the reverse shell
+-p, --port        Define a port to connect
+-l, --lang        Default is perl, types avaible: perl, bash\n\n";
+
+EOT
         }
-        
+
         return 0;
     }
 }

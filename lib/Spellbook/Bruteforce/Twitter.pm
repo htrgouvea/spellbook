@@ -1,7 +1,7 @@
 package Spellbook::Bruteforce::Twitter {
     use strict;
     use warnings;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -18,11 +18,14 @@ package Spellbook::Bruteforce::Twitter {
         }
 
         if ($help) {
-            return "
-                \rBruteforce::Twitter
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+            return<<"EOT";
+
+Bruteforce::Twitter
+=====================
+-h, --help     See this menu
+-t, --target   \n\n";
+
+EOT
         }
     }
 }

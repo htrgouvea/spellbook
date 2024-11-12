@@ -23,15 +23,18 @@ package Spellbook::Recon::Host_Resolv {
 
             if ($search) {
                 return $target;
-            } 
+            }
         }
-        
+
         if ($help) {
-            return "
-                \rRecon::Host_Resolv
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain to get the IP\n\n";
+            return<<"EOT";
+
+Recon::Host_Resolv
+=====================
+-h, --help     See this menu
+-t, --target   Set a domain to get the IP\n\n";
+
+EOT
         }
 
         return 0;

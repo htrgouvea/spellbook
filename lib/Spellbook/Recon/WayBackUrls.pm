@@ -3,7 +3,7 @@ package Spellbook::Recon::WayBackUrls {
     use warnings;
     use JSON;
     use Spellbook::Core::UserAgent;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -14,11 +14,11 @@ package Spellbook::Recon::WayBackUrls {
             "t|target=s" => \$target
         );
 
-        if ($target) {        
+        if ($target) {
             my $endpoint  = "http://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
-            
+
             if (($request -> code() == 200) && ($request -> content ne "[]")) {
                 my $content = decode_json($request -> content);
 
@@ -33,11 +33,14 @@ package Spellbook::Recon::WayBackUrls {
         }
 
         if ($help) {
-            return "
-                \rRecon::WaybackUrls
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set an website to see paths from WayBackMachine\n";
+            return<<"EOT";
+
+Recon::WaybackUrls
+=====================
+-h, --help     See this menu
+-t, --target   Set an website to see paths from WayBackMachine\n";
+
+EOT
         }
 
         return 0;

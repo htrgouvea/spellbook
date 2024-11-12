@@ -16,10 +16,10 @@ package Spellbook::Parser::S3_Bucket {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
-                $target = "https://$target";    
+            if ($target !~ /^http(?:s)?:\/\//x) {
+                $target = "https://$target";
             }
-            
+
             if ($target !~ /\/$/x) { $target .= "/"; }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
@@ -35,16 +35,19 @@ package Spellbook::Parser::S3_Bucket {
                     }
                 }
             }
-        
+
             return @result;
         }
 
         if ($help) {
-            return "
-                \rParser::Bucket
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+            return<<"EOT";
+
+Parser::Bucket
+=====================
+-h, --help     See this menu
+-t, --target   \n\n";
+
+EOT
         }
 
         return 0;

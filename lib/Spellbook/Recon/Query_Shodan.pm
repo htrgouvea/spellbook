@@ -24,7 +24,7 @@ package Spellbook::Recon::Query_Shodan {
 
             if ($httpCode == 200) {
                 my $content = decode_json($request -> content());
-                
+
                 foreach my $data (@{$content -> {"matches"}}) {
                     my $hostname = $data -> {"ip_str"};
                     my $port = $data -> {"port"};
@@ -37,11 +37,14 @@ package Spellbook::Recon::Query_Shodan {
         }
 
         if ($help) {
-            return "
-                \rRecon::Shodan
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --query    Define a query\n\n";
+            return<<"EOT";
+
+Recon::Shodan
+=====================
+-h, --help     See this menu
+-t, --query    Define a query\n\n";
+
+EOT
         }
 
         return 0;

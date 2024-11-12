@@ -5,7 +5,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
     use List::MoreUtils qw(uniq);
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -50,14 +50,17 @@ package Spellbook::Recon::Subdomain_Enumeration {
             }
 
             return uniq @result;
-        } 
+        }
 
         if ($help) {
-            return "
-                \rRecon::Subdomain_Enumeration
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Find subdomains from a target using SecurityTrails\n\n";
+            return<<"EOT";
+
+Recon::Subdomain_Enumeration
+=====================
+-h, --help     See this menu
+-t, --target   Find subdomains from a target using SecurityTrails\n\n";
+
+EOT
         }
 
         return 0;

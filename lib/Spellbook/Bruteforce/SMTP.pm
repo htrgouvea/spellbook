@@ -18,11 +18,14 @@ package Spellbook::Bruteforce::SMTP {
         }
 
         if ($help) {
-            return "
-                \rBruteforce::SMTP
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+            return<<"EOT";
+
+Bruteforce::SMTP
+=====================
+-h, --help     See this menu
+-t, --target   \n\n";
+
+EOT
         }
     }
 }

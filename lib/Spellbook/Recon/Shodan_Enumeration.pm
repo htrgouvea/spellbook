@@ -21,7 +21,7 @@ package Spellbook::Recon::Shodan_Enumeration {
             if ($target =~ /^http(s)?:\/\//x) {
                 $target =~ s/^http(s)?:\/\///x;
             }
-            
+
             my $validate = is_domain($target);
 
             if ($validate) {
@@ -61,11 +61,14 @@ package Spellbook::Recon::Shodan_Enumeration {
         }
 
         if ($help) {
-            return "
-                \rRecon::Shodan_Enum
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set an IP to see infos on shodan API\n\n";
+            return<<"EOT";
+
+Recon::Shodan_Enum
+=====================
+-h, --help     See this menu
+-t, --target   Set an IP to see infos on shodan API\n\n";
+
+EOT
         }
 
         return 0;

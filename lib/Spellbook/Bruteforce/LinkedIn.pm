@@ -1,7 +1,7 @@
 package Spellbook::Bruteforce::LinkedIn {
     use strict;
     use warnings;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -18,11 +18,14 @@ package Spellbook::Bruteforce::LinkedIn {
         }
 
         if ($help) {
-            return "
-                \rBruteforce::LinkedIn
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+            return<<"EOT";
+
+Bruteforce::LinkedIn
+=====================
+-h, --help     See this menu
+-t, --target   \n\n";
+
+EOT
         }
     }
 }
