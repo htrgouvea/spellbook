@@ -25,14 +25,11 @@ package Spellbook::Parser::Nozaki {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Parser::Nozaki
-=====================
--h, --help     See this menu
--t, --target   \n\n";
-
-EOT
+            return "
+                \rParser::Nozaki
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   \n\n";
         }
 
         return 0;

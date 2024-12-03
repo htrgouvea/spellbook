@@ -25,23 +25,20 @@ package Spellbook::Helper::Permutations {
                     $chars[$i] = $chars[$random];
                     $chars[$random] = $temp;
                 }
-
+                
                 push @result, join("", @chars);
             }
-
-            return @result;
+           
+            return @result;        
         }
 
         if ($help) {
-            return<<"EOT";
-
-Helper::Permutations
-=====================
--h, --help     See this menu
--v, --value    Provide a seed
--r, --repeat   Quantities of repetitions\n\n";
-
-EOT
+            return "
+                \rHelper::Permutations
+                \r=====================
+                \r-h, --help     See this menu
+                \r-v, --value    Provide a seed
+                \r-r, --repeat   Quantities of repetitions\n\n";
         }
 
         return 0;

@@ -22,7 +22,7 @@ package Spellbook::Recon::DNS_Bruteforce {
             if (@file) {
                 foreach my $line (@file) {
                     my $return = Spellbook::Recon::Host_Resolv -> new (["--target" => "$line.$target"]);
-
+                    
                     if ($return) {
                         push @result, "$line.$target";
                     }
@@ -31,17 +31,14 @@ package Spellbook::Recon::DNS_Bruteforce {
 
             return @result;
         }
-
+        
         if ($help) {
-            return<<"EOT";
-
-Recon::DNS_Bruteforce
-=====================
--h, --help     See this menu
--t, --target   Set a domain as a target
--f, --file     Define a wordlist\n\n";
-
-EOT
+            return "
+                \rRecon::DNS_Bruteforce
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Set a domain as a target
+                \r-f, --file     Define a wordlist\n\n";
         }
 
         return 0;

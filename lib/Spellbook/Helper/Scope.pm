@@ -42,16 +42,16 @@ package Spellbook::Helper::Scope {
                     push @results, $info;
                 }
             }
-
+    
             if ($save) {
                 if ($keep && exists $yamlfile->[0]->{$save}) {
                     push @{$yamlfile->[0]->{$save}}, @results;
                 }
-
+                
                 else {
                     $yamlfile->[0]->{$save} = [@results];
                 }
-
+                
                 $yamlfile->write($scope);
             }
 
@@ -59,20 +59,17 @@ package Spellbook::Helper::Scope {
         }
 
          if ($help) {
-            return<<"EOT";
-
-Helper::Scope
-=====================
--h, --help         See this menu
--S, --scope        Define a YML file as a scope
--i, --information  Set an information to extract from your scope
--e, --entrypoint   Send informations to another entrypoint module
--K, --keep         Keep the current values in the file and add news values
---save             Save the output on some attribute\n\n";
-
-EOT
+            return "
+                \rHelper::Scope
+                \r=====================
+                \r-h, --help         See this menu
+                \r-S, --scope        Define a YML file as a scope
+                \r-i, --information  Set an information to extract from your scope
+                \r-e, --entrypoint   Send informations to another entrypoint module
+                \r-K, --keep         Keep the current values in the file and add news values
+                \r--save             Save the output on some attribute\n\n";
         }
-
+        
         return 0;
     }
 }

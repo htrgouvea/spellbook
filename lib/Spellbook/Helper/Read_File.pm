@@ -2,13 +2,12 @@ package Spellbook::Helper::Read_File {
     use strict;
     use warnings;
     use Spellbook::Core::Module;
-    use Carp qw(croak);
 
     sub new {
-        my ($self, $parameters) = @_;
+        my ($self, $parameters)= @_;
         my ($help, $file, $entrypoint, @result);
 
-        Getopt::Long::GetOptionsFromArray(
+        Getopt::Long::GetOptionsFromArray (
             $parameters,
             "h|help"         => \$help,
             "f|file=s"       => \$file,
@@ -16,36 +15,36 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            local $/ = "\n";
-            open my $fh, "<", $file or croak "Failed to open file: $!";
-            my @lines = <$fh>;
-            close $fh;
+            open (my $filename, "<", $file);
 
-            for my $line (@lines) {
-                chomp($line);
+            while (<$filename>) {
+                chomp ($_);
 
                 if ($entrypoint) {
-                    my $return = Spellbook::Core::Module->new($entrypoint, ["--target" => $line]);
+                    my $return = Spellbook::Core::Module -> new ($entrypoint, ["--target" => $_]);
+
                     if ($return) {
-                        push @result, $line;
+                        push @result, $_;
                     }
                 }
+
                 else {
-                    push @result, $line;
+                    push @result, $_;
                 }
             }
+
+            close ($filename);
+
             return @result;
         }
 
-        return <<"EOT";
-
-Helper::Read_File
-=====================
--h, --help        See this menu
--f, --file        Define a file to read
--e, --entrypoint  Set a other module to send the output
-
-EOT
+        
+        return "
+            \rHelper::Read_File
+            \r=====================
+            \r-h, --help        See this menu
+            \r-f, --file        Define a file to read
+            \r-e, --entrypoint  Set a other module to send the output\n\n";
     }
 }
 

@@ -44,15 +44,12 @@ package Spellbook::Helper::Exifs_Write {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Helper::Exifs_Write
-=====================
--h, --help     See this menu
--f, --file     Define a file write the payload
--p --payload   Set a payload to write into file\n\n";
-
-EOT
+            return "
+                \rHelper::Exifs_Write
+                \r=====================
+                \r-h, --help     See this menu
+                \r-f, --file     Define a file write the payload
+                \r-p --payload   Set a payload to write into file\n\n";
         }
 
         return 0;

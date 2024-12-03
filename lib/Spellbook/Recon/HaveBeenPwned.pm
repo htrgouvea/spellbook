@@ -6,7 +6,7 @@ package Spellbook::Recon::HaveBeenPwned {
     use Spellbook::Core::Credentials;
 
     # THIS IS A DRAFT MODULE
-
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
@@ -33,14 +33,11 @@ package Spellbook::Recon::HaveBeenPwned {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::HaveBeenPwned
-====================
--h, --help     See this menu
--e, --target   Define an e-mail address as a target\n\n";
-
-EOT
+            return "
+                \rRecon::HaveBeenPwned
+                \r====================
+                \r-h, --help     See this menu
+                \r-e, --target   Define an e-mail address as a target\n\n";
         }
 
         return 0;

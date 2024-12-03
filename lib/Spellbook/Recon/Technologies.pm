@@ -16,7 +16,7 @@ package Spellbook::Recon::Technologies {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "https://$target";
             }
 
@@ -36,14 +36,11 @@ package Spellbook::Recon::Technologies {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::Detect_Tech
-=====================
--t, --target     Define the target
--h, --help       See this menu\n\n";
-
-EOT
+            return "
+                \rRecon::Detect_Tech
+                \r=====================
+                \r-t, --target     Define the target
+                \r-h, --help       See this menu\n\n";
         }
 
         return 1;

@@ -15,7 +15,7 @@ package Spellbook::Parser::Sitemap {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) { $target = "https://$target"; }
+            if ($target !~ /^http(s)?:\/\//x) { $target = "https://$target"; }
             if ($target !~ /\/sitemap.xml$/x) { $target = "$target/sitemap.xml"; }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
@@ -33,19 +33,16 @@ package Spellbook::Parser::Sitemap {
                     }
                 }
             }
-
+        
             return @result;
         }
 
         if ($help) {
-            return<<"EOT";
-
-Parser::Sitemap
-=====================
--h, --help     See this menu
--t, --target   \n\n";
-
-EOT
+            return "
+                \rParser::Sitemap
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   \n\n";
         }
 
         return 0;
