@@ -389,6 +389,12 @@
             "category": "recon",
             "module": "Technologies",
             "description": "Use wappalyzer to detect technologies from a website"
+        },
+        {
+            "id": "0065",
+            "category": "crypto",
+            "module": "JWT_Content",
+            "description": "Visualize the content of a JWT"
         }
     ]
 }
