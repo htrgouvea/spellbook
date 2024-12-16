@@ -1,7 +1,7 @@
 package Spellbook::Bruteforce::Facebook {
     use strict;
     use warnings;
-
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -18,14 +18,11 @@ package Spellbook::Bruteforce::Facebook {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Bruteforce::Facebook
-=====================
--h, --help     See this menu
--t, --target   \n\n";
-
-EOT
+            return "
+                \rBruteforce::Facebook
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   \n\n";
         }
     }
 }

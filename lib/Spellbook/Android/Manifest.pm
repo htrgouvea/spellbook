@@ -27,27 +27,21 @@ package Spellbook::Android::Manifest {
             # Exported Android Components
             # Access to protected intents via exported Activities
             # Access to sensitive data via exported Activity
-
-            return join("\n",
-                "[ - ] -> Package name: $package",
-                "[ - ] -> Debug: $debug",
-                "[ - ] -> Backup: $backup",
-                "",
-                ""
-            );
+            
+            return "
+                \r[ - ] -> Package name: $package
+                \r[ - ] -> Debug: $debug
+                \r[ - ] -> Backup: $backup\n\n";
         }
 
         if ($help) {
-            return<<"EOT";
-
-Android::Manifest
-==============
--h, --help    See this menu
--f, --file    Pass the AndroidManifest.xml file\n\n";
-
-EOT
+            return "
+            \rAndroid::Manifest
+            \r==============
+            \r-h, --help    See this menu
+            \r-f, --file    Pass the AndroidManifest.xml file\n\n";
         }
-
+        
         return 0;
     }
 }

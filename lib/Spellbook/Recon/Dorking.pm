@@ -20,13 +20,11 @@ package Spellbook::Recon::Dorking {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::Dorking
-=====================
--h, --help     See this menu\n\n";
-
-EOT
+            return "
+                \rRecon::Dorking
+                \r=====================
+                \r-h, --help     See this menu
+                \r \n\n";
         }
 
         return 0;

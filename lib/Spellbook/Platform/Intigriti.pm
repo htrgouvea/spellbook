@@ -5,13 +5,10 @@ package Spellbook::Platform::Intigriti {
     sub new {
         my ($self, $parameters) = @_;
 
-        return<<"EOT";
-
-Platform::Intigriti
-===================
-This module is under development\n\n";
-
-EOT
+        return "
+            \rPlatform::Intigriti
+            \r===================
+            \rThis module is under development\n\n";
     }
 }
 

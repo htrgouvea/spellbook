@@ -11,7 +11,7 @@ use Getopt::Long qw(:config no_ignore_case pass_through);
 
 sub main {
     my ($search, $module, @result);
-
+    
     Getopt::Long::GetOptions (
         "s|search=s" => \$search,
         "m|module=s" => \$module
@@ -25,8 +25,6 @@ sub main {
     }
 
     return Spellbook::Core::Helper -> new() unless $search || $module;
-
-    return 0;
 }
 
 main();

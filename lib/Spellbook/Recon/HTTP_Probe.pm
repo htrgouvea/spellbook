@@ -14,14 +14,14 @@ package Spellbook::Recon::HTTP_Probe {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) { 
                 $target = "http://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
 
-            if ($response -> code() != 500) {
+            if ($response -> code() != 500) { 
                 push @result, $target;
             }
 
@@ -29,14 +29,11 @@ package Spellbook::Recon::HTTP_Probe {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::HTTP_Probe
-=====================
--h, --help     See this menu
--t, --target   Define a target to make a HTTP request probe\n\n";
-
-EOT
+            return "
+                \rRecon::HTTP_Probe
+                \r=====================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target to make a HTTP request probe\n\n";
         }
 
         return 0;

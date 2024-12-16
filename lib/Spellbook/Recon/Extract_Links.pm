@@ -22,7 +22,7 @@ package Spellbook::Recon::Extract_Links {
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
 
@@ -30,12 +30,12 @@ package Spellbook::Recon::Extract_Links {
 
             my $request = $mech -> get($target);
             my @links   = $mech -> links();
-
+            
             for my $link (@links) {
                 my $url = $link -> url();
 
-                if (($url) && ($url !~ m/#/x) && ($url !~ /^http(?:s)?:\/\//x)) {
-                    if ($url !~ /^\//x) {
+                if (($url) && ($url !~ m/#/x) && ($url !~ /^http(s)?:\/\//x)) {
+                    if ($url !~ /^\//x) { 
                         $url = "/" . $url;
                     }
 
@@ -57,15 +57,12 @@ package Spellbook::Recon::Extract_Links {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Recon::Extrac_Links
-=====================
--h, --help       See this menu
--t, --target     Define a web page to extract all links
--d, --deep       Draft recursive function\n\n";
-
-EOT
+            return "
+                \rRecon::Extrac_Links
+                \r=====================
+                \r-h, --help       See this menu
+                \r-t, --target     Define a web page to extract all links
+                \r-d, --deep       Draft recursive function\n\n";
         }
 
         return 0;

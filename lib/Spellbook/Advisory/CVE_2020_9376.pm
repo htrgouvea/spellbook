@@ -3,7 +3,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
     use warnings;
     use Mojo::DOM;
     use Spellbook::Core::UserAgent;
-
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
@@ -15,7 +15,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "http://$target";
             }
 
@@ -38,14 +38,11 @@ package Spellbook::Advisory::CVE_2020_9376 {
         }
 
         if ($help) {
-            return<<"EOT";
-
-Advisory::CVE_2020_9376
-=======================
--h, --help     See this menu
--t, --target   Define a target to exploit\n\n";
-
-EOT
+            return "
+                \rAdvisory::CVE_2020_9376
+                \r=======================
+                \r-h, --help     See this menu
+                \r-t, --target   Define a target to exploit\n\n";
         }
 
         return 0;
