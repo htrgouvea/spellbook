@@ -9,7 +9,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Install dependencies
       run: |
-        sudo apt install -y perl cpanminus
+        sudo apt-get update
+        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan 
         sudo cpanm --installdeps .
     - name: Verify the basic usage
       run: |
