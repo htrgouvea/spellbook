@@ -2,3 +2,6 @@ severity = 3
 
 [-TestingAndDebugging::RequireUseStrict]
 [-TestingAndDebugging::RequireUseWarnings]
+
+[TestingAndDebugging::ProhibitNoWarnings]
+allow = once
