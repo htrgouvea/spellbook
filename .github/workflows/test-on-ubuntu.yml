@@ -10,7 +10,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y perl cpanminus build-essential libssl-dev libexpat1-dev
+        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan 
         sudo cpanm --installdeps .
     - name: Verify the basic usage
       run: |
