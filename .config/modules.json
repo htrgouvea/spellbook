@@ -395,6 +395,12 @@
             "category": "crypto",
             "module": "JWT_Content",
             "description": "Visualize the content of a JWT"
+        },
+        {
+            "id": "0066",
+            "category": "crypto",
+            "module": "Algorithm_Identifier",
+            "description": "Identify the type of hashing or encryption used in a string"
         }
     ]
 }
