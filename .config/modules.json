@@ -401,6 +401,12 @@
             "category": "crypto",
             "module": "Algorithm_Identifier",
             "description": "Identify the type of hashing or encryption used in a string"
+        },
+        {
+            "id": "0067",
+            "category": "Cloud",
+            "module": "Account_Identifier",
+            "description": "Provides the AWS key for extracting the account ID"
         }
     ]
 }
