@@ -1,4 +1,6 @@
 package Spellbook::Android::Schemes {
+    use strict;
+    use warnings;
 
 }
 
