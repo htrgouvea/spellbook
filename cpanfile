@@ -10,3 +10,6 @@ requires "UUID::Tiny", "1.04";
 requires "WWW::Mechanize";
 requires "WWW::Wappalyzer";
 requires "Redis";
+requires "IO::Socket::SSL";
+requires "DateTime::TimeZone";
+requires "Masscan::Scanner";

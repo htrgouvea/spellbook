@@ -15,7 +15,7 @@ package Spellbook::Crypto::JWT_Content {
         );
 
         if ($data) {
-            my ($header_b64, $payload_b64, $signature_b64) = split(/\./, $data);
+            my ($header_b64, $payload_b64, $signature_b64) = split(/\./x, $data);
 
             if ($header_b64 && $payload_b64 && $signature_b64) {
                 my $header  = decode_base64($header_b64);
