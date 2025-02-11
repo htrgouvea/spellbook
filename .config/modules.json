@@ -407,6 +407,12 @@
             "category": "Cloud",
             "module": "Account_Identifier",
             "description": "Provides the AWS key for extracting the account ID"
+        },
+        {
+            "id": "0068",
+            "category": "helper",
+            "module": "Screenshot",
+            "description": "Takes a screenshot of a webpage using headless Chrome browser"
         }
     ]
 }
