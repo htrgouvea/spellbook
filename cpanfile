@@ -13,3 +13,5 @@ requires "Redis";
 requires "IO::Socket::SSL";
 requires "DateTime::TimeZone";
 requires "Masscan::Scanner";
+requires "Try::Tiny";
+requires "Playwright";
