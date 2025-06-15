@@ -24,7 +24,11 @@ sub main {
         print $item, "\n";
     }
 
-    return Spellbook::Core::Helper -> new() unless $search || $module;
+    if (!$search && !$module) {
+        return Spellbook::Core::Helper -> new();
+    }
+
+    return 0;
 }
 
 main();

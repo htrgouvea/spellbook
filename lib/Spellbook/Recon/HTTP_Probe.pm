@@ -14,14 +14,14 @@ package Spellbook::Recon::HTTP_Probe {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
-                $target = "http://$target";
+            if ($target !~ m{^https?://}i) {
+                $target = "https://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
 
-            if ($response -> code() != 500) { 
+            if ($response -> code()) { 
                 push @result, $target;
             }
 
