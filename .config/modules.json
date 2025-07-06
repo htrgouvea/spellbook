@@ -404,9 +404,15 @@
         },
         {
             "id": "0067",
-            "category": "Cloud",
+            "category": "cloud",
             "module": "Account_Identifier",
             "description": "Provides the AWS key for extracting the account ID"
+        },
+        {
+            "id": "0068",
+            "category": "recon",
+            "module": "Public_DNS",
+            "description": "Verify if a domain has a resolution to public IP"
         }
     ]
 }
