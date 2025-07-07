@@ -2,6 +2,7 @@ package Spellbook::Helper::Uniq {
     use strict;
     use warnings;
     use List::MoreUtils qw(uniq);
+    
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
