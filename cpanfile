@@ -9,6 +9,6 @@ requires "Net::IP", " 1.26";
 requires "UUID::Tiny", "1.04";
 requires "WWW::Mechanize", "2.19";
 requires "WWW::Wappalyzer", "2.00";
-requires "Redis", " 2.000";
+requires "Redis", "2.000";
 requires "IO::Socket::SSL", "2.094";
 requires "DateTime::TimeZone" "2.63";
