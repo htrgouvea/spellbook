@@ -5,4 +5,3 @@ severity = 1
 
 [TestingAndDebugging::ProhibitNoWarnings]
 allow = once
-
