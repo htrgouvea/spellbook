@@ -413,6 +413,12 @@
             "category": "recon",
             "module": "Public_DNS",
             "description": "Verify if a domain has a resolution to public IP"
+        },
+        {
+            "id": "0069",
+            "category": "recon",
+            "module": "Dorking",
+            "description": "Perform dorking using bing to find links about a target"
         }
     ]
 }
