@@ -6,7 +6,7 @@ package Spellbook::Recon::HaveBeenPwned {
     use Spellbook::Core::Credentials;
 
     # THIS IS A DRAFT MODULE
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);

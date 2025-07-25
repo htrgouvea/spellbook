@@ -22,7 +22,7 @@ package Spellbook::Recon::Get_IP {
 
             if ($ip) {
                 return inet_ntoa($ip);
-            }       
+            }
         }
 
         if ($help) {

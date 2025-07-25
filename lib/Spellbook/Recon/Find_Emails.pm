@@ -30,7 +30,7 @@ package Spellbook::Recon::Find_Emails {
                 }
 
                 return @result;
-            }    
+            } 
         }
 
         if ($help) {

@@ -21,7 +21,7 @@ package Spellbook::Recon::Shodan_Enumeration {
             if ($target =~ /^http(s)?:\/\//x) {
                 $target =~ s/^http(s)?:\/\///x;
             }
-            
+
             my $validate = is_domain($target);
 
             if ($validate) {

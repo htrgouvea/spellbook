@@ -24,7 +24,7 @@ package Spellbook::Recon::Query_Shodan {
 
             if ($httpCode == 200) {
                 my $content = decode_json($request -> content());
-                
+
                 foreach my $data (@{$content -> {"matches"}}) {
                     my $hostname = $data -> {"ip_str"};
                     my $port = $data -> {"port"};

@@ -42,16 +42,16 @@ package Spellbook::Helper::Scope {
                     push @results, $info;
                 }
             }
-    
+
             if ($save) {
                 if ($keep && exists $yamlfile->[0]->{$save}) {
                     push @{$yamlfile->[0]->{$save}}, @results;
                 }
-                
+
                 else {
                     $yamlfile->[0]->{$save} = [@results];
                 }
-                
+
                 $yamlfile->write($scope);
             }
 
@@ -69,7 +69,7 @@ package Spellbook::Helper::Scope {
                 \r-K, --keep         Keep the current values in the file and add news values
                 \r--save             Save the output on some attribute\n\n";
         }
-        
+
         return 0;
     }
 }
