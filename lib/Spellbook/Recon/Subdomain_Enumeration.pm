@@ -5,7 +5,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
     use List::MoreUtils qw(uniq);
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -50,7 +50,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
             }
 
             return uniq @result;
-        } 
+        }
 
         if ($help) {
             return "

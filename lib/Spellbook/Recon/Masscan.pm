@@ -5,11 +5,11 @@ package Spellbook::Recon::Masscan {
     use List::MoreUtils qw(uniq);
     use Spellbook::Recon::Get_IP;
     use Spellbook::Helper::CDN_Checker;
-    
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, @target, @ports, @result, $skip_cdn);
-        
+
         my @arguments = qw(--banners);
 
         Getopt::Long::GetOptionsFromArray (
@@ -19,7 +19,7 @@ package Spellbook::Recon::Masscan {
             "p|port=s"    => \@ports,
             "a|arguments" => \@arguments,
             "skip-cdn"    => \$skip_cdn
-        );        
+        );
 
         if (@target) {
             if (!@ports) { @ports = "1-65535"; }
@@ -28,7 +28,7 @@ package Spellbook::Recon::Masscan {
                 my $CDN_Checker = Spellbook::Helper::CDN_Checker -> new (["--target" => $target[0]]);
 
                 if ($CDN_Checker) {
-                    return 0;   
+                    return 0;
                 }
             }
 
@@ -45,13 +45,13 @@ package Spellbook::Recon::Masscan {
             if ($scan) {
                 my $result = $masscan -> scan_results();
 
-                foreach my $value (@{$result -> {"scan_results"}}) {                    
+                foreach my $value (@{$result -> {"scan_results"}}) {
                     push @result, $target[0] . ":" . $value -> {"ports"} -> [0] -> {"port"};
                 }
-                    
+
                 return uniq @result;
             }
-        } 
+        }
 
         if ($help) {
             return "

@@ -5,15 +5,17 @@ package Spellbook::Recon::Extract_Links {
     use WWW::Mechanize;
     use List::MoreUtils qw(uniq);
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $deep, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "d|deep"     => \$deep
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'd|deep'     => \$deep
         );
 
         if ($target) {
@@ -30,12 +32,12 @@ package Spellbook::Recon::Extract_Links {
 
             my $request = $mech -> get($target);
             my @links   = $mech -> links();
-            
+
             for my $link (@links) {
                 my $url = $link -> url();
 
                 if (($url) && ($url !~ m/#/x) && ($url !~ /^http(s)?:\/\//x)) {
-                    if ($url !~ /^\//x) { 
+                    if ($url !~ /^\//x) {
                         $url = "/" . $url;
                     }
 

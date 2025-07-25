@@ -13,7 +13,7 @@ package Spellbook::Crypto::Algorithm_Identifier {
         );
 
         if ($data) {
-            $data =~ s/^\s+|\s+$//g;
+            $data =~ s/^\s+|\s+$//gx;
 
             my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/x;
             my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/x;

@@ -23,9 +23,9 @@ package Spellbook::Recon::Host_Resolv {
 
             if ($search) {
                 return $target;
-            } 
+            }
         }
-        
+
         if ($help) {
             return "
                 \rRecon::Host_Resolv
