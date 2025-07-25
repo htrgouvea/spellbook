@@ -3,18 +3,20 @@
 use 5.030;
 use strict;
 use warnings;
-use Find::Lib "./lib";
+use Find::Lib './lib';
 use Spellbook::Core::Helper;
 use Spellbook::Core::Search;
 use Spellbook::Core::Module;
 use Getopt::Long qw(:config no_ignore_case pass_through);
 
+our $VERSION = '0.0.1';
+
 sub main {
     my ($search, $module, @result);
-    
+
     Getopt::Long::GetOptions (
-        "s|search=s" => \$search,
-        "m|module=s" => \$module
+        's|search=s' => \$search,
+        'm|module=s' => \$module
     );
 
     @result = Spellbook::Core::Search -> new($search) if $search;
