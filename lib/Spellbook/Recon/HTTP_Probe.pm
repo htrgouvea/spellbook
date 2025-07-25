@@ -3,25 +3,27 @@ package Spellbook::Recon::HTTP_Probe {
     use warnings;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
-            if ($target !~ m{^https?://}i) {
+            if ($target !~ m{^https?://}ixsm) {
                 $target = "https://$target";
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
 
-            if ($response -> code()) { 
+            if ($response -> code()) {
                 push @result, $target;
             }
 
