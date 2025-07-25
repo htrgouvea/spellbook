@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/license-MIT-blue.svg">
     </a>
     <a href="https://github.com/htrgouvea/spellbook/releases">
-      <img src="https://img.shields.io/badge/version-0.3.6-blue.svg">
+      <img src="https://img.shields.io/badge/version-0.3.7-blue.svg">
     </a>
       <br/>
     <img src="https://github.com/htrgouvea/spellbook/actions/workflows/linter.yml/badge.svg">

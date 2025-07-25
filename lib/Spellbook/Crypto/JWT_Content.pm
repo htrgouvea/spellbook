@@ -28,11 +28,11 @@ package Spellbook::Crypto::JWT_Content {
         }
 
         if ($help) {
-            return "
-                \rHelper::JWT_Content
-                \r=====================
-                \r\t-h, --help     See this menu
-                \r\t-d, --data     Define the payload data to visualize the content\n\n";
+            return
+                "\rHelper::JWT_Content\n"
+              . "\r=====================\n"
+              . "\r\t-h, --help     See this menu\n"
+              . "\r\t-d, --data     Define the payload data to visualize the content\n\n";
         }
 
         return 0;
