@@ -21,7 +21,7 @@ package Spellbook::Recon::WayBackUrls {
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
 
-            if (($request -> code() == 200) && ($request -> content ne "[]")) {
+            if (($request -> code() == 200) && ($request -> content ne '[]')) {
                 my $content = decode_json($request -> content);
 
                 foreach my $fullurl (@{$content}) {

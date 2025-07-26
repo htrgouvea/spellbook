@@ -19,9 +19,9 @@ package Spellbook::Recon::HaveBeenPwned {
         );
 
         if ($target) {
-            my $api_key   = Spellbook::Core::Credentials -> new(["--platform" => "hibp"]);
+            my $api_key   = Spellbook::Core::Credentials -> new(['--platform' => 'hibp']);
             my $useragent = LWP::UserAgent -> new();
-            $useragent    -> default_header("hibp-api-key" => $api_key);
+            $useragent    -> default_header('hibp-api-key' => $api_key);
             my $request   = $useragent -> get("https://haveibeenpwned.com/api/v3/breachedaccount/$target");
 
             if ($request -> code() == 200) {

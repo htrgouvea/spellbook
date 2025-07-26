@@ -27,7 +27,7 @@ package Spellbook::Recon::Nmap_Scanner {
         my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
 
         print "On host $name ($addresses), found ",
-            $port->state()," port ",
+            $port->state(), 'port',
             join('/', $port -> protocol(), $port -> portid()), "\n";
 
         return 0;
@@ -39,9 +39,9 @@ package Spellbook::Recon::Nmap_Scanner {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "t|target=s" => \$target,
-            "c|command=s" => \$command
+            'h|help' => \$help,
+            't|target=s' => \$target,
+            'c|command=s' => \$command
         );
 
         if ($target) {
@@ -52,8 +52,6 @@ package Spellbook::Recon::Nmap_Scanner {
             $scanner -> scan("-sS -p 1-1024 -O $target");
 
             my $results = $scanner -> scan();
-
-            # print Dumper($results);
 
             return @result;
         }

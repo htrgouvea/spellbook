@@ -27,9 +27,9 @@ package Spellbook::Recon::Shodan_Enumeration {
             my $validate = is_domain($target);
 
             if ($validate) {
-                my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
+                my $ip = Spellbook::Recon::Get_IP -> new (['--target' => $target]);
 
-                my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
+                my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
                 my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
                 my $userAgent = Spellbook::Core::UserAgent -> new();
                 my $request   = $userAgent -> get($endpoint);
@@ -38,8 +38,8 @@ package Spellbook::Recon::Shodan_Enumeration {
                 if ($httpCode == 200) {
                     my $content = decode_json($request -> content);
 
-                    foreach my $data (@{$content -> {"data"}}) {
-                        my $port      = $data -> {"port"};
+                    foreach my $data (@{$content -> {'data'}}) {
+                        my $port      = $data -> {'port'};
 
                         # my $product   = $data -> {"product"} || "unknow";
                         # my $transport = $data -> {"transport"};

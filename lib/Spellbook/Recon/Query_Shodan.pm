@@ -18,7 +18,7 @@ package Spellbook::Recon::Query_Shodan {
         );
 
         if ($query) {
-            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
+            my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
             my $endpoint  = "https://api.shodan.io/shodan/host/search?key=$apiKey&query=$query&limit=300";
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);
@@ -27,9 +27,9 @@ package Spellbook::Recon::Query_Shodan {
             if ($httpCode == 200) {
                 my $content = decode_json($request -> content());
 
-                foreach my $data (@{$content -> {"matches"}}) {
-                    my $hostname = $data -> {"ip_str"};
-                    my $port = $data -> {"port"};
+                foreach my $data (@{$content -> {'matches'}}) {
+                    my $hostname = $data -> {'ip_str'};
+                    my $port = $data -> {'port'};
 
                     push @result, "$hostname:$port";
                 }

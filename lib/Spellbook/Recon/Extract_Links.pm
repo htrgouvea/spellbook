@@ -38,7 +38,7 @@ package Spellbook::Recon::Extract_Links {
 
                 if (($url) && ($url !~ m/#/x) && ($url !~ /^http(s)?:\/\//x)) {
                     if ($url !~ /^\//x) {
-                        $url = "/" . $url;
+                        $url = '/' . $url;
                     }
 
                     push @result, $url;
