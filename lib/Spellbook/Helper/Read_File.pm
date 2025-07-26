@@ -3,6 +3,8 @@ package Spellbook::Helper::Read_File {
     use warnings;
     use Spellbook::Core::Module;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters)= @_;
         my ($help, $file, $entrypoint, @result);
@@ -38,7 +40,7 @@ package Spellbook::Helper::Read_File {
             return @result;
         }
 
-        
+
         return "
             \rHelper::Read_File
             \r=====================

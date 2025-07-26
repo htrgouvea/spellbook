@@ -3,7 +3,9 @@ package Spellbook::Advisory::CVE_2020_9376 {
     use warnings;
     use Mojo::DOM;
     use Spellbook::Core::UserAgent;
-    
+
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);

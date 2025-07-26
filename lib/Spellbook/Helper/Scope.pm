@@ -5,6 +5,8 @@ package Spellbook::Helper::Scope {
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $scope, $information, $entrypoint, $save, $keep, @results);

@@ -3,6 +3,8 @@ package Spellbook::Android::Strings {
     use warnings;
     use XML::Simple;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $file) = @_;
 

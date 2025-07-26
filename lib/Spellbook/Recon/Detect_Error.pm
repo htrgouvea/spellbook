@@ -4,6 +4,8 @@ package Spellbook::Recon::Detect_Error {
     use Net::DNS;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);

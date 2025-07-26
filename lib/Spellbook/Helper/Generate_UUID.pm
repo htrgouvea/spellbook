@@ -3,6 +3,8 @@ package Spellbook::Helper::Generate_UUID {
     use warnings;
     use UUID::Tiny ':std';
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters)= @_;
         my ($help, $version, @result);
@@ -19,10 +21,10 @@ package Spellbook::Helper::Generate_UUID {
         if ($version) {
             for (my $i = 1; $i <= $repeat; $i++) {
                 my $generate = create_uuid_as_string($version);
-                
+
                 push @result, $generate;
             }
-            
+
             return @result;
         }
 

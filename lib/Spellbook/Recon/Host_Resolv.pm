@@ -3,6 +3,8 @@ package Spellbook::Recon::Host_Resolv {
     use warnings;
     use Net::DNS;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);

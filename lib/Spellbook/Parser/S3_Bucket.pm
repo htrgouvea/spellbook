@@ -5,6 +5,8 @@ package Spellbook::Parser::S3_Bucket {
     use Spellbook::Core::UserAgent;
     use Try::Tiny;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);

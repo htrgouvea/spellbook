@@ -5,6 +5,8 @@ package Spellbook::Recon::Find_Emails {
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -30,7 +32,7 @@ package Spellbook::Recon::Find_Emails {
                 }
 
                 return @result;
-            } 
+            }
         }
 
         if ($help) {

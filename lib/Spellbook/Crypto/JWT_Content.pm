@@ -4,6 +4,8 @@ package Spellbook::Crypto::JWT_Content {
     use MIME::Base64;
     use Getopt::Long;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $data);

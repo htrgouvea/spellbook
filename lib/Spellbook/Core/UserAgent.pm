@@ -3,6 +3,8 @@ package Spellbook::Core::UserAgent {
     use warnings;
     use LWP::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my $userAgent = LWP::UserAgent -> new (
             timeout  => 5,

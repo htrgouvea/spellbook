@@ -5,6 +5,7 @@ package Spellbook::Recon::HaveBeenPwned {
     use LWP::UserAgent;
     use Spellbook::Core::Credentials;
 
+    our $VERSION = '0.0.1';
     # THIS IS A DRAFT MODULE
 
     sub new {

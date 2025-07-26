@@ -3,6 +3,8 @@ package Spellbook::Core::Module {
     use warnings;
     use Spellbook::Core::Resources;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $module, @parameters) = @_;
 

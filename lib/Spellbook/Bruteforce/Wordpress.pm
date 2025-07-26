@@ -5,6 +5,7 @@ package Spellbook::Bruteforce::Wordpress {
     use HTTP::Request::Common;
 
     # THIS IS A DRAFT MODULE
+    our $VERSION = '0.0.1';
 
     sub new {
         my ($self, $parameters) = @_;

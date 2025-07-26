@@ -5,6 +5,8 @@ package Spellbook::Recon::Query_Shodan {
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $query, @result);

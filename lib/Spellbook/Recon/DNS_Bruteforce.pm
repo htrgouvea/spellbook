@@ -4,6 +4,8 @@ package Spellbook::Recon::DNS_Bruteforce {
     use Spellbook::Helper::Read_File;
     use Spellbook::Recon::Host_Resolv;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);

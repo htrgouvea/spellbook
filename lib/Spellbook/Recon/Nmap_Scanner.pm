@@ -3,6 +3,8 @@ package Spellbook::Recon::Nmap_Scanner {
     use warnings;
     use Nmap::Scanner; # https://metacpan.org/pod/Nmap::Scanner
 
+    our $VERSION = '0.0.1';
+
     sub scan_started {
         my $self     = shift;
         my $host     = shift;

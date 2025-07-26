@@ -5,6 +5,8 @@ package Spellbook::Recon::Technologies {
     use Spellbook::Core::UserAgent;
     use List::Util 'pairmap';
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);

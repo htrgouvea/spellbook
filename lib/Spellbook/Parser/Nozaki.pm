@@ -4,6 +4,8 @@ package Spellbook::Parser::Nozaki {
     use JSON;
     use Mojo::File;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $file, @result);

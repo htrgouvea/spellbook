@@ -2,7 +2,8 @@ package Spellbook::Parser::Nmap {
     use strict;
     use warnings;
     use XML::Simple;
-    
+
+    our $VERSION = '0.0.1';
     # https://metacpan.org/pod/Nmap::Parser
 
     sub new {

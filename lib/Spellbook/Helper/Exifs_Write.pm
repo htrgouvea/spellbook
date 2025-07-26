@@ -3,6 +3,8 @@ package Spellbook::Helper::Exifs_Write {
     use warnings;
     use Image::ExifTool;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters)= @_;
         my ($help, $file, $payload);

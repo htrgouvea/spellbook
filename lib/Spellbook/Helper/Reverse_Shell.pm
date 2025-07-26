@@ -3,10 +3,12 @@ package Spellbook::Helper::Reverse_Shell {
     use warnings;
     use MIME::Base64;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
-        
+
         my $port = 1337;
         my $lang = "perl";
 
@@ -36,7 +38,7 @@ package Spellbook::Helper::Reverse_Shell {
                 \r-p, --port        Define a port to connect
                 \r-l, --lang        Default is perl, types avaible: perl, bash\n\n";
         }
-        
+
         return 0;
     }
 }

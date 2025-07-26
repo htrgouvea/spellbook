@@ -5,6 +5,8 @@ package Spellbook::Core::Credentials {
     use Mojo::JSON qw(decode_json encode_json);
     use Getopt::Long;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $platform, $value);

@@ -4,6 +4,8 @@ package Spellbook::Advisory::CVE_2016_10045 {
     use Try::Tiny;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
