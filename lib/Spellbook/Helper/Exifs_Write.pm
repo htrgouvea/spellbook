@@ -21,19 +21,19 @@ package Spellbook::Helper::Exifs_Write {
             my $source   = $exifTool -> ImageInfo($file);
 
             my @tags = (
-                "ImageDescription",
-                "Make",
-                "Model",
-                "Software",
-                "Artist",
-                "Copyright",
-                "XPTitle",
-                "XPComment",
-                "XPAuthor",
-                "XPSubject",
-                "Location",
-                "Description",
-                "Author"
+                'ImageDescription',
+                'Make',
+                'Model',
+                'Software',
+                'Artist',
+                'Copyright',
+                'XPTitle',
+                'XPComment',
+                'XPAuthor',
+                'XPSubject',
+                'Location',
+                'Description',
+                'Author'
             );
 
             foreach my $tag (@tags) {

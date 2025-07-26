@@ -68,7 +68,7 @@ package Spellbook::Crypto::Algorithm_Identifier {
                 }
             }
 
-            return "Desconhecido";
+            return 'Desconhecido';
         }
 
         if ($help) {

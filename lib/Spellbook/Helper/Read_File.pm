@@ -17,13 +17,13 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            open (my $filename, "<", $file);
+            open (my $filename, '<', $file);
 
             while (<$filename>) {
                 chomp ($_);
 
                 if ($entrypoint) {
-                    my $return = Spellbook::Core::Module -> new ($entrypoint, ["--target" => $_]);
+                    my $return = Spellbook::Core::Module -> new($entrypoint, ['--target' => $_]);
 
                     if ($return) {
                         push @result, $_;

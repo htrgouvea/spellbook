@@ -28,11 +28,11 @@ package Spellbook::Helper::Scope {
             my $yamlfile = YAML::Tiny -> read($scope);
 
             if ($entrypoint) {
-                my @response = Spellbook::Core::Orchestrator -> new (
+                my @response = Spellbook::Core::Orchestrator -> new(
                     [
-                        "--entrypoint" => $entrypoint,
-                        "--list"        => $yamlfile -> [0] -> {$information},
-                        "--threads"     => $threads
+                        '--entrypoint'  => $entrypoint,
+                        '--list'        => $yamlfile -> [0] -> {$information},
+                        '--threads'     => $threads
                     ]
                 );
 

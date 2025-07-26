@@ -28,7 +28,7 @@ package Spellbook::Helper::Permutations {
                     $chars[$random] = $temp;
                 }
 
-                push @result, join("", @chars);
+                push @result, join('', @chars);
             }
 
             return @result;
