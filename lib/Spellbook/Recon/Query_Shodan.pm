@@ -13,8 +13,8 @@ package Spellbook::Recon::Query_Shodan {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"    => \$help,
-            "q|query=s" => \$query
+            'h|help'    => \$help,
+            'q|query=s' => \$query
         );
 
         if ($query) {

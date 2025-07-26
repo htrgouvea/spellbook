@@ -11,9 +11,9 @@ package Spellbook::Advisory::CVE_2006_3392 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "f|file=s"   => \$file
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'f|file=s'   => \$file
         );
 
         if ($target) {

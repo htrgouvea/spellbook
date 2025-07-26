@@ -12,8 +12,8 @@ package Spellbook::Advisory::CVE_2020_9376 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {

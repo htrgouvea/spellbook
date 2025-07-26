@@ -5,6 +5,11 @@ package Spellbook::Android::Schemes {
     our $VERSION = '0.0.1';
 
     sub new {
+        my () = $self;
+
+        if () {
+        }
+        
         return 1;
     }
 }

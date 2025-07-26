@@ -11,8 +11,8 @@ package Spellbook::Recon::Get_IP {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {

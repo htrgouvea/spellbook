@@ -18,11 +18,11 @@ package Spellbook::Core::Orchestrator {
         
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"         => \$help,
-            "t|threads=i"    => \$threads,
-            "w|wordlist=s"   => \$wordlist,
-            "e|entrypoint=s" => \$module,
-            "l|list=s"       => \$list
+            'h|help'         => \$help,
+            't|threads=i'    => \$threads,
+            'w|wordlist=s'   => \$wordlist,
+            'e|entrypoint=s' => \$module,
+            'l|list=s'       => \$list
         );
 
         if ($module) {

@@ -11,8 +11,8 @@ package Spellbook::Helper::Host_Normalization {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {

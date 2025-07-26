@@ -11,8 +11,8 @@ package Spellbook::Android::Manifest {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"    => \$help,
-            "f|file=s"  => \$apkfile
+            'h|help'    => \$help,
+            'f|file=s'  => \$apkfile
         );
 
         if ($file) {

@@ -18,10 +18,10 @@ package Spellbook::Advisory::CVE_2023_38646 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "r|remote=s" => \$remote,
-            "p|port=i"   => \$port
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'r|remote=s' => \$remote,
+            'p|port=i'   => \$port
         );
 
         if ($target) {

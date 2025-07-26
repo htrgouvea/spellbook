@@ -10,8 +10,8 @@ package Spellbook::Crypto::Algorithm_Identifier {
 
         Getopt::Long::GetOptionsFromArray(
             $parameters,
-            "h|help"   => \$help,
-            "d|data=s" => \$data
+            'h|help'   => \$help,
+            'd|data=s' => \$data
         );
 
         if ($data) {

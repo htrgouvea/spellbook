@@ -15,13 +15,13 @@ package Spellbook::Helper::Scope {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"          => \$help,
-            "S|scope=s"       => \$scope,
-            "i|information=s" => \$information,
-            "e|entrypoint=s"  => \$entrypoint,
-            "t|threads=i"     => \$threads,
-            "K|keep"          => \$keep,
-            "save:s"          => \$save
+            'h|help'          => \$help,
+            'S|scope=s'       => \$scope,
+            'i|information=s' => \$information,
+            'e|entrypoint=s'  => \$entrypoint,
+            't|threads=i'     => \$threads,
+            'K|keep'          => \$keep,
+            'save:s'          => \$save
         );
 
         if ($scope && $information) {

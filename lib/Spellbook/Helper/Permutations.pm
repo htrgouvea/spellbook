@@ -11,9 +11,9 @@ package Spellbook::Helper::Permutations {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "v|value=s"  => \$value,
-            "r|repeat=i" => \$repeat
+            'h|help'     => \$help,
+            'v|value=s'  => \$value,
+            'r|repeat=i' => \$repeat
         );
 
         if ($value) {

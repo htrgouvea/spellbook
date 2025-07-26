@@ -12,9 +12,9 @@ package Spellbook::Bruteforce::Instagram {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "u|username=s" => \$username,
-            "f|file=s"     => \$file,
+            'h|help'       => \$help,
+            'u|username=s' => \$username,
+            'f|file=s'     => \$file,
         );
 
         if ($username) {

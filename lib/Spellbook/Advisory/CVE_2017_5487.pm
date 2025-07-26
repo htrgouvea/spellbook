@@ -13,8 +13,8 @@ package Spellbook::Advisory::CVE_2017_5487 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {    

@@ -13,9 +13,9 @@ package Spellbook::Bruteforce::Wordpress {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "t|target=s"   => \$target,
-            "u|usarname=s" => \$username,
+            'h|help'       => \$help,
+            't|target=s'   => \$target,
+            'u|usarname=s' => \$username,
         );
 
         if ($target) {

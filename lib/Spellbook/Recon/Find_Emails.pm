@@ -13,12 +13,12 @@ package Spellbook::Recon::Find_Emails {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
-            my $apiKey    = Spellbook::Core::Credentials -> new (["--platform" => "hunter"]);
+            my $apiKey    = Spellbook::Core::Credentials -> new (['--platform' => 'hunter']);
             my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$apiKey";
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($endpoint);

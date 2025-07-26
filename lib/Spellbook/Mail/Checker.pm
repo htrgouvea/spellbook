@@ -7,6 +7,9 @@ package Spellbook::Mail::Checker {
     sub new {
         my ($self) = @_;
         
+        if () {
+            
+        }
         # SPF
         # DMARC
         # DKIM

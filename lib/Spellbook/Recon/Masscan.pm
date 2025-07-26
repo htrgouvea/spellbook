@@ -16,11 +16,11 @@ package Spellbook::Recon::Masscan {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"      => \$help,
-            "t|target=s"  => \@target,
-            "p|port=s"    => \@ports,
-            "a|arguments" => \@arguments,
-            "skip-cdn"    => \$skip_cdn
+            'h|help'      => \$help,
+            't|target=s'  => \@target,
+            'p|port=s'    => \@ports,
+            'a|arguments' => \@arguments,
+            'skip-cdn'    => \$skip_cdn
         );
 
         if (@target) {

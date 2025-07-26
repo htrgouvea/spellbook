@@ -10,10 +10,10 @@ package Spellbook::Android::APKSign {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "a|apk=s"      => \$apkfile,
-            "n|name=s"     => \$name,
-            "p|password=s" => \$password,
+            'h|help'       => \$help,
+            'a|apk=s'      => \$apkfile,
+            'n|name=s'     => \$name,
+            'p|password=s' => \$password,
         );
 
         if ($apkfile && $name && $password) {

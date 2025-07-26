@@ -13,8 +13,8 @@ package Spellbook::Parser::S3_Bucket {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
+            'h|help'     => \$help,
+            't|target=s' => \$target,
         );
 
         if ($target) {

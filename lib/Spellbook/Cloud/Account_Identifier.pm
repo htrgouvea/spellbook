@@ -12,8 +12,8 @@ package Spellbook::Cloud::Account_Identifier {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"  => \$help,
-            "k|key=s" => \$key
+            'h|help'  => \$help,
+            'k|key=s' => \$key
         );
             
         if ($key) {

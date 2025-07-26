@@ -11,9 +11,9 @@ package Spellbook::Helper::Exifs_Write {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"      => \$help,
-            "f|file=s"    => \$file,
-            "p|payload=s" => \$payload
+            'h|help'      => \$help,
+            'f|file=s'    => \$file,
+            'p|payload=s' => \$payload
         );
 
         if ($file && $payload) {

@@ -11,10 +11,10 @@ package Spellbook::Advisory::CVE_2020_9377 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "c|cookie=s" => \$cookie,
-            "p|payload=s" => \$command
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'c|cookie=s' => \$cookie,
+            'p|payload=s' => \$command
         );
 
         if ($target) {

@@ -10,8 +10,8 @@ package Spellbook::Bruteforce::SMTP {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
+            'h|help'     => \$help,
+            't|target=s' => \$target,
         );
 
         if ($target) {

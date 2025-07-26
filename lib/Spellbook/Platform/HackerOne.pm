@@ -15,19 +15,19 @@ package Spellbook::Platform::HackerOne {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
-        my $token = Spellbook::Core::Credentials -> new(["--platform" => "hackerone"]);
+        my $token = Spellbook::Core::Credentials -> new(['--platform' => 'hackerone']);
         
         if ($token && $target) {
             my $useragent = Spellbook::Core::UserAgent -> new();
             my $api_url   = "https://api.hackerone.com/v1/hackers/programs/$target";
 
             my $response = $useragent -> get ($api_url,
-                "Content-Type"  => "application/json",
-                "Authorization" => "Basic " . encode_base64($token)
+                'Content-Type'  => 'application/json',
+                'Authorization' => "Basic " . encode_base64($token)
             );
 
             if ($response -> is_success()) {

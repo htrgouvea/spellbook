@@ -12,8 +12,8 @@ package Spellbook::Parser::Nozaki {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"   => \$help,
-            "f|file=s" => \$file,
+            'h|help'   => \$help,
+            'f|file=s' => \$file,
         );
 
         if ($file) {

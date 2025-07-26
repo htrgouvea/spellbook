@@ -10,14 +10,14 @@ package Spellbook::Helper::Reverse_Shell {
         my ($help, $target);
 
         my $port = 1337;
-        my $lang = "perl";
+        my $lang = 'perl';
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "p|port=i"   => \$port,
-            "l|lang=s"   => \$lang
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'p|port=i'   => \$port,
+            'l|lang=s'   => \$lang
         );
 
         if ($target) {

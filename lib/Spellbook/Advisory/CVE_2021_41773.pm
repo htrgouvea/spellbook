@@ -11,10 +11,10 @@ package Spellbook::Advisory::CVE_2021_41773 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"      => \$help,
-            "t|target=s"  => \$target,
-            "f|file=s"    => \$file,
-            "c|command=s" => \$command
+            'h|help'      => \$help,
+            't|target=s'  => \$target,
+            'f|file=s'    => \$file,
+            'c|command=s' => \$command
         );
 
         if ($target) {

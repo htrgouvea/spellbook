@@ -13,9 +13,9 @@ package Spellbook::Core::Credentials {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "p|platform=s" => \$platform,
-            "v|value=s"    => \$value,
+            'h|help'       => \$help,
+            'p|platform=s' => \$platform,
+            'v|value=s'    => \$value,
         );
             
         if ($platform) {
