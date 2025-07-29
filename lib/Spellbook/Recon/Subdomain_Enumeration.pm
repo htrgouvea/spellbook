@@ -44,7 +44,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
                     }
 
                     if ($content -> {'passive_dns'}) {
-                        foreach my $value (@{$content -> {'passive_dns'}) {
+                        foreach my $value (@{$content -> {'passive_dns'}}) {
                             push @result, $value -> {'hostname'};
                         }
                     }
