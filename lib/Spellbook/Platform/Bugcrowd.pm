@@ -5,6 +5,8 @@ package Spellbook::Platform::Bugcrowd {
     use LWP::UserAgent;
     use Spellbook::Core::Credentials;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
@@ -12,11 +14,11 @@ package Spellbook::Platform::Bugcrowd {
         if ($target) {
 
             my $api_key   = Spellbook::Core::Credentials -> new(["--platform" => "bugcrowd"]);
-            my $endpoint  = "https://api.bugcrowd.com/v1/programs";
+            my $endpoint  = 'https://api.bugcrowd.com/v1/programs';
             my $useragent = LWP::UserAgent -> new();
             my $request   = HTTP::Request -> new(GET => $url);
 
-            $request -> header("Authorization" => "Bearer $api_key");
+            $request -> header('Authorization' => "Bearer $api_key");
 
             my $response = $useragent -> request($request);
             my $data     = decode_json($response -> content());

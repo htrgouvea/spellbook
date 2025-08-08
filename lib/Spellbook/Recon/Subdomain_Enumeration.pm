@@ -5,15 +5,17 @@ package Spellbook::Recon::Subdomain_Enumeration {
     use List::MoreUtils qw(uniq);
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
-    
+
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
@@ -22,7 +24,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "security-trails"]);
+            my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'security-trails']);
 
             my @endpoints = (
                 "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true",
@@ -30,27 +32,27 @@ package Spellbook::Recon::Subdomain_Enumeration {
             );
 
             foreach my $endpoint (@endpoints) {
-                my $request = $userAgent -> get($endpoint, "apikey" => $apiKey);
+                my $request = $userAgent -> get($endpoint, 'apikey' => $apiKey);
 
                 if ($request -> code() == 200) {
                     my $content = decode_json($request -> content);
 
-                    if ($content -> {"subdomains"}) {
-                        foreach my $subdomain (@{$content -> {"subdomains"}}) {
+                    if ($content -> {'subdomains'}) {
+                        foreach my $subdomain (@{$content -> {'subdomains'}}) {
                             push @result, "$subdomain.$target";
                         }
                     }
 
-                    if ($content -> {"passive_dns"}) {
-                        foreach my $value (@{$content -> {"passive_dns"}}) {
-                            push @result, $value -> {"hostname"};
+                    if ($content -> {'passive_dns'}) {
+                        foreach my $value (@{$content -> {'passive_dns'}}) {
+                            push @result, $value -> {'hostname'};
                         }
                     }
                 }
             }
 
             return uniq @result;
-        } 
+        }
 
         if ($help) {
             return "

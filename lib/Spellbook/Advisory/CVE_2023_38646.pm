@@ -7,6 +7,8 @@ package Spellbook::Advisory::CVE_2023_38646 {
     use HTTP::Request;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -16,10 +18,10 @@ package Spellbook::Advisory::CVE_2023_38646 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "r|remote=s" => \$remote,
-            "p|port=i"   => \$port
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'r|remote=s' => \$remote,
+            'p|port=i'   => \$port
         );
 
         if ($target) {

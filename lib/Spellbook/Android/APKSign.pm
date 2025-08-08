@@ -2,16 +2,18 @@ package Spellbook::Android::APKSign {
     use strict;
     use warnings;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $apkfile, $name, $password);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "a|apk=s"      => \$apkfile,
-            "n|name=s"     => \$name,
-            "p|password=s" => \$password,
+            'h|help'       => \$help,
+            'a|apk=s'      => \$apkfile,
+            'n|name=s'     => \$name,
+            'p|password=s' => \$password,
         );
 
         if ($apkfile && $name && $password) {

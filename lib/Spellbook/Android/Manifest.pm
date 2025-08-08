@@ -3,14 +3,16 @@ package Spellbook::Android::Manifest {
     use warnings;
     use XML::Simple;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $file);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"    => \$help,
-            "f|file=s"  => \$apkfile
+            'h|help'    => \$help,
+            'f|file=s'  => \$apkfile
         );
 
         if ($file) {

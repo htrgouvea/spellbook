@@ -7,7 +7,9 @@ package Spellbook::Core::Orchestrator {
     use threads::shared;
     use Spellbook::Helper::Read_File;
     use List::MoreUtils qw(uniq);
-    
+
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $wordlist, $module, $list, $queue);
@@ -16,11 +18,11 @@ package Spellbook::Core::Orchestrator {
         
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"         => \$help,
-            "t|threads=i"    => \$threads,
-            "w|wordlist=s"   => \$wordlist,
-            "e|entrypoint=s" => \$module,
-            "l|list=s"       => \$list
+            'h|help'         => \$help,
+            't|threads=i'    => \$threads,
+            'w|wordlist=s'   => \$wordlist,
+            'e|entrypoint=s' => \$module,
+            'l|list=s'       => \$list
         );
 
         if ($module) {

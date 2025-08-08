@@ -5,6 +5,8 @@ package Spellbook::Advisory::CVE_2024_4040 {
     use Spellbook::Core::UserAgent;
     use HTTP::Cookies;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);
@@ -13,9 +15,9 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "target=s"  => \$target,
-            "payload=s" => \$payload,
-            "help"      => \$help
+            'target=s'  => \$target,
+            'payload=s' => \$payload,
+            'help'      => \$help
         );
     
         if ($target) {

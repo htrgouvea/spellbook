@@ -5,6 +5,8 @@ package Spellbook::Helper::Scope {
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $scope, $information, $entrypoint, $save, $keep, @results);
@@ -13,24 +15,24 @@ package Spellbook::Helper::Scope {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"          => \$help,
-            "S|scope=s"       => \$scope,
-            "i|information=s" => \$information,
-            "e|entrypoint=s"  => \$entrypoint,
-            "t|threads=i"     => \$threads,
-            "K|keep"          => \$keep,
-            "save:s"          => \$save
+            'h|help'          => \$help,
+            'S|scope=s'       => \$scope,
+            'i|information=s' => \$information,
+            'e|entrypoint=s'  => \$entrypoint,
+            't|threads=i'     => \$threads,
+            'K|keep'          => \$keep,
+            'save:s'          => \$save
         );
 
         if ($scope && $information) {
             my $yamlfile = YAML::Tiny -> read($scope);
 
             if ($entrypoint) {
-                my @response = Spellbook::Core::Orchestrator -> new (
+                my @response = Spellbook::Core::Orchestrator -> new(
                     [
-                        "--entrypoint" => $entrypoint,
-                        "--list"        => $yamlfile -> [0] -> {$information},
-                        "--threads"     => $threads
+                        '--entrypoint'  => $entrypoint,
+                        '--list'        => $yamlfile -> [0] -> {$information},
+                        '--threads'     => $threads
                     ]
                 );
 
@@ -42,16 +44,16 @@ package Spellbook::Helper::Scope {
                     push @results, $info;
                 }
             }
-    
+
             if ($save) {
                 if ($keep && exists $yamlfile->[0]->{$save}) {
                     push @{$yamlfile->[0]->{$save}}, @results;
                 }
-                
+
                 else {
                     $yamlfile->[0]->{$save} = [@results];
                 }
-                
+
                 $yamlfile->write($scope);
             }
 
@@ -69,7 +71,7 @@ package Spellbook::Helper::Scope {
                 \r-K, --keep         Keep the current values in the file and add news values
                 \r--save             Save the output on some attribute\n\n";
         }
-        
+
         return 0;
     }
 }

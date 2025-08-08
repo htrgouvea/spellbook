@@ -3,14 +3,16 @@ package Spellbook::Recon::Host_Resolv {
     use warnings;
     use Net::DNS;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
@@ -23,9 +25,9 @@ package Spellbook::Recon::Host_Resolv {
 
             if ($search) {
                 return $target;
-            } 
+            }
         }
-        
+
         if ($help) {
             return "
                 \rRecon::Host_Resolv

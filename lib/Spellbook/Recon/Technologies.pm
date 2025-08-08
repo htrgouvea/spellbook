@@ -5,18 +5,20 @@ package Spellbook::Recon::Technologies {
     use Spellbook::Core::UserAgent;
     use List::Util 'pairmap';
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target,
+            'h|help'     => \$help,
+            't|target=s' => \$target,
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(s)?:\/\//x) {
                 $target = "https://$target";
             }
 

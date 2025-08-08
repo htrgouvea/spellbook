@@ -5,6 +5,7 @@ package Spellbook::Bruteforce::Wordpress {
     use HTTP::Request::Common;
 
     # THIS IS A DRAFT MODULE
+    our $VERSION = '0.0.1';
 
     sub new {
         my ($self, $parameters) = @_;
@@ -12,9 +13,9 @@ package Spellbook::Bruteforce::Wordpress {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "t|target=s"   => \$target,
-            "u|usarname=s" => \$username,
+            'h|help'       => \$help,
+            't|target=s'   => \$target,
+            'u|usarname=s' => \$username,
         );
 
         if ($target) {

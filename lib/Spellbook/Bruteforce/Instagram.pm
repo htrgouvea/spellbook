@@ -4,15 +4,17 @@ package Spellbook::Bruteforce::Instagram {
     use Try::Tiny;
     use LWP::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters)= @_;
         my ($help, $username, $file);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "u|username=s" => \$username,
-            "f|file=s"     => \$file,
+            'h|help'       => \$help,
+            'u|username=s' => \$username,
+            'f|file=s'     => \$file,
         );
 
         if ($username) {

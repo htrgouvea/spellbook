@@ -5,15 +5,17 @@ package Spellbook::Core::Credentials {
     use Mojo::JSON qw(decode_json encode_json);
     use Getopt::Long;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $platform, $value);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "p|platform=s" => \$platform,
-            "v|value=s"    => \$value,
+            'h|help'       => \$help,
+            'p|platform=s' => \$platform,
+            'v|value=s'    => \$value,
         );
             
         if ($platform) {

@@ -2,6 +2,8 @@ package Spellbook::Core::Helper {
 	use strict;
 	use warnings;
 
+    our $VERSION = '0.0.1';
+
 	sub new {
 		print "
             \rSpellbook v0.3.7
