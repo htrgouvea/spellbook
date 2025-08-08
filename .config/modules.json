@@ -419,6 +419,12 @@
             "category": "recon",
             "module": "Dorking",
             "description": "Perform dorking using bing to find links about a target"
+        },
+        {
+            "id": "0070",
+            "category": "",
+            "module": "Detect_PII",
+            "description": "Check if a text data contains PII (CPFs, CNPJs, Emails, Phone Numbers, etc.)"
         }
     ]
 }
