@@ -3,7 +3,7 @@ package Spellbook::Recon::HTTP_Probe {
     use warnings;
     use Spellbook::Core::UserAgent;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters) = @_;
