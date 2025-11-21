@@ -1,9 +1,10 @@
 package Spellbook::Helper::Read_File {
     use strict;
     use warnings;
+    use Mojo::File;
     use Spellbook::Core::Module;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters)= @_;
@@ -17,26 +18,23 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            open (my $filename, '<', $file);
+            my $content = Mojo::File -> new($file) -> slurp();
+            my @content = split(/\n/, $content);
 
-            while (<$filename>) {
-                chomp ($_);
-
+            foreach my $line (@content) {
                 if ($entrypoint) {
-                    my $return = Spellbook::Core::Module -> new($entrypoint, ['--target' => $_]);
+                    my $return = Spellbook::Core::Module -> new($entrypoint, ['--target' => $line]);
 
                     if ($return) {
-                        push @result, $_;
+                        push @result, $line;
                     }
                 }
-
+                
                 else {
-                    push @result, $_;
+                    push @result, $line;
                 }
             }
-
-            close ($filename);
-
+            
             return @result;
         }
 
@@ -46,7 +44,7 @@ package Spellbook::Helper::Read_File {
             \r=====================
             \r-h, --help        See this menu
             \r-f, --file        Define a file to read
-            \r-e, --entrypoint  Set a other module to send the output\n\n";
+            \r-e, --entrypoint  Set a other module to send the output as a target\n\n";
     }
 }
 

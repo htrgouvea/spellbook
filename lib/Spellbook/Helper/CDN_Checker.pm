@@ -1,9 +1,8 @@
 package Spellbook::Helper::CDN_Checker {
     use strict;
     use warnings;
-    use JSON;
     use Net::IP;
-    use Spellbook::Core::UserAgent;
+    use Mojo::JSON;
     use Spellbook::Recon::Get_IP;
 
     our $VERSION = '0.0.1';
@@ -12,23 +11,25 @@ package Spellbook::Helper::CDN_Checker {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
+        my $type = 'cdn'; # waf, cloud, cdn, common
+
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             'h|help'     => \$help,
-            't|target=s' => \$target
+            't|target=s' => \$target,
+            'T|type=s'   => \$type
         );
 
         if ($target) {
             my $ip = Spellbook::Recon::Get_IP -> new(['--target' => $target]);
 
             if ($ip) {
-                my $cnd_list  = 'https://raw.githubusercontent.com/projectdiscovery/cdncheck/main/cmd/generate-index/sources_data.json';
-                my $useragent = Spellbook::Core::UserAgent -> new ();
-                my $request   = $useragent -> get($cnd_list);
+                my $cnd_list  = './files/cdn_list.json';
+                my $load_list = Mojo::File -> new($cnd_list) -> slurp;
 
-                if ($request -> code == 200) {
-                    my $data    = decode_json($request -> content);
-                    my $content = $data -> {'cdn'}; # we have others options
+                if ($load_list) {
+                    my $data = Mojo::JSON::decode_json($load_list);
+                    my $content = $data -> {$type};
 
                     for (keys %{$content}) {
                         for (@{$content -> {$_}}) {
@@ -52,7 +53,8 @@ package Spellbook::Helper::CDN_Checker {
                 \rHelper::CDN_Checker
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t --target    Define a target\n\n";
+                \r-t --target    Define a target
+                \r-T, --type     \n\n";
         }
 
         return 0;
