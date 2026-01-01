@@ -419,6 +419,24 @@
             "category": "recon",
             "module": "Dorking",
             "description": "Perform dorking using bing to find links about a target"
+        },
+        {
+            "id": "0070",
+            "category": "utils",
+            "module": "Detect_PII",
+            "description": "Check if a text data contains PII (CPFs, CNPJs, Emails, Phone Numbers, etc.)"
+        },
+        {
+            "id": "0071",
+            "category": "recon",
+            "module": "Subdomain_Scraper",
+            "description": "Recursively scrape web pages from a target to find subdomains"
+        },
+        {
+            "id": "0072",
+            "category": "utils",
+            "module": "ChatGPT",
+            "description": "Interact with OpenAI's ChatGPT API to get responses for your queries"
         }
     ]
 }
