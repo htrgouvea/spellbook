@@ -22,6 +22,7 @@ package Spellbook::Recon::HTTP_Probe {
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
+            my $code = $response -> code();
 
             if ($response -> code()) {
                 push @result, $target;
