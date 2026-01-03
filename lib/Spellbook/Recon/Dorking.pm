@@ -21,7 +21,7 @@ package Spellbook::Recon::Dorking {
             'd|dork=s' => \$dork,
             'p|page=i' => \$page
         );
-
+        
         if ($dork) {
             $dork = url_escape($dork);
 
