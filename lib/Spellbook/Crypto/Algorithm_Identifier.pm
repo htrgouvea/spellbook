@@ -2,18 +2,26 @@ package Spellbook::Crypto::Algorithm_Identifier {
     use strict;
     use warnings;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $data);
 
         Getopt::Long::GetOptionsFromArray(
             $parameters,
-            "h|help"   => \$help,
-            "d|data=s" => \$data
+            'h|help'   => \$help,
+            'd|data=s' => \$data
         );
 
         if ($data) {
-            $data =~ s/^\s+|\s+$//g;
+            $data =~ s/^\s+|\s+$//gx;
+
+            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/x;
+            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/x;
+            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/x;
+            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/x;
+            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/x;
 
             my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/x;
             my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/x;
@@ -66,7 +74,7 @@ package Spellbook::Crypto::Algorithm_Identifier {
                 }
             }
 
-            return "Desconhecido";
+            return 'Desconhecido';
         }
 
         if ($help) {

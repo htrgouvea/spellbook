@@ -2,30 +2,32 @@ package Spellbook::Recon::Nmap_Scanner {
     use strict;
     use warnings;
     use Nmap::Scanner; # https://metacpan.org/pod/Nmap::Scanner
-    
+
+    our $VERSION = '0.0.1';
+
     sub scan_started {
         my $self     = shift;
         my $host     = shift;
-    
+
         my $hostname = $host -> hostname();
         my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
         my $status = $host -> status();
-    
+
         print "$hostname ($addresses) is $status\n";
 
         return 0;
     }
-    
+
     sub port_found {
         my $self     = shift;
         my $host     = shift;
         my $port     = shift;
-    
+
         my $name = $host->hostname();
         my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
-    
+
         print "On host $name ($addresses), found ",
-            $port->state()," port ",
+            $port->state(), 'port',
             join('/', $port -> protocol(), $port -> portid()), "\n";
 
         return 0;
@@ -37,9 +39,9 @@ package Spellbook::Recon::Nmap_Scanner {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help" => \$help,
-            "t|target=s" => \$target,
-            "c|command=s" => \$command
+            'h|help' => \$help,
+            't|target=s' => \$target,
+            'c|command=s' => \$command
         );
 
         if ($target) {
@@ -48,13 +50,11 @@ package Spellbook::Recon::Nmap_Scanner {
             $scanner -> register_scan_started_event(\&scan_started);
             $scanner -> register_port_found_event(\&port_found);
             $scanner -> scan("-sS -p 1-1024 -O $target");
-            
+
             my $results = $scanner -> scan();
 
-            # print Dumper($results);
-
             return @result;
-        } 
+        }
 
         if ($help) {
             return "

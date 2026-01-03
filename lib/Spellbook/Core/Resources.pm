@@ -4,6 +4,8 @@ package Spellbook::Core::Resources {
     use Mojo::File;
     use Mojo::JSON qw(decode_json);
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my $resources = Mojo::File -> new(".config/modules.json");
         

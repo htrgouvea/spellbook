@@ -3,18 +3,20 @@ package Spellbook::Helper::Host_Normalization {
     use warnings;
     use URI::URL;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
-            if ($target !~ /^https?:\/\//x) { 
+            if ($target !~ /^https?:\/\//x) {
                 $target = "http://$target";
             }
 

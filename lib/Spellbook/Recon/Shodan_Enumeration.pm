@@ -7,27 +7,29 @@ package Spellbook::Recon::Shodan_Enumeration {
     use Spellbook::Core::Credentials;
     use Data::Validate::Domain qw(is_domain);
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
             if ($target =~ /^http(s)?:\/\//x) {
                 $target =~ s/^http(s)?:\/\///x;
             }
-            
+
             my $validate = is_domain($target);
 
             if ($validate) {
-                my $ip = Spellbook::Recon::Get_IP -> new (["--target" => $target]);
+                my $ip = Spellbook::Recon::Get_IP -> new (['--target' => $target]);
 
-                my $apiKey    = Spellbook::Core::Credentials -> new(["--platform" => "shodan"]);
+                my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
                 my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
                 my $userAgent = Spellbook::Core::UserAgent -> new();
                 my $request   = $userAgent -> get($endpoint);
@@ -36,8 +38,8 @@ package Spellbook::Recon::Shodan_Enumeration {
                 if ($httpCode == 200) {
                     my $content = decode_json($request -> content);
 
-                    foreach my $data (@{$content -> {"data"}}) {
-                        my $port      = $data -> {"port"};
+                    foreach my $data (@{$content -> {'data'}}) {
+                        my $port      = $data -> {'port'};
 
                         # my $product   = $data -> {"product"} || "unknow";
                         # my $transport = $data -> {"transport"};

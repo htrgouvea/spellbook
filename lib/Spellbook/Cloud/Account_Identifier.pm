@@ -4,14 +4,16 @@ package Spellbook::Cloud::Account_Identifier {
     use MIME::Base32 qw(decode_base32);
     use Math::BigInt;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $key);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"  => \$help,
-            "k|key=s" => \$key
+            'h|help'  => \$help,
+            'k|key=s' => \$key
         );
             
         if ($key) {

