@@ -39,22 +39,22 @@ package Spellbook::Helper::Scope {
                 push @results, @response;
             }
 
-            else {
+            if (!$entrypoint) {
                 foreach my $info (@{$yamlfile -> [0] -> {$information}}) {
                     push @results, $info;
                 }
             }
 
             if ($save) {
-                if ($keep && exists $yamlfile->[0]->{$save}) {
-                    push @{$yamlfile->[0]->{$save}}, @results;
+                if ($keep && exists $yamlfile -> [0] -> {$save}) {
+                    push @{$yamlfile -> [0] -> {$save}}, @results;
                 }
 
-                else {
-                    $yamlfile->[0]->{$save} = [@results];
+                if (!$keep || !exists $yamlfile -> [0] -> {$save}) {
+                    $yamlfile -> [0] -> {$save} = [@results];
                 }
 
-                $yamlfile->write($scope);
+                $yamlfile -> write($scope);
             }
 
             return @results;

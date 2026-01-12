@@ -35,9 +35,9 @@ package Spellbook::Advisory::CVE_2021_24891 {
 
             foreach my $key (keys %$fingerprints) {
                 my $inner_hash = $fingerprints -> {$key};
-                my $request = $useragent -> get($target . $inner_hash->{endpoint});
+                my $request = $useragent -> get($target . $inner_hash -> {endpoint});
 
-                if (($request -> code() == 200) && $request -> decoded_content() =~ m/$inner_hash->{regex}/x) {
+                if (($request -> code() == 200) && $request -> decoded_content() =~ m/$inner_hash -> {regex}/x) {
                     push @results, $target . $inner_hash -> {endpoint};
                 }
             }
