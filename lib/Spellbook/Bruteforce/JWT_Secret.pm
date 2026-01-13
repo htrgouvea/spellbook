@@ -43,7 +43,13 @@ package Spellbook::Bruteforce::JWT_Secret {
         );
 
         if ($token && $wordlist) {
-            my ($header_b64, $payload_b64, $signature_b64) = split(/\./x, $token);
+            my @segments = split(/\./x, $token, -1);
+
+            if (scalar(@segments) != 3) {
+                return "\n[!] Invalid JWT format.\n";
+            }
+
+            my ($header_b64, $payload_b64, $signature_b64) = @segments;
 
             if (!$header_b64 || !$payload_b64 || !$signature_b64) {
                 return "\n[!] Invalid JWT format.\n";
