@@ -1,7 +1,7 @@
 package Spellbook::Recon::Nmap_Scanner {
     use strict;
     use warnings;
-    use Nmap::Scanner; # https://metacpan.org/pod/Nmap::Scanner
+    use Nmap::Scanner;
 
     our $VERSION = '0.0.1';
 
@@ -23,11 +23,11 @@ package Spellbook::Recon::Nmap_Scanner {
         my $host     = shift;
         my $port     = shift;
 
-        my $name = $host->hostname();
+        my $name = $host -> hostname();
         my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
 
         print "On host $name ($addresses), found ",
-            $port->state(), 'port',
+            $port -> state(), 'port',
             join('/', $port -> protocol(), $port -> portid()), "\n";
 
         return 0;

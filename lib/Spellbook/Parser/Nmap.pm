@@ -4,7 +4,6 @@ package Spellbook::Parser::Nmap {
     use XML::Simple;
 
     our $VERSION = '0.0.1';
-    # https://metacpan.org/pod/Nmap::Parser
 
     sub new {
         my ($self, $parameters)= @_;
@@ -21,22 +20,6 @@ package Spellbook::Parser::Nmap {
             my $data = $xml -> XMLin($file);
             
             my $host = $data -> {host} -> {address} -> {addr};
-            
-            # foreach my $content (@{$data -> {host} -> {ports} -> {port}}) {
-            #         print Dumper($content);
-            #         push @result, $element -> {Key};
-            # }
-           
-            #     my $state = $content -> {state} -> {state};
-
-            #     if (($state eq "open") || ($state eq "filtered")) {
-            #         my $port     = $content -> {portid};
-            #         my $protocol = $content -> {protocol};
-            #         my $service  = $content -> {service} -> {name};
-
-            #         push @results, "$host -> [$protocol] | [$state]-> $port \t | $service\n";
-            #     }
-            # };
             
             return @results;
         }
