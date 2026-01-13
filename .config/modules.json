@@ -443,6 +443,12 @@
             "category": "utils",
             "module": "ChatGPT",
             "description": "Interact with OpenAI's ChatGPT API to get responses for your queries"
+        },
+        {
+            "id": "0073",
+            "category": "exploit",
+            "module": "Wordpress_XMLRPC",
+            "description": "Probe WordPress XML-RPC for multicall abuse capability"
         }
     ]
 }
