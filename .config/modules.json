@@ -205,6 +205,12 @@
             "description": "Perform brute-force attack into login page of wordpress"
         },
         {
+            "id": "0073",
+            "category": "bruteforce",
+            "module": "JWT_Secret",
+            "description": "Brute force a JWT secret with a wordlist"
+        },
+        {
             "id": "0035",
             "category": "parser",
             "module": "S3_Bucket",
