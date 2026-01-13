@@ -437,6 +437,12 @@
             "category": "utils",
             "module": "ChatGPT",
             "description": "Interact with OpenAI's ChatGPT API to get responses for your queries"
+        },
+        {
+            "id": "0073",
+            "category": "recon",
+            "module": "Passive_Links",
+            "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"
         }
     ]
 }
