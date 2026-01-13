@@ -49,7 +49,18 @@ package Spellbook::Recon::Broken_Links {
                     next;
                 }
 
-                my $absoluteUrl = URI -> new_abs($url, $base) -> as_string();
+                my $absoluteUri = URI -> new_abs($url, $base);
+                my $scheme = $absoluteUri -> scheme();
+
+                if (!$scheme) {
+                    next;
+                }
+
+                if ($scheme !~ m{^https?$}ixsm) {
+                    next;
+                }
+
+                my $absoluteUrl = $absoluteUri -> as_string();
 
                 if ($seen{$absoluteUrl}) {
                     next;
