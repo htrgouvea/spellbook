@@ -19,41 +19,81 @@ package Spellbook::Recon::Extract_Links {
         );
 
         if ($target) {
+            my $normalized_target = $target;
             my $mech = WWW::Mechanize -> new (
                 autocheck => 0,
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            if ($target !~ /^http(s)?:\/\//x) {
-                $target = "https://$target";
+            if ($normalized_target !~ /^http(s)?:\/\//x) {
+                $normalized_target = "https://$normalized_target";
             }
 
-            if ($target =~ /\/$/x) { chop($target); }
+            if ($normalized_target =~ /\/$/x) {
+                chop($normalized_target);
+            }
 
-            my $request = $mech -> get($target);
-            my @links   = $mech -> links();
+            my %seen;
+            my $collect_links;
+            $collect_links = sub {
+                my (%args) = @_;
+                my $root_url = $args{root_url};
+                my $current_url = $args{url};
+                my $should_recurse = $args{deep};
+                my $seen_urls = $args{seen};
+                my @collected_links;
 
-            for my $link (@links) {
-                my $url = $link -> url();
-
-                if (($url) && ($url !~ m/#/x) && ($url !~ /^http(s)?:\/\//x)) {
-                    if ($url !~ /^\//x) {
-                        $url = '/' . $url;
-                    }
-
-                    push @result, $url;
-
-                    # if ($deep) {
-                    #     try {
-                    #         push @result, Spellbook::Recon::Extract_Links -> new(["--target" => $target . $url]);
-                    #     }
-                    # }
+                if ($seen_urls -> {$current_url}) {
+                    return ();
                 }
-            }
 
-            for my $item (@result) {
-                $item = $target . $item;
-            }
+                $seen_urls -> {$current_url} = 1;
+                my $response = $mech -> get($current_url);
+
+                if (!$response) {
+                    return ();
+                }
+
+                if (!$response -> is_success) {
+                    return ();
+                }
+
+                my @page_links = $mech -> links();
+
+                for my $link (@page_links) {
+                    my $url = $link -> url();
+
+                    if ($url && $url !~ m/#/x && $url !~ /^http(s)?:\/\//x) {
+                        if ($url !~ /^\//x) {
+                            $url = '/' . $url;
+                        }
+
+                        my $absolute_url = $root_url . $url;
+                        push @collected_links, $absolute_url;
+
+                        if ($should_recurse) {
+                            try {
+                                push @collected_links, $collect_links -> (
+                                    root_url => $root_url,
+                                    url => $absolute_url,
+                                    deep => $should_recurse,
+                                    seen => $seen_urls
+                                );
+                            } catch {
+                            };
+                        }
+                    }
+                }
+
+                return @collected_links;
+            };
+
+            @result = $collect_links -> (
+                root_url => $normalized_target,
+                url => $normalized_target,
+                deep => $deep,
+                seen => \%seen
+            );
 
             return uniq @result;
         }
@@ -69,6 +109,7 @@ package Spellbook::Recon::Extract_Links {
 
         return 0;
     }
+
 }
 
 1;
