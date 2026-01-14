@@ -449,6 +449,12 @@
             "category": "exploit",
             "module": "Wordpress_XMLRPC",
             "description": "Probe WordPress XML-RPC for multicall abuse capability"
+        },
+        {
+            "id": "0074",
+            "category": "recon",
+            "module": "Passive_Links",
+            "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"
         }
     ]
 }
