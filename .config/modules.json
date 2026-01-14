@@ -37,6 +37,12 @@
             "description": "A module to extract all links from a web page"
         },
         {
+            "id": "0073",
+            "category": "recon",
+            "module": "Broken_Links",
+            "description": "Detect broken links in a web page"
+        },
+        {
             "id": "0007",
             "category": "recon",
             "module": "DNS_Bruteforce",
@@ -440,6 +446,12 @@
         },
         {
             "id": "0073",
+            "category": "exploit",
+            "module": "Wordpress_XMLRPC",
+            "description": "Probe WordPress XML-RPC for multicall abuse capability"
+        },
+        {
+            "id": "0074",
             "category": "recon",
             "module": "Passive_Links",
             "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"

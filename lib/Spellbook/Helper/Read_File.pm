@@ -18,10 +18,11 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            my $content = Mojo::File -> new($file) -> slurp();
-            my @content = split(/\n/, $content);
+            my $handle = Mojo::File -> new($file) -> openr();
 
-            foreach my $line (@content) {
+            while (defined(my $line = $handle -> getline())) {
+                chomp $line;
+
                 if ($entrypoint) {
                     my $return = Spellbook::Core::Module -> new($entrypoint, ['--target' => $line]);
 
@@ -29,12 +30,12 @@ package Spellbook::Helper::Read_File {
                         push @result, $line;
                     }
                 }
-                
-                else {
+
+                if (!$entrypoint) {
                     push @result, $line;
                 }
             }
-            
+
             return @result;
         }
 

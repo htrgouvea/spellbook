@@ -5,14 +5,13 @@ package Spellbook::Core::Orchestrator {
     use Getopt::Long;
     use Thread::Queue;
     use threads::shared;
-    use Spellbook::Helper::Read_File;
-    use List::MoreUtils qw(uniq);
+    use Mojo::File;
 
     our $VERSION = '0.0.1';
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $wordlist, $module, $list, $queue);
+        my ($help, $wordlist, $module, $list);
 
         my $threads = 10;
         
@@ -26,16 +25,30 @@ package Spellbook::Core::Orchestrator {
         );
 
         if ($module) {
-            if ($wordlist) {
-                $queue = Thread::Queue -> new(Spellbook::Helper::Read_File -> new(["--file", $wordlist]));
-            }
-
-            else {
-                $queue = Thread::Queue -> new(@{$list});
-            }
-
-            $queue -> end();
+            my $queue = Thread::Queue -> new();
             my @results :shared;
+            my %seen :shared;
+
+            if ($wordlist) {
+                async {
+                    my $handle = Mojo::File -> new($wordlist) -> openr();
+
+                    while (defined(my $line = $handle -> getline())) {
+                        chomp $line;
+
+                        if (length $line) {
+                            $queue -> enqueue($line);
+                        }
+                    }
+
+                    $queue -> end();
+                };
+            }
+
+            if (!$wordlist) {
+                $queue -> enqueue(@{$list});
+                $queue -> end();
+            }
             
             async {
                 while (defined(my $target = $queue -> dequeue())) {
@@ -46,7 +59,12 @@ package Spellbook::Core::Orchestrator {
                     lock(@results);
                     
                     if (@response) {
-                        push @results, @response;
+                        foreach my $result (@response) {
+                            if (!exists $seen{$result}) {
+                                $seen{$result} = 1;
+                                push @results, $result;
+                            }
+                        }
                     }
                 }
             } 
@@ -57,7 +75,7 @@ package Spellbook::Core::Orchestrator {
                 $_ -> join() for threads -> list(threads::all);
             }
 
-            return uniq @results;
+            return @results;
         }
 
         if ($help) {
