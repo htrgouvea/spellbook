@@ -211,6 +211,12 @@
             "description": "Perform brute-force attack into login page of wordpress"
         },
         {
+            "id": "0075",
+            "category": "bruteforce",
+            "module": "Tomcat",
+            "description": "Perform brute-force attack against Apache Tomcat manager"
+        },
+        {
             "id": "0073",
             "category": "bruteforce",
             "module": "JWT_Secret",
