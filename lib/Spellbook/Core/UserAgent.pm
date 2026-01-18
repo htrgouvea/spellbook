@@ -5,10 +5,16 @@ package Spellbook::Core::UserAgent {
 
     our $VERSION = '0.0.2';
 
+    our $sharedUserAgent;
+
     sub new {
+        if (defined $sharedUserAgent) {
+            return $sharedUserAgent;
+        }
+
         my $userAgent = LWP::UserAgent -> new (
             timeout  => 5,
-            ssl_opts => { 
+            ssl_opts => {
                 verify_hostname => 0,
                 SSL_verify_mode => 0
             },
@@ -16,9 +22,10 @@ package Spellbook::Core::UserAgent {
         );
 
         $userAgent -> default_headers -> push_header("Cache-Control" => "no-cache");
-        # $userAgent -> max_redirect(0);
 
-        return $userAgent;
+        $sharedUserAgent = $userAgent;
+
+        return $sharedUserAgent;
     }
 }
 
