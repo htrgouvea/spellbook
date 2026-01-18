@@ -140,16 +140,23 @@ package Spellbook::Bruteforce::Tomcat {
         my ($response) = @_;
         my $is_success = 0;
         my $status_code = $response -> code;
+        my $is_status_success = 0;
 
         if ($status_code == 200) {
+            $is_status_success = 1;
+        }
+
+        if ($is_status_success) {
             $is_success = 1;
         }
 
-        my $content = $response -> decoded_content;
+        if ($is_status_success) {
+            my $content = $response -> decoded_content;
 
-        if ($content) {
-            if ($content =~ /Tomcat|Web Application Manager|Manager App/i) {
-                $is_success = 1;
+            if ($content) {
+                if ($content =~ /Tomcat|Web Application Manager|Manager App/i) {
+                    $is_success = 1;
+                }
             }
         }
 
