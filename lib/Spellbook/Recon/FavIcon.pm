@@ -10,5 +10,3 @@ package Spellbook::Recon::FavIcon {
 }
 
 1;
-
-# https://github.com/devanshbatham/FavFreak

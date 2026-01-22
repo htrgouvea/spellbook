@@ -41,19 +41,6 @@ package Spellbook::Recon::Shodan_Enumeration {
                     foreach my $data (@{$content -> {'data'}}) {
                         my $port      = $data -> {'port'};
 
-                        # my $product   = $data -> {"product"} || "unknow";
-                        # my $transport = $data -> {"transport"};
-                        # my $service   = $data -> {"_shodan"} -> {"module"};
-                        # my @cves      = {};
-
-                        # if ($data -> {"vulns"}) {
-                        #     for (keys %{$data -> {"vulns"}}) {
-                        #         push @cves, $_;
-                        #     }
-
-                        #     push @result, "$transport://$target:$port | $service | $product | @cves";
-                        # }
-
                         push @result, "$target:$port";
                     }
                 }

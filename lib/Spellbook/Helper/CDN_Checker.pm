@@ -11,7 +11,7 @@ package Spellbook::Helper::CDN_Checker {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        my $type = 'cdn'; # waf, cloud, cdn, common
+        my $type = 'cdn';
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,

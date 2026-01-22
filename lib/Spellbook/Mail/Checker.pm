@@ -10,10 +10,6 @@ package Spellbook::Mail::Checker {
         if () {
             
         }
-        # SPF
-        # DMARC
-        # DKIM
-
         return 0;
     }
 }

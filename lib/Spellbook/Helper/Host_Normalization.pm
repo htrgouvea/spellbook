@@ -27,12 +27,6 @@ package Spellbook::Helper::Host_Normalization {
             $host =~ s/^\*.//x;
 
             return lc($host);
-
-            # $target =~ s/^http(s)?:\/\///;
-            # $target =~ s/\/$//;
-            # the main idea of this module is to apply some filter in odd URLs from scopes of BB platforms for example
-
-            # return $target;
         }
 
         if ($help) {
