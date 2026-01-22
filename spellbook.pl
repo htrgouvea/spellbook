@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 use 5.030;
 use strict;
 use warnings;
