@@ -40,7 +40,9 @@ package Spellbook::Recon::Dorking {
                 foreach my $link (@links) {
                     $url = $link -> url();
 
-                    next if $seen{$url}++;
+                    if ($seen{$url}++) {
+                        next;
+                    }
 
                     if ($url =~ m/^https?/xsm && $url !~ m/bing|live|microsoft|msn/xsm) {
                         push @result, $url;

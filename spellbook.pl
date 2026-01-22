@@ -19,8 +19,13 @@ sub main {
         'm|module=s' => \$module
     );
 
-    @result = Spellbook::Core::Search -> new($search) if $search;
-    @result = Spellbook::Core::Module -> new($module, \@ARGV) if $module;
+    if ($search) {
+        @result = Spellbook::Core::Search -> new($search);
+    }
+
+    if ($module) {
+        @result = Spellbook::Core::Module -> new($module, \@ARGV);
+    }
 
     foreach my $item (@result) {
         print $item, "\n";
