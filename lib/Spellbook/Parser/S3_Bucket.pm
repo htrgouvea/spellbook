@@ -18,11 +18,11 @@ package Spellbook::Parser::S3_Bucket {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//msx) {
                 $target = "https://$target";    
             }
             
-            if ($target !~ /\/$/x) { $target .= "/"; }
+            if ($target !~ /\/$/msx) { $target .= "/"; }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $request   = $userAgent -> get($target);

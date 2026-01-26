@@ -71,7 +71,7 @@ package Spellbook::Recon::Passive_Links {
             if ($commonCrawlRequest -> code() == 200) {
                 my $commonCrawlContent = $commonCrawlRequest -> content;
 
-                foreach my $line (split /\n/x, $commonCrawlContent) {
+                foreach my $line (split /\n/msx, $commonCrawlContent) {
                     if ($line) {
                         my $entry = decode_json($line);
                         my $url = $entry -> {url};

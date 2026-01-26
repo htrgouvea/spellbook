@@ -25,11 +25,11 @@ package Spellbook::Recon::Extract_Links {
                 ssl_opts => { verify_hostname => 0 }
             );
 
-            if ($normalized_target !~ /^http(s)?:\/\//x) {
+            if ($normalized_target !~ /^http(s)?:\/\//msx) {
                 $normalized_target = "https://$normalized_target";
             }
 
-            if ($normalized_target =~ /\/$/x) {
+            if ($normalized_target =~ /\/$/msx) {
                 chop($normalized_target);
             }
 
@@ -63,8 +63,8 @@ package Spellbook::Recon::Extract_Links {
                 for my $link (@page_links) {
                     my $url = $link -> url();
 
-                    if ($url && $url !~ m/#/x && $url !~ /^http(s)?:\/\//x) {
-                        if ($url !~ /^\//x) {
+                    if ($url && $url !~ m/#/msx && $url !~ /^http(s)?:\/\//msx) {
+                        if ($url !~ /^\//msx) {
                             $url = '/' . $url;
                         }
 

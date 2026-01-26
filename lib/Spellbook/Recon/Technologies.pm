@@ -18,7 +18,7 @@ package Spellbook::Recon::Technologies {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//msx) {
                 $target = "https://$target";
             }
 

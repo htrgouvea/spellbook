@@ -15,33 +15,33 @@ package Spellbook::Crypto::Algorithm_Identifier {
         );
 
         if ($data) {
-            $data =~ s/^\s+|\s+$//gx;
+            $data =~ s/^\s+|\s+$//gmsx;
 
-            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/x;
-            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/x;
+            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/msx;
+            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/msx;
 
-            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/x;
-            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/x;
-            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/x;
+            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/msx;
+            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/msx;
+            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/msx;
 
             my %patterns = (
-                'Base64'    => qr/^[A-Za-z0-9+\/]+={0,2}$/x,
-                'MD5'       => qr/^[a-fA-F0-9]{32}$/x,
-                'SHA-1'     => qr/^[a-fA-F0-9]{40}$/x,
-                'SHA-256'   => qr/^[a-fA-F0-9]{64}$/x,
-                'UUID'      => qr/$uuid_chunk1$uuid_chunk2$uuid_chunk3$uuid_chunk4$uuid_chunk5/x,
-                'Bcrypt'    => qr/^\$2[aby]\$\d{2}\$[A-Za-z0-9\.\/]{53}$/x,
+                'Base64'    => qr/^[A-Za-z0-9+\/]+={0,2}$/msx,
+                'MD5'       => qr/^[a-fA-F0-9]{32}$/msx,
+                'SHA-1'     => qr/^[a-fA-F0-9]{40}$/msx,
+                'SHA-256'   => qr/^[a-fA-F0-9]{64}$/msx,
+                'UUID'      => qr/$uuid_chunk1$uuid_chunk2$uuid_chunk3$uuid_chunk4$uuid_chunk5/msx,
+                'Bcrypt'    => qr/^\$2[aby]\$\d{2}\$[A-Za-z0-9\.\/]{53}$/msx,
             );
 
             foreach my $type (keys %patterns) {
                 if ($data =~ $patterns{$type}) {
                     if ($type eq 'Base64') {
-                        if (length($data) % 4 != 0 || $data !~ /[+\/=]/x) {
+                        if (length($data) % 4 != 0 || $data !~ /[+\/=]/msx) {
                             next;
                         }
                     }

