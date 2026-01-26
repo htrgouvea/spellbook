@@ -17,7 +17,7 @@ package Spellbook::Advisory::CVE_2006_3392 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(s)?:\/\//msx) { 
                 $target = "https://$target";
             }
             

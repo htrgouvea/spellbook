@@ -16,7 +16,7 @@ package Spellbook::Helper::Host_Normalization {
         );
 
         if ($target) {
-            if ($target !~ /^https?:\/\//x) {
+            if ($target !~ /^https?:\/\//msx) {
                 $target = "http://$target";
             }
 
@@ -24,7 +24,7 @@ package Spellbook::Helper::Host_Normalization {
             my $host = $uri -> host();
 
             $host =~ s/^www\.//ix;
-            $host =~ s/^\*.//x;
+            $host =~ s/^\*.//msx;
 
             return lc($host);
         }

@@ -18,7 +18,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) {
+            if ($target !~ /^http(s)?:\/\//msx) {
                 $target = "http://$target";
             }
 

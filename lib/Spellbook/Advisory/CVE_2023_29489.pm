@@ -16,7 +16,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
         );
 
         if ($target) {    
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(s)?:\/\//msx) { 
                 $target = "https://$target";
             }
                     

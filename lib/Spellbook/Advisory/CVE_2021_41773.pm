@@ -18,7 +18,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//x) { 
+            if ($target !~ /^http(s)?:\/\//msx) { 
                 $target = "https://$target";
             }
             

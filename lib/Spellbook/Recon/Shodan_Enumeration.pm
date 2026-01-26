@@ -20,8 +20,8 @@ package Spellbook::Recon::Shodan_Enumeration {
         );
 
         if ($target) {
-            if ($target =~ /^http(s)?:\/\//x) {
-                $target =~ s/^http(s)?:\/\///x;
+            if ($target =~ /^http(s)?:\/\//msx) {
+                $target =~ s/^http(s)?:\/\///msx;
             }
 
             my $validate = is_domain($target);
