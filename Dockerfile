@@ -1,11 +1,13 @@
-FROM perl:5.42-threaded
+FROM perl:5.42-slim
 
-COPY . /usr/src/spellbook
 WORKDIR /usr/src/spellbook
+COPY . .
 
-RUN apt-get update && \
-    apt-get install -y libpcap-dev masscan
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpcap-dev \
+    masscan \
+ && rm -rf /var/lib/apt/lists/*
 
-RUN cpanm --installdeps .
+RUN cpanm --notest --installdeps .
 
-ENTRYPOINT [ "perl", "./spellbook.pl" ]
+ENTRYPOINT ["perl", "./spellbook.pl"]
