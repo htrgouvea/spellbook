@@ -14,7 +14,7 @@ requires 'IO::Socket::SSL',     '2.095';
 requires 'DateTime::TimeZone',  '2.65';
 requires 'List::MoreUtils';
 requires 'JSON';
-requires 'LWP::UserAgent';
+requires 'LWP::UserAgent', '6.81';
 requires 'XML::Simple';
 requires 'Nmap::Scanner';
 requires 'Image::ExifTool';
