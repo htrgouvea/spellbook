@@ -1,5 +1,5 @@
 requires 'threads',             '2.26';
-requires 'Mojo::File',          '9.41';
+requires 'Mojo::File', '9.42';
 requires 'Find::Lib',           '1.04';
 requires 'YAML::Tiny',          '1.76';
 requires 'Masscan::Scanner',    '20200329.150259';
