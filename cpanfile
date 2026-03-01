@@ -19,7 +19,7 @@ requires 'XML::Simple', '2.25';
 requires 'Nmap::Scanner';
 requires 'Image::ExifTool', '13.50';
 requires 'Mojolicious';
-requires 'OpenAI::API';
+requires 'OpenAI::API', '0.37';
 requires 'Try::Tiny', '0.32';
 requires 'Readonly';
 requires 'URI';
