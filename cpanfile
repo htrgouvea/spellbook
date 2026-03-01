@@ -21,7 +21,7 @@ requires 'Image::ExifTool';
 requires 'Mojolicious';
 requires 'OpenAI::API';
 requires 'Try::Tiny', '0.32';
-requires 'Readonly';
+requires 'Readonly', '2.05';
 requires 'URI';
 requires 'HTML::LinkExtor', '3.83';
 requires 'HTTP::Request::Common';
