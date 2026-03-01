@@ -17,7 +17,7 @@ requires 'JSON';
 requires 'LWP::UserAgent', '6.81';
 requires 'XML::Simple';
 requires 'Nmap::Scanner';
-requires 'Image::ExifTool';
+requires 'Image::ExifTool', '13.50';
 requires 'Mojolicious';
 requires 'OpenAI::API';
 requires 'Try::Tiny';
