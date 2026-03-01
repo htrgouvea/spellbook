@@ -26,4 +26,4 @@ requires 'URI';
 requires 'HTML::LinkExtor', '3.83';
 requires 'HTTP::Request::Common';
 requires 'HTTP::Cookies', '6.11';
-requires 'Thread::Queue';
+requires 'Thread::Queue', '3.13';
