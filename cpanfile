@@ -12,7 +12,7 @@ requires 'WWW::Wappalyzer',     '2.00';
 requires 'Redis',               '2.000';
 requires 'IO::Socket::SSL',     '2.095';
 requires 'DateTime::TimeZone',  '2.65';
-requires 'List::MoreUtils';
+requires 'List::MoreUtils', '0.430';
 requires 'JSON';
 requires 'LWP::UserAgent';
 requires 'XML::Simple';
