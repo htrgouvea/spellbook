@@ -20,7 +20,7 @@ requires 'Nmap::Scanner';
 requires 'Image::ExifTool';
 requires 'Mojolicious';
 requires 'OpenAI::API';
-requires 'Try::Tiny';
+requires 'Try::Tiny', '0.32';
 requires 'Readonly';
 requires 'URI';
 requires 'HTML::LinkExtor';
