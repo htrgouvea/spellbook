@@ -16,7 +16,7 @@ requires 'List::MoreUtils', '0.430';
 requires 'JSON', '4.10';
 requires 'LWP::UserAgent', '6.81';
 requires 'XML::Simple', '2.25';
-requires 'Nmap::Scanner';
+requires 'Nmap::Scanner', '1.0';
 requires 'Image::ExifTool', '13.50';
 requires 'Mojolicious', '9.42';
 requires 'OpenAI::API', '0.37';
