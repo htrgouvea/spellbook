@@ -24,6 +24,6 @@ requires 'Try::Tiny', '0.32';
 requires 'Readonly';
 requires 'URI';
 requires 'HTML::LinkExtor', '3.83';
-requires 'HTTP::Request::Common';
+requires 'HTTP::Request::Common', '7.01';
 requires 'HTTP::Cookies', '6.11';
 requires 'Thread::Queue';
