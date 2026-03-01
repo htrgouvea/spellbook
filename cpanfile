@@ -18,7 +18,7 @@ requires 'LWP::UserAgent', '6.81';
 requires 'XML::Simple', '2.25';
 requires 'Nmap::Scanner';
 requires 'Image::ExifTool', '13.50';
-requires 'Mojolicious';
+requires 'Mojolicious', '9.42';
 requires 'OpenAI::API', '0.37';
 requires 'Try::Tiny', '0.32';
 requires 'Readonly', '2.05';
