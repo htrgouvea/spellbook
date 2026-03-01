@@ -15,7 +15,7 @@ requires 'DateTime::TimeZone',  '2.65';
 requires 'List::MoreUtils', '0.430';
 requires 'JSON', '4.10';
 requires 'LWP::UserAgent', '6.81';
-requires 'XML::Simple';
+requires 'XML::Simple', '2.25';
 requires 'Nmap::Scanner';
 requires 'Image::ExifTool', '13.50';
 requires 'Mojolicious';
