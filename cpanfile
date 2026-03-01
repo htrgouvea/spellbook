@@ -25,5 +25,5 @@ requires 'Readonly';
 requires 'URI';
 requires 'HTML::LinkExtor';
 requires 'HTTP::Request::Common';
-requires 'HTTP::Cookies';
+requires 'HTTP::Cookies', '6.11';
 requires 'Thread::Queue';
