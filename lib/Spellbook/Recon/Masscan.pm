@@ -1,12 +1,12 @@
 package Spellbook::Recon::Masscan {
     use strict;
     use warnings;
-    use Masscan::Scanner;
+    use Masscan::Client;
     use List::MoreUtils qw(uniq);
     use Spellbook::Recon::Get_IP;
     use Spellbook::Helper::CDN_Checker;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters) = @_;
@@ -36,7 +36,7 @@ package Spellbook::Recon::Masscan {
 
             my @ip = Spellbook::Recon::Get_IP -> new(['--target' => $target[0]]);
 
-            my $masscan = Masscan::Scanner -> new (
+            my $masscan = Masscan::Client -> new (
                 hosts     => \@ip,
                 ports     => \@ports,
                 arguments => \@arguments
