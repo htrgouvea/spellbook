@@ -18,7 +18,7 @@ package Spellbook::Parser::S3_Bucket {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//msx) {
+            if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";    
             }
             

@@ -17,7 +17,7 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//msx) {
+            if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";
             }
             

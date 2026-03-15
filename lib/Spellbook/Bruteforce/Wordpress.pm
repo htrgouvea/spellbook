@@ -40,7 +40,7 @@ package Spellbook::Bruteforce::Wordpress {
             return @result;
         }
 
-        if ($target !~ /^http(s)?:\/\//) {
+        if ($target !~ /^http(?:s)?:\/\//) {
             $target = 'https://' . $target;
         }
 

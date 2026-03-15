@@ -17,7 +17,7 @@ package Spellbook::Parser::Sitemap {
         );
 
         if ($target) {
-            if ($target !~ /^http(s)?:\/\//msx) { $target = "https://$target"; }
+            if ($target !~ /^http(?:s)?:\/\//msx) { $target = "https://$target"; }
             if ($target !~ /\/sitemap.xml$/msx) { $target = "$target/sitemap.xml"; }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
