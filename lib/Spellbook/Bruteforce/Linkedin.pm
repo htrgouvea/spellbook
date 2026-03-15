@@ -1,4 +1,4 @@
-package Spellbook::Bruteforce::LinkedIn {
+package Spellbook::Bruteforce::Linkedin {
     use strict;
     use warnings;
 
