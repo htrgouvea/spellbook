@@ -40,7 +40,7 @@ package Spellbook::Bruteforce::Wordpress {
             return @result;
         }
 
-        if ($target !~ /^http(?:s)?:\/\//) {
+        if ($target !~ /^http(?:s)?:\/\//x) {
             $target = 'https://' . $target;
         }
 
@@ -62,8 +62,8 @@ package Spellbook::Bruteforce::Wordpress {
 
         my $login_url = $target;
 
-        if ($login_url !~ /wp-login\.php$/) {
-            if ($login_url !~ /\/$/) {
+        if ($login_url !~ /wp-login\.php$/x) {
+            if ($login_url !~ /\/$/x) {
                 $login_url = $login_url . '/';
             }
 
@@ -105,7 +105,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $location = $response -> header('Location');
 
                 if ($location) {
-                    if ($location =~ /wp-admin/) {
+                    if ($location =~ /wp-admin/x) {
                         $is_success = 1;
                     }
                 }
@@ -158,7 +158,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $location = $response -> header('Location');
 
                 if ($location) {
-                    if ($location =~ /wp-admin/) {
+                    if ($location =~ /wp-admin/x) {
                         $is_success = 1;
                     }
                 }
