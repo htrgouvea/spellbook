@@ -23,12 +23,6 @@ package Spellbook::Crypto::Algorithm_Identifier {
             my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/msx;
             my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/msx;
 
-            my $uuid_chunk1 = qr/^[a-fA-F0-9]{8}/msx;
-            my $uuid_chunk2 = qr/-[a-fA-F0-9]{4}/msx;
-            my $uuid_chunk3 = qr/-[a-fA-F0-9]{4}/msx;
-            my $uuid_chunk4 = qr/-[a-fA-F0-9]{4}/msx;
-            my $uuid_chunk5 = qr/-[a-fA-F0-9]{12}$/msx;
-
             my %patterns = (
                 'Base64'    => qr/^[A-Za-z0-9+\/]+={0,2}$/msx,
                 'MD5'       => qr/^[a-fA-F0-9]{32}$/msx,
