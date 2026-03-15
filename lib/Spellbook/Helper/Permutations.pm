@@ -18,7 +18,7 @@ package Spellbook::Helper::Permutations {
 
         if ($value) {
             for (my $i = 0; $i < $repeat; $i++) {
-                my @chars = split //, $value;
+                my @chars = split //msx, $value;
 
                 for (my $i = 0; $i < @chars; $i++) {
                     my $random = int(rand(@chars));

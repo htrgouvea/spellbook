@@ -43,7 +43,7 @@ package Spellbook::Bruteforce::Tomcat {
             return @result;
         }
 
-        if ($target !~ /^http(?:s)?:\/\//x) {
+        if ($target !~ /^http(?:s)?:\/\//msx) {
             $target = 'https://' . $target;
         }
 
@@ -69,12 +69,12 @@ package Spellbook::Bruteforce::Tomcat {
 
         my $manager_url = $target;
 
-        if ($manager_url !~ /\/$/x) {
+        if ($manager_url !~ /\/$/msx) {
             $manager_url = $manager_url . '/';
         }
 
-        if ($path =~ /^\//x) {
-            $path =~ s/^\/+//x;
+        if ($path =~ /^\//msx) {
+            $path =~ s/^\/+//msx;
         }
 
         $manager_url = $manager_url . $path;
@@ -114,7 +114,7 @@ package Spellbook::Bruteforce::Tomcat {
                     my $content = $response -> decoded_content;
 
                     if ($content) {
-                        if ($content =~ /Tomcat|Web Application Manager|Manager App/ix) {
+                        if ($content =~ /Tomcat|Web Application Manager|Manager App/imsx) {
                             $is_success = 1;
                         }
                     }
@@ -160,7 +160,7 @@ package Spellbook::Bruteforce::Tomcat {
                     my $content = $response -> decoded_content;
 
                     if ($content) {
-                        if ($content =~ /Tomcat|Web Application Manager|Manager App/ix) {
+                        if ($content =~ /Tomcat|Web Application Manager|Manager App/imsx) {
                             $is_success = 1;
                         }
                     }

@@ -31,7 +31,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
                 my $request = $userAgent -> get("$target/$payload");
 
                 if ($request -> code() == 400 ) {
-                    if ($request -> content() =~ /cPanel/) {
+                    if ($request -> content() =~ /cPanel/msx) {
                         push @result, "$target/$payload";
                     }
                 }

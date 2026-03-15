@@ -17,7 +17,7 @@ package Spellbook::Bruteforce::JWT_Secret {
             my ($data) = @_;
             my $encoded = encode_base64($data, '');
             $encoded =~ tr/+\//-_/;
-            $encoded =~ s/=+$//x;
+            $encoded =~ s/=+$//msx;
             return $encoded;
         };
 

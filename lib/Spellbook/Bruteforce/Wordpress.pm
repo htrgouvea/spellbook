@@ -40,7 +40,7 @@ package Spellbook::Bruteforce::Wordpress {
             return @result;
         }
 
-        if ($target !~ /^http(?:s)?:\/\//x) {
+        if ($target !~ /^http(?:s)?:\/\//msx) {
             $target = 'https://' . $target;
         }
 
@@ -62,8 +62,8 @@ package Spellbook::Bruteforce::Wordpress {
 
         my $login_url = $target;
 
-        if ($login_url !~ /wp-login\.php$/x) {
-            if ($login_url !~ /\/$/x) {
+        if ($login_url !~ /wp-login\.php$/msx) {
+            if ($login_url !~ /\/$/msx) {
                 $login_url = $login_url . '/';
             }
 
@@ -97,7 +97,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $set_cookie = $response -> header('Set-Cookie');
 
                 if ($set_cookie) {
-                    if ($set_cookie =~ /wordpress_logged_in/) {
+                    if ($set_cookie =~ /wordpress_logged_in/msx) {
                         $is_success = 1;
                     }
                 }
@@ -105,7 +105,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $location = $response -> header('Location');
 
                 if ($location) {
-                    if ($location =~ /wp-admin/x) {
+                    if ($location =~ /wp-admin/msx) {
                         $is_success = 1;
                     }
                 }
@@ -113,7 +113,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $content = $response -> decoded_content;
 
                 if ($content) {
-                    if ($content =~ /dashboard/i) {
+                    if ($content =~ /dashboard/imsx) {
                         $is_success = 1;
                     }
                 }
@@ -150,7 +150,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $set_cookie = $response -> header('Set-Cookie');
 
                 if ($set_cookie) {
-                    if ($set_cookie =~ /wordpress_logged_in/) {
+                    if ($set_cookie =~ /wordpress_logged_in/msx) {
                         $is_success = 1;
                     }
                 }
@@ -158,7 +158,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $location = $response -> header('Location');
 
                 if ($location) {
-                    if ($location =~ /wp-admin/x) {
+                    if ($location =~ /wp-admin/msx) {
                         $is_success = 1;
                     }
                 }
@@ -166,7 +166,7 @@ package Spellbook::Bruteforce::Wordpress {
                 my $content = $response -> decoded_content;
 
                 if ($content) {
-                    if ($content =~ /dashboard/i) {
+                    if ($content =~ /dashboard/imsx) {
                         $is_success = 1;
                     }
                 }
