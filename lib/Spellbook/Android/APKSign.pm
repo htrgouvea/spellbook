@@ -31,7 +31,7 @@ package Spellbook::Android::APKSign {
             \r-n, --name       Set de package name
             \r-p, --password   Define a password\n";
         }
-        
+
         return 0;
     }
 }

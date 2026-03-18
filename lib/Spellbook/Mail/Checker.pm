@@ -6,9 +6,9 @@ package Spellbook::Mail::Checker {
 
     sub new {
         my ($self) = @_;
-        
+
         if () {
-            
+
         }
         return 0;
     }

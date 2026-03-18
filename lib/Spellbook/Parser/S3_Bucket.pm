@@ -19,9 +19,9 @@ package Spellbook::Parser::S3_Bucket {
 
         if ($target) {
             if ($target !~ /^http(?:s)?:\/\//msx) {
-                $target = "https://$target";    
+                $target = "https://$target";
             }
-            
+
             if ($target !~ /\/$/msx) { $target .= "/"; }
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
@@ -37,7 +37,7 @@ package Spellbook::Parser::S3_Bucket {
                     }
                 }
             }
-        
+
             return @result;
         }
 

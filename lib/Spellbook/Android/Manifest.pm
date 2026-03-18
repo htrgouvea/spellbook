@@ -35,7 +35,7 @@ package Spellbook::Android::Manifest {
             \r-h, --help    See this menu
             \r-f, --file    Pass the AndroidManifest.xml file\n\n";
         }
-        
+
         return 0;
     }
 }

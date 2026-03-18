@@ -3,7 +3,7 @@ package Spellbook::Advisory::RCE_Apache_Flink {
     use warnings;
 
     sub new {
-        
+
     }
 }
 

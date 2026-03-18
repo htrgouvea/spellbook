@@ -17,14 +17,14 @@ package Spellbook::Core::Credentials {
             'p|platform=s' => \$platform,
             'v|value=s'    => \$value,
         );
-            
+
         if ($platform) {
             my $credentials = Mojo::File -> new(".config/credentials.json");
 
             my $data = $credentials -> slurp();
             my $content = decode_json($data);
 
-            if ($value) {            
+            if ($value) {
                 $content -> {$platform} = $value;
                 $credentials -> spurt(encode_json($content));
             }
@@ -40,7 +40,7 @@ package Spellbook::Core::Credentials {
             \r-p, --platform   Read some credentials filtering by platform
             \r-v, --value      Define a value of a platform\n\n";
         }
-        
+
         return 0;
     }
 }

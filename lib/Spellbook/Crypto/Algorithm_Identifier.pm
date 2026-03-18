@@ -80,7 +80,7 @@ package Spellbook::Crypto::Algorithm_Identifier {
         }
 
         return 0;
-    }   
+    }
 }
 
 1;

@@ -18,9 +18,9 @@ package Spellbook::Parser::Nmap {
         if ($file) {
             my $xml  = XML::Simple -> new();
             my $data = $xml -> XMLin($file);
-            
+
             my $host = $data -> {host} -> {address} -> {addr};
-            
+
             return @results;
         }
 

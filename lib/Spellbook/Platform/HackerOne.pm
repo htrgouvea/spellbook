@@ -20,7 +20,7 @@ package Spellbook::Platform::HackerOne {
         );
 
         my $token = Spellbook::Core::Credentials -> new(['--platform' => 'hackerone']);
-        
+
         if ($token && $target) {
             my $useragent = Spellbook::Core::UserAgent -> new();
             my $api_url   = "https://api.hackerone.com/v1/hackers/programs/$target";
@@ -37,7 +37,7 @@ package Spellbook::Platform::HackerOne {
                 for my $scope (@{$data -> {"relationships"} -> {"structured_scopes"} -> {"data"}}) {
                     if (($scope -> {"attributes"} -> {"asset_type"} eq "URL") && ($scope -> {"attributes"} -> {"eligible_for_bounty"})) {
                         my $url = $scope -> {"attributes"} -> {"asset_identifier"};
-                        
+
                         push @result, Spellbook::Helper::Host_Normalization -> new(["--target" => $url]);
                     }
                 }
@@ -56,6 +56,6 @@ package Spellbook::Platform::HackerOne {
 
         return 0;
     }
-}   
+}
 
 1;

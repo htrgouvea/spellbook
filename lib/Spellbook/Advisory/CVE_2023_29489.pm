@@ -15,11 +15,11 @@ package Spellbook::Advisory::CVE_2023_29489 {
             't|target=s' => \$target
         );
 
-        if ($target) {    
-            if ($target !~ /^http(?:s)?:\/\//msx) { 
+        if ($target) {
+            if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";
             }
-                    
+
             my $userAgent = Spellbook::Core::UserAgent -> new();
 
             my @payloads = (
@@ -48,7 +48,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
                 \r-t, --target   Define a target\n\n";
         }
 
-        return 0;   
+        return 0;
     }
 }
 

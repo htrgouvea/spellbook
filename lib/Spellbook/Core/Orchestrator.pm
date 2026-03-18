@@ -14,7 +14,7 @@ package Spellbook::Core::Orchestrator {
         my ($help, $wordlist, $module, $list);
 
         my $threads = 10;
-        
+
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             'h|help'         => \$help,
@@ -49,15 +49,15 @@ package Spellbook::Core::Orchestrator {
                 $queue -> enqueue(@{$list});
                 $queue -> end();
             }
-            
+
             async {
                 while (defined(my $target = $queue -> dequeue())) {
                     my @response = Spellbook::Core::Module -> new (
                         $module, [ "--target" => $target, @$parameters ]
                     );
-                    
+
                     lock(@results);
-                    
+
                     if (@response) {
                         foreach my $result (@response) {
                             if (!exists $seen{$result}) {
@@ -67,11 +67,11 @@ package Spellbook::Core::Orchestrator {
                         }
                     }
                 }
-            } 
-            
+            }
+
             for 1 .. $threads;
 
-            while (threads -> list(threads::running) > 0) { 
+            while (threads -> list(threads::running) > 0) {
                 $_ -> join() for threads -> list(threads::all);
             }
 

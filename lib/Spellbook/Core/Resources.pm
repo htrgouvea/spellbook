@@ -8,7 +8,7 @@ package Spellbook::Core::Resources {
 
     sub new {
         my $resources = Mojo::File -> new(".config/modules.json");
-        
+
         if ($resources) {
             my $list    = $resources -> slurp();
             my $modules = decode_json($list);

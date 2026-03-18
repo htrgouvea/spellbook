@@ -14,7 +14,7 @@ package Spellbook::Core::Module {
             my $category = ucfirst $package -> {category};
             my $name = $category . "::" . $package -> {module};
 
-            if ($name eq $module) {  
+            if ($name eq $module) {
                 require "Spellbook/" . $category . "/" . $package -> {module} . ".pm";
 
                 my @run = "Spellbook::$name" -> new(@parameters);
@@ -29,7 +29,7 @@ package Spellbook::Core::Module {
                 return @results;
             }
         }
-        
+
         return "\n[!] Module not found.\n\n";
     }
 }

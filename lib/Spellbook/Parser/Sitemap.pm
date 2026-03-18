@@ -35,7 +35,7 @@ package Spellbook::Parser::Sitemap {
                     }
                 }
             }
-        
+
             return @result;
         }
 

