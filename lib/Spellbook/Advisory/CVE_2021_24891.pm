@@ -24,12 +24,12 @@ package Spellbook::Advisory::CVE_2021_24891 {
 
             my $fingerprints = {
                 1 => {
-                    endpoint => "/wp-content/plugins/elementor/assets/js/frontend.min.js",
-                    regex    => "elementor[\\s-]*v(([0-3]+\\.(([0-5]+\\.[0-5]+)|[0-4]+\\.[0-9]+))|[0-2]+[0-9.]+)"
+                    endpoint => '/wp-content/plugins/elementor/assets/js/frontend.min.js',
+                    regex    => 'elementor[\\s-]*v(([0-3]+\\.(([0-5]+\\.[0-5]+)|[0-4]+\\.[0-9]+))|[0-2]+[0-9.]+)'
                 },
                 2 => {
-                    endpoint => "/#elementor-action:action=lightbox&settings=eyJ0eXBlIjoibnVsbCIsImh0bWwiOiI8c2NyaXB0PmFsZXJ0KCd4c3MnKTwvc2NyaXB0PiJ9",
-                    regex    => "elementor[\\s-]*v(([0-3]+\\.(([0-5]+\\.[0-5]+)|[0-4]+\\.[0-9]+))|[0-2]+[0-9.]+)"
+                    endpoint => '/#elementor-action:action=lightbox&settings=eyJ0eXBlIjoibnVsbCIsImh0bWwiOiI8c2NyaXB0PmFsZXJ0KCd4c3MnKTwvc2NyaXB0PiJ9',
+                    regex    => 'elementor[\\s-]*v(([0-3]+\\.(([0-5]+\\.[0-5]+)|[0-4]+\\.[0-9]+))|[0-2]+[0-9.]+)'
                 }
             };
 

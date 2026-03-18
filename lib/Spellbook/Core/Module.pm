@@ -12,16 +12,16 @@ package Spellbook::Core::Module {
 
         foreach my $package (@{$resources -> {modules}}) {
             my $category = ucfirst $package -> {category};
-            my $name = $category . "::" . $package -> {module};
+            my $name = $category . '::' . $package -> {module};
 
             if ($name eq $module) {
-                require "Spellbook/" . $category . "/" . $package -> {module} . ".pm";
+                require 'Spellbook/' . $category . '/' . $package -> {module} . '.pm';
 
                 my @run = "Spellbook::$name" -> new(@parameters);
                 my @results;
 
                 foreach my $result (@run) {
-                    if (defined($result) && $result ne "0") {
+                    if (defined($result) && $result ne '0') {
                         push @results, $result;
                     }
                 }

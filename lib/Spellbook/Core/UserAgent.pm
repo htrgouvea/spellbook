@@ -15,7 +15,7 @@ package Spellbook::Core::UserAgent {
             agent => 'Spellbook / v0.3.8'
         );
 
-        $user_agent -> default_headers -> push_header("Cache-Control" => "no-cache");
+        $user_agent -> default_headers -> push_header('Cache-Control' => 'no-cache');
 
         return $user_agent;
     }

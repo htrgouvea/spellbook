@@ -12,15 +12,15 @@ package Spellbook::Android::Manifest {
         Getopt::Long::GetOptionsFromArray (
             $parameters,
             'h|help'    => \$help,
-            'f|file=s'  => \$apkfile
+            'f|file=s'  => \$file
         );
 
         if ($file) {
             my $data = XMLin($file);
 
-            my $package = $data -> {"package"};
-            my $backup  = $data -> {application} -> {"android:allowBackup"};
-            my $debug   = $data -> {application} -> {"android:debuggable"};
+            my $package = $data -> {'package'};
+            my $backup  = $data -> {application} -> {'android:allowBackup'};
+            my $debug   = $data -> {application} -> {'android:debuggable'};
 
             return "
                 \r[ - ] -> Package name: $package

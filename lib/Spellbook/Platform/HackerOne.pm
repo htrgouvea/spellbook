@@ -27,18 +27,18 @@ package Spellbook::Platform::HackerOne {
 
             my $response = $useragent -> get ($api_url,
                 'Content-Type'  => 'application/json',
-                'Authorization' => "Basic " . encode_base64($token)
+                'Authorization' => 'Basic ' . encode_base64($token)
             );
 
             if ($response -> is_success()) {
                 my $data     = decode_json($response -> decoded_content());
-                my $programs = $data -> {"data"};
+                my $programs = $data -> {'data'};
 
-                for my $scope (@{$data -> {"relationships"} -> {"structured_scopes"} -> {"data"}}) {
-                    if (($scope -> {"attributes"} -> {"asset_type"} eq "URL") && ($scope -> {"attributes"} -> {"eligible_for_bounty"})) {
-                        my $url = $scope -> {"attributes"} -> {"asset_identifier"};
+                for my $scope (@{$data -> {'relationships'} -> {'structured_scopes'} -> {'data'}}) {
+                    if (($scope -> {'attributes'} -> {'asset_type'} eq 'URL') && ($scope -> {'attributes'} -> {'eligible_for_bounty'})) {
+                        my $url = $scope -> {'attributes'} -> {'asset_identifier'};
 
-                        push @result, Spellbook::Helper::Host_Normalization -> new(["--target" => $url]);
+                        push @result, Spellbook::Helper::Host_Normalization -> new(['--target' => $url]);
                     }
                 }
             }

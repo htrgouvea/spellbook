@@ -19,7 +19,7 @@ package Spellbook::Core::Credentials {
         );
 
         if ($platform) {
-            my $credentials = Mojo::File -> new(".config/credentials.json");
+            my $credentials = Mojo::File -> new('.config/credentials.json');
 
             my $data = $credentials -> slurp();
             my $content = decode_json($data);

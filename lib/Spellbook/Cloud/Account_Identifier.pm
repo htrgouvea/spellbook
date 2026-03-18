@@ -21,7 +21,7 @@ package Spellbook::Cloud::Account_Identifier {
             my $decoded          = decode_base32($trimmed_aws_key_id);
 
             my $decoded_prefix = substr($decoded, 0, 6);
-            my $bigint_value = Math::BigInt -> new('0x' . unpack("H*", $decoded_prefix));
+            my $bigint_value = Math::BigInt -> new('0x' . unpack('H*', $decoded_prefix));
 
             my $mask      = Math::BigInt -> new('0x7fffffffff80');
             my $account_id = ($bigint_value & $mask) >> 7;

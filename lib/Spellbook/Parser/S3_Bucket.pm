@@ -22,7 +22,7 @@ package Spellbook::Parser::S3_Bucket {
                 $target = "https://$target";
             }
 
-            if ($target !~ /\/$/msx) { $target .= "/"; }
+            if ($target !~ /\/$/msx) { $target .= '/'; }
 
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request   = $user_agent -> get($target);

@@ -53,7 +53,7 @@ package Spellbook::Core::Orchestrator {
             async {
                 while (defined(my $target = $queue -> dequeue())) {
                     my @response = Spellbook::Core::Module -> new (
-                        $module, [ "--target" => $target, @$parameters ]
+                        $module, [ '--target' => $target, @$parameters ]
                     );
 
                     lock(@results);

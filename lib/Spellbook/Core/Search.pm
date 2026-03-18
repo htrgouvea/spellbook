@@ -14,9 +14,9 @@ package Spellbook::Core::Search {
                 my $value = lc $module -> {$_};
 
                 if (index($value, lc $search) != -1) {
-                    print "\nModule: ", ucfirst $module -> {category} . "::" . $module -> {module}, "\n";
-                    print "Description: ", $module -> {description}, "\n";
-                    print "=================================================", "\n";
+                    print "\nModule: ", ucfirst $module -> {category} . '::' . $module -> {module}, "\n";
+                    print 'Description: ', $module -> {description}, "\n";
+                    print '=================================================', "\n";
                 }
             }
         }
