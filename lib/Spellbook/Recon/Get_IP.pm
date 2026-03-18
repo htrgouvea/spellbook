@@ -20,7 +20,7 @@ package Spellbook::Recon::Get_IP {
                 $target =~ s/^http(s)?:\/\///msx;
             }
 
-            my $ip = gethostbyname($target);
+            my $ip = gethostbyname $target;
 
             if ($ip) {
                 return inet_ntoa($ip);

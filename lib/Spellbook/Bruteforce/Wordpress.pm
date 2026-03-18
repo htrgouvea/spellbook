@@ -84,7 +84,7 @@ package Spellbook::Bruteforce::Wordpress {
             my @passwords = Spellbook::Helper::Read_File -> new(['--file' => $wordlist]);
 
             foreach my $candidate_password (@passwords) {
-                chomp($candidate_password);
+                chomp $candidate_password;
 
                 my $response = $user_agent -> request(POST $login_url, [
                     log         => $username,
@@ -137,7 +137,7 @@ package Spellbook::Bruteforce::Wordpress {
             my @usernames = Spellbook::Helper::Read_File -> new(['--file' => $userlist]);
 
             foreach my $candidate_username (@usernames) {
-                chomp($candidate_username);
+                chomp $candidate_username;
 
                 my $response = $user_agent -> request(POST $login_url, [
                     log         => $candidate_username,

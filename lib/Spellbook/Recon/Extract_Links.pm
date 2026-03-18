@@ -30,7 +30,7 @@ package Spellbook::Recon::Extract_Links {
             }
 
             if ($normalized_target =~ /\/$/msx) {
-                chop($normalized_target);
+                chop $normalized_target;
             }
 
             my %seen;

@@ -21,14 +21,14 @@ package Spellbook::Helper::Permutations {
                 my @chars = split //msx, $value;
 
                 for (my $i = 0; $i < @chars; $i++) {
-                    my $random = int(rand(@chars));
+                    my $random = int rand @chars;
                     my $temp   = $chars[$i];
 
                     $chars[$i] = $chars[$random];
                     $chars[$random] = $temp;
                 }
 
-                push @result, join('', @chars);
+                push @result, join '', @chars;
             }
 
             return @result;
