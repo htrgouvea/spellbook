@@ -29,7 +29,7 @@ package Spellbook::Recon::Broken_Links {
 
             $mech -> get($target);
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $user_agent = Spellbook::Core::UserAgent -> new();
             my $base = URI -> new($target);
             my @links = $mech -> links();
             my %seen;
@@ -49,8 +49,8 @@ package Spellbook::Recon::Broken_Links {
                     next;
                 }
 
-                my $absoluteUri = URI -> new_abs($url, $base);
-                my $scheme = $absoluteUri -> scheme();
+                my $absolute_uri = URI -> new_abs($url, $base);
+                my $scheme = $absolute_uri -> scheme();
 
                 if (!$scheme) {
                     next;
@@ -60,18 +60,18 @@ package Spellbook::Recon::Broken_Links {
                     next;
                 }
 
-                my $absoluteUrl = $absoluteUri -> as_string();
+                my $absolute_url = $absolute_uri -> as_string();
 
-                if ($seen{$absoluteUrl}) {
+                if ($seen{$absolute_url}) {
                     next;
                 }
 
-                $seen{$absoluteUrl} = 1;
+                $seen{$absolute_url} = 1;
 
-                my $response = $userAgent -> get($absoluteUrl);
+                my $response = $user_agent -> get($absolute_url);
 
                 if (!$response -> is_success()) {
-                    push @result, $absoluteUrl;
+                    push @result, $absolute_url;
                 }
             }
 

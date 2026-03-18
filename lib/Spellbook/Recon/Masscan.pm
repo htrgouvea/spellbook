@@ -27,9 +27,9 @@ package Spellbook::Recon::Masscan {
             if (!@ports) { @ports = '1-65535'; }
 
             if ($skip_cdn) {
-                my $CDN_Checker = Spellbook::Helper::CDN_Checker -> new (['--target' => $target[0]]);
+                my $cdn_checker = Spellbook::Helper::CDN_Checker -> new (['--target' => $target[0]]);
 
-                if ($CDN_Checker) {
+                if ($cdn_checker) {
                     return 0;
                 }
             }

@@ -18,13 +18,13 @@ package Spellbook::Recon::Query_Shodan {
         );
 
         if ($query) {
-            my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
-            my $endpoint  = "https://api.shodan.io/shodan/host/search?key=$apiKey&query=$query&limit=300";
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get($endpoint);
-            my $httpCode  = $request -> code();
+            my $api_key    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
+            my $endpoint  = "https://api.shodan.io/shodan/host/search?key=$api_key&query=$query&limit=300";
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request   = $user_agent -> get($endpoint);
+            my $http_code  = $request -> code();
 
-            if ($httpCode == 200) {
+            if ($http_code == 200) {
                 my $content = decode_json($request -> content());
 
                 foreach my $data (@{$content -> {'matches'}}) {

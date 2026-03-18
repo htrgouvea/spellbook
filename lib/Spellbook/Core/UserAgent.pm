@@ -6,7 +6,7 @@ package Spellbook::Core::UserAgent {
     our $VERSION = '0.0.2';
 
     sub new {
-        my $userAgent = LWP::UserAgent -> new (
+        my $user_agent = LWP::UserAgent -> new (
             timeout  => 5,
             ssl_opts => {
                 verify_hostname => 0,
@@ -15,9 +15,9 @@ package Spellbook::Core::UserAgent {
             agent => 'Spellbook / v0.3.8'
         );
 
-        $userAgent -> default_headers -> push_header("Cache-Control" => "no-cache");
+        $user_agent -> default_headers -> push_header("Cache-Control" => "no-cache");
 
-        return $userAgent;
+        return $user_agent;
     }
 }
 

@@ -24,8 +24,8 @@ package Spellbook::Parser::S3_Bucket {
 
             if ($target !~ /\/$/msx) { $target .= "/"; }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get($target);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request   = $user_agent -> get($target);
 
             if ($request -> code() == 200) {
                 try {

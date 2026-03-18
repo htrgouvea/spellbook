@@ -18,16 +18,16 @@ package Spellbook::Recon::Passive_Links {
         );
 
         if ($target) {
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $otxEndpoint = "https://otx.alienvault.com/api/v1/indicators/domain/$target/url_list?limit=500&page=1";
-            my $otxRequest  = $userAgent -> get($otxEndpoint);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $otx_endpoint = "https://otx.alienvault.com/api/v1/indicators/domain/$target/url_list?limit=500&page=1";
+            my $otx_request  = $user_agent -> get($otx_endpoint);
 
-            if ($otxRequest -> code() == 200) {
-                my $otxContent = decode_json($otxRequest -> content);
-                my $otxUrlList = $otxContent -> {url_list};
+            if ($otx_request -> code() == 200) {
+                my $otx_content = decode_json($otx_request -> content);
+                my $otx_url_list = $otx_content -> {url_list};
 
-                if ($otxUrlList) {
-                    foreach my $entry (@{$otxUrlList}) {
+                if ($otx_url_list) {
+                    foreach my $entry (@{$otx_url_list}) {
                         my $url = $entry -> {url};
 
                         if ($url) {
@@ -37,13 +37,13 @@ package Spellbook::Recon::Passive_Links {
                 }
             }
 
-            my $waybackEndpoint = "https://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
-            my $waybackRequest  = $userAgent -> get($waybackEndpoint);
+            my $wayback_endpoint = "https://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
+            my $wayback_request  = $user_agent -> get($wayback_endpoint);
 
-            if (($waybackRequest -> code() == 200) && ($waybackRequest -> content ne '[]')) {
-                my $waybackContent = decode_json($waybackRequest -> content);
+            if (($wayback_request -> code() == 200) && ($wayback_request -> content ne '[]')) {
+                my $wayback_content = decode_json($wayback_request -> content);
 
-                foreach my $fullurl (@{$waybackContent}) {
+                foreach my $fullurl (@{$wayback_content}) {
                     if ($fullurl -> [2] ne 'original') {
                         push @result, $fullurl -> [2];
                     }
@@ -51,27 +51,27 @@ package Spellbook::Recon::Passive_Links {
             }
 
             my $index = 'CC-MAIN-2024-10';
-            my $indexRequest = $userAgent -> get('https://index.commoncrawl.org/collinfo.json');
+            my $index_request = $user_agent -> get('https://index.commoncrawl.org/collinfo.json');
 
-            if ($indexRequest -> code() == 200) {
-                my $indexContent = decode_json($indexRequest -> content);
+            if ($index_request -> code() == 200) {
+                my $index_content = decode_json($index_request -> content);
 
-                if ((ref $indexContent eq 'ARRAY') && (@{$indexContent} > 0)) {
-                    my $latestIndex = $indexContent -> [0] -> {id};
+                if ((ref $index_content eq 'ARRAY') && (@{$index_content} > 0)) {
+                    my $latest_index = $index_content -> [0] -> {id};
 
-                    if ($latestIndex) {
-                        $index = $latestIndex;
+                    if ($latest_index) {
+                        $index = $latest_index;
                     }
                 }
             }
 
-            my $commonCrawlEndpoint = "https://index.commoncrawl.org/$index-index?url=$target/*&output=json";
-            my $commonCrawlRequest  = $userAgent -> get($commonCrawlEndpoint);
+            my $common_crawl_endpoint = "https://index.commoncrawl.org/$index-index?url=$target/*&output=json";
+            my $common_crawl_request  = $user_agent -> get($common_crawl_endpoint);
 
-            if ($commonCrawlRequest -> code() == 200) {
-                my $commonCrawlContent = $commonCrawlRequest -> content;
+            if ($common_crawl_request -> code() == 200) {
+                my $common_crawl_content = $common_crawl_request -> content;
 
-                foreach my $line (split /\n/msx, $commonCrawlContent) {
+                foreach my $line (split /\n/msx, $common_crawl_content) {
                     if ($line) {
                         my $entry = decode_json($line);
                         my $url = $entry -> {url};

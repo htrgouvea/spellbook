@@ -17,8 +17,8 @@ package Spellbook::Helper::Exifs_Write {
         );
 
         if ($file && $payload) {
-            my $exifTool = Image::ExifTool -> new();
-            my $source   = $exifTool -> ImageInfo($file);
+            my $exif_tool = Image::ExifTool -> new();
+            my $source   = $exif_tool -> ImageInfo($file);
 
             my @tags = (
                 'ImageDescription',
@@ -37,10 +37,10 @@ package Spellbook::Helper::Exifs_Write {
             );
 
             foreach my $tag (@tags) {
-                $exifTool -> SetNewValue($tag, $payload);
+                $exif_tool -> SetNewValue($tag, $payload);
             }
 
-            my $write = $exifTool -> WriteInfo($file, "$file.exif");
+            my $write = $exif_tool -> WriteInfo($file, "$file.exif");
 
             return "\n[+] Output file: $file.exif\n\n"
         }

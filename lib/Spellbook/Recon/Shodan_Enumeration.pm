@@ -29,13 +29,13 @@ package Spellbook::Recon::Shodan_Enumeration {
             if ($validate) {
                 my $ip = Spellbook::Recon::Get_IP -> new (['--target' => $target]);
 
-                my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
-                my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$apiKey";
-                my $userAgent = Spellbook::Core::UserAgent -> new();
-                my $request   = $userAgent -> get($endpoint);
-                my $httpCode  = $request -> code();
+                my $api_key    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
+                my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$api_key";
+                my $user_agent = Spellbook::Core::UserAgent -> new();
+                my $request   = $user_agent -> get($endpoint);
+                my $http_code  = $request -> code();
 
-                if ($httpCode == 200) {
+                if ($http_code == 200) {
                     my $content = decode_json($request -> content);
 
                     foreach my $data (@{$content -> {'data'}}) {

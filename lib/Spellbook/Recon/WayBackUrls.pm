@@ -18,8 +18,8 @@ package Spellbook::Recon::WayBackUrls {
 
         if ($target) {
             my $endpoint  = "http://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get($endpoint);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request   = $user_agent -> get($endpoint);
 
             if (($request -> code() == 200) && ($request -> content ne '[]')) {
                 my $content = decode_json($request -> content);

@@ -23,8 +23,8 @@ package Spellbook::Recon::Subdomain_Enumeration {
                 $target =~ s/^http(s)?:\/\///msx;
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $apiKey    = Spellbook::Core::Credentials -> new(['--platform' => 'security-trails']);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $api_key    = Spellbook::Core::Credentials -> new(['--platform' => 'security-trails']);
 
             my @endpoints = (
                 "https://api.securitytrails.com/v1/domain/$target/subdomains?children_only=false&include_inactive=true",
@@ -32,7 +32,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
             );
 
             foreach my $endpoint (@endpoints) {
-                my $request = $userAgent -> get($endpoint, 'apikey' => $apiKey);
+                my $request = $user_agent -> get($endpoint, 'apikey' => $api_key);
 
                 if ($request -> code() == 200) {
                     my $content = decode_json($request -> content);

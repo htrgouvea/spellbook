@@ -20,8 +20,8 @@ package Spellbook::Recon::HTTP_Probe {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $response  = $userAgent -> get($target);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $response  = $user_agent -> get($target);
             my $code = $response -> code();
 
             if ($response -> code()) {

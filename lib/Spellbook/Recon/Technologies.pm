@@ -22,8 +22,8 @@ package Spellbook::Recon::Technologies {
                 $target = "https://$target";
             }
 
-            my $userAgent    = Spellbook::Core::UserAgent -> new();
-            my $request      = $userAgent -> get($target);
+            my $user_agent    = Spellbook::Core::UserAgent -> new();
+            my $request      = $user_agent -> get($target);
             my %headers_hash = pairmap { $a => [ $request -> headers -> header($a) ] } $request -> headers -> flatten;
             my $wappalyzer   = WWW::Wappalyzer -> new();
 

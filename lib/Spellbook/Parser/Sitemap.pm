@@ -20,8 +20,8 @@ package Spellbook::Parser::Sitemap {
             if ($target !~ /^http(?:s)?:\/\//msx) { $target = "https://$target"; }
             if ($target !~ /\/sitemap.xml$/msx) { $target = "$target/sitemap.xml"; }
 
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request = $userAgent -> get($target);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request = $user_agent -> get($target);
 
             if ($request -> code() == 200) {
                 my $content = $request -> content();

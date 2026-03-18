@@ -79,7 +79,7 @@ package Spellbook::Bruteforce::Tomcat {
 
         $manager_url = $manager_url . $path;
 
-        my $userAgent = Spellbook::Core::UserAgent -> new();
+        my $user_agent = Spellbook::Core::UserAgent -> new();
 
         if ($mode eq 'bruteforce') {
             if (!$username) {
@@ -97,7 +97,7 @@ package Spellbook::Bruteforce::Tomcat {
 
                 my $credentials = $username . ':' . $candidate_password;
                 my $encoded_credentials = encode_base64($credentials, '');
-                my $response = $userAgent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
+                my $response = $user_agent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
                 my $is_success = 0;
                 my $status_code = $response -> code;
                 my $is_status_success = 0;
@@ -143,7 +143,7 @@ package Spellbook::Bruteforce::Tomcat {
 
                 my $credentials = $candidate_username . ':' . $password;
                 my $encoded_credentials = encode_base64($credentials, '');
-                my $response = $userAgent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
+                my $response = $user_agent -> request(GET $manager_url, Authorization => "Basic $encoded_credentials");
                 my $is_success = 0;
                 my $status_code = $response -> code;
                 my $is_status_success = 0;
