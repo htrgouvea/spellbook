@@ -13,7 +13,7 @@ requires 'IO::Socket::SSL', '2.098';
 requires 'DateTime::TimeZone', '2.67';
 requires 'List::MoreUtils', '0.430';
 requires 'JSON', '4.11';
-requires 'LWP::UserAgent', '6.81';
+requires 'LWP::UserAgent', '6.82';
 requires 'XML::Simple', '2.25';
 requires 'Nmap::Scanner', '1.0';
 requires 'Image::ExifTool', '13.50';
