@@ -17,14 +17,14 @@ package Spellbook::Helper::Permutations {
         );
 
         if ($value) {
-            for (my $i = 0; $i < $repeat; $i++) {
+            foreach (1 .. $repeat) {
                 my @chars = split //msx, $value;
 
-                for (my $i = 0; $i < @chars; $i++) {
+                foreach my $char_index (0 .. $#chars) {
                     my $random = int rand @chars;
-                    my $temp   = $chars[$i];
+                    my $temp   = $chars[$char_index];
 
-                    $chars[$i] = $chars[$random];
+                    $chars[$char_index] = $chars[$random];
                     $chars[$random] = $temp;
                 }
 
