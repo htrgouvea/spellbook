@@ -3,6 +3,8 @@ package Spellbook::Advisory::CVE_2021_41174 {
     use warnings;
     use Spellbook::Core::UserAgent;
 
+    our $VERSION = '0.0.1';
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $snapshot_path, @result);
