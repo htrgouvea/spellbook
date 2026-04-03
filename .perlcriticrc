@@ -1,4 +1,4 @@
-severity = 5
+severity = 4
 
 [-CodeLayout::RequireTidyCode]
 [-TestingAndDebugging::RequireUseStrict]
