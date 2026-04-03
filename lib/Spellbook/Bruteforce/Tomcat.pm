@@ -93,7 +93,7 @@ package Spellbook::Bruteforce::Tomcat {
             my @passwords = Spellbook::Helper::Read_File -> new(['--file' => $wordlist]);
 
             foreach my $candidate_password (@passwords) {
-                chomp($candidate_password);
+                chomp $candidate_password;
 
                 my $credentials = $username . ':' . $candidate_password;
                 my $encoded_credentials = encode_base64($credentials, '');
@@ -139,7 +139,7 @@ package Spellbook::Bruteforce::Tomcat {
             my @usernames = Spellbook::Helper::Read_File -> new(['--file' => $userlist]);
 
             foreach my $candidate_username (@usernames) {
-                chomp($candidate_username);
+                chomp $candidate_username;
 
                 my $credentials = $candidate_username . ':' . $password;
                 my $encoded_credentials = encode_base64($credentials, '');

@@ -17,11 +17,11 @@ package Spellbook::Cloud::Account_Identifier {
         );
 
         if ($key) {
-            my $trimmed_aws_key_id = substr($key, 4);
+            my $trimmed_aws_key_id = substr $key, 4;
             my $decoded          = decode_base32($trimmed_aws_key_id);
 
-            my $decoded_prefix = substr($decoded, 0, 6);
-            my $bigint_value = Math::BigInt -> new('0x' . unpack('H*', $decoded_prefix));
+            my $decoded_prefix = substr $decoded, 0, 6;
+            my $bigint_value = Math::BigInt -> new('0x' . unpack 'H*', $decoded_prefix);
 
             my $mask      = Math::BigInt -> new('0x7fffffffff80');
             my $account_id = ($bigint_value & $mask) >> 7;

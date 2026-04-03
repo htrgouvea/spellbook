@@ -10,7 +10,7 @@ package Spellbook::Recon::Nmap_Scanner {
         my $host     = shift;
 
         my $hostname = $host -> hostname();
-        my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
+        my $addresses = join ',', map {$_ -> addr()} $host -> addresses();
         my $status = $host -> status();
 
         print "$hostname ($addresses) is $status\n";
@@ -24,11 +24,13 @@ package Spellbook::Recon::Nmap_Scanner {
         my $port     = shift;
 
         my $name = $host -> hostname();
-        my $addresses = join(',', map {$_ -> addr()} $host -> addresses());
+        my $addresses = join ',', map {$_ -> addr()} $host -> addresses();
+
+        my $port_identifier = join '/', $port -> protocol(), $port -> portid();
 
         print "On host $name ($addresses), found ",
             $port -> state(), 'port',
-            join('/', $port -> protocol(), $port -> portid()), "\n";
+            $port_identifier, "\n";
 
         return 0;
     }

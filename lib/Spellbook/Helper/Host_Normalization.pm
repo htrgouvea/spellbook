@@ -26,7 +26,7 @@ package Spellbook::Helper::Host_Normalization {
             $host =~ s/^www\.//imsx;
             $host =~ s/^\*.//msx;
 
-            return lc($host);
+            return lc $host;
         }
 
         if ($help) {
