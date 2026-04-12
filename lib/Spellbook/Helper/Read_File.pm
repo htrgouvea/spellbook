@@ -18,7 +18,7 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
-            my $handle = Mojo::File -> new($file) -> openr();
+            my $handle = Mojo::File -> new($file) -> open();
 
             while (defined(my $line = $handle -> getline())) {
                 chomp $line;
