@@ -6,6 +6,9 @@ package Spellbook::Parser::Sitemap {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -23,7 +26,7 @@ package Spellbook::Parser::Sitemap {
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request = $user_agent -> get($target);
 
-            if ($request -> code() == 200) {
+            if ($request -> code() == $HTTP_OK) {
                 my $content = $request -> content();
 
                 while ($content =~ m/<loc>(.*?)<\/loc>/gmsx) {
