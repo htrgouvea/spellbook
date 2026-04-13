@@ -4,6 +4,9 @@ package Spellbook::Core::Search {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $INDEX_NOT_FOUND => -1;
+
     sub new {
         my ($self, $search, @results) = @_;
 
@@ -13,7 +16,7 @@ package Spellbook::Core::Search {
             for (keys %{$module}) {
                 my $value = lc $module -> {$_};
 
-                if (index($value, lc $search) != -1) {
+                if (index($value, lc $search) != $INDEX_NOT_FOUND) {
                     print "\nModule: ", ucfirst $module -> {category} . '::' . $module -> {module}, "\n";
                     print 'Description: ', $module -> {description}, "\n";
                     print '=================================================', "\n";
