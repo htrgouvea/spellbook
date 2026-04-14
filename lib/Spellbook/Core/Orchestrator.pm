@@ -2,18 +2,21 @@ package Spellbook::Core::Orchestrator {
     use strict;
     use threads;
     use warnings;
+    use Readonly;
     use Getopt::Long;
     use Thread::Queue;
     use threads::shared;
     use Mojo::File;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
+
+    Readonly my $DEFAULT_THREADS => 10;
 
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $wordlist, $module, $list);
 
-        my $threads = 10;
+        my $threads = $DEFAULT_THREADS;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
