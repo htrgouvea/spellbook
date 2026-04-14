@@ -2,16 +2,19 @@ package Spellbook::Helper::Scope {
     use strict;
     use warnings;
     use YAML::Tiny;
+    use Readonly;
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
 
     our $VERSION = '0.0.1';
+    
+    Readonly my $DEFAULT_THREADS => 10;
 
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $scope, $information, $entrypoint, $save, $keep, @results);
 
-        my $threads = 10;
+        my $threads = $DEFAULT_THREADS;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
