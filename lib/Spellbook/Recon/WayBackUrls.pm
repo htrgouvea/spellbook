@@ -4,7 +4,12 @@ package Spellbook::Recon::WayBackUrls {
     use JSON;
     use Spellbook::Core::UserAgent;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
+
+    use Readonly;
+
+    Readonly my $HTTP_OK => 200;
+    Readonly my $WAYBACK_TIMEOUT => 20;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -17,16 +22,25 @@ package Spellbook::Recon::WayBackUrls {
         );
 
         if ($target) {
-            my $endpoint  = "http://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
+            if ($target =~ /^http(?:s)?:\/\//msx) {
+                $target =~ s/^http(?:s)?:\/\///msx;
+            }
+
+            $target =~ s/\/.*$//msx;
+
+            my $endpoint  = "https://web.archive.org/cdx/search/cdx?url=$target/*&output=json&fl=original&collapse=urlkey";
             my $user_agent = Spellbook::Core::UserAgent -> new();
+            
+            $user_agent -> timeout($WAYBACK_TIMEOUT);
+            
             my $request   = $user_agent -> get($endpoint);
 
-            if (($request -> code() == 200) && ($request -> content ne '[]')) {
+            if (($request -> code() == $HTTP_OK) && ($request -> content ne '[]')) {
                 my $content = decode_json($request -> content);
 
                 foreach my $fullurl (@{$content}) {
-                    if ($fullurl -> [2] ne 'original') {
-                        push @result, $fullurl -> [2];
+                    if ($fullurl -> [0] ne 'original') {
+                        push @result, $fullurl -> [0];
                     }
                 }
             }
