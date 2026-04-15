@@ -4,8 +4,11 @@ package Spellbook::Parser::S3_Bucket {
     use XML::Simple;
     use Spellbook::Core::UserAgent;
     use Try::Tiny;
+    use Readonly;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
+
+    Readonly my $HTTP_OK => 200;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -27,7 +30,7 @@ package Spellbook::Parser::S3_Bucket {
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request   = $user_agent -> get($target);
 
-            if ($request -> code() == 200) {
+            if ($request -> code() == $HTTP_OK) {
                 try {
                     my $xml = XML::Simple -> new();
                     my $content = $xml -> XMLin($request -> content());
@@ -41,12 +44,12 @@ package Spellbook::Parser::S3_Bucket {
             return @result;
         }
 
-        if ($help) {
+        if ($help || !$target) {
             return "
                 \rParser::Bucket
                 \r=====================
                 \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+                \r-t, --target   S3 bucket URL or host (e.g. my-bucket.s3.amazonaws.com)\n\n";
         }
 
         return 0;
