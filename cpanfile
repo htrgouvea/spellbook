@@ -10,7 +10,7 @@ requires 'WWW::Mechanize', '2.20';
 requires 'WWW::Wappalyzer',     '2.00';
 requires 'Redis',               '2.000';
 requires 'IO::Socket::SSL', '2.098';
-requires 'DateTime::TimeZone', '2.67';
+requires 'DateTime::TimeZone', '2.68';
 requires 'List::MoreUtils', '0.430';
 requires 'JSON', '4.11';
 requires 'LWP::UserAgent', '6.82';
