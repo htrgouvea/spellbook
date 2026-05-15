@@ -1,4 +1,4 @@
-severity = 4
+severity = 1
 
 [-CodeLayout::RequireTidyCode]
 [-TestingAndDebugging::RequireUseStrict]
@@ -9,4 +9,4 @@ allow = once
 
 [InputOutput::RequireCheckedSyscalls]
 functions = :builtins
-exclude_functions = print say
+exclude_functions = print say close sleep
