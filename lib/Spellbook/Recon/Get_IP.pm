@@ -28,11 +28,11 @@ package Spellbook::Recon::Get_IP {
         }
 
         if ($help) {
-            return "
-                \rRecon::Get_IP
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain to get the IP\n\n";
+            return "\n"
+                . "Recon::Get_IP\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set a domain to get the IP\n";
         }
 
         return 0;
