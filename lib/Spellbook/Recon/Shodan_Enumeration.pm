@@ -9,6 +9,9 @@ package Spellbook::Recon::Shodan_Enumeration {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -35,7 +38,7 @@ package Spellbook::Recon::Shodan_Enumeration {
                 my $request   = $user_agent -> get($endpoint);
                 my $http_code  = $request -> code();
 
-                if ($http_code == 200) {
+                if ($http_code == $HTTP_OK) {
                     my $content = decode_json($request -> content);
 
                     foreach my $data (@{$content -> {'data'}}) {
@@ -50,11 +53,11 @@ package Spellbook::Recon::Shodan_Enumeration {
         }
 
         if ($help) {
-            return "
-                \rRecon::Shodan_Enum
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set an IP to see infos on shodan API\n\n";
+            return "\n"
+                . "Recon::Shodan_Enum\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set an IP to see infos on shodan API\n\n";
         }
 
         return 0;

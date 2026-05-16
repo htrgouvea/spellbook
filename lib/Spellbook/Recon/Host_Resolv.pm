@@ -29,11 +29,11 @@ package Spellbook::Recon::Host_Resolv {
         }
 
         if ($help) {
-            return "
-                \rRecon::Host_Resolv
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain to get the IP\n\n";
+            return "\n"
+                . "Recon::Host_Resolv\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set a domain to get the IP\n";
         }
 
         return 0;

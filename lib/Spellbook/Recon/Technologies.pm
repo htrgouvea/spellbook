@@ -32,17 +32,17 @@ package Spellbook::Recon::Technologies {
                 headers => \%headers_hash
             );
 
-            @result = map { @$_ } values %detected;
+            @result = map { @{$_} } values %detected;
 
             return @result;
         }
 
         if ($help) {
-            return "
-                \rRecon::Detect_Tech
-                \r=====================
-                \r-t, --target     Define the target
-                \r-h, --help       See this menu\n\n";
+            return "\n"
+                . "Recon::Detect_Tech\n"
+                . "=====================\n"
+                . "-t, --target     Define the target\n"
+                . "-h, --help       See this menu\n\n";
         }
 
         return 1;

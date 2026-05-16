@@ -28,10 +28,10 @@ package Spellbook::Recon::Public_DNS {
         if ($help) {
             return join
                 "\n",
-                "\r\nRecon::Public_DNS",
-                "\r=====================",
-                "\r-h, --help     See this menu",
-                "\r-t, --target   Verify if a domain has a resolution to public IP\n";
+                "\nRecon::Public_DNS",
+                '=====================',
+                '-h, --help     See this menu',
+                "-t, --target   Verify if a domain has a resolution to public IP\n";
         }
 
         return 0;

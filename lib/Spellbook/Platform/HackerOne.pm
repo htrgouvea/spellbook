@@ -47,11 +47,11 @@ package Spellbook::Platform::HackerOne {
         }
 
         if ($help) {
-            return "
-                \rPlatform::HackerOne
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Program handle from HackerOne\n\n";
+            return "\n"
+                . "Platform::HackerOne\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Program handle from HackerOne\n\n";
         }
 
         return 0;

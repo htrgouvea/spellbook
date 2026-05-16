@@ -10,7 +10,7 @@ package Spellbook::Recon::Nmap_Scanner {
         my $host     = shift;
 
         my $hostname = $host -> hostname();
-        my $addresses = join ',', map {$_ -> addr()} $host -> addresses();
+        my $addresses = join q{,}, map {$_ -> addr()} $host -> addresses();
         my $status = $host -> status();
 
         print "$hostname ($addresses) is $status\n";
@@ -24,9 +24,9 @@ package Spellbook::Recon::Nmap_Scanner {
         my $port     = shift;
 
         my $name = $host -> hostname();
-        my $addresses = join ',', map {$_ -> addr()} $host -> addresses();
+        my $addresses = join q{,}, map {$_ -> addr()} $host -> addresses();
 
-        my $port_identifier = join '/', $port -> protocol(), $port -> portid();
+        my $port_identifier = join q{/}, $port -> protocol(), $port -> portid();
 
         print "On host $name ($addresses), found ",
             $port -> state(), 'port',
@@ -59,11 +59,11 @@ package Spellbook::Recon::Nmap_Scanner {
         }
 
         if ($help) {
-            return "
-                \rRecon::Nmap_Scanner
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set an IP to run the scanner\n\n";
+            return "\n"
+                . "Recon::Nmap_Scanner\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set an IP to run the scanner\n\n";
         }
 
         return 0;

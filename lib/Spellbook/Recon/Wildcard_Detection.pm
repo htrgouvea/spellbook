@@ -6,12 +6,15 @@ package Spellbook::Recon::Wildcard_Detection {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $DEFAULT_SAMPLES => 5;
+
     sub _extract_fingerprint {
         my ($packet) = @_;
         my @records;
 
         foreach my $record ($packet -> answer()) {
-            push @records, $record -> type() . ':' . $record -> rdstring();
+            push @records, $record -> type() . q{:} . $record -> rdstring();
         }
 
         if (!@records) {
@@ -19,13 +22,13 @@ package Spellbook::Recon::Wildcard_Detection {
         }
 
         my @sorted = sort @records;
-        return join ',', @sorted;
+        return join q{,}, @sorted;
     }
 
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
-        my $samples = 5;
+        my $samples = $DEFAULT_SAMPLES;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -65,12 +68,12 @@ package Spellbook::Recon::Wildcard_Detection {
         }
 
         if ($help) {
-            return "
-                \rRecon::Wildcard_Detection
-                \r=========================
-                \r-h, --help       See this menu
-                \r-t, --target     Set a domain as a target
-                \r-s, --samples    Number of random UUID v4 probes\n\n";
+            return "\n"
+                . "Recon::Wildcard_Detection\n"
+                . "=========================\n"
+                . "-h, --help       See this menu\n"
+                . "-t, --target     Set a domain as a target\n"
+                . "-s, --samples    Number of random UUID v4 probes\n\n";
         }
 
         return 0;

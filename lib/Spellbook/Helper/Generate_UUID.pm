@@ -29,12 +29,12 @@ package Spellbook::Helper::Generate_UUID {
         }
 
         if ($help) {
-            return "
-                \rHelper::Generate_UUID
-                \r=====================
-                \r-h, --help     See this menu
-                \r-v, --version  Version of UUID algorithm
-                \r-r, --repeat   Quantities of repetitions\n\n";
+            return "\n"
+                . "Helper::Generate_UUID\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-v, --version  Version of UUID algorithm\n"
+                . "-r, --repeat   Quantities of repetitions\n\n";
         }
 
         return 0;

@@ -8,6 +8,9 @@ package Spellbook::Recon::Subdomain_Enumeration {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -34,7 +37,7 @@ package Spellbook::Recon::Subdomain_Enumeration {
             foreach my $endpoint (@endpoints) {
                 my $request = $user_agent -> get($endpoint, 'apikey' => $api_key);
 
-                if ($request -> code() == 200) {
+                if ($request -> code() == $HTTP_OK) {
                     my $content = decode_json($request -> content);
 
                     if ($content -> {'subdomains'}) {
@@ -55,11 +58,11 @@ package Spellbook::Recon::Subdomain_Enumeration {
         }
 
         if ($help) {
-            return "
-                \rRecon::Subdomain_Enumeration
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Find subdomains from a target using SecurityTrails\n\n";
+            return "\n"
+                . "Recon::Subdomain_Enumeration\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Find subdomains from a target using SecurityTrails\n\n";
         }
 
         return 0;

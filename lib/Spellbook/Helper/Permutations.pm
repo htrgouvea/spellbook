@@ -28,19 +28,19 @@ package Spellbook::Helper::Permutations {
                     $chars[$random] = $temp;
                 }
 
-                push @result, join '', @chars;
+                push @result, join q{}, @chars;
             }
 
             return @result;
         }
 
         if ($help) {
-            return "
-                \rHelper::Permutations
-                \r=====================
-                \r-h, --help     See this menu
-                \r-v, --value    Provide a seed
-                \r-r, --repeat   Quantities of repetitions\n\n";
+            return "\n"
+                . "Helper::Permutations\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-v, --value    Provide a seed\n"
+                . "-r, --repeat   Quantities of repetitions\n\n";
         }
 
         return 0;

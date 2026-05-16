@@ -6,6 +6,9 @@ package Spellbook::Recon::Detect_Error {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_NOT_FOUND => 404;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
@@ -30,7 +33,7 @@ package Spellbook::Recon::Detect_Error {
                         my $useragent = Spellbook::Core::UserAgent -> new();
                         my $request   = $useragent -> get($target);
 
-                        if ($request -> code() == 404) {
+                        if ($request -> code() == $HTTP_NOT_FOUND) {
                             push @results, $target;
                         }
                     }
@@ -41,11 +44,11 @@ package Spellbook::Recon::Detect_Error {
         }
 
         if ($help) {
-            return "
-                \rChecker
-                \r==============
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target\n\n";
+            return "\n"
+                . "Checker\n"
+                . "==============\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Define a target\n\n";
         }
     }
 }

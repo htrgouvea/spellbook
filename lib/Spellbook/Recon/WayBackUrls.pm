@@ -30,9 +30,9 @@ package Spellbook::Recon::WayBackUrls {
 
             my $endpoint  = "https://web.archive.org/cdx/search/cdx?url=$target/*&output=json&fl=original&collapse=urlkey";
             my $user_agent = Spellbook::Core::UserAgent -> new();
-            
+
             $user_agent -> timeout($WAYBACK_TIMEOUT);
-            
+
             my $request   = $user_agent -> get($endpoint);
 
             if (($request -> code() == $HTTP_OK) && ($request -> content ne '[]')) {
@@ -49,11 +49,11 @@ package Spellbook::Recon::WayBackUrls {
         }
 
         if ($help) {
-            return "
-                \rRecon::WaybackUrls
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set an website to see paths from WayBackMachine\n";
+            return "\n"
+                . "Recon::WaybackUrls\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set an website to see paths from WayBackMachine\n";
         }
 
         return 0;

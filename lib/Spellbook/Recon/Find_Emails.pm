@@ -7,6 +7,9 @@ package Spellbook::Recon::Find_Emails {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -24,7 +27,7 @@ package Spellbook::Recon::Find_Emails {
             my $request   = $user_agent -> get($endpoint);
             my $http_code  = $request -> code();
 
-            if ($http_code == 200) {
+            if ($http_code == $HTTP_OK) {
                 my $content = decode_json($request -> content);
 
                 foreach my $email (@{$content -> {data} -> {emails}}) {
@@ -36,11 +39,11 @@ package Spellbook::Recon::Find_Emails {
         }
 
         if ($help) {
-            return "
-                \rRecon::Find_Emails
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a domain to find emails\n";
+            return "\n"
+                . "Recon::Find_Emails\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Define a domain to find emails\n";
         }
 
         return 0;

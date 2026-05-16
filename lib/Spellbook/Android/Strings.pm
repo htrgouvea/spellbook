@@ -14,10 +14,10 @@ package Spellbook::Android::Strings {
         }
 
         if ($help) {
-            return "
-            \rAndroid::
-            \r================
-            \r-h, --help       See this menu\n";
+            return "\n"
+                . "Android::\n"
+                . "================\n"
+                . "-h, --help       See this menu\n";
         }
 
         return 0;

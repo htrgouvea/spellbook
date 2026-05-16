@@ -4,7 +4,7 @@ package Spellbook::Recon::DNS_Bruteforce {
     use Spellbook::Helper::Read_File;
     use Spellbook::Recon::Host_Resolv;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters) = @_;
@@ -35,12 +35,12 @@ package Spellbook::Recon::DNS_Bruteforce {
         }
 
         if ($help) {
-            return "
-                \rRecon::DNS_Bruteforce
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Set a domain as a target
-                \r-f, --file     Define a wordlist\n\n";
+            return "\n"
+                . "Recon::DNS_Bruteforce\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Set a domain as a target\n"
+                . "-f, --file     Define a wordlist\n\n";
         }
 
         return 0;

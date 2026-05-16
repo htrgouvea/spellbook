@@ -25,11 +25,11 @@ package Spellbook::Parser::Nmap {
         }
 
         if ($help) {
-            return "
-                \rParser::Nmap
-                \r=====================
-                \r-h, --help     See this menu
-                \r-f, --file     Set an XML file from Nmap output\n\n";
+            return "\n"
+                . "Parser::Nmap\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-f, --file     Set an XML file from Nmap output\n\n";
         }
 
         return 0;

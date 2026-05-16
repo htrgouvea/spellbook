@@ -31,8 +31,8 @@ package Spellbook::Recon::Internal_DNS {
             return join
                 "\n",
                 "\nRecon::Internal_DNS",
-                "=====================",
-                "-h, --help     See this menu",
+                '=====================',
+                '-h, --help     See this menu',
                 "-t, --target   Specify the domain to check if it resolves to a private IP\n",
         }
 

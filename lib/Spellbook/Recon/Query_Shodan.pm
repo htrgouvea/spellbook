@@ -7,6 +7,9 @@ package Spellbook::Recon::Query_Shodan {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $query, @result);
@@ -24,7 +27,7 @@ package Spellbook::Recon::Query_Shodan {
             my $request   = $user_agent -> get($endpoint);
             my $http_code  = $request -> code();
 
-            if ($http_code == 200) {
+            if ($http_code == $HTTP_OK) {
                 my $content = decode_json($request -> content());
 
                 foreach my $data (@{$content -> {'matches'}}) {
@@ -39,11 +42,11 @@ package Spellbook::Recon::Query_Shodan {
         }
 
         if ($help) {
-            return "
-                \rRecon::Shodan
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --query    Define a query\n\n";
+            return "\n"
+                . "Recon::Shodan\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --query    Define a query\n\n";
         }
 
         return 0;

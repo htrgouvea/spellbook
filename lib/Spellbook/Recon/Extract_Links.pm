@@ -65,7 +65,7 @@ package Spellbook::Recon::Extract_Links {
 
                     if ($url && $url !~ m/#/msx && $url !~ /^http(?:s)?:\/\//msx) {
                         if ($url !~ /^\//msx) {
-                            $url = '/' . $url;
+                            $url = q{/} . $url;
                         }
 
                         my $absolute_url = $root_url . $url;
@@ -99,12 +99,12 @@ package Spellbook::Recon::Extract_Links {
         }
 
         if ($help) {
-            return "
-                \rRecon::Extrac_Links
-                \r=====================
-                \r-h, --help       See this menu
-                \r-t, --target     Define a web page to extract all links
-                \r-d, --deep       Draft recursive function\n\n";
+            return "\n"
+                . "Recon::Extrac_Links\n"
+                . "=====================\n"
+                . "-h, --help       See this menu\n"
+                . "-t, --target     Define a web page to extract all links\n"
+                . "-d, --deep       Draft recursive function\n\n";
         }
 
         return 0;

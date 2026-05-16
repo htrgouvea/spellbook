@@ -20,11 +20,11 @@ package Spellbook::Helper::Uniq {
         }
 
         if ($help) {
-            return "
-                \rHelper::Uniq
-                \r=====================
-                \r-h, --help     See this menu
-                \r-v, --target    Define a value\n\n";
+            return "\n"
+                . "Helper::Uniq\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-v, --target    Define a value\n\n";
         }
 
         return 0;

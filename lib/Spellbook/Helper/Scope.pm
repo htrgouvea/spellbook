@@ -6,8 +6,8 @@ package Spellbook::Helper::Scope {
     use Spellbook::Core::Module;
     use Spellbook::Core::Orchestrator;
 
-    our $VERSION = '0.0.1';
-    
+    our $VERSION = '0.0.2';
+
     Readonly my $DEFAULT_THREADS => 10;
 
     sub new {
@@ -64,15 +64,15 @@ package Spellbook::Helper::Scope {
         }
 
          if ($help) {
-            return "
-                \rHelper::Scope
-                \r=====================
-                \r-h, --help         See this menu
-                \r-S, --scope        Define a YML file as a scope
-                \r-i, --information  Set an information to extract from your scope
-                \r-e, --entrypoint   Send informations to another entrypoint module
-                \r-K, --keep         Keep the current values in the file and add news values
-                \r--save             Save the output on some attribute\n\n";
+            return "\n"
+                . "Helper::Scope\n"
+                . "=====================\n"
+                . "-h, --help         See this menu\n"
+                . "-S, --scope        Define a YML file as a scope\n"
+                . "-i, --information  Set an information to extract from your scope\n"
+                . "-e, --entrypoint   Send informations to another entrypoint module\n"
+                . "-K, --keep         Keep the current values in the file and add news values\n"
+                . "--save             Save the output on some attribute\n";
         }
 
         return 0;

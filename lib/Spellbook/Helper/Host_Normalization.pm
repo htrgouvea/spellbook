@@ -23,8 +23,8 @@ package Spellbook::Helper::Host_Normalization {
             my $uri  = URI::URL -> new($target);
             my $host = $uri -> host();
 
-            $host =~ s/^www\.//imsx;
-            $host =~ s/^\*.//msx;
+            $host =~ s/^www[.]//imsx;
+            $host =~ s/^[*][.]//msx;
 
             return lc $host;
         }

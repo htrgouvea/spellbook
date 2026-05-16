@@ -5,11 +5,14 @@ package Spellbook::Helper::Reverse_Shell {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $DEFAULT_PORT => 1337;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target);
 
-        my $port = 1337;
+        my $port = $DEFAULT_PORT;
         my $lang = 'perl';
 
         Getopt::Long::GetOptionsFromArray (
@@ -30,13 +33,13 @@ package Spellbook::Helper::Reverse_Shell {
         }
 
         if ($help) {
-            return "
-                \rHelper::Reverse_Shell
-                \r=====================
-                \r-h, --help        See this menu
-                \r-t, --target      Set your IP/Host to send the reverse shell
-                \r-p, --port        Define a port to connect
-                \r-l, --lang        Default is perl, types avaible: perl, bash\n\n";
+            return "\n"
+                . "Helper::Reverse_Shell\n"
+                . "=====================\n"
+                . "-h, --help        See this menu\n"
+                . "-t, --target      Set your IP/Host to send the reverse shell\n"
+                . "-p, --port        Define a port to connect\n"
+                . "-l, --lang        Default is perl, types avaible: perl, bash\n\n";
         }
 
         return 0;

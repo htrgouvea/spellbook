@@ -54,12 +54,12 @@ package Spellbook::Recon::Dorking {
         }
 
         if ($help) {
-            return "
-                \rRecon::Dorking
-                \r=====================
-                \r-h, --help     See this menu
-                \r-d, --dork     Set a dork to search
-                \r-p, --page     Set the number of pages to search (default: " . $DEFAULT_PAGE . ")\n\n";
+            return "\n"
+                . "Recon::Dorking\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-d, --dork     Set a dork to search\n"
+                . "-p, --page     Set the number of pages to search (default: $DEFAULT_PAGE)\n\n";
         }
 
         return 0;

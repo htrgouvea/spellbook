@@ -79,11 +79,11 @@ package Spellbook::Recon::Broken_Links {
         }
 
         if ($help) {
-            return "
-                \rRecon::Broken_Links
-                \r=====================
-                \r-h, --help       See this menu
-                \r-t, --target     Define a web page to detect broken links\n\n";
+            return "\n"
+                . "Recon::Broken_Links\n"
+                . "=====================\n"
+                . "-h, --help       See this menu\n"
+                . "-t, --target     Define a web page to detect broken links\n\n";
         }
 
         return 0;

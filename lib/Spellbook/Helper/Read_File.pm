@@ -40,12 +40,12 @@ package Spellbook::Helper::Read_File {
         }
 
 
-        return "
-            \rHelper::Read_File
-            \r=====================
-            \r-h, --help        See this menu
-            \r-f, --file        Define a file to read
-            \r-e, --entrypoint  Set a other module to send the output as a target\n\n";
+        return "\n"
+            . "Helper::Read_File\n"
+            . "=====================\n"
+            . "-h, --help        See this menu\n"
+            . "-f, --file        Define a file to read\n"
+            . "-e, --entrypoint  Set a other module to send the output as a target\n\n";
     }
 }
 

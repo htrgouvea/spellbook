@@ -43,11 +43,11 @@ package Spellbook::Parser::Sitemap {
         }
 
         if ($help) {
-            return "
-                \rParser::Sitemap
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   \n\n";
+            return "\n"
+                . "Parser::Sitemap\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   \n\n";
         }
 
         return 0;

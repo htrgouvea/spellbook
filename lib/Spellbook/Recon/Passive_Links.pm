@@ -7,6 +7,9 @@ package Spellbook::Recon::Passive_Links {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $HTTP_OK => 200;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
@@ -22,7 +25,7 @@ package Spellbook::Recon::Passive_Links {
             my $otx_endpoint = "https://otx.alienvault.com/api/v1/indicators/domain/$target/url_list?limit=500&page=1";
             my $otx_request  = $user_agent -> get($otx_endpoint);
 
-            if ($otx_request -> code() == 200) {
+            if ($otx_request -> code() == $HTTP_OK) {
                 my $otx_content = decode_json($otx_request -> content);
                 my $otx_url_list = $otx_content -> {url_list};
 
@@ -40,7 +43,7 @@ package Spellbook::Recon::Passive_Links {
             my $wayback_endpoint = "https://web.archive.org/cdx/search/cdx?url=$target/*&output=json&collapse=urlkey";
             my $wayback_request  = $user_agent -> get($wayback_endpoint);
 
-            if (($wayback_request -> code() == 200) && ($wayback_request -> content ne '[]')) {
+            if (($wayback_request -> code() == $HTTP_OK) && ($wayback_request -> content ne '[]')) {
                 my $wayback_content = decode_json($wayback_request -> content);
 
                 foreach my $fullurl (@{$wayback_content}) {
@@ -53,7 +56,7 @@ package Spellbook::Recon::Passive_Links {
             my $index = 'CC-MAIN-2024-10';
             my $index_request = $user_agent -> get('https://index.commoncrawl.org/collinfo.json');
 
-            if ($index_request -> code() == 200) {
+            if ($index_request -> code() == $HTTP_OK) {
                 my $index_content = decode_json($index_request -> content);
 
                 if ((ref $index_content eq 'ARRAY') && (@{$index_content} > 0)) {
@@ -68,7 +71,7 @@ package Spellbook::Recon::Passive_Links {
             my $common_crawl_endpoint = "https://index.commoncrawl.org/$index-index?url=$target/*&output=json";
             my $common_crawl_request  = $user_agent -> get($common_crawl_endpoint);
 
-            if ($common_crawl_request -> code() == 200) {
+            if ($common_crawl_request -> code() == $HTTP_OK) {
                 my $common_crawl_content = $common_crawl_request -> content;
 
                 foreach my $line (split /\n/msx, $common_crawl_content) {
@@ -87,11 +90,11 @@ package Spellbook::Recon::Passive_Links {
         }
 
         if ($help) {
-            return "
-                \rRecon::Passive_Links
-                \r====================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a domain to find known URLs\n";
+            return "\n"
+                . "Recon::Passive_Links\n"
+                . "====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Define a domain to find known URLs\n";
         }
 
         return 0;

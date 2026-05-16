@@ -48,7 +48,7 @@ package Spellbook::Recon::Masscan {
                 my $result = $masscan -> scan_results();
 
                 foreach my $value (@{$result -> {'scan_results'}}) {
-                    push @result, $target[0] . ':' . $value -> {'ports'} -> [0] -> {'port'};
+                    push @result, $target[0] . q{:} . $value -> {'ports'} -> [0] -> {'port'};
                 }
 
                 return uniq @result;
@@ -56,14 +56,14 @@ package Spellbook::Recon::Masscan {
         }
 
         if ($help) {
-            return "
-                \rRecon::Masscan
-                \r=====================
-                \r-h, --help       See this menu
-                \r-t, --target     Set an Domain/IP to make a port scanning using masscan
-                \r-p, --ports      Define ports to scan
-                \r-a, --arguments  Parameters to masscanner
-                \r--skip-cdn       Skip the CDN check\n\n";
+            return "\n"
+                . "Recon::Masscan\n"
+                . "=====================\n"
+                . "-h, --help       See this menu\n"
+                . "-t, --target     Set an Domain/IP to make a port scanning using masscan\n"
+                . "-p, --ports      Define ports to scan\n"
+                . "-a, --arguments  Parameters to masscanner\n"
+                . "--skip-cdn       Skip the CDN check\n\n";
         }
 
         return 0;

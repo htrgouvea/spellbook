@@ -32,11 +32,11 @@ package Spellbook::Recon::HTTP_Probe {
         }
 
         if ($help) {
-            return "
-                \rRecon::HTTP_Probe
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target to make a HTTP request probe\n\n";
+            return "\n"
+                . "Recon::HTTP_Probe\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Define a target to make a HTTP request probe\n\n";
         }
 
         return 0;

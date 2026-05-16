@@ -25,7 +25,7 @@ package Spellbook::Parser::S3_Bucket {
                 $target = "https://$target";
             }
 
-            if ($target !~ /\/$/msx) { $target .= '/'; }
+            if ($target !~ /\/$/msx) { $target .= q{/}; }
 
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request   = $user_agent -> get($target);
@@ -45,11 +45,11 @@ package Spellbook::Parser::S3_Bucket {
         }
 
         if ($help || !$target) {
-            return "
-                \rParser::Bucket
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t, --target   S3 bucket URL or host (e.g. my-bucket.s3.amazonaws.com)\n\n";
+            return "\n"
+                . "Parser::Bucket\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   S3 bucket URL or host (e.g. my-bucket.s3.amazonaws.com)\n\n";
         }
 
         return 0;
