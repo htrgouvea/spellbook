@@ -30,10 +30,10 @@ package Spellbook::Recon::Internal_DNS {
         if ($help) {
             return join
                 "\n",
-                "\r\nRecon::Internal_DNS",
-                "\r=====================",
-                "\r-h, --help     See this menu",
-                "\r-t, --target   Specify the domain to check if it resolves to a private IP\n",
+                "\nRecon::Internal_DNS",
+                "=====================",
+                "-h, --help     See this menu",
+                "-t, --target   Specify the domain to check if it resolves to a private IP\n",
         }
 
         return 0;
