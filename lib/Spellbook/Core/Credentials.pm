@@ -33,12 +33,12 @@ package Spellbook::Core::Credentials {
         }
 
         if ($help) {
-            return "
-            \rCore::Credentials
-            \r==============
-            \r-h, --help       See this menu
-            \r-p, --platform   Read some credentials filtering by platform
-            \r-v, --value      Define a value of a platform\n\n";
+            return "\n"
+                . "Core::Credentials\n"
+                . "==============\n"
+                . "-h, --help       See this menu\n"
+                . "-p, --platform   Read some credentials filtering by platform\n"
+                . "-v, --value      Define a value of a platform\n\n";
         }
 
         return 0;

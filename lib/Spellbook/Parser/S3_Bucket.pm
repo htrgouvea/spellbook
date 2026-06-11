@@ -25,7 +25,9 @@ package Spellbook::Parser::S3_Bucket {
                 $target = "https://$target";
             }
 
-            if ($target !~ /\/$/msx) { $target .= q{/}; }
+            if ($target !~ /\/$/msx) {
+                $target .= q{/};
+            }
 
             my $user_agent = Spellbook::Core::UserAgent -> new();
             my $request   = $user_agent -> get($target);

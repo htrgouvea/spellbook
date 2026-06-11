@@ -57,18 +57,18 @@ package Spellbook::Core::Orchestrator {
                 async {
                     while (defined(my $target = $queue -> dequeue())) {
                         my @response = Spellbook::Core::Module -> new (
-                            $module, [ '--target' => $target, @$parameters ]
+                            $module, [ '--target' => $target, @{$parameters} ]
                         );
 
                         lock(@results);
 
-                        if (@response) {
-                            foreach my $result (@response) {
-                                if (!exists $seen{$result}) {
-                                    $seen{$result} = 1;
-                                    push @results, $result;
-                                }
+                        foreach my $result (@response) {
+                            if (exists $seen{$result}) {
+                                next;
                             }
+
+                            $seen{$result} = 1;
+                            push @results, $result;
                         }
                     }
                 };
@@ -84,13 +84,13 @@ package Spellbook::Core::Orchestrator {
         }
 
         if ($help) {
-            return "
-                \rCore::Orchestrator
-                \r==============
-                \r\t-h, --help          See this menu
-                \r\t-t, --threads       Number of threads
-                \r\t-w, --wordlist      Wordlist file
-                \r\t-e, --entrypoint    Module to execute\n\n";
+            return "\n"
+                . "Core::Orchestrator\n"
+                . "==============\n"
+                . "    -h, --help          See this menu\n"
+                . "    -t, --threads       Number of threads\n"
+                . "    -w, --wordlist      Wordlist file\n"
+                . "    -e, --entrypoint    Module to execute\n\n";
         }
 
         return 0;

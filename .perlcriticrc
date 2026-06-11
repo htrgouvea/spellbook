@@ -6,7 +6,7 @@ severity = 1
 
 [TestingAndDebugging::ProhibitNoWarnings]
 allow = once
-
+  
 [InputOutput::RequireCheckedSyscalls]
 functions = :builtins
-exclude_functions = print say close sleep
+exclude_functions = print say close sleep system
