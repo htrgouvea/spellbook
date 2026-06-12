@@ -23,24 +23,37 @@ package Spellbook::Helper::CDN_Checker {
         if ($target) {
             my $ip = Spellbook::Recon::Get_IP -> new(['--target' => $target]);
 
-            if ($ip) {
-                my $cnd_list  = './files/cdn_list.json';
-                my $load_list = Mojo::File -> new($cnd_list) -> slurp;
+            if (!$ip) {
+                return @result;
+            }
 
-                if ($load_list) {
-                    my $data = Mojo::JSON::decode_json($load_list);
-                    my $content = $data -> {$type};
+            my $cdn_list = './files/cdn_list.json';
+            my $load_list = Mojo::File -> new($cdn_list) -> slurp;
 
-                    for (keys %{$content}) {
-                        for (@{$content -> {$_}}) {
-                            my $range = Net::IP -> new($_);
-                            my $value = Net::IP -> new($ip);
-                            my $match =  $range -> overlaps($value);
+            if (!$load_list) {
+                return @result;
+            }
 
-                            if ($match) {
-                                push @result, $target;
-                            }
-                        }
+            my $data = Mojo::JSON::decode_json($load_list);
+            my $content = $data -> {$type};
+            my $value = Net::IP -> new($ip);
+
+            if (!$content || !$value) {
+                return @result;
+            }
+
+            foreach my $provider (keys %{$content}) {
+                foreach my $cidr (@{$content -> {$provider}}) {
+                    my $range = Net::IP -> new($cidr);
+
+                    if (!$range) {
+                        next;
+                    }
+
+                    my $match = $range -> overlaps($value);
+
+                    if ($match) {
+                        push @result, $target;
                     }
                 }
             }
@@ -49,12 +62,12 @@ package Spellbook::Helper::CDN_Checker {
         }
 
         if ($help) {
-            return "
-                \rHelper::CDN_Checker
-                \r=====================
-                \r-h, --help     See this menu
-                \r-t --target    Define a target
-                \r-T, --type     \n\n";
+            return "\n"
+                . "Helper::CDN_Checker\n"
+                . "=====================\n"
+                . "-h, --help     See this menu\n"
+                . "-t --target    Define a target\n"
+                . "-T, --type     \n\n";
         }
 
         return 0;
