@@ -64,7 +64,10 @@ package Spellbook::Advisory::ServiceNow_Widget_Data_Exposure {
                 $g_ck = $1;
             }
 
-            my @tables = $fast_check ? ('t=kb_knowledge&f=text') : @TABLE_LIST;
+            my @tables = @TABLE_LIST;
+            if ($fast_check) {
+                @tables = ('t=kb_knowledge&f=text');
+            }
 
             for my $table (@tables) {
                 try {
