@@ -467,6 +467,12 @@
             "category": "recon",
             "module": "Passive_Links",
             "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"
+        },
+        {
+            "id": "0076",
+            "category": "advisory",
+            "module": "ServiceNow_Widget_Data_Exposure",
+            "description": "Detect misconfigured ServiceNow instances exposing sensitive data via the widget-simple-list API"
         }
     ]
 }
