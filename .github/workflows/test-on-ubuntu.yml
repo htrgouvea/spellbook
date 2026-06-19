@@ -10,8 +10,8 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan 
-        sudo cpanm --installdeps .
+        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan nmap
+        sudo cpanm --notest --installdeps .
     - name: Verify the basic usage
       run: |
         perl spellbook.pl --help
