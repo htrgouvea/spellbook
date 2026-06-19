@@ -3,7 +3,7 @@ requires 'Find::Lib',           '1.04';
 requires 'YAML::Tiny',          '1.76';
 requires 'Masscan::Client', '0.21';
 requires 'Net::DNS', '1.53';
-requires 'WWW::Mechanize', '2.22';
+requires 'WWW::Mechanize', '2.20';
 requires 'Net::IP',             '1.26';
 requires 'UUID::Tiny',          '1.04';
 requires 'WWW::Wappalyzer',     '2.00';
