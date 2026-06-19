@@ -1,4 +1,4 @@
-FROM perl:5.42-slim
+FROM perl:5.40-slim
 
 WORKDIR /usr/src/spellbook
 COPY . .
@@ -6,6 +6,7 @@ COPY . .
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libpcap-dev \
     masscan \
+    libexpat1-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cpanm --notest --installdeps .
