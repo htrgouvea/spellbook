@@ -8,15 +8,38 @@ package Spellbook::Core::Orchestrator {
     use threads::shared;
     use Mojo::File;
 
-    our $VERSION = '0.0.2';
+    our $VERSION = '0.0.3';
 
-    Readonly my $DEFAULT_THREADS => 10;
+    Readonly my $DEFAULT_THREADS    => 10;
+    Readonly my $DEFAULT_BATCH_SIZE => 1000;
+
+    sub _flush {
+        my ($buffer, $output) = @_;
+
+        if (!@{$buffer}) {
+            return 0;
+        }
+
+        my $handle = Mojo::File -> new($output) -> open('>>');
+
+        foreach my $line (@{$buffer}) {
+            print {$handle} $line, "\n";
+        }
+
+        my $count = scalar @{$buffer};
+
+        # Release the already processed results from memory.
+        @{$buffer} = ();
+
+        return $count;
+    }
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $wordlist, $module, $list);
+        my ($help, $wordlist, $module, $list, $output);
 
         my $threads = $DEFAULT_THREADS;
+        my $batch   = $DEFAULT_BATCH_SIZE;
 
         Getopt::Long::GetOptionsFromArray (
             $parameters,
@@ -24,17 +47,27 @@ package Spellbook::Core::Orchestrator {
             't|threads=i'    => \$threads,
             'w|wordlist=s'   => \$wordlist,
             'e|entrypoint=s' => \$module,
-            'l|list=s'       => \$list
+            'l|list=s'       => \$list,
+            'o|output=s'     => \$output,
+            'b|batch=i'      => \$batch
         );
 
         if ($module) {
             my $queue = Thread::Queue -> new();
             my @results :shared;
-            my %seen :shared;
+            my @buffer  :shared;
+            my %seen    :shared;
+            my $written :shared = 0;
+
+            # In streaming mode start the output file fresh so a run never
+            # mixes its results with data left over from a previous one.
+            if ($output) {
+                Mojo::File -> new($output) -> spurt(q{});
+            }
 
             if ($wordlist) {
                 async {
-                    my $handle = Mojo::File -> new($wordlist) -> openr();
+                    my $handle = Mojo::File -> new($wordlist) -> open('<');
 
                     while (defined(my $line = $handle -> getline())) {
                         chomp $line;
@@ -60,7 +93,7 @@ package Spellbook::Core::Orchestrator {
                             $module, [ '--target' => $target, @{$parameters} ]
                         );
 
-                        lock(@results);
+                        lock(%seen);
 
                         foreach my $result (@response) {
                             if (exists $seen{$result}) {
@@ -68,7 +101,19 @@ package Spellbook::Core::Orchestrator {
                             }
 
                             $seen{$result} = 1;
-                            push @results, $result;
+
+                            if ($output) {
+                                push @buffer, $result;
+                            }
+                            else {
+                                push @results, $result;
+                            }
+                        }
+
+                        # Periodically persist processed results to disk and
+                        # free the in-memory buffer.
+                        if ($output && @buffer >= $batch) {
+                            $written += _flush(\@buffer, $output);
                         }
                     }
                 };
@@ -78,6 +123,12 @@ package Spellbook::Core::Orchestrator {
                 foreach my $thread (threads -> list(threads::all)) {
                     $thread -> join();
                 }
+            }
+
+            if ($output) {
+                $written += _flush(\@buffer, $output);
+
+                return "\n[+] $written results written to $output\n";
             }
 
             return @results;
@@ -90,7 +141,9 @@ package Spellbook::Core::Orchestrator {
                 . "    -h, --help          See this menu\n"
                 . "    -t, --threads       Number of threads\n"
                 . "    -w, --wordlist      Wordlist file\n"
-                . "    -e, --entrypoint    Module to execute\n\n";
+                . "    -e, --entrypoint    Module to execute\n"
+                . "    -o, --output        Stream results to a file, freeing memory\n"
+                . "    -b, --batch         Results buffered before each flush to disk\n\n";
         }
 
         return 0;
