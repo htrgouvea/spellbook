@@ -467,6 +467,12 @@
             "category": "recon",
             "module": "Passive_Links",
             "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"
+        },
+        {
+            "id": "0076",
+            "category": "recon",
+            "module": "HTTP_Screenshot",
+            "description": "Take a screenshot of a URL using headless Chrome/Chromium"
         }
     ]
 }
