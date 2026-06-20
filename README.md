@@ -105,7 +105,7 @@ games:x:5:60:games:/usr/games:/bin/sh
 [...]
 ```
 
-If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
+If you are interested in developing new modules or running the test suite, a good start point is to read the [developer guide](/docs/Developer-Guide.md).
 
 ---
 
@@ -115,22 +115,6 @@ If you are interested in developing new modules, a good start point is to read t
 $ docker build -t spellbook .
 $ docker run -ti --rm spellbook --search exploits
 ```
-
----
-
-### Running the tests
-
-The unit tests live in the `tests/` directory and use Perl's standard
-`Test::More` framework. After installing the dependencies, run the whole suite
-with `prove`:
-
-```bash
-$ prove -lr tests/
-```
-
-Any test whose optional dependency is not installed is skipped rather than
-failed, so the suite is safe to run in a minimal environment. The same command
-runs automatically on every push through the `test-on-ubuntu` workflow.
 
 ---
 
