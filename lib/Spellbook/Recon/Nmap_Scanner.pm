@@ -21,17 +21,17 @@ package Spellbook::Recon::Nmap_Scanner {
                 $ports = '1-1024';
             }
 
-            my $scanner = Nmap::Scanner->new();
+            my $scanner = Nmap::Scanner -> new();
 
-            $scanner->register_port_found_event(sub {
+            $scanner -> register_port_found_event(sub {
                 my ($nmap_obj, $host, $port) = @_;
 
-                if ($port->state() eq 'open') {
-                    push @result, $target . q{:} . $port->portid();
+                if ($port -> state() eq 'open') {
+                    push @result, $target . q{:} . $port -> portid();
                 }
             });
 
-            $scanner->scan("-p $ports $target");
+            $scanner -> scan("-p $ports $target");
 
             return @result;
         }
