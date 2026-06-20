@@ -27,7 +27,8 @@ package Spellbook::Recon::Nmap_Scanner {
                 my ($nmap_obj, $host, $port) = @_;
 
                 if ($port -> state() eq 'open') {
-                    push @result, $target . q{:} . $port -> portid();
+                    my ($address) = $host -> addresses();
+                    push @result, $address -> addr() . q{:} . $port -> portid();
                 }
             });
 
