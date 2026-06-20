@@ -13,7 +13,8 @@ package Spellbook::Core::Helper {
             . "    -------          -----------\n"
             . "    -s, --search     List modules, you can filter by category\n"
             . "    -m, --module     Define a module to use\n"
-            . "    -h, --help       To see help menu of a module\n\n";
+            . "    -h, --help       To see help menu of a module\n"
+            . "        --proxy      Set proxy URL (e.g. http://127.0.0.1:8080)\n\n";
 
         return 1;
     }

@@ -12,12 +12,18 @@ use Getopt::Long qw(:config no_ignore_case pass_through);
 our $VERSION = '0.0.1';
 
 sub main {
-    my ($search, $module, @result);
+    my ($search, $module, $proxy, @result);
 
     Getopt::Long::GetOptions (
-        's|search=s' => \$search,
-        'm|module=s' => \$module
+        's|search=s'  => \$search,
+        'm|module=s'  => \$module,
+        'proxy=s'     => \$proxy
     );
+
+    if ($proxy) {
+        $ENV{http_proxy}  = $proxy;
+        $ENV{https_proxy} = $proxy;
+    }
 
     if ($search) {
         @result = Spellbook::Core::Search -> new($search);
