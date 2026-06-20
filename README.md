@@ -105,7 +105,7 @@ games:x:5:60:games:/usr/games:/bin/sh
 [...]
 ```
 
-If you are interested in developing new modules, a good start point is to read the [development guide](/wiki/Developer-Guide).
+If you are interested in developing new modules or running the test suite, a good start point is to read the [developer guide](/docs/Developer-Guide.md).
 
 ---
 

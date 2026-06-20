@@ -15,3 +15,6 @@ jobs:
     - name: Verify the basic usage
       run: |
         perl spellbook.pl --help
+    - name: Run unit tests
+      run: |
+        prove -lr tests/

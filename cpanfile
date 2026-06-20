@@ -25,3 +25,7 @@ requires 'HTML::LinkExtor', '3.85';
 requires 'HTTP::Request::Common', '7.02';
 requires 'HTTP::Cookies', '6.11';
 requires 'Thread::Queue', '3.13';
+
+on 'test' => sub {
+    requires 'Test::More', '1.302222';
+};
