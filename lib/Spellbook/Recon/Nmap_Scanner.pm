@@ -3,57 +3,36 @@ package Spellbook::Recon::Nmap_Scanner {
     use warnings;
     use Nmap::Scanner;
 
-    our $VERSION = '0.0.1';
-
-    sub scan_started {
-        my $self     = shift;
-        my $host     = shift;
-
-        my $hostname = $host -> hostname();
-        my $addresses = join q{,}, map {$_ -> addr()} $host -> addresses();
-        my $status = $host -> status();
-
-        print "$hostname ($addresses) is $status\n";
-
-        return 0;
-    }
-
-    sub port_found {
-        my $self     = shift;
-        my $host     = shift;
-        my $port     = shift;
-
-        my $name = $host -> hostname();
-        my $addresses = join q{,}, map {$_ -> addr()} $host -> addresses();
-
-        my $port_identifier = join q{/}, $port -> protocol(), $port -> portid();
-
-        print "On host $name ($addresses), found ",
-            $port -> state(), 'port',
-            $port_identifier, "\n";
-
-        return 0;
-    }
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $parameters) = @_;
-        my ($help, $target, $command, @result);
+        my ($help, $target, $ports, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        Getopt::Long::GetOptionsFromArray(
             $parameters,
-            'h|help' => \$help,
+            'h|help'     => \$help,
             't|target=s' => \$target,
-            'c|command=s' => \$command
+            'p|ports=s'  => \$ports,
         );
 
         if ($target) {
+            if (!$ports) {
+                $ports = '1-1024';
+            }
+
             my $scanner = Nmap::Scanner -> new();
 
-            $scanner -> register_scan_started_event(\&scan_started);
-            $scanner -> register_port_found_event(\&port_found);
-            $scanner -> scan("-sS -p 1-1024 -O $target");
+            $scanner -> register_port_found_event(sub {
+                my ($nmap_obj, $host, $port) = @_;
 
-            my $results = $scanner -> scan();
+                if ($port -> state() eq 'open') {
+                    my ($address) = $host -> addresses();
+                    push @result, $address -> addr() . q{:} . $port -> portid();
+                }
+            });
+
+            $scanner -> scan("-p $ports $target");
 
             return @result;
         }
@@ -63,7 +42,8 @@ package Spellbook::Recon::Nmap_Scanner {
                 . "Recon::Nmap_Scanner\n"
                 . "=====================\n"
                 . "-h, --help     See this menu\n"
-                . "-t, --target   Set an IP to run the scanner\n\n";
+                . "-t, --target   Set an IP/domain to run the scanner\n"
+                . "-p, --ports    Define ports to scan (default: 1-1024)\n\n";
         }
 
         return 0;
