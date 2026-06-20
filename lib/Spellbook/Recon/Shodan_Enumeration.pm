@@ -27,25 +27,47 @@ package Spellbook::Recon::Shodan_Enumeration {
                 $target =~ s/^http(s)?:\/\///msx;
             }
 
-            my $validate = is_domain($target);
+            if (!is_domain($target)) {
+                return @result;
+            }
 
-            if ($validate) {
-                my $ip = Spellbook::Recon::Get_IP -> new (['--target' => $target]);
+            my $ip = Spellbook::Recon::Get_IP -> new (['--target' => $target]);
 
-                my $api_key    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
-                my $endpoint  = "https://api.shodan.io/shodan/host/$ip?key=$api_key";
-                my $user_agent = Spellbook::Core::UserAgent -> new();
-                my $request   = $user_agent -> get($endpoint);
-                my $http_code  = $request -> code();
+            if (!$ip) {
+                return @result;
+            }
 
-                if ($http_code == $HTTP_OK) {
-                    my $content = decode_json($request -> content);
+            my $api_key    = Spellbook::Core::Credentials -> new(['--platform' => 'shodan']);
+            my $endpoint   = "https://api.shodan.io/shodan/host/$ip?key=$api_key";
+            my $user_agent = Spellbook::Core::UserAgent -> new();
+            my $request    = $user_agent -> get($endpoint);
+            my $http_code  = $request -> code();
 
-                    foreach my $data (@{$content -> {'data'}}) {
-                        my $port      = $data -> {'port'};
+            if ($http_code == $HTTP_OK) {
+                my $content = decode_json($request -> content);
 
-                        push @result, "$target:$port";
+                foreach my $data (@{$content -> {'data'}}) {
+                    my $port      = $data -> {'port'};
+                    my $transport = $data -> {'transport'} || 'tcp';
+                    my $line      = "$target:$port/$transport";
+
+                    my $product = $data -> {'product'};
+                    my $version = $data -> {'version'};
+
+                    if (defined $product && length $product) {
+                        $line .= " $product";
                     }
+
+                    if (defined $version && length $version) {
+                        $line .= " $version";
+                    }
+
+                    if (ref $data -> {'vulns'} eq 'HASH') {
+                        my @cves = sort keys %{ $data -> {'vulns'} };
+                        $line .= ' [' . join(', ', @cves) . ']';
+                    }
+
+                    push @result, $line;
                 }
             }
 
@@ -57,7 +79,7 @@ package Spellbook::Recon::Shodan_Enumeration {
                 . "Recon::Shodan_Enum\n"
                 . "=====================\n"
                 . "-h, --help     See this menu\n"
-                . "-t, --target   Set an IP to see infos on shodan API\n\n";
+                . "-t, --target   Set a domain to enumerate ports, services and CVEs via the Shodan API\n\n";
         }
 
         return 0;
