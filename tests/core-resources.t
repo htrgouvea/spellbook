@@ -23,8 +23,8 @@ require Spellbook::Core::Resources;
 
 my $resources = Spellbook::Core::Resources->new();
 
-is( ref $resources,             'HASH',  'new() returns a hash reference' );
-is( ref $resources->{modules},  'ARRAY', 'the catalogue is an array reference' );
+is( ref $resources,            'HASH',  'new() returns a hash reference' );
+is( ref $resources->{modules}, 'ARRAY', 'the catalogue is an array reference' );
 ok( scalar @{ $resources->{modules} } > 0, 'the catalogue is not empty' );
 
 # Every entry should describe a category and a module name.

@@ -23,8 +23,8 @@ my $return;
 }
 
 is( $return, 1, 'new() returns 1' );
-like( $output, qr/Spellbook/,   'banner mentions Spellbook' );
-like( $output, qr/--search/,    'banner documents the --search flag' );
-like( $output, qr/--module/,    'banner documents the --module flag' );
+like( $output, qr/Spellbook/, 'banner mentions Spellbook' );
+like( $output, qr/--search/,  'banner documents the --search flag' );
+like( $output, qr/--module/,  'banner documents the --module flag' );
 
 done_testing();

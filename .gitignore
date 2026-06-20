@@ -2,7 +2,6 @@
 *.logs
 *.test
 output/
-tests/
 .creds
 *.creds
 data/

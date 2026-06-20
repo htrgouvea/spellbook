@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-# Compile-load check for the core modules and the pure-logic helpers.
+# Compile-load check for every module under lib/Spellbook/Core.
 #
 # When an optional CPAN prerequisite is not installed the corresponding
 # module is skipped (instead of failing) so the suite still runs in a
@@ -20,14 +20,12 @@ chdir "$FindBin::RealBin/.." or die "Unable to chdir to repository root: $!";
 
 my @modules = qw(
     Spellbook::Core::Helper
+    Spellbook::Core::Resources
     Spellbook::Core::Module
     Spellbook::Core::Search
-    Spellbook::Core::Resources
     Spellbook::Core::UserAgent
-    Spellbook::Helper::Uniq
-    Spellbook::Helper::Permutations
-    Spellbook::Helper::Generate_UUID
-    Spellbook::Helper::Host_Normalization
+    Spellbook::Core::Credentials
+    Spellbook::Core::Orchestrator
 );
 
 for my $module (@modules) {

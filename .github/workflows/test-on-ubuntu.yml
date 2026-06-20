@@ -17,4 +17,4 @@ jobs:
         perl spellbook.pl --help
     - name: Run unit tests
       run: |
-        prove -lr t/
+        prove -lr tests/

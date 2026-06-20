@@ -120,11 +120,12 @@ $ docker run -ti --rm spellbook --search exploits
 
 ### Running the tests
 
-The unit tests live in the `t/` directory and use Perl's standard `Test::More`
-framework. After installing the dependencies, run the whole suite with `prove`:
+The unit tests live in the `tests/` directory and use Perl's standard
+`Test::More` framework. After installing the dependencies, run the whole suite
+with `prove`:
 
 ```bash
-$ prove -lr t/
+$ prove -lr tests/
 ```
 
 Any test whose optional dependency is not installed is skipped rather than
