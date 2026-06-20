@@ -27,5 +27,5 @@ requires 'HTTP::Cookies', '6.11';
 requires 'Thread::Queue', '3.13';
 
 on 'test' => sub {
-    requires 'Test::More', '0';
+    requires 'Test::More', '1.302222';
 };
