@@ -118,6 +118,21 @@ $ docker run -ti --rm spellbook --search exploits
 
 ---
 
+### Running the tests
+
+The unit tests live in the `t/` directory and use Perl's standard `Test::More`
+framework. After installing the dependencies, run the whole suite with `prove`:
+
+```bash
+$ prove -lr t/
+```
+
+Any test whose optional dependency is not installed is skipped rather than
+failed, so the suite is safe to run in a minimal environment. The same command
+runs automatically on every push through the `test-on-ubuntu` workflow.
+
+---
+
 ### Contribution
 
 Your contributions and suggestions are heartily ♥ welcome. [See here the contribution guidelines.](/.github/CONTRIBUTING.md) Please, report bugs via [issues page](https://github.com/htrgouvea/spellbook/issues) and for security issues, see here the [security policy.](/SECURITY.md) (✿ ◕‿◕)
