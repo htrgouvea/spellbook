@@ -1,6 +1,7 @@
 package Spellbook::Recon::Extract_Links {
     use strict;
     use warnings;
+    use URI;
     use Try::Tiny;
     use WWW::Mechanize;
     use List::MoreUtils qw(uniq);
@@ -22,7 +23,7 @@ package Spellbook::Recon::Extract_Links {
             my $normalized_target = $target;
             my $mech = WWW::Mechanize -> new (
                 autocheck => 0,
-                ssl_opts => { verify_hostname => 0 }
+                ssl_opts => {verify_hostname => 0}
             );
 
             if ($normalized_target !~ /^http(?:s)?:\/\//msx) {
@@ -41,6 +42,7 @@ package Spellbook::Recon::Extract_Links {
                 my $current_url = $args{url};
                 my $should_recurse = $args{deep};
                 my $seen_urls = $args{seen};
+                my $root_host = lc(URI -> new($root_url) -> host // q{});
                 my @collected_links;
 
                 if ($seen_urls -> {$current_url}) {
@@ -61,27 +63,33 @@ package Spellbook::Recon::Extract_Links {
                 my @page_links = $mech -> links();
 
                 for my $link (@page_links) {
-                    my $url = $link -> url();
+                    my $absolute = $link -> url_abs();
 
-                    if ($url && $url !~ m/#/msx && $url !~ /^http(?:s)?:\/\//msx) {
-                        if ($url !~ /^\//msx) {
-                            $url = q{/} . $url;
-                        }
+                    if (!$absolute) {
+                        next;
+                    }
 
-                        my $absolute_url = $root_url . $url;
-                        push @collected_links, $absolute_url;
+                    my $scheme = lc($absolute -> scheme // q{});
 
-                        if ($should_recurse) {
-                            try {
-                                push @collected_links, $collect_links -> (
-                                    root_url => $root_url,
-                                    url => $absolute_url,
-                                    deep => $should_recurse,
-                                    seen => $seen_urls
-                                );
-                            } catch {
-                            };
-                        }
+                    if ($scheme ne 'http' && $scheme ne 'https') {
+                        next;
+                    }
+
+                    my $absolute_url = $absolute -> as_string;
+                    push @collected_links, $absolute_url;
+
+                    my $host = lc($absolute -> host // q{});
+
+                    if ($should_recurse && $host eq $root_host) {
+                        try {
+                            push @collected_links, $collect_links -> (
+                                root_url => $root_url,
+                                url => $absolute_url,
+                                deep => $should_recurse,
+                                seen => $seen_urls
+                            );
+                        } catch {
+                        };
                     }
                 }
 
