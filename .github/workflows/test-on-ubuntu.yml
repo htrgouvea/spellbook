@@ -6,12 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan 
+        sudo apt-get install -y perl cpanminus build-essential libdatetime-perl libssl-dev libexpat1-dev libpcap-dev masscan nmap
         sudo cpanm --installdeps .
     - name: Verify the basic usage
       run: |
         perl spellbook.pl --help
+    - name: Run unit tests
+      run: |
+        prove -lr tests/
