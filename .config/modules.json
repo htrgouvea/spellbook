@@ -503,6 +503,18 @@
             "category": "recon",
             "module": "Extract_JS_Endpoints",
             "description": "Fetch a JavaScript resource and extract potential endpoints (URLs and paths)"
+        },
+        {
+            "id": "0082",
+            "category": "helper",
+            "module": "Levenshtein",
+            "description": "Compute the Damerau-Levenshtein edit distance between two strings"
+        },
+        {
+            "id": "0083",
+            "category": "helper",
+            "module": "Normalize_Target",
+            "description": "Normalize a target into a URL by ensuring a scheme and trimming trailing slashes"
         }
     ]
 }
