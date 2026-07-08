@@ -479,6 +479,12 @@
             "category": "helper",
             "module": "Certificate_Hash",
             "description": "Fetch the SHA1 fingerprint of a host's TLS certificate"
+        },
+        {
+            "id": "0078",
+            "category": "helper",
+            "module": "OpenAI",
+            "description": "Interact with OpenAI's chat API to get responses for your queries"
         }
     ]
 }
