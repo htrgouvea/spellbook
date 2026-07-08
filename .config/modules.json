@@ -473,6 +473,12 @@
             "category": "helper",
             "module": "Entropy",
             "description": "Detect high-entropy words in text that may be secrets or PII"
+        },
+        {
+            "id": "0077",
+            "category": "helper",
+            "module": "Certificate_Hash",
+            "description": "Fetch the SHA1 fingerprint of a host's TLS certificate"
         }
     ]
 }
