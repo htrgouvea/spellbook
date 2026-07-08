@@ -467,6 +467,12 @@
             "category": "recon",
             "module": "Passive_Links",
             "description": "Fetch known URLs from OTX, Wayback Machine, and Common Crawl"
+        },
+        {
+            "id": "0076",
+            "category": "helper",
+            "module": "Entropy",
+            "description": "Detect high-entropy words in text that may be secrets or PII"
         }
     ]
 }
