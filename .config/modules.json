@@ -497,6 +497,12 @@
             "category": "advisory",
             "module": "React4Shell",
             "description": "Remote code execution in React Server Components via crafted Server Action payload"
+        },
+        {
+            "id": "0081",
+            "category": "recon",
+            "module": "Extract_JS_Endpoints",
+            "description": "Fetch a JavaScript resource and extract potential endpoints (URLs and paths)"
         }
     ]
 }
