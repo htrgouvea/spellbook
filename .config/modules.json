@@ -515,6 +515,12 @@
             "category": "helper",
             "module": "Normalize_Target",
             "description": "Normalize a target into a URL by ensuring a scheme and trimming trailing slashes"
+        },
+        {
+            "id": "0084",
+            "category": "exploit",
+            "module": "Intercom_Check",
+            "description": "Check a target for Intercom Identity Verification misconfiguration (user impersonation)"
         }
     ]
 }
