@@ -485,6 +485,18 @@
             "category": "helper",
             "module": "OpenAI",
             "description": "Interact with OpenAI's chat API to get responses for your queries"
+        },
+        {
+            "id": "0079",
+            "category": "advisory",
+            "module": "CVE_2022_1595",
+            "description": "Reveal the hidden login URL of WordPress WPS Hide Login via valid_login_slug cookie"
+        },
+        {
+            "id": "0080",
+            "category": "advisory",
+            "module": "React4Shell",
+            "description": "Remote code execution in React Server Components via crafted Server Action payload"
         }
     ]
 }

