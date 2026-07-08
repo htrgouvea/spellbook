@@ -9,7 +9,7 @@ requires 'UUID::Tiny',          '1.04';
 requires 'WWW::Wappalyzer',     '2.00';
 requires 'Redis',               '2.000';
 requires 'IO::Socket::SSL', '2.099';
-requires 'DateTime::TimeZone', '2.68';
+requires 'DateTime::TimeZone', '2.69';
 requires 'List::MoreUtils', '0.430';
 requires 'JSON', '4.11';
 requires 'LWP::UserAgent', '6.83';
