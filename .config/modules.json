@@ -533,6 +533,12 @@
             "category": "recon",
             "module": "S3_Fingerprint",
             "description": "Identify the S3-compatible storage provider behind an endpoint from its response headers"
+        },
+        {
+            "id": "0087",
+            "category": "recon",
+            "module": "Entra_SSO_Apps",
+            "description": "Discover an organization's Entra ID tenant apps by searching URLScan for its tenant ID"
         }
     ]
 }
