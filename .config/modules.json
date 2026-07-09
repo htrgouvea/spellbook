@@ -521,6 +521,18 @@
             "category": "exploit",
             "module": "Intercom_Check",
             "description": "Check a target for Intercom Identity Verification misconfiguration (user impersonation)"
+        },
+        {
+            "id": "0085",
+            "category": "recon",
+            "module": "Subdomain_Generator",
+            "description": "Generate subdomain permutations from patterns and extracted variables"
+        },
+        {
+            "id": "0086",
+            "category": "recon",
+            "module": "S3_Fingerprint",
+            "description": "Identify the S3-compatible storage provider behind an endpoint from its response headers"
         }
     ]
 }
