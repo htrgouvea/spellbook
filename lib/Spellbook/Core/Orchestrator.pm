@@ -34,7 +34,7 @@ package Spellbook::Core::Orchestrator {
 
             if ($wordlist) {
                 async {
-                    my $handle = Mojo::File -> new($wordlist) -> openr();
+                    my $handle = Mojo::File -> new($wordlist) -> open('<');
 
                     while (defined(my $line = $handle -> getline())) {
                         chomp $line;
