@@ -23,7 +23,7 @@ requires 'Readonly', '2.05';
 requires 'URI', '5.35';
 requires 'HTML::LinkExtor', '3.85';
 requires 'HTTP::Request::Common', '7.04';
-requires 'HTTP::Cookies', '6.11';
+requires 'HTTP::Cookies', '6.12';
 requires 'Thread::Queue', '3.13';
 
 on 'test' => sub {
