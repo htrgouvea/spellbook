@@ -20,7 +20,7 @@ requires 'Mojolicious', '9.49';
 requires 'OpenAI::API', '0.37';
 requires 'Try::Tiny', '0.32';
 requires 'Readonly', '2.05';
-requires 'URI', '5.35';
+requires 'URI', '5.36';
 requires 'HTML::LinkExtor', '3.85';
 requires 'HTTP::Request::Common', '7.04';
 requires 'HTTP::Cookies', '6.12';
