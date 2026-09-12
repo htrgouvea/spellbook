@@ -1,6 +1,7 @@
 package Spellbook::Recon::DNS_Bruteforce {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Spellbook::Helper::Read_File;
     use Spellbook::Recon::Host_Resolv;
 
@@ -11,7 +12,11 @@ package Spellbook::Recon::DNS_Bruteforce {
         my ($help, $target, @result);
         my $wordlist = './files/subdomains.txt';
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

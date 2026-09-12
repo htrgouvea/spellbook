@@ -1,6 +1,7 @@
 package Spellbook::Cloud::Account_Identifier {
     use strict;
     use warnings;
+    use Getopt::Long;
     use MIME::Base32 qw(decode_base32);
     use Math::BigInt;
 
@@ -10,7 +11,11 @@ package Spellbook::Cloud::Account_Identifier {
         my ($self, $parameters) = @_;
         my ($help, $key);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'  => \$help,
             'k|key=s' => \$key

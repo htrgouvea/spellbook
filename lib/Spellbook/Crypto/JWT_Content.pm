@@ -10,7 +10,11 @@ package Spellbook::Crypto::JWT_Content {
         my ($self, $parameters) = @_;
         my ($help, $data);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'   => \$help,
             'd|data=s' => \$data

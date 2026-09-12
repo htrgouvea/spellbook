@@ -1,6 +1,7 @@
 package Spellbook::Recon::Nmap_Scanner {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Nmap::Scanner;
 
     our $VERSION = '0.0.2';
@@ -9,7 +10,11 @@ package Spellbook::Recon::Nmap_Scanner {
         my ($self, $parameters) = @_;
         my ($help, $target, $ports, @result);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

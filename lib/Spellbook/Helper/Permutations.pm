@@ -1,6 +1,7 @@
 package Spellbook::Helper::Permutations {
     use strict;
     use warnings;
+    use Getopt::Long;
 
     our $VERSION = '0.0.1';
 
@@ -9,7 +10,11 @@ package Spellbook::Helper::Permutations {
         my ($help, $value, @result);
         my $repeat = 1;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             'v|value=s'  => \$value,

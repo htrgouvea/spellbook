@@ -1,6 +1,7 @@
 package Spellbook::Recon::Query_Shodan {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use Spellbook::Core::UserAgent;
     use Spellbook::Core::Credentials;
@@ -14,7 +15,11 @@ package Spellbook::Recon::Query_Shodan {
         my ($self, $parameters) = @_;
         my ($help, $query, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'    => \$help,
             'q|query=s' => \$query

@@ -72,7 +72,7 @@ package Spellbook::Core::Name {
 1;
 ```
 
-In practice, most modules also parse their own arguments through `Getopt::Long::GetOptionsFromArray`, return lists of values, and expose a `--help` menu when called without the required arguments.
+In practice, most modules also parse their own arguments through a module-owned `Getopt::Long::Parser`, return lists of values, and expose a `--help` menu when called without the required arguments.
 
 The core loading path is documented in [Core Module Loader](./core-module-loader.md).
 

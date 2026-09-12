@@ -1,6 +1,7 @@
 package Spellbook::Parser::Nozaki {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use Mojo::File;
 
@@ -10,7 +11,11 @@ package Spellbook::Parser::Nozaki {
         my ($self, $parameters) = @_;
         my ($help, $file, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'   => \$help,
             'f|file=s' => \$file,

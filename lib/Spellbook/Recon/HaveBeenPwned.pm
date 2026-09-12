@@ -1,6 +1,7 @@
 package Spellbook::Recon::HaveBeenPwned {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use LWP::UserAgent;
     use Spellbook::Core::Credentials;
@@ -10,7 +11,11 @@ package Spellbook::Recon::HaveBeenPwned {
         my ($self, $parameters) = @_;
         my ($help, $target);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

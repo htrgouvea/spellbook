@@ -1,6 +1,7 @@
 package Spellbook::Recon::Masscan {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Masscan::Client;
     use List::MoreUtils qw(uniq);
     use Spellbook::Recon::Get_IP;
@@ -12,15 +13,19 @@ package Spellbook::Recon::Masscan {
         my ($self, $parameters) = @_;
         my ($help, @target, @ports, @result, $skip_cdn);
 
-        my @arguments = qw(--banners);
+        my @arguments = qw(--rate 500 --wait 10 --retries 5 -e en0 --router-mac 3c:64:cf:6c:53:78 --adapter-ip 192.168.68.107);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
-            'h|help'      => \$help,
-            't|target=s'  => \@target,
-            'p|port=s'    => \@ports,
-            'a|arguments' => \@arguments,
-            'skip-cdn'    => \$skip_cdn
+            'h|help'        => \$help,
+            't|target=s'    => \@target,
+            'p|port=s'      => \@ports,
+            'a|arguments=s' => \@arguments,
+            'skip-cdn'      => \$skip_cdn
         );
 
         if (@target) {

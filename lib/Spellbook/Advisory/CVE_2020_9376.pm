@@ -1,6 +1,7 @@
 package Spellbook::Advisory::CVE_2020_9376 {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Mojo::DOM;
     use Spellbook::Core::UserAgent;
 
@@ -10,7 +11,11 @@ package Spellbook::Advisory::CVE_2020_9376 {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

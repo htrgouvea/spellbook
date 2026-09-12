@@ -1,6 +1,7 @@
 package Spellbook::Advisory::CVE_2021_41174 {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Spellbook::Core::UserAgent;
     use Readonly;
 
@@ -12,7 +13,11 @@ package Spellbook::Advisory::CVE_2021_41174 {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

@@ -5,13 +5,19 @@ package Spellbook::Core::Credentials {
     use Mojo::JSON qw(decode_json encode_json);
     use Getopt::Long;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
+
+    my $CACHE;
 
     sub new {
         my ($self, $parameters) = @_;
         my ($help, $platform, $value);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'       => \$help,
             'p|platform=s' => \$platform,
@@ -21,15 +27,20 @@ package Spellbook::Core::Credentials {
         if ($platform) {
             my $credentials = Mojo::File -> new('.config/credentials.json');
 
-            my $data = $credentials -> slurp();
-            my $content = decode_json($data);
-
-            if ($value) {
-                $content -> {$platform} = $value;
-                $credentials -> spurt(encode_json($content));
+            # Read and parse the credentials file once, then reuse the decoded
+            # structure. Under the threaded Orchestrator this module is called
+            # once per target, so re-slurping an invariant file each time was
+            # pure overhead (same class as the Core::Resources fix).
+            if (!$CACHE) {
+                $CACHE = decode_json($credentials -> slurp());
             }
 
-            return $content -> {$platform};
+            if ($value) {
+                $CACHE -> {$platform} = $value;
+                $credentials -> spurt(encode_json($CACHE));
+            }
+
+            return $CACHE -> {$platform};
         }
 
         if ($help) {

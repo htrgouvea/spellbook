@@ -10,6 +10,7 @@ The main focus of this micro-framework is to make the rapid development of secur
 
 - [User Guide](./user-guide.md)
 - [Developer Guide](./Developer-Guide.md)
+- [Library Usage](./library-usage.md)
 - [Local Database](./local-database.md)
 - [Recon Modules](./category-recon.md)
 - [Exploit Modules](./category-exploit.md)

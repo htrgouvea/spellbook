@@ -1,6 +1,7 @@
 package Spellbook::Recon::Host_Resolv {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Net::DNS;
 
     our $VERSION = '0.0.1';
@@ -9,7 +10,11 @@ package Spellbook::Recon::Host_Resolv {
         my ($self, $parameters) = @_;
         my ($help, $target);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target
@@ -20,8 +25,15 @@ package Spellbook::Recon::Host_Resolv {
                 $target =~ s/^http(s)?:\/\///msx;
             }
 
-            my $resolver = Net::DNS::Resolver -> new();
-            my $search   = $resolver -> search($target);
+            my $resolver = Net::DNS::Resolver -> new(
+                udp_timeout => 2,
+                tcp_timeout => 2,
+                retrans     => 2,
+                retry       => 1,
+                dnssec      => 0
+            );
+
+            my $search = $resolver -> search($target);
 
             if ($search) {
                 return $target;

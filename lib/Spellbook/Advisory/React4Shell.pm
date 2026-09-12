@@ -1,6 +1,7 @@
 package Spellbook::Advisory::React4Shell {
     use strict;
     use warnings;
+    use Getopt::Long;
     use MIME::Base64;
     use Mojo::UserAgent;
     use Readonly;
@@ -14,7 +15,11 @@ package Spellbook::Advisory::React4Shell {
         my ($self, $parameters) = @_;
         my ($help, $target, $command, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'      => \$help,
             't|target=s'  => \$target,

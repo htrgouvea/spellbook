@@ -1,6 +1,7 @@
 package Spellbook::Recon::DNS_Bruteforce_Filtered {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Net::DNS;
     use Spellbook::Helper::Generate_UUID;
 
@@ -153,7 +154,11 @@ package Spellbook::Recon::DNS_Bruteforce_Filtered {
         my $samples = 5;
         $mode = 'best_effort';
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'      => \$help,
             't|target=s'  => \$target,

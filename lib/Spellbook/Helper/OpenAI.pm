@@ -1,6 +1,7 @@
 package Spellbook::Helper::OpenAI {
     use strict;
     use warnings;
+    use Getopt::Long;
     use OpenAI::API;
     use Spellbook::Core::Credentials;
 
@@ -13,7 +14,11 @@ package Spellbook::Helper::OpenAI {
         my ($self, $parameters) = @_;
         my ($help, $prompt, $model, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             'p|prompt=s' => \$prompt,

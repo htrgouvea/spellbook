@@ -1,6 +1,7 @@
 package Spellbook::Advisory::CVE_2023_38646 {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use Try::Tiny;
     use MIME::Base64;
@@ -16,7 +17,11 @@ package Spellbook::Advisory::CVE_2023_38646 {
         my $remote = 'lesis.lat';
         my $port   = 1337;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

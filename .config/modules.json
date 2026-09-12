@@ -115,6 +115,12 @@
             "description": "Extract and write infos from a YAML as your scope file"
         },
         {
+            "id": "0089",
+            "category": "helper",
+            "module": "Importer",
+            "description": "Import values from a txt file into a key of a YAML scope file"
+        },
+        {
             "id": "0019",
             "category": "android",
             "module": "APKSign",
@@ -157,7 +163,13 @@
             "description": "Runs another module with parallelism"
         },
         {
-            "id": "0026",
+            "id": "0100",
+            "category": "helper",
+            "module": "Graph",
+            "description": "Build and query a typed relationship graph; wire modules as edge operators"
+        },
+        {
+            "id": "0096",
             "category": "exploit",
             "module": "CORS_Misconfig",
             "description": "Test webserver for CORS misconfiguration"
@@ -217,7 +229,7 @@
             "description": "Perform brute-force attack against Apache Tomcat manager"
         },
         {
-            "id": "0073",
+            "id": "0098",
             "category": "bruteforce",
             "module": "JWT_Secret",
             "description": "Brute force a JWT secret with a wordlist"
@@ -246,79 +258,67 @@
             "module": "Swagger_XSS",
             "description": "Find Reflected Cross-Site Scripting in API Docs using Swagger UI - CVE-2016-1000226"
         },
-        {  
+        {
             "id": "0039",
             "category": "advisory",
             "module": "CVE_2023_29489",
             "description": "Exploit for cPanel Reflected XSS - CVE-2023-29489"
         },
-        {  
+        {
             "id": "0040",
             "category": "exploit",
             "module": "Reflected_XSS",
             "description": "PoC"
         },
-        {  
+        {
             "id": "0041",
             "category": "recon",
             "module": "Internal_DNS",
             "description": "Verify if a domain has a resolution to internal IP"
         },
-        {  
+        {
             "id": "0042",
             "category": "helper",
             "module": "Reverse_Shell",
             "description": "Generate reverse shell payloads"
         },
-        {  
+        {
             "id": "0043",
             "category": "helper",
             "module": "Host_Normalization",
             "description": "Normalize a hostname to a valid format"
         },
-        {  
+        {
             "id": "0044",
             "category": "advisory",
             "module": "CVE_2023_38646",
             "description": "Pre-Auth RCE in Metabase"
         },
-        {  
+        {
             "id": "0045",
             "category": "recon",
             "module": "Detect_Error",
             "description": "PoC"
         },
-        {  
+        {
             "id": "0046",
             "category": "exploit",
             "module": "DataBreach",
             "description": "PoC"
         },
-        {  
-            "id": "0047",
-            "category": "recon",
-            "module": "Screenshot",
-            "description": "Take screenshot from web pages"
-        },
-        {  
-            "id": "0048",
-            "category": "recon",
-            "module": "Detect_Tech",
-            "description": "Detect the stack of a web application"
-        },
-        {  
+        {
             "id": "0049",
             "category": "advisory",
             "module": "CVE_2021_24891",
             "description": "DOM XSS elementor Wordpress plugin"
         },
-        {  
+        {
             "id": "0050",
             "category": "exploit",
             "module": "S3_Bucket_Takeover",
             "description": "Detection possible of takeover on resource"
         },
-        {  
+        {
             "id": "0051",
             "category": "exploit",
             "module": "Upload_Via_PUT",
@@ -334,7 +334,7 @@
             "id": "0053",
             "category": "exploit",
             "module": "Dependency_Confusion",
-            "description": ""
+            "description": "Detect dependency confusion by checking a package.json, composer.json or composer.lock for dependencies unpublished on npm or Packagist"
         },
         {
             "id": "0054",
@@ -355,7 +355,7 @@
             "description": "Exploit for dump credentials of router DLINK 610"
         },
         {
-            "id": "0056",
+            "id": "0097",
             "category": "advisory",
             "module": "CVE_2020_9377",
             "description": "Exploit auth RCE vulnerability at router DLINK-610"
@@ -399,7 +399,7 @@
         {
             "id": "0063",
             "category": "exploit",
-            "module": "Django_Debug",
+            "module": "Django_DEBUG",
             "description": "Detect if a Django application has the debug mode enabled"
         },
         {
@@ -440,7 +440,7 @@
         },
         {
             "id": "0070",
-            "category": "utils",
+            "category": "recon",
             "module": "Detect_PII",
             "description": "Check if a text data contains PII (CPFs, CNPJs, Emails, Phone Numbers, etc.)"
         },
@@ -451,13 +451,7 @@
             "description": "Recursively scrape web pages from a target to find subdomains"
         },
         {
-            "id": "0072",
-            "category": "utils",
-            "module": "ChatGPT",
-            "description": "Interact with OpenAI's ChatGPT API to get responses for your queries"
-        },
-        {
-            "id": "0073",
+            "id": "0099",
             "category": "exploit",
             "module": "Wordpress_XMLRPC",
             "description": "Probe WordPress XML-RPC for multicall abuse capability"
@@ -499,12 +493,6 @@
             "description": "Remote code execution in React Server Components via crafted Server Action payload"
         },
         {
-            "id": "0081",
-            "category": "recon",
-            "module": "Extract_JS_Endpoints",
-            "description": "Fetch a JavaScript resource and extract potential endpoints (URLs and paths)"
-        },
-        {
             "id": "0082",
             "category": "helper",
             "module": "Levenshtein",
@@ -539,6 +527,60 @@
             "category": "recon",
             "module": "Entra_SSO_Apps",
             "description": "Discover an organization's Entra ID tenant apps by searching URLScan for its tenant ID"
+        },
+        {
+            "id": "0088",
+            "category": "recon",
+            "module": "Subdomain_Inference",
+            "description": "Learn regex rules from observed subdomains and generate new candidate hostnames"
+        },
+        {
+            "id": "0090",
+            "category": "recon",
+            "module": "Certificate_Transparency",
+            "description": "Enumerate subdomains from public Certificate Transparency logs via crt.sh"
+        },
+        {
+            "id": "0091",
+            "category": "recon",
+            "module": "DoH_Resolv",
+            "description": "Resolve DNS records over HTTPS (DoH), bypassing local resolver filtering and rate limits"
+        },
+        {
+            "id": "0101",
+            "category": "recon",
+            "module": "Extract_JS_Files",
+            "description": "Fetch a page and extract the JavaScript file URLs it loads (subjs-style)"
+        },
+        {
+            "id": "0102",
+            "category": "recon",
+            "module": "URLScan_Links",
+            "description": "Fetch known URLs for a domain from URLScan.io, with cursor pagination and subdomain support"
+        },
+        {
+            "id": "0103",
+            "category": "recon",
+            "module": "CSP_Parser",
+            "description": "Retrieve and parse a target's Content Security Policy from response headers and meta tags into ReconJSON"
+        },
+        {
+            "id": "0104",
+            "category": "recon",
+            "module": "Certificate_Monitor",
+            "description": "Monitor a domain's Certificate Transparency logs via crt.sh and report only certificates issued since the previous run"
+        },
+        {
+            "id": "0105",
+            "category": "recon",
+            "module": "Dangling_NS",
+            "description": "Detect a dangling NS delegation to a cloud DNS provider (Route53-style takeover) via parent referral and REFUSED/SERVFAIL probing"
+        },
+        {
+            "id": "0106",
+            "category": "recon",
+            "module": "Mass_Resolve",
+            "description": "Bulk-resolve a host list against a rotating pool of custom DNS resolvers, capturing A and CNAME records with optional rate limiting"
         }
     ]
 }

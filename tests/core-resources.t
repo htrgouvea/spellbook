@@ -6,15 +6,21 @@
 use strict;
 use warnings;
 
+use Carp;
+use English qw(-no_match_vars);
 use Test::More;
 use FindBin;
 use lib "$FindBin::RealBin/../lib";
 
-# Resources reads .config/modules.json relative to the current directory.
-chdir "$FindBin::RealBin/.." or die "Unable to chdir to repository root: $!";
+our $VERSION = '0.0.1';
+
+# Resources prefers .config/modules.json relative to the current directory,
+# falling back to the copy shipped alongside lib/.
+chdir "$FindBin::RealBin/.."
+    or croak "Unable to chdir to repository root: $OS_ERROR";
 
 BEGIN {
-    unless ( eval { require Mojo::File; require Mojo::JSON; 1 } ) {
+    if ( !eval { require Mojo::File; require Mojo::JSON; 1 } ) {
         plan skip_all => 'Mojolicious (Mojo::File / Mojo::JSON) is not installed';
     }
 }
@@ -30,9 +36,9 @@ ok( scalar @{ $resources->{modules} } > 0, 'the catalogue is not empty' );
 # Every entry should describe a category and a module name.
 my $well_formed = 1;
 for my $entry ( @{ $resources->{modules} } ) {
-    unless ( ref $entry eq 'HASH'
-        && defined $entry->{category}
-        && defined $entry->{module} ) {
+    if ( !( ref $entry eq 'HASH'
+            && defined $entry->{category}
+            && defined $entry->{module} ) ) {
         $well_formed = 0;
         last;
     }

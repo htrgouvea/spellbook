@@ -1,8 +1,9 @@
 package Spellbook::Core::Search {
     use strict;
     use warnings;
+    use Spellbook::Core::Resources;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     use Readonly;
     Readonly my $INDEX_NOT_FOUND => -1;

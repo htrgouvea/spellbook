@@ -1,6 +1,7 @@
 package Spellbook::Recon::Public_DNS {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Spellbook::Recon::Internal_DNS;
 
     our $VERSION = '0.0.1';
@@ -9,7 +10,11 @@ package Spellbook::Recon::Public_DNS {
         my ($self, $parameters) = @_;
         my ($target, $help, @result);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

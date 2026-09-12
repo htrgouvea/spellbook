@@ -1,6 +1,7 @@
 package Spellbook::Parser::S3_Bucket {
     use strict;
     use warnings;
+    use Getopt::Long;
     use XML::Simple;
     use Spellbook::Core::UserAgent;
     use Try::Tiny;
@@ -14,7 +15,11 @@ package Spellbook::Parser::S3_Bucket {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

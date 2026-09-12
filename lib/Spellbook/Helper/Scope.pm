@@ -1,6 +1,7 @@
 package Spellbook::Helper::Scope {
     use strict;
     use warnings;
+    use Getopt::Long;
     use YAML::Tiny;
     use Readonly;
     use Spellbook::Core::Module;
@@ -16,7 +17,11 @@ package Spellbook::Helper::Scope {
 
         my $threads = $DEFAULT_THREADS;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'          => \$help,
             'S|scope=s'       => \$scope,

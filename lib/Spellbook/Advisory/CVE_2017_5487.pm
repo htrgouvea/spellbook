@@ -2,6 +2,7 @@ package Spellbook::Advisory::CVE_2017_5487 {
     use JSON;
     use strict;
     use warnings;
+    use Getopt::Long;
     use Try::Tiny;
     use Spellbook::Core::UserAgent;
 
@@ -11,7 +12,11 @@ package Spellbook::Advisory::CVE_2017_5487 {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

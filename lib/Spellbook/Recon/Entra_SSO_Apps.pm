@@ -1,6 +1,7 @@
 package Spellbook::Recon::Entra_SSO_Apps {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use List::MoreUtils qw(uniq);
     use Spellbook::Core::UserAgent;
@@ -16,7 +17,11 @@ package Spellbook::Recon::Entra_SSO_Apps {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

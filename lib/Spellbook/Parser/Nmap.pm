@@ -1,6 +1,7 @@
 package Spellbook::Parser::Nmap {
     use strict;
     use warnings;
+    use Getopt::Long;
     use XML::Simple;
 
     our $VERSION = '0.0.1';
@@ -9,7 +10,11 @@ package Spellbook::Parser::Nmap {
         my ($self, $parameters)= @_;
         my ($help, $file, @results);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             'f|file=s'   => \$file,

@@ -1,6 +1,7 @@
 package Spellbook::Recon::Wildcard_Detection {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Net::DNS;
     use Spellbook::Helper::Generate_UUID;
 
@@ -30,7 +31,11 @@ package Spellbook::Recon::Wildcard_Detection {
         my ($help, $target);
         my $samples = $DEFAULT_SAMPLES;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'      => \$help,
             't|target=s'  => \$target,

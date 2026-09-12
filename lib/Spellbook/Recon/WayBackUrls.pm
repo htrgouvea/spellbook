@@ -1,6 +1,7 @@
 package Spellbook::Recon::WayBackUrls {
     use strict;
     use warnings;
+    use Getopt::Long;
     use JSON;
     use Spellbook::Core::UserAgent;
 
@@ -15,7 +16,11 @@ package Spellbook::Recon::WayBackUrls {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

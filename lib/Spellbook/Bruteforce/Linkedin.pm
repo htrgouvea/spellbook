@@ -1,6 +1,7 @@
 package Spellbook::Bruteforce::Linkedin {
     use strict;
     use warnings;
+    use Getopt::Long;
 
     our $VERSION = '0.0.1';
 
@@ -8,7 +9,11 @@ package Spellbook::Bruteforce::Linkedin {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

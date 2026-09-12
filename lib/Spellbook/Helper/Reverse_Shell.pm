@@ -1,6 +1,7 @@
 package Spellbook::Helper::Reverse_Shell {
     use strict;
     use warnings;
+    use Getopt::Long;
     use MIME::Base64;
 
     our $VERSION = '0.0.1';
@@ -15,7 +16,11 @@ package Spellbook::Helper::Reverse_Shell {
         my $port = $DEFAULT_PORT;
         my $lang = 'perl';
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

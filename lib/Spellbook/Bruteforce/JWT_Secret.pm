@@ -35,7 +35,11 @@ package Spellbook::Bruteforce::JWT_Secret {
             return decode_base64($normalized);
         };
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'       => \$help,
             't|token=s'    => \$token,

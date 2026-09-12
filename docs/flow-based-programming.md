@@ -34,17 +34,26 @@ Examples:
 ['--target' => 'example.com', '--threads' => 10]
 ```
 
-Each module usually owns its own parsing through `Getopt::Long::GetOptionsFromArray`.
+Each module owns its own parsing through a `Getopt::Long::Parser` it builds itself.
 
 Example:
 
 ```perl
-Getopt::Long::GetOptionsFromArray(
+my $parser = Getopt::Long::Parser -> new (
+    config => [qw(no_ignore_case pass_through)]
+);
+
+$parser -> getoptionsfromarray (
     $parameters,
     'h|help'     => \$help,
     't|target=s' => \$target,
 );
 ```
+
+The parser is built per call rather than relying on `Getopt::Long`'s global configuration, so a
+module parses its message the same way whoever sends it. `no_ignore_case` keeps `-t` and `-T`
+apart; `pass_through` leaves options the module does not own in the message for the next
+component.
 
 This makes the same module callable from:
 
@@ -70,7 +79,11 @@ package Spellbook::Recon::Example {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,

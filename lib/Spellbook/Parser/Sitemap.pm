@@ -1,6 +1,7 @@
 package Spellbook::Parser::Sitemap {
     use strict;
     use warnings;
+    use Getopt::Long;
     use URI;
     use Spellbook::Core::UserAgent;
 
@@ -13,7 +14,11 @@ package Spellbook::Parser::Sitemap {
         my ($self, $parameters) = @_;
         my ($help, $target, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target

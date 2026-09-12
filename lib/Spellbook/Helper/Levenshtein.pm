@@ -1,6 +1,7 @@
 package Spellbook::Helper::Levenshtein {
     use strict;
     use warnings;
+    use Getopt::Long;
     use List::Util qw(min);
 
     our $VERSION = '0.0.1';
@@ -9,7 +10,11 @@ package Spellbook::Helper::Levenshtein {
         my ($self, $parameters) = @_;
         my ($help, $source, $target);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             'source=s'   => \$source,

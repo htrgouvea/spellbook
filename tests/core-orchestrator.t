@@ -12,17 +12,18 @@ use Getopt::Long ();
 use FindBin;
 use lib "$FindBin::RealBin/../lib";
 
+our $VERSION = '0.0.1';
+
 BEGIN {
-    unless (
-        eval {
-            require threads;
-            require Thread::Queue;
-            require Readonly;
-            require Mojo::File;
-            1;
-        }
-        )
-    {
+    my $has_deps = eval {
+        require threads;
+        require Thread::Queue;
+        require Readonly;
+        require Mojo::File;
+        1;
+    };
+
+    if (!$has_deps) {
         plan skip_all => 'threads / Thread::Queue / Readonly / Mojolicious are not installed';
     }
 }
@@ -30,7 +31,7 @@ BEGIN {
 require Spellbook::Core::Orchestrator;
 
 my $help = Spellbook::Core::Orchestrator->new( ['--help'] );
-like( $help, qr/Orchestrator/, 'help output names the module' );
+like( $help, qr/Orchestrator/ms, 'help output names the module' );
 
 my $empty = Spellbook::Core::Orchestrator->new( [] );
 is( $empty, 0, 'no arguments returns 0' );

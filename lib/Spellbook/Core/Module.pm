@@ -3,7 +3,7 @@ package Spellbook::Core::Module {
     use warnings;
     use Spellbook::Core::Resources;
 
-    our $VERSION = '0.0.1';
+    our $VERSION = '0.0.2';
 
     sub new {
         my ($self, $module, @parameters) = @_;
@@ -15,7 +15,17 @@ package Spellbook::Core::Module {
             my $name = $category . q{::} . $package -> {module};
 
             if ($name eq $module) {
-                require q{Spellbook/} . $category . q{/} . $package -> {module} . q{.pm};
+                my $file = q{Spellbook/} . $category . q{/} . $package -> {module} . q{.pm};
+
+                if (!eval { require $file; 1 }) {
+                    my $error = $@;  ## no critic (Variables::ProhibitPunctuationVars)
+
+                    if ($error =~ /\ACan't[ ]locate[ ]\Q$file\E/msx) {
+                        return "\n[!] Module not found.\n\n";
+                    }
+
+                    return "\n[!] Unable to load $name: $error\n";
+                }
 
                 my @run = "Spellbook::$name" -> new(@parameters);
                 my @results;

@@ -1,6 +1,7 @@
 package Spellbook::Helper::Generate_UUID {
     use strict;
     use warnings;
+    use Getopt::Long;
     use UUID::Tiny ':std';
 
     our $VERSION = '0.0.1';
@@ -11,7 +12,11 @@ package Spellbook::Helper::Generate_UUID {
 
         my $repeat = 1;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'      => \$help,
             'v|version=i' => \$version,

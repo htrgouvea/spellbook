@@ -13,7 +13,11 @@ package Spellbook::Advisory::CVE_2024_4040 {
 
         my $payload = 'users/MainUsers/groups.XML';
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'target=s'  => \$target,
             'payload=s' => \$payload,

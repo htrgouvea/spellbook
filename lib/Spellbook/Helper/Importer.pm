@@ -1,6 +1,7 @@
 package Spellbook::Helper::Importer {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Mojo::File;
     use YAML::Tiny;
 
@@ -10,7 +11,11 @@ package Spellbook::Helper::Importer {
         my ($self, $parameters) = @_;
         my ($help, $file, $information, $scope, $keep);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'          => \$help,
             'f|file=s'        => \$file,

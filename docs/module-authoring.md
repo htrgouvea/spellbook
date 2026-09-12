@@ -35,7 +35,11 @@ package Spellbook::Recon::Example {
         my ($self, $parameters) = @_;
         my ($help, $target, @results);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,
@@ -65,12 +69,24 @@ package Spellbook::Recon::Example {
 ### Conventions used in the project
 
 - modules expose their behavior through `new`
-- module arguments are usually parsed with `Getopt::Long::GetOptionsFromArray`
+- module arguments are parsed with a module-owned `Getopt::Long::Parser`
 - help text is commonly returned when `--help` is provided
 - successful execution usually returns a list of values
 - `0` is commonly used when there is no result or no valid execution path
 
 This is the common Spellbook pattern, even if a few modules may still contain small internal helper routines.
+
+Build the parser inside `new` rather than calling `Getopt::Long::GetOptionsFromArray` directly.
+The two settings are what let the same module work from the CLI and from another program:
+
+- `no_ignore_case` keeps `-t` and `-T` distinct. Without it Getopt::Long treats them as one
+  option and silently drops a value, which is a bug you will not see until someone imports the
+  module instead of running it through `spellbook.pl`.
+- `pass_through` leaves options the module does not own in `$parameters`, which is how
+  `Core::Orchestrator` forwards module arguments to the entrypoint it runs.
+
+Configuring the parser per call also keeps the module from changing `Getopt::Long`'s global
+state, which matters because Spellbook is meant to be imported into other codebases.
 
 ### Registry requirements
 

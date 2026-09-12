@@ -12,7 +12,11 @@ package Spellbook::Bruteforce::Wordpress {
         my ($self, $parameters) = @_;
         my ($help, $target, $username, $wordlist, $userlist, $password, $mode, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'       => \$help,
             't|target=s'   => \$target,

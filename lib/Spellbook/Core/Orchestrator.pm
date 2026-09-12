@@ -7,10 +7,13 @@ package Spellbook::Core::Orchestrator {
     use Thread::Queue;
     use threads::shared;
     use Mojo::File;
+    use Spellbook::Core::Module;
+    use Spellbook::Core::Resources;
 
-    our $VERSION = '0.0.2';
+    our $VERSION = '0.0.4';
 
     Readonly my $DEFAULT_THREADS => 10;
+    Readonly my $QUEUE_CAPACITY_PER_THREAD => 4;
 
     sub new {
         my ($self, $parameters) = @_;
@@ -18,7 +21,11 @@ package Spellbook::Core::Orchestrator {
 
         my $threads = $DEFAULT_THREADS;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'         => \$help,
             't|threads=i'    => \$threads,
@@ -28,37 +35,30 @@ package Spellbook::Core::Orchestrator {
         );
 
         if ($module) {
+            Spellbook::Core::Resources -> new();
+
+            if ($threads < 1) {
+                $threads = 1;
+            }
+
             my $queue = Thread::Queue -> new();
+            $queue -> limit = $threads * $QUEUE_CAPACITY_PER_THREAD;
+
             my @results :shared;
             my %seen :shared;
-
-            if ($wordlist) {
-                async {
-                    my $handle = Mojo::File -> new($wordlist) -> open('<');
-
-                    while (defined(my $line = $handle -> getline())) {
-                        chomp $line;
-
-                        if (length $line) {
-                            $queue -> enqueue($line);
-                        }
-                    }
-
-                    $queue -> end();
-                };
-            }
-
-            if (!$wordlist) {
-                $queue -> enqueue(@{$list});
-                $queue -> end();
-            }
+            my @workers;
 
             for (1 .. $threads) {
-                async {
+                push @workers, async {
                     while (defined(my $target = $queue -> dequeue())) {
-                        my @response = Spellbook::Core::Module -> new (
-                            $module, [ '--target' => $target, @{$parameters} ]
-                        );
+                        # A module that dies must not take its worker with it.
+                        # The queue is bounded, so a worker that stops draining
+                        # blocks the producer forever.
+                        my @response = eval {
+                            Spellbook::Core::Module -> new (
+                                $module, [ '--target' => $target, @{$parameters} ]
+                            );
+                        };
 
                         lock(@results);
 
@@ -74,10 +74,48 @@ package Spellbook::Core::Orchestrator {
                 };
             }
 
-            while (threads -> list(threads::running) > 0) {
-                foreach my $thread (threads -> list(threads::all)) {
-                    $thread -> join();
+            my $producer;
+
+            if ($wordlist) {
+                $producer = async {
+                    my $handle = Mojo::File -> new($wordlist) -> open('<');
+
+                    while (defined(my $line = $handle -> getline())) {
+                        chomp $line;
+
+                        if (length $line) {
+                            $queue -> enqueue($line);
+                        }
+                    }
+
+                    $queue -> end();
+                };
+            }
+
+            if (!$wordlist) {
+                my @targets;
+
+                if (ref $list eq 'ARRAY') {
+                    @targets = @{$list};
                 }
+
+                if (defined $list && !ref $list) {
+                    @targets = split /,/msx, $list;
+                }
+
+                if (@targets) {
+                    $queue -> enqueue(@targets);
+                }
+
+                $queue -> end();
+            }
+
+            if ($producer) {
+                $producer -> join();
+            }
+
+            foreach my $worker (@workers) {
+                $worker -> join();
             }
 
             return @results;
@@ -90,6 +128,7 @@ package Spellbook::Core::Orchestrator {
                 . "    -h, --help          See this menu\n"
                 . "    -t, --threads       Number of threads\n"
                 . "    -w, --wordlist      Wordlist file\n"
+                . "    -l, --list          Comma-separated targets, used when no wordlist is given\n"
                 . "    -e, --entrypoint    Module to execute\n\n";
         }
 

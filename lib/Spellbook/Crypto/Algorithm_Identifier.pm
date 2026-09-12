@@ -1,6 +1,7 @@
 package Spellbook::Crypto::Algorithm_Identifier {
     use strict;
     use warnings;
+    use Getopt::Long;
 
     our $VERSION = '0.0.1';
 
@@ -15,7 +16,11 @@ package Spellbook::Crypto::Algorithm_Identifier {
         my ($self, $parameters) = @_;
         my ($help, $data);
 
-        Getopt::Long::GetOptionsFromArray(
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'   => \$help,
             'd|data=s' => \$data

@@ -6,17 +6,21 @@
 use strict;
 use warnings;
 
+use Carp;
+use English qw(-no_match_vars);
 use Test::More;
 use Getopt::Long ();
 use FindBin;
 use lib "$FindBin::RealBin/../lib";
 
+our $VERSION = '0.0.1';
+
 # The dispatcher relies on Resources, which reads .config/modules.json
 # relative to the current directory.
-chdir "$FindBin::RealBin/.." or die "Unable to chdir to repository root: $!";
+chdir "$FindBin::RealBin/.." or croak "Unable to chdir to repository root: $OS_ERROR";
 
 BEGIN {
-    unless ( eval { require Mojo::File; require Mojo::JSON; 1 } ) {
+    if ( !eval { require Mojo::File; require Mojo::JSON; 1 } ) {
         plan skip_all => 'Mojolicious (Mojo::File / Mojo::JSON) is not installed';
     }
 }
@@ -25,13 +29,13 @@ require Spellbook::Core::Module;
 
 # An unknown module name yields a "not found" message rather than dying.
 my @missing = Spellbook::Core::Module->new( 'Does::NotExist', [] );
-like( join( q{}, @missing ), qr/Module not found/, 'unknown modules report "not found"' );
+like( join( q{}, @missing ), qr/Module[ ]not[ ]found/msx, 'unknown modules report "not found"' );
 
 # A known, dependency-free module is loaded and executed end to end.
 # Helper::Permutations rearranges the characters of the given value, so the
 # dispatched result must be a permutation of the input.
 my @run = Spellbook::Core::Module->new( 'Helper::Permutations', [ '--value' => 'abc' ] );
 is( scalar @run, 1, 'the dispatched module returns a single result' );
-is( join( q{}, sort split //, $run[0] ), 'abc', 'the dispatched result is a permutation of the input' );
+is( join( q{}, sort split m{}msx, $run[0] ), 'abc', 'the dispatched result is a permutation of the input' );
 
 done_testing();

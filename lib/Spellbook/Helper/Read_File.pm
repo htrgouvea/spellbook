@@ -1,16 +1,23 @@
 package Spellbook::Helper::Read_File {
     use strict;
     use warnings;
+    use Getopt::Long;
     use Mojo::File;
     use Spellbook::Core::Module;
 
-    our $VERSION = '0.0.2';
+    our $VERSION = '0.0.3';
+
+    my %CACHE;
 
     sub new {
         my ($self, $parameters)= @_;
         my ($help, $file, $entrypoint, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'         => \$help,
             'f|file=s'       => \$file,
@@ -18,6 +25,15 @@ package Spellbook::Helper::Read_File {
         );
 
         if ($file) {
+            # Pure file reads (no entrypoint) are invariant, so cache the lines
+            # by filename. Callers that load a wordlist inside their per-target
+            # new() (e.g. Bruteforce::*, Recon::DNS_Bruteforce) then re-read the
+            # file only once instead of once per target. The entrypoint path is
+            # never cached: it runs live per-line side effects.
+            if (!$entrypoint && exists $CACHE{$file}) {
+                return @{$CACHE{$file}};
+            }
+
             my $handle = Mojo::File -> new($file) -> open();
 
             while (defined(my $line = $handle -> getline())) {
@@ -34,6 +50,12 @@ package Spellbook::Helper::Read_File {
                 if (!$entrypoint) {
                     push @result, $line;
                 }
+            }
+
+            $handle -> close();
+
+            if (!$entrypoint) {
+                $CACHE{$file} = [@result];
             }
 
             return @result;

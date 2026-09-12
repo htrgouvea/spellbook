@@ -10,13 +10,17 @@
 use strict;
 use warnings;
 
+use Carp;
+use English qw(-no_match_vars);
 use Test::More;
 use FindBin;
 use lib "$FindBin::RealBin/../lib";
 
+our $VERSION = '0.0.1';
+
 # A few modules read files relative to the repository root, so make sure
 # the working directory is predictable regardless of where prove is run.
-chdir "$FindBin::RealBin/.." or die "Unable to chdir to repository root: $!";
+chdir "$FindBin::RealBin/.." or croak "Unable to chdir to repository root: $OS_ERROR";
 
 my @modules = qw(
     Spellbook::Core::Helper
@@ -29,19 +33,22 @@ my @modules = qw(
 );
 
 for my $module (@modules) {
-    ( my $file = $module ) =~ s{::}{/}g;
+    ( my $file = $module ) =~ s{::}{/}gsxm;
     $file .= '.pm';
 
     my $loaded = eval { require $file; 1 };
-    my $error  = $@;
+    my $error  = $EVAL_ERROR;
 
     # A failure caused by a missing optional CPAN prerequisite is skipped,
     # not failed: either the prerequisite is reported directly ("Can't
     # locate Some/Dep.pm") or it surfaces as a cascading reload of a module
     # that already failed to compile earlier in this run.
+    #
+    # The patterns below run under /x, so every literal space is written as
+    # [ ] -- a bare space would be silently discarded by the parser.
     my $missing_dependency =
-           ( $error =~ /Can't locate (\S+\.pm)/ && $1 ne $file )
-        || ( $error =~ /Attempt to reload \S+ aborted/ );
+           ( $error =~ /Can't[ ]locate[ ](\S+[.]pm)/sxm && $1 ne $file )
+        || ( $error =~ /Attempt[ ]to[ ]reload[ ]\S+[ ]aborted/sxm );
 
     if ( !$loaded && $missing_dependency ) {
         SKIP: {

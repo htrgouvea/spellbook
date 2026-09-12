@@ -1,6 +1,7 @@
 package Spellbook::Recon::Dorking {
     use strict;
     use warnings;
+    use Getopt::Long;
     use WWW::Mechanize;
     use Mojo::Util qw(url_escape);
     use Readonly;
@@ -15,7 +16,11 @@ package Spellbook::Recon::Dorking {
 
         my $page = $DEFAULT_PAGE;
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'   => \$help,
             'd|dork=s' => \$dork,

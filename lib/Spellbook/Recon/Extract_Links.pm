@@ -1,6 +1,7 @@
 package Spellbook::Recon::Extract_Links {
     use strict;
     use warnings;
+    use Getopt::Long;
     use URI;
     use Try::Tiny;
     use WWW::Mechanize;
@@ -12,7 +13,11 @@ package Spellbook::Recon::Extract_Links {
         my ($self, $parameters) = @_;
         my ($help, $target, $deep, @result);
 
-        Getopt::Long::GetOptionsFromArray (
+        my $parser = Getopt::Long::Parser -> new (
+            config => [qw(no_ignore_case pass_through)]
+        );
+
+        $parser -> getoptionsfromarray (
             $parameters,
             'h|help'     => \$help,
             't|target=s' => \$target,
