@@ -21,7 +21,7 @@ requires 'OpenAI::API', '0.37';
 requires 'Try::Tiny', '0.32';
 requires 'Readonly', '2.05';
 requires 'URI', '5.37';
-requires 'HTML::LinkExtor', '3.85';
+requires 'HTML::LinkExtor', '3.86';
 requires 'HTTP::Request::Common', '7.04';
 requires 'HTTP::Cookies', '6.12';
 requires 'Thread::Queue', '3.13';
