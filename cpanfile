@@ -28,5 +28,5 @@ requires 'Thread::Queue', '3.13';
 requires 'Data::Validate::IP', '0.31';
 
 on 'test' => sub {
-    requires 'Test::More', '1.302225';
+    requires 'Test::More', '1.302226';
 };
